@@ -7,7 +7,7 @@ public class Main {
 
         ArrayList<String[]> userData = new ArrayList<>();
 
-        String adduser;
+        String addUser;
 
         do {
             Scanner input = new Scanner(System.in);
@@ -23,11 +23,12 @@ public class Main {
 
             userData.add(new String[]{name, email, password});
 
-            System.out.println("Do you wish to add another user?");
-            adduser = input.next();
+            System.out.println("Do you wish to add another user? (y/n)");
+            addUser = input.next();
 
-        } while (adduser.equals("y"));
+        } while (addUser.equals("y"));
 
+        System.out.println("User information:");
         for (String[] i : userData) {
             System.out.println(Arrays.toString(i));
         }
