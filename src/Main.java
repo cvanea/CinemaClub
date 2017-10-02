@@ -1,9 +1,11 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         ArrayList<String[]> userData = new ArrayList<>();
 
@@ -29,8 +31,16 @@ public class Main {
         } while (addUser.equals("y"));
 
         System.out.println("User information:");
+        FileWriter writer = new FileWriter("output.txt");
         for (String[] i : userData) {
             System.out.println(Arrays.toString(i));
+            writer.write(Arrays.toString(i));
         }
+
+
+//        for(String str: arr) {
+
+        writer.close();
+
     }
 }
