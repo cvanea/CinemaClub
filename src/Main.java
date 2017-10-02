@@ -30,15 +30,14 @@ public class Main {
 
         } while (addUser.equals("y"));
 
-        System.out.println("User information:");
         FileWriter writer = new FileWriter("output.txt");
+
+        System.out.println("User information:");
+
         for (String[] i : userData) {
             System.out.println(Arrays.toString(i));
             writer.write(Arrays.toString(i));
         }
-
-
-//        for(String str: arr) {
 
         writer.close();
 
