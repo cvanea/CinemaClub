@@ -7,17 +7,29 @@ public class Main {
 
         ArrayList<String[]> userData = new ArrayList<>();
 
-        for (int n = 0; n < 2; n++) {
+        String adduser;
+
+        do {
             Scanner input = new Scanner(System.in);
+
             System.out.print("Please enter your name: ");
             String name = input.next();
+
             System.out.print("Please enter your email: ");
             String email = input.next();
+
             System.out.print("Please enter your password: ");
             String password = input.next();
-            userData.add(new String[]{name, email, password});
-            System.out.println(Arrays.toString(userData.get(n)));
-        }
 
+            userData.add(new String[]{name, email, password});
+
+            System.out.println("Do you wish to add another user?");
+            adduser = input.next();
+
+        } while (adduser.equals("y"));
+
+        for (String[] i : userData) {
+            System.out.println(Arrays.toString(i));
+        }
     }
 }
