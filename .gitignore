@@ -24,7 +24,7 @@
 hs_err_pid*
 ### Example user template
 
-output.txt
+*.txt
 
 # IntelliJ project files
 .idea
