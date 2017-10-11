@@ -38,7 +38,7 @@ class WriteUserData {
         System.out.println("User information:");
 
         for (String[] i : userData) {
-            System.out.println(Arrays.toString(i));
+//            System.out.println(Arrays.toString(i));
             writer.write(Arrays.toString(i));
         }
 
