@@ -1,29 +1,17 @@
-<<<<<<< HEAD:src/Main.java
-//import java.io.FileWriter;
-=======
 package coolteam.java;
 
 import java.io.FileWriter;
->>>>>>> master:src/coolteam/java/WriteUserData.java
 import java.io.IOException;
-//import java.util.ArrayList;
-//import java.util.Arrays;
-//import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
-class WriteUserData {
+class Write {
 
-    static void writeUserData() throws IOException {
-
-<<<<<<< HEAD:src/Main.java
-        String textFile = "output.txt";
-        Write.writeFile(textFile);
-        Read.readFile(textFile);
-
-=======
+    static void writeFile(String fileName) throws IOException {
         ArrayList<String[]> userData = new ArrayList<>();
 
         String addUser;
-
         do {
             Scanner input = new Scanner(System.in);
 
@@ -43,17 +31,15 @@ class WriteUserData {
 
         } while (addUser.equals("y"));
 
-        final FileWriter writer = new FileWriter("output.txt");
+        FileWriter writer = new FileWriter(fileName);
 
         System.out.println("User information:");
 
         for (String[] i : userData) {
-            System.out.println(Arrays.toString(i));
+//            System.out.println(Arrays.toString(i));
             writer.write(Arrays.toString(i));
         }
 
         writer.close();
->>>>>>> master:src/coolteam/java/WriteUserData.java
     }
-
 }
