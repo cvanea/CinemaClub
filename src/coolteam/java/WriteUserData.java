@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class WriteUserData {
+class WriteUserData {
 
-    public static void writeUserData() throws IOException {
+    static void writeUserData() throws IOException {
 
         ArrayList<String[]> userData = new ArrayList<>();
 

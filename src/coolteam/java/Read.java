@@ -5,12 +5,12 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class Read {
+class Read {
 
-    public static void readFile(String fileName) {
+    static void readFile(String fileName) {
 
         // This will reference one line at a time
-        String line = null;
+        String line;
 
         try {
             // FileReader reads text files in the default encoding.
