@@ -10,9 +10,9 @@ import java.io.IOException;
 //import java.util.Arrays;
 //import java.util.Scanner;
 
-public class WriteUserData {
+class WriteUserData {
 
-    public static void writeUserData() throws IOException {
+    static void writeUserData() throws IOException {
 
 <<<<<<< HEAD:src/Main.java
         String textFile = "output.txt";
