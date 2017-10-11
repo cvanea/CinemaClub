@@ -2,12 +2,11 @@ package coolteam.java;
 
 public class Staff extends User {
 
-    int employeeCode;
+    int employeeID = 10;
 
-    public Staff(String name, String email, int employeeCode) {
+    public Staff(String name, String email) {
         this.name = name;
         this.email = email;
-        this.employeeCode = employeeCode;
     }
 
     public void setLoggedOn(Boolean loggedOn) {
