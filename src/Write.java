@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Write {
+class Write {
 
-    public void writeFile(String fileName) throws IOException {
+    static void writeFile(String fileName) throws IOException {
         ArrayList<String[]> userData = new ArrayList<>();
 
         String addUser;

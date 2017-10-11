@@ -3,12 +3,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Read{
+class Read{
 
-    public String fileName; // The name of the file to open.
-    // This will reference one line at a time
-
-    public void readFile(String fileName) {
+    static void readFile(String fileName) {
 
         String line;
 
@@ -38,7 +35,4 @@ public class Read{
         }
     }
 
-    public String getFileName() {
-        return fileName;
-    }
 }

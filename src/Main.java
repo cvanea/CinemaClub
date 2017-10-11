@@ -8,12 +8,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         String textFile = "output.txt";
-
-        Write writer = new Write();
-        writer.writeFile(textFile);
-
-        Read reader = new Read();
-        reader.readFile(textFile);
+        Write.writeFile(textFile);
+        Read.readFile(textFile);
 
     }
 }
