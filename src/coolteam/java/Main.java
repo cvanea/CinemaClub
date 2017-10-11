@@ -1,4 +1,4 @@
-package java.cinema;
+package coolteam.java;
 
 import java.io.FileWriter;
 import java.io.FileReader;
@@ -46,4 +46,4 @@ public class Main {
         writer.close();
 
     }
-}
+}§
