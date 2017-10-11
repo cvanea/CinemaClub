@@ -1,13 +1,12 @@
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Write {
-    String fileName;
-    String addUser;
 
-    private void writeFile(String fileName) {
+    public void writeFile(String fileName) throws IOException {
         ArrayList<String[]> userData = new ArrayList<>();
 
         String addUser;
@@ -38,7 +37,7 @@ public class Write {
 //            System.out.println(Arrays.toString(i));
             writer.write(Arrays.toString(i));
         }
-    }
 
-    writer.close();
+        writer.close();
+    }
 }
