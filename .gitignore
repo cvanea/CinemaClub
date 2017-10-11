@@ -25,6 +25,8 @@ hs_err_pid*
 ### Example user template
 
 *.txt
+.DS_Store
+
 
 # IntelliJ project files
 .idea
