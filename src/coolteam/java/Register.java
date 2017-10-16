@@ -7,30 +7,30 @@ class Register {
 
     static ArrayList<String[]> registerUser() {
 
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Do you wish to add a user? (y/n)");
+
+        if (input.next().equals("y")) {
+            if (isStaff()) {
+                return register("staff");
+            } else {
+                return register("customer");
+            }
+        } else return null;
+    }
+
+    private static ArrayList<String[]> register(String userType) {
+
         ArrayList<String[]> userData = new ArrayList<>();
 
-        String addUser;
-        String userType;
+        String name = registerFields("name");
 
-        do {
-            Scanner input = new Scanner(System.in);
+        String email = registerFields("email");
 
-            if (isStaff()) {
-                userType = "staff";
-            } else userType = "employee";
+        String password = registerFields("password");
 
-            String name = regName();
-
-            String email = regEmail();
-
-            String password = regPassword();
-
-            userData.add(new String[]{userType, name, email, password});
-
-            System.out.println("Do you wish to add another user? (y/n)");
-            addUser = input.next();
-
-        } while (addUser.equals("y"));
+        userData.add(new String[]{userType, name, email, password});
 
         return userData;
     }
@@ -51,24 +51,10 @@ class Register {
         } else return false;
     }
 
-    private static String regPassword() {
+    private static String registerFields(String data) {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Please enter your password: ");
-        return input.next();
-    }
-
-    private static String regName() {
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Please enter your name: ");
-        return input.next();
-    }
-
-    private static String regEmail() {
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Please enter your email: ");
+        System.out.print("Please enter your " + data + ": ");
         return input.next();
     }
 

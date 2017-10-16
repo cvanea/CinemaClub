@@ -14,11 +14,9 @@ class Read {
 
         try {
             // FileReader reads text files in the default encoding.
-            FileReader fileReader =
-                new FileReader(fileName);
+            FileReader fileReader = new FileReader(fileName);
 
-            BufferedReader bufferedReader =
-                new BufferedReader(fileReader);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             while((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
