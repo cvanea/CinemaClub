@@ -45,7 +45,7 @@ class Register {
             if (input.nextInt() == 10) {
                 return true;
             } else {
-                System.out.println("That's an incorrect ID");
+                System.out.println("That's an incorrect ID. Continuing registration as a customer.");
                 return false;
             }
         } else return false;
