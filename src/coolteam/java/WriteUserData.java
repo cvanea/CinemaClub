@@ -14,18 +14,17 @@ class WriteUserData {
         try {
             FileWriter writer = new FileWriter("output.txt", true);
 
-            System.out.println("User information:");
-
             for (String[] i : userData) {
                 writer.write(Arrays.toString(i));
             }
 
             writer.close();
 
+        } catch (NullPointerException e) {
+            System.out.println("No user input");
+
         } catch (NoSuchFileException e) {
             FileWriter writer = new FileWriter("output.txt");
-
-            System.out.println("User information:");
 
             for (String[] i : userData) {
                 writer.write(Arrays.toString(i));
@@ -33,8 +32,5 @@ class WriteUserData {
 
             writer.close();
         }
-
-
     }
-
 }

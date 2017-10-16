@@ -19,20 +19,16 @@ class Read {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             while((line = bufferedReader.readLine()) != null) {
+                System.out.println("Stored user information: ");
                 System.out.println(line);
             }
 
             bufferedReader.close();
-        }
-        catch(FileNotFoundException ex) {
-            System.out.println(
-                "Unable to open file '" +
-                    fileName + "'");
-        }
-        catch(IOException ex) {
-            System.out.println(
-                "Error reading file '"
-                    + fileName + "'");
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("Unable to open file '" + fileName + "'");
+        } catch (IOException ex) {
+            System.out.println("Error reading file '" + fileName + "'");
 
         }
     }
