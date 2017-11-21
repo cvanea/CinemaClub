@@ -7,4 +7,8 @@ public abstract class User {
     String password;
     String email;
 
+    public String IExist() {
+        return "I exist!";
+    }
+
 }
