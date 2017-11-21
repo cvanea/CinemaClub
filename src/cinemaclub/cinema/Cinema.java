@@ -16,6 +16,6 @@ public class Cinema {
         profile = new Profile();
     }
 
-    
+
 
 }
