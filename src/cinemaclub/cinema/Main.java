@@ -11,5 +11,6 @@ public class Main {
         User user = cinema.loginUser();
 
         System.out.println(user.IExist());
+        System.out.println(user.getName() + "'s logged on status is: " + user.getLoggedOn());
     }
 }

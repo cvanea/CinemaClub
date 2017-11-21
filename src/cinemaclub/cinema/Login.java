@@ -19,11 +19,11 @@ class Login {
                 if (userDetails.get(0).equals("Staff")) {
                     // Instantiate customer or staff.
 
-                    return new Staff(userDetails.get(1), userDetails.get(2), userDetails.get(3));
+                    return new Staff(true, userDetails.get(1), userDetails.get(2), userDetails.get(3));
 
                 } else {
 
-                    return new Customer(userDetails.get(1), userDetails.get(2), userDetails.get(3));
+                    return new Customer(true, userDetails.get(1), userDetails.get(2), userDetails.get(3));
 
                 }
 

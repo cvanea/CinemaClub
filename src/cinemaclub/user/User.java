@@ -11,4 +11,11 @@ public abstract class User {
         return "I exist!";
     }
 
+    public Boolean getLoggedOn() {
+        return loggedOn;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
