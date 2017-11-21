@@ -1,4 +1,4 @@
-package coolteam.java;
+package cinemaclub.user;
 
 public class Staff extends User {
 

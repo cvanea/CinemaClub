@@ -1,4 +1,4 @@
-package coolteam.java;
+package cinemaclub.user;
 
 public class Customer extends User {
 
