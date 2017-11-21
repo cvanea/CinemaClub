@@ -13,8 +13,8 @@ class Read {
         String line;
 
         try {
-            // FileReader reads text files in the default encoding.
             FileReader fileReader = new FileReader(fileName);
+            // FileReader reads text files in the default encoding.
 
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
