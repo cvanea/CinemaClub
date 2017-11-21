@@ -1,57 +1,106 @@
 package cinemaclub.cinema;
 
+import cinemaclub.hashmap.Hashmap;
+import cinemaclub.user.*;
+import exceptions.*;
+
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Login {
+class Login {
 
-    public static void loginUser() {
+    User loginUser() {
 
-        getLoginDetails();
+        while (true) {
+            try {
+                ArrayList<String> userDetails = getLoginDetails();
+                correctDetails(userDetails);
 
-        if (correctDetails()) {
-            // Instantiate customer or staff.
-        } else {
-            // Return error and try again.
+                if (userDetails.get(0).equals("Staff")) {
+                    // Instantiate customer or staff.
+
+                    return new Staff(userDetails.get(1), userDetails.get(2), userDetails.get(3));
+
+                } else {
+
+                    return new Customer(userDetails.get(1), userDetails.get(2), userDetails.get(3));
+
+                }
+
+            } catch (UserDetailsDoNotExistException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
-    public static void getLoginDetails() {
+    private ArrayList<String> getLoginDetails() {
+
+        ArrayList<String> userDetails = new ArrayList<>();
 
         if (isStaff()) {
             // Staff
-            getUsername();
-            getEmail();
-            getPassword();
+            userDetails.add("Staff");
+            userDetails.add(inputData("username"));
+            userDetails.add(inputData("email"));
+            userDetails.add(inputData("password"));
+
+            return userDetails;
         } else {
             // Customer
-            getUsername();
-            getEmail();
-            getPassword();
+            userDetails.add("Customer");
+            userDetails.add(inputData("username"));
+            userDetails.add(inputData("email"));
+            userDetails.add(inputData("password"));
+
+            return userDetails;
         }
     }
 
-    public static void getUsername() {
+    private String inputData(String data) {
+        // Returns username string
 
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Please enter your " + data + ": ");
+
+        return input.next();
     }
 
-    public static void getEmail() {
+    private Boolean isStaff() {
+        // Checks for entered staffID
 
+        while (true) {
+            try {
+                Scanner input = new Scanner(System.in);
+
+                System.out.print("Are you staff?");
+
+                if (input.nextLine().equals("y")) {
+                    String staffID = inputData("staffID");
+                    isIDFree(staffID);
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (IncorrectStaffIDException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
-    public static void getPassword() {
-
+    private void isIDFree(String staffID) throws IncorrectStaffIDException {
+        // Checks whether the staffID is taken
+        if (!Hashmap.arrayListUserID().contains(staffID)) {
+            throw new IncorrectStaffIDException();
+        }
     }
 
-    public static Boolean isStaff() {
-        //
-
-        return false;
-    }
-
-    public static Boolean correctDetails() {
+    private void correctDetails(ArrayList<String> userDetails) throws UserDetailsDoNotExistException {
         // Checks against hashmap for existing/matching user details.
 
-        return false;
+        if (!Hashmap.arrayListUserDetails().contains(userDetails)) {
+            throw new UserDetailsDoNotExistException();
+        }
     }
 
 }
