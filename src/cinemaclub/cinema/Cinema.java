@@ -1,5 +1,7 @@
 package cinemaclub.cinema;
 
+import cinemaclub.user.User;
+
 public class Cinema {
 
     private Login login;
@@ -16,6 +18,9 @@ public class Cinema {
         profile = new Profile();
     }
 
+    public User loginUser() {
+        return login.loginUser();
+    }
 
 
 }
