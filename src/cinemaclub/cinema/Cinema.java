@@ -1,6 +1,7 @@
 package cinemaclub.cinema;
 
 import cinemaclub.user.User;
+import exceptions.UserDetailsDoNotExistException;
 
 public class Cinema {
 
@@ -18,8 +19,9 @@ public class Cinema {
         profile = new Profile();
     }
 
-    public User loginUser() {
-        return login.loginUser();
+    public User loginUser(String username, String email, String password, String userType)
+        throws UserDetailsDoNotExistException {
+        return login.loginUser(username, email, password, userType);
     }
 
     public void registerUser() {
