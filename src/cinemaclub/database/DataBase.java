@@ -59,15 +59,24 @@ public class DataBase {
         updateExternalDB();
     }
 
+    public Boolean checkForUsername(String username) {
+
+        return userDetails.containsKey(username);
+    }
+
     public UserCredentials getUserCredentials(String userName) {
 
         return userDetails.get(userName);
     }
 
+    public void printUserDatabase() {
+        System.out.println(userDetails);
+    }
+
 
 
     private void updateExternalDB() {
-        // TODO: Write to external datebase
+        // TODO: Write to external database
 
     }
 

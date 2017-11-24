@@ -1,12 +1,12 @@
 package cinemaclub.user;
 
+import cinemaclub.database.UserCredentials;
+
 public class Customer extends User {
 
-    public Customer(String name, String email, String password) {
+    public Customer(UserCredentials userCredentials) {
+        super(userCredentials);
         this.loggedOn = true;
-        this.name = name;
-        this.email = email;
-        this.password = password;
     }
 
     public String IExist() {

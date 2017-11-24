@@ -16,31 +16,23 @@ class Login {
     User loginUser(String username, String email, String password, String userType)
         throws UserDetailsDoNotExistException {
 
-        UserCredentials userCredentials = getDetails(username, email, password, userType);
-        correctDetails(userCredentials);
+        UserCredentials userCredentials = new UserCredentials(username, email, password, userType);
+        validateDetails(userCredentials);
 
         if (userCredentials.getUserType().equals("staff")) {
             // Instantiate customer or staff.
 
-            return new Staff(userCredentials.getUserName(), userCredentials.getEmail(),
-                userCredentials.getPassword());
+            return new Staff(userCredentials);
         } else {
 
-            return new Customer(userCredentials.getUserName(), userCredentials.getEmail(),
-                userCredentials.getPassword());
+            return new Customer(userCredentials);
         }
     }
 
-    private UserCredentials getDetails(String username, String email, String password, String userType) {
-
-            return new UserCredentials(username, email, password, userType);
-    }
-
-    private void correctDetails(UserCredentials userCredentials) throws UserDetailsDoNotExistException {
+    private void validateDetails(UserCredentials userCredentials) throws UserDetailsDoNotExistException {
         UserCredentials savedCredentials = dataBase.getUserCredentials(userCredentials.getUserName());
         if (savedCredentials == null || !userCredentials.checkCredentials(savedCredentials)) {
             throw new UserDetailsDoNotExistException();
         }
     }
-
 }

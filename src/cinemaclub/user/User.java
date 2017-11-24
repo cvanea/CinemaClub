@@ -1,11 +1,15 @@
 package cinemaclub.user;
 
+import cinemaclub.database.UserCredentials;
+
 public abstract class User {
 
     Boolean loggedOn = false;
-    String name;
-    String password;
-    String email;
+    private UserCredentials userCredentials;
+
+    User(UserCredentials userCredentials) {
+        this.userCredentials = userCredentials;
+    }
 
     abstract public String IExist();
 
@@ -14,6 +18,27 @@ public abstract class User {
     }
 
     public String getName() {
-        return name;
+        return userCredentials.getUserName();
     }
+
+    public String getEmail() {
+        return userCredentials.getEmail();
+    }
+
+    public String getPassword() {
+        return userCredentials.getPassword();
+    }
+
+    public void setPassword(String password) {
+        userCredentials.setPassword(password);
+    }
+
+    public void setUserName(String userName) {
+        userCredentials.setUserName(userName);
+    }
+
+    public void setEmail(String email) {
+        userCredentials.setEmail(email);
+    }
+
 }

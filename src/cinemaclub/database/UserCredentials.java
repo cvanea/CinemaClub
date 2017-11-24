@@ -53,4 +53,8 @@ public class UserCredentials {
             this.password.equals(credentialsToValidate.getPassword()) &&
             this.email.equals(credentialsToValidate.getEmail());
     }
+
+    public String toString() {
+        return this.getUserName() + ", " + this.getEmail() + ", " + this.getPassword() + ", " + this.getUserType();
+    }
 }
