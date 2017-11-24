@@ -7,9 +7,7 @@ public abstract class User {
     String password;
     String email;
 
-    public String IExist() {
-        return "I exist!";
-    }
+    abstract public String IExist();
 
     public Boolean getLoggedOn() {
         return loggedOn;

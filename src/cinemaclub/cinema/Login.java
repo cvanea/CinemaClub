@@ -1,63 +1,56 @@
 package cinemaclub.cinema;
 
-import cinemaclub.hashmap.Hashmap;
+import cinemaclub.database.DataBase;
+import cinemaclub.database.UserCredentials;
 import cinemaclub.user.*;
-import exceptions.*;
+import exceptions.UserDetailsDoNotExistException;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 class Login {
+
+    private DataBase dataBase;
+
+    Login() {
+        this.dataBase = DataBase.getInstance();
+    }
 
     User loginUser() {
 
         while (true) {
             try {
-                ArrayList<String> userDetails = getLoginDetails();
-                correctDetails(userDetails);
+                UserCredentials userCredentials = getDetails();
+                correctDetails(userCredentials);
 
-                if (userDetails.get(0).equals("Staff")) {
+                if (userCredentials.getUserType().equals("staff")) {
                     // Instantiate customer or staff.
 
-                    return new Staff(true, userDetails.get(1), userDetails.get(2), userDetails.get(3));
-
+                    return new Staff(userCredentials.getUserName(), userCredentials.getEmail(),
+                        userCredentials.getPassword());
                 } else {
 
-                    return new Customer(true, userDetails.get(1), userDetails.get(2), userDetails.get(3));
-
+                    return new Customer(userCredentials.getUserName(), userCredentials.getEmail(),
+                        userCredentials.getPassword());
                 }
-
             } catch (UserDetailsDoNotExistException e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
-    private ArrayList<String> getLoginDetails() {
-
-        ArrayList<String> userDetails = new ArrayList<>();
+    private UserCredentials getDetails() {
 
         if (isStaff()) {
             // Staff
-            userDetails.add("Staff");
-            userDetails.add(inputData("username"));
-            userDetails.add(inputData("email"));
-            userDetails.add(inputData("password"));
-
-            return userDetails;
+            return new UserCredentials(inputData("username"), inputData("email"), inputData("password"), "staff");
         } else {
             // Customer
-            userDetails.add("Customer");
-            userDetails.add(inputData("username"));
-            userDetails.add(inputData("email"));
-            userDetails.add(inputData("password"));
-
-            return userDetails;
+            return new UserCredentials(inputData("username"), inputData("email"), inputData("password"), "customer");
         }
     }
 
     private String inputData(String data) {
-        // Returns username string
+        // Returns inputs as a string
 
         Scanner input = new Scanner(System.in);
 
@@ -67,38 +60,16 @@ class Login {
     }
 
     private Boolean isStaff() {
-        // Checks for entered staffID
+        Scanner input = new Scanner(System.in);
 
-        while (true) {
-            try {
-                Scanner input = new Scanner(System.in);
+        System.out.print("Are you staff?");
 
-                System.out.print("Are you staff?");
-
-                if (input.nextLine().equals("y")) {
-                    String staffID = inputData("staffID");
-                    isIDFree(staffID);
-                    return true;
-                } else {
-                    return false;
-                }
-            } catch (IncorrectStaffIDException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        return input.nextLine().equals("y");
     }
 
-    private void isIDFree(String staffID) throws IncorrectStaffIDException {
-        // Checks whether the staffID is taken
-        if (!Hashmap.arrayListUserID().contains(staffID)) {
-            throw new IncorrectStaffIDException();
-        }
-    }
-
-    private void correctDetails(ArrayList<String> userDetails) throws UserDetailsDoNotExistException {
-        // Checks against hashmap for existing/matching user details.
-
-        if (!Hashmap.arrayListUserDetails().contains(userDetails)) {
+    private void correctDetails(UserCredentials userCredentials) throws UserDetailsDoNotExistException {
+        UserCredentials savedCredentials = dataBase.getUserCredentials(userCredentials.getUserName());
+        if (!userCredentials.checkCredentials(savedCredentials)) {
             throw new UserDetailsDoNotExistException();
         }
     }

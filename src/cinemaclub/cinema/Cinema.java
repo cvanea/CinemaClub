@@ -22,5 +22,8 @@ public class Cinema {
         return login.loginUser();
     }
 
+    public void registerUser() {
+        register.registerUser();
+    }
 
 }

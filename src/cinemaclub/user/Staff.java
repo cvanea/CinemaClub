@@ -2,10 +2,8 @@ package cinemaclub.user;
 
 public class Staff extends User {
 
-    int employeeID = 10;
-
-    public Staff(Boolean loggedOn, String name, String email, String password) {
-        this.loggedOn = loggedOn;
+    public Staff(String name, String email, String password) {
+        this.loggedOn = true;
         this.name = name;
         this.email = email;
         this.password = password;
