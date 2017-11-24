@@ -1,12 +1,9 @@
 package cinemaclub.user;
 
-import cinemaclub.database.UserCredentials;
-
-public class Staff extends User {
+public class Staff extends cinemaclub.user.User {
 
     public Staff(UserCredentials userCredentials) {
         super(userCredentials);
-        this.loggedOn = true;
     }
 
     public String IExist() {

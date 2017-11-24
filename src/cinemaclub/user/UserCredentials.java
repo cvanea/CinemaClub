@@ -1,4 +1,4 @@
-package cinemaclub.database;
+package cinemaclub.user;
 
 public class UserCredentials {
 

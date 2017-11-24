@@ -1,7 +1,6 @@
 package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
-import cinemaclub.database.UserCredentials;
 import cinemaclub.user.*;
 import exceptions.UserDetailsDoNotExistException;
 
@@ -19,18 +18,18 @@ class Login {
         UserCredentials userCredentials = new UserCredentials(username, email, password, userType);
         validateDetails(userCredentials);
 
-        if (userCredentials.getUserType().equals("staff")) {
+        if (userType.equals("staff")) {
             // Instantiate customer or staff.
 
-            return new Staff(userCredentials);
+            return dataBase.getUserCredentials(username);
         } else {
 
-            return new Customer(userCredentials);
+            return dataBase.getUserCredentials(username);
         }
     }
 
     private void validateDetails(UserCredentials userCredentials) throws UserDetailsDoNotExistException {
-        UserCredentials savedCredentials = dataBase.getUserCredentials(userCredentials.getUserName());
+        UserCredentials savedCredentials = dataBase.getUserCredentials(userCredentials.getUserName()).getUserCredentials();
         if (savedCredentials == null || !userCredentials.checkCredentials(savedCredentials)) {
             throw new UserDetailsDoNotExistException();
         }

@@ -21,21 +21,18 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Cinema cinema = new Cinema();
 
-        User user;
-
         while (true) {
             try {
                 System.out.println("Are you staff? ");
 
                 if (input.nextLine().equals("y")) {
-                    user = cinema.loginUser(inputData("username"), inputData("email"), inputData("password"), "staff");
+                    cinema.loginUser(inputData("username"), inputData("email"), inputData("password"), "staff");
 
                 } else {
-                    user = cinema.loginUser(inputData("username"), inputData("email"), inputData("password"), "customer");
+                    cinema.loginUser(inputData("username"), inputData("email"), inputData("password"), "customer");
                 }
 
-                System.out.println(user.IExist());
-                System.out.println(user.getName() + "'s login status is: " + user.getLoggedOn());
+                System.out.println(cinema.getCurrentUser().IExist());
                 System.exit(0);
             } catch (UserDetailsDoNotExistException e) {
                 System.out.println(e.getMessage());

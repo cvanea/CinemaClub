@@ -1,8 +1,6 @@
 package cinemaclub.user;
 
-import cinemaclub.database.UserCredentials;
-
-public class Customer extends User {
+public class Customer extends cinemaclub.user.User {
 
     public Customer(UserCredentials userCredentials) {
         super(userCredentials);

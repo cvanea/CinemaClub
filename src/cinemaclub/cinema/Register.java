@@ -1,7 +1,7 @@
 package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
-import cinemaclub.database.UserCredentials;
+import cinemaclub.user.*;
 import exceptions.IncorrectStaffIDException;
 import exceptions.StaffIDTakenException;
 import exceptions.UsernameTakenException;
@@ -22,13 +22,13 @@ class Register {
             validateUsername(username);
 
             dataBase.useStaffID(staffID);
-            UserCredentials userCredentials = new UserCredentials(username, email, password, userType);
-            dataBase.writeToUserDetails(userCredentials.getUserName(), userCredentials);
+            User userCredentials = new Staff(new UserCredentials(username, email, password, userType));
+            dataBase.writeToUserDetails(userCredentials.getName(), userCredentials);
         } else {
             validateUsername(username);
 
-            UserCredentials userCredentials = new UserCredentials(username, email, password, userType);
-            dataBase.writeToUserDetails(userCredentials.getUserName(), userCredentials);
+            User userCredentials = new Customer(new UserCredentials(username, email, password, userType));
+            dataBase.writeToUserDetails(userCredentials.getName(), userCredentials);
         }
 
         dataBase.printUserDatabase();

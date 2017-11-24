@@ -1,12 +1,14 @@
 package cinemaclub.database;
 
+import cinemaclub.user.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class DataBase {
     private static DataBase ourInstance = new DataBase();
     private Map<String, Boolean> staffID = new HashMap<>();
-    private Map<String, UserCredentials> userDetails = new HashMap<>();
+    private Map<String, User> userDetails = new HashMap<>();
 
     public static DataBase getInstance() {
         return ourInstance;
@@ -28,8 +30,8 @@ public class DataBase {
         staffID.put("9", false);
         staffID.put("10", false);
 
-        userDetails.put("Claudia", new UserCredentials("Claudia", "claudia.vanea@hotmail.co.uk","pass", "staff"));
-        userDetails.put("Bob", new UserCredentials("Bob", "bob@hotmail.co.uk", "pass2", "customer"));
+        userDetails.put("Claudia", new Staff(new UserCredentials("Claudia", "claudia.vanea@hotmail.co.uk","pass", "staff")));
+        userDetails.put("Bob", new Customer(new UserCredentials("Bob", "bob@hotmail.co.uk", "pass2", "customer")));
     }
 
     public void addStaffID(String staffId) {
@@ -52,9 +54,9 @@ public class DataBase {
 
     }
 
-    public void writeToUserDetails(String userName, UserCredentials userCredentials) {
+    public void writeToUserDetails(String userName, User user) {
 
-        userDetails.put(userName, userCredentials);
+        userDetails.put(userName, user);
 
         updateExternalDB();
     }
@@ -64,7 +66,7 @@ public class DataBase {
         return userDetails.containsKey(username);
     }
 
-    public UserCredentials getUserCredentials(String userName) {
+    public User getUserCredentials(String userName) {
 
         return userDetails.get(userName);
     }
