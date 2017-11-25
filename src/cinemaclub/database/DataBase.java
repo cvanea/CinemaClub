@@ -2,6 +2,10 @@ package cinemaclub.database;
 
 import cinemaclub.user.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.NoSuchFileException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,14 +27,14 @@ public class DataBase {
 
         staffID.put(staffId, false);
 
-        updateExternalDB();
+        updateExternalStaffIDDB();
     }
 
     public void useStaffID(String staffId) {
 
         staffID.put(staffId, true);
 
-        updateExternalDB();
+        updateExternalStaffIDDB();
     }
 
     public Boolean getStaffIDValue(String staffId) {
@@ -43,7 +47,7 @@ public class DataBase {
 
         userDetails.put(userName, user);
 
-        updateExternalDB();
+        updateExternalUserDB();
     }
 
     public Boolean checkForUsername(String username) {
@@ -60,9 +64,51 @@ public class DataBase {
         System.out.println(userDetails);
     }
 
+    private void updateExternalStaffIDDB(HashMap<String, Boolean> staffID) throws IOException {
+        // TODO: Write to external database
 
+        try {
+            FileWriter writer = new FileWriter("staffID.txt", true);
 
-    private void updateExternalDB() {
+            writer.write(staffID.toString());
+
+            writer.close();
+
+        } catch (NoSuchFileException e) {
+            FileWriter writer = new FileWriter("staffID.txt");
+
+            writer.write(staffID.toString());
+
+            writer.close();
+        }
+
+    }
+
+    private void updateExternalUserDB(HashMap<String, User> userDetails) throws IOException {
+        // TODO: Write to external database
+
+        try {
+            FileWriter writer = new FileWriter("userDetails.txt", true);
+
+            writer.write(userDetails.toString());
+
+            writer.close();
+
+        } catch (NoSuchFileException e) {
+            FileWriter writer = new FileWriter("userDetails.txt");
+
+            writer.write(userDetails.toString());
+
+            writer.close();
+        }
+    }
+
+    private void updateExternalFilmDB() {
+        // TODO: Write to external database
+
+    }
+
+    private void updateExternalScreenDB() {
         // TODO: Write to external database
 
     }
