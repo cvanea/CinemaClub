@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class DataBase {
     private static DataBase ourInstance = new DataBase();
+
     private Map<String, Boolean> staffID = new HashMap<>();
     private Map<String, User> userDetails = new HashMap<>();
 
@@ -15,23 +16,7 @@ public class DataBase {
     }
 
     private DataBase() {
-        // TODO: Instantiation of DataBase comes from .txt database.
-
         readFromExternalDB();
-
-        staffID.put("1", true);
-        staffID.put("2", true);
-        staffID.put("3", true);
-        staffID.put("4", true);
-        staffID.put("5", false);
-        staffID.put("6", false);
-        staffID.put("7", false);
-        staffID.put("8", false);
-        staffID.put("9", false);
-        staffID.put("10", false);
-
-        userDetails.put("Claudia", new Staff(new UserCredentials("Claudia", "claudia.vanea@hotmail.co.uk","pass")));
-        userDetails.put("Bob", new Customer(new UserCredentials("Bob", "bob@hotmail.co.uk", "pass2")));
     }
 
     public void addStaffID(String staffId) {
@@ -83,8 +68,21 @@ public class DataBase {
     }
 
     private void readFromExternalDB() {
-
         // TODO: Read from external database
+
+        staffID.put("1", true);
+        staffID.put("2", true);
+        staffID.put("3", true);
+        staffID.put("4", true);
+        staffID.put("5", false);
+        staffID.put("6", false);
+        staffID.put("7", false);
+        staffID.put("8", false);
+        staffID.put("9", false);
+        staffID.put("10", false);
+
+        userDetails.put("Claudia", new Staff(new UserCredentials("Claudia", "claudia.vanea@hotmail.co.uk","pass")));
+        userDetails.put("Bob", new Customer(new UserCredentials("Bob", "bob@hotmail.co.uk", "pass2")));
 
     }
 }
