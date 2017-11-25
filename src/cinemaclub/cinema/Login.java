@@ -3,6 +3,7 @@ package cinemaclub.cinema;
 import cinemaclub.database.DataBase;
 import cinemaclub.user.*;
 import exceptions.UserDetailsDoNotExistException;
+import exceptions.UserDetailsIncorrectException;
 
 class Login {
 
@@ -12,26 +13,22 @@ class Login {
         this.dataBase = DataBase.getInstance();
     }
 
-    User loginUser(String username, String email, String password, String userType)
-        throws UserDetailsDoNotExistException {
+    User loginUser(String username, String email, String password)
+        throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
 
-        UserCredentials userCredentials = new UserCredentials(username, email, password, userType);
+        UserCredentials userCredentials = new UserCredentials(username, email, password);
         validateDetails(userCredentials);
 
-        if (userType.equals("staff")) {
-            // Instantiate customer or staff.
-
-            return dataBase.getUserCredentials(username);
-        } else {
-
-            return dataBase.getUserCredentials(username);
-        }
+        return dataBase.getUser(username);
     }
 
-    private void validateDetails(UserCredentials userCredentials) throws UserDetailsDoNotExistException {
-        UserCredentials savedCredentials = dataBase.getUserCredentials(userCredentials.getUserName()).getUserCredentials();
-        if (savedCredentials == null || !userCredentials.checkCredentials(savedCredentials)) {
+    private void validateDetails(UserCredentials userCredentials)
+        throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
+        UserCredentials savedCredentials = dataBase.getUser(userCredentials.getUserName()).getUserCredentials();
+        if (savedCredentials == null) {
             throw new UserDetailsDoNotExistException();
+        } else if (!userCredentials.checkCredentials(savedCredentials)) {
+            throw new UserDetailsIncorrectException();
         }
     }
 }

@@ -1,10 +1,6 @@
 package cinemaclub.cinema;
 
-import cinemaclub.user.User;
-import exceptions.IncorrectStaffIDException;
-import exceptions.StaffIDTakenException;
-import exceptions.UserDetailsDoNotExistException;
-import exceptions.UsernameTakenException;
+import exceptions.*;
 
 import java.util.Scanner;
 
@@ -12,29 +8,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        registerTester();
-//        loginTester();
+//        registerTester();
+        loginTester();
 
     }
 
     private static void loginTester() {
-        Scanner input = new Scanner(System.in);
         Cinema cinema = new Cinema();
 
         while (true) {
             try {
-                System.out.println("Are you staff? ");
-
-                if (input.nextLine().equals("y")) {
-                    cinema.loginUser(inputData("username"), inputData("email"), inputData("password"), "staff");
-
-                } else {
-                    cinema.loginUser(inputData("username"), inputData("email"), inputData("password"), "customer");
-                }
+                cinema.loginUser(inputData("username"), inputData("email"), inputData("password"));
 
                 System.out.println(cinema.getCurrentUser().IExist());
                 System.exit(0);
-            } catch (UserDetailsDoNotExistException e) {
+            } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
                 System.out.println(e.getMessage());
             }
         }

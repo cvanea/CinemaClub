@@ -30,8 +30,8 @@ public class DataBase {
         staffID.put("9", false);
         staffID.put("10", false);
 
-        userDetails.put("Claudia", new Staff(new UserCredentials("Claudia", "claudia.vanea@hotmail.co.uk","pass", "staff")));
-        userDetails.put("Bob", new Customer(new UserCredentials("Bob", "bob@hotmail.co.uk", "pass2", "customer")));
+        userDetails.put("Claudia", new Staff(new UserCredentials("Claudia", "claudia.vanea@hotmail.co.uk","pass")));
+        userDetails.put("Bob", new Customer(new UserCredentials("Bob", "bob@hotmail.co.uk", "pass2")));
     }
 
     public void addStaffID(String staffId) {
@@ -66,7 +66,7 @@ public class DataBase {
         return userDetails.containsKey(username);
     }
 
-    public User getUserCredentials(String userName) {
+    public User getUser(String userName) {
 
         return userDetails.get(userName);
     }

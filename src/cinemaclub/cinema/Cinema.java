@@ -1,10 +1,7 @@
 package cinemaclub.cinema;
 
 import cinemaclub.user.User;
-import exceptions.IncorrectStaffIDException;
-import exceptions.StaffIDTakenException;
-import exceptions.UserDetailsDoNotExistException;
-import exceptions.UsernameTakenException;
+import exceptions.*;
 
 public class Cinema {
 
@@ -23,9 +20,9 @@ public class Cinema {
         profile = new Profile();
     }
 
-    public void loginUser(String username, String email, String password, String userType)
-        throws UserDetailsDoNotExistException {
-        currentUser = login.loginUser(username, email, password, userType);
+    public void loginUser(String username, String email, String password)
+        throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
+        currentUser = login.loginUser(username, email, password);
     }
 
     public void registerUser(String username, String email, String password, String userType, String staffID)
@@ -36,4 +33,5 @@ public class Cinema {
     public User getCurrentUser() {
         return currentUser;
     }
+
 }
