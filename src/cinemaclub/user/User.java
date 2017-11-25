@@ -2,13 +2,44 @@ package cinemaclub.user;
 
 public abstract class User {
 
-    Boolean loggedOn = false;
-    String name;
-    String password;
-    String email;
+    private UserCredentials userCredentials;
 
-    public String IExist() {
-        return "I exist!";
+    User(UserCredentials userCredentials) {
+        this.userCredentials = userCredentials;
     }
 
+    abstract public String IExist();
+
+    public String getName() {
+        return userCredentials.getUserName();
+    }
+
+    public String getEmail() {
+        return userCredentials.getEmail();
+    }
+
+    public String getPassword() {
+        return userCredentials.getPassword();
+    }
+
+    public void setPassword(String password) {
+        userCredentials.setPassword(password);
+    }
+
+    public void setUserName(String userName) {
+        userCredentials.setUserName(userName);
+    }
+
+    public void setEmail(String email) {
+        userCredentials.setEmail(email);
+    }
+
+    public UserCredentials getUserCredentials() {
+        return userCredentials;
+    }
+
+    @Override
+    public String toString() {
+        return userCredentials.toString();
+    }
 }
