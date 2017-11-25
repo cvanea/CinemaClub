@@ -4,7 +4,6 @@ public class Customer extends cinemaclub.user.User {
 
     public Customer(UserCredentials userCredentials) {
         super(userCredentials);
-        this.loggedOn = true;
     }
 
     public String IExist() {

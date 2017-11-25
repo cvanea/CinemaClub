@@ -22,12 +22,12 @@ class Register {
             validateUsername(username);
 
             dataBase.useStaffID(staffID);
-            User userCredentials = new Staff(new UserCredentials(username, email, password, userType));
+            User userCredentials = new Staff(new UserCredentials(username, email, password));
             dataBase.writeToUserDetails(userCredentials.getName(), userCredentials);
         } else {
             validateUsername(username);
 
-            User userCredentials = new Customer(new UserCredentials(username, email, password, userType));
+            User userCredentials = new Customer(new UserCredentials(username, email, password));
             dataBase.writeToUserDetails(userCredentials.getName(), userCredentials);
         }
 
@@ -36,10 +36,10 @@ class Register {
 
     private void validateID(String staffId) throws IncorrectStaffIDException, StaffIDTakenException {
         // Checks whether the staffID is correct
-        if (!(staffId == null) && dataBase.getStaffIDValue(staffId)) {
-            throw new StaffIDTakenException();
-        } else if (dataBase.getStaffIDValue(staffId) == null) {
+        if (dataBase.getStaffIDValue(staffId) == null) {
             throw new IncorrectStaffIDException();
+        } else if (!(staffId == null) && dataBase.getStaffIDValue(staffId)) {
+            throw new StaffIDTakenException();
         }
     }
 

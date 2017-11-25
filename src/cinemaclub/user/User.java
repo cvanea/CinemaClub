@@ -38,4 +38,8 @@ public abstract class User {
         return userCredentials;
     }
 
+    @Override
+    public String toString() {
+        return userCredentials.toString();
+    }
 }
