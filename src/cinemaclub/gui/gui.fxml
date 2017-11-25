@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.gui.Controller">
    <children>
-      <Button fx:id="submit" layoutX="271.0" layoutY="308.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="submit" layoutX="271.0" layoutY="308.0" mnemonicParsing="false" onAction="#pressButton" text="Button" />
       <TextField fx:id="username" layoutX="217.0" layoutY="98.0" promptText="username" text="Claudia" />
       <TextField fx:id="password" layoutX="217.0" layoutY="237.0" promptText="password" text="pass" />
       <TextField fx:id="email" layoutX="217.0" layoutY="173.0" promptText="email" text="claudia.vanea@hotmail.co.uk" />
