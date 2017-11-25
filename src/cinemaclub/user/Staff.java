@@ -1,13 +1,13 @@
 package cinemaclub.user;
 
-public class Staff extends User {
+public class Staff extends cinemaclub.user.User {
 
-    int employeeID = 10;
+    public Staff(UserCredentials userCredentials) {
+        super(userCredentials);
+    }
 
-    public Staff(String name, String email, String password) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
+    public String IExist() {
+        return "I exist as a staff!";
     }
 
 }
