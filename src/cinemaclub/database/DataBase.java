@@ -102,45 +102,29 @@ public class DataBase {
 //        try {
 //            FileWriter writer = new FileWriter("filmDetails.txt", true);
 //
-//            writer.write(filmDetails.toString());
+//            for (Map.Entry entry : filmDetails.entrySet()) {
+//                writer.write(entry.toString() + "\n");
+//            }
 //
 //            writer.close();
 //
-//        } catch (NoSuchFileException e) {
-//            try {
-//                FileWriter writer = new FileWriter("filmDetails.txt");
-//
-//                writer.write(filmDetails.toString());
-//
-//                writer.close();
-//            } catch (IOException ex) {
-//                System.out.println(ex.getMessage());
-//            }
 //        } catch (IOException e) {
 //            System.out.println(e.getMessage());
 //        }
 //
 //    }
-
+//
 //    private void updateExternalScreenDB(Map<String, Screen> screenDetails) {
 //
 //        try {
 //            FileWriter writer = new FileWriter("screenDetails.txt", true);
 //
-//            writer.write(screenDetails.toString());
+//            for (Map.Entry entry : screenDetails.entrySet()) {
+//                writer.write(entry.toString() + "\n");
+//            }
 //
 //            writer.close();
 //
-//        } catch (NoSuchFileException e) {
-//            try {
-//                FileWriter writer = new FileWriter("screenDetails.txt");
-//
-//                writer.write(screenDetails.toString());
-//
-//                writer.close();
-//            } catch (IOException ex) {
-//                System.out.println(ex.getMessage());
-//            }
 //        } catch (IOException e) {
 //            System.out.println(e.getMessage());
 //        }
@@ -148,7 +132,7 @@ public class DataBase {
 //    }
 
     private void readFromExternalDB() {
-        // TODO: Read from external database
+        // TODO: Read from external databases
 
         staffID.put("1", "Claudia");
         staffID.put("2", "Alex");
