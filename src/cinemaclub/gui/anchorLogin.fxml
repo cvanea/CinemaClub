@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.gui.Anchor">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.gui.AnchorLogin">
    <children>
       <GridPane layoutX="187.0" layoutY="-1.0" prefHeight="400.0" prefWidth="400.0">
         <columnConstraints>
@@ -20,7 +21,7 @@
           <RowConstraints maxHeight="167.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Pane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: blue;">
+      <Pane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: blue;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER_RIGHT" layoutX="23.0" layoutY="155.0" prefHeight="90.0" prefWidth="150.0" text="Welcome to the Cinema Club" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
                <font>
@@ -28,6 +29,9 @@
                </font>
             </Label>
          </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </Pane>
    </children>
 </AnchorPane>

@@ -1,7 +1,12 @@
 package cinemaclub.database;
 
-import cinemaclub.user.*;
+import cinemaclub.user.Customer;
+import cinemaclub.user.Staff;
+import cinemaclub.user.User;
+import cinemaclub.user.UserCredentials;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
@@ -41,6 +46,11 @@ public class DataBase {
 
     }
 
+    private Boolean isUsernameStaff(String username) {
+
+        return staffID.containsValue(username);
+    }
+
     public void writeToUserDetails(String userName, User user) {
 
         userDetails.put(userName, user);
@@ -76,7 +86,7 @@ public class DataBase {
             writer.close();
 
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
     }
@@ -93,7 +103,7 @@ public class DataBase {
             writer.close();
 
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -102,68 +112,94 @@ public class DataBase {
 //        try {
 //            FileWriter writer = new FileWriter("filmDetails.txt", true);
 //
-//            writer.write(filmDetails.toString());
+//            for (Map.Entry entry : filmDetails.entrySet()) {
+//                writer.write(entry.toString() + "\n");
+//            }
 //
 //            writer.close();
 //
-//        } catch (NoSuchFileException e) {
-//            try {
-//                FileWriter writer = new FileWriter("filmDetails.txt");
-//
-//                writer.write(filmDetails.toString());
-//
-//                writer.close();
-//            } catch (IOException ex) {
-//                System.out.println(ex.getMessage());
-//            }
 //        } catch (IOException e) {
-//            System.out.println(e.getMessage());
+//            e.printStackTrace();
 //        }
 //
 //    }
-
+//
 //    private void updateExternalScreenDB(Map<String, Screen> screenDetails) {
 //
 //        try {
 //            FileWriter writer = new FileWriter("screenDetails.txt", true);
 //
-//            writer.write(screenDetails.toString());
+//            for (Map.Entry entry : screenDetails.entrySet()) {
+//                writer.write(entry.toString() + "\n");
+//            }
 //
 //            writer.close();
 //
-//        } catch (NoSuchFileException e) {
-//            try {
-//                FileWriter writer = new FileWriter("screenDetails.txt");
-//
-//                writer.write(screenDetails.toString());
-//
-//                writer.close();
-//            } catch (IOException ex) {
-//                System.out.println(ex.getMessage());
-//            }
 //        } catch (IOException e) {
-//            System.out.println(e.getMessage());
+//            e.printStackTrace();
 //        }
 //
 //    }
 
     private void readFromExternalDB() {
-        // TODO: Read from external database
 
-        staffID.put("1", "Claudia");
-        staffID.put("2", "Alex");
-        staffID.put("3", "noStaff");
-        staffID.put("4", "noStaff");
-        staffID.put("5", "noStaff");
-        staffID.put("6", "noStaff");
-        staffID.put("7", "noStaff");
-        staffID.put("8", "noStaff");
-        staffID.put("9", "noStaff");
-        staffID.put("10", "noStaff");
+        readFromStaffDB();
+        readFromUserDB();
+    }
 
-        userDetails.put("Claudia", new Staff(new UserCredentials("Claudia", "claudia.vanea@hotmail.co.uk","pass")));
-        userDetails.put("Alex", new Staff(new UserCredentials("Alex", "Alex@hotmail.co.uk","passalex")));
-        userDetails.put("Bob", new Customer(new UserCredentials("Bob", "bob@hotmail.co.uk", "pass2")));
+    private void readFromStaffDB() {
 
+        String fileName = "staffID.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                // Reads one line at a time
+
+                String[] tokens = line.split("=");
+
+                String key = tokens[0];
+                String value = tokens[1];
+
+                staffID.put(key, value);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void readFromUserDB() {
+
+        String fileName = "userDetails.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                // Reads one line at a time
+
+                String[] tokens = line.split("=");
+
+                String key = tokens[0];
+
+                String[] valueTokens = tokens[1].split(", ");
+
+                UserCredentials userCredentials = new UserCredentials(valueTokens[0], valueTokens[1], valueTokens[2]);
+                User value;
+
+                if (isUsernameStaff(key)) {
+                    value = new Staff(userCredentials);
+                } else {
+                    value = new Customer(userCredentials);
+                }
+
+                userDetails.put(key, value);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

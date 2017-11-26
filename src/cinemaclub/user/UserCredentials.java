@@ -44,6 +44,6 @@ public class UserCredentials {
     }
 
     public String toString() {
-        return "[" + this.getUserName() + ", " + this.getEmail() + ", " + this.getPassword() + "]";
+        return this.getUserName() + ", " + this.getEmail() + ", " + this.getPassword();
     }
 }

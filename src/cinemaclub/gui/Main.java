@@ -6,51 +6,72 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main extends Application {
 
-    static AnchorPane root;
+    static AnchorPane rootLogin;
+    static AnchorPane rootCinema;
 
-    static List<GridPane> grid = new ArrayList<>();
 
-    private static int idx_cur = 0;
+    static List<GridPane> loginGrid = new ArrayList<>();
+    static List<GridPane> cinemaGrid = new ArrayList<>();
+
+    private static int loginIdxCur = 0;
+    private static int cinemaIdxCur = 0;
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage loginStage) {
         try {
-            root = (AnchorPane)FXMLLoader.load(getClass().getResource("anchor.fxml"));
-
-            grid.add((GridPane)FXMLLoader.load(getClass().getResource("loginGui.fxml")));
-            grid.add((GridPane)FXMLLoader.load(getClass().getResource("registerGui.fxml")));
-
-            root.getChildren().add(grid.get(0));
-
-            Scene scene = new Scene(root, 600, 400);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("anchorLogin.fxml"));
+            rootLogin = loader.load();
+            loginGrid.add((GridPane) FXMLLoader.load(getClass().getResource("loginGui.fxml")));
+            loginGrid.add((GridPane) FXMLLoader.load(getClass().getResource("registerGui.fxml")));
+            rootLogin.getChildren().add(loginGrid.get(0));
+            Scene loginScene = new Scene(rootLogin, 600, 400);
 //            scene.getStylesheets().add(getClass().getResource("gui.css").toExternalForm());
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            loginStage.setScene(loginScene);
+            loginStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void init_app(){
-        for(int i = 0; i < grid.size(); i++){
+    public static GridPane get_pane(int idx) {
+        return loginGrid.get(idx);
+    }
 
+    public static void setPaneLogin(int idx) {
+        rootLogin.getChildren().remove(loginGrid.get(loginIdxCur));
+        rootLogin.getChildren().add(loginGrid.get(idx));
+        loginIdxCur = idx;
+
+    }
+    public static void setPaneCinema(int idx) {
+        rootCinema.getChildren().remove(cinemaGrid.get(cinemaIdxCur));
+        rootCinema.getChildren().add(cinemaGrid.get(idx));
+        cinemaIdxCur = idx;
+    }
+    
+    public static void cinemaStage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("anchorCinema.fxml"));
+            rootCinema = loader.load();
+            cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("cinemaHome.fxml")));
+            cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("profileGui.fxml")));
+            cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("bookingsGui.fxml")));
+            rootCinema.getChildren().add(cinemaGrid.get(0));
+            Stage newStage = new Stage(); // new stage
+            Scene cinemaScene = new Scene(rootCinema, 600, 400);
+            newStage.setScene(cinemaScene);
+            newStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    }
-
-    public static GridPane get_pane(int idx){
-        return grid.get(idx);
-    }
-
-    public static void set_pane(int idx){
-        root.getChildren().remove(grid.get(idx_cur));
-        root.getChildren().add(grid.get(idx));
-        idx_cur= idx;
 
     }
+
 
 }
