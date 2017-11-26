@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.gui.AnchorCinema">
+   <children>
+      <GridPane layoutX="106.0" layoutY="-1.0" prefHeight="400.0" prefWidth="494.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="500.0" minWidth="10.0" prefWidth="500.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="133.0" minHeight="1.0" prefHeight="61.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="276.0" minHeight="10.0" prefHeight="276.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="167.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+      <Pane prefHeight="400.0" prefWidth="100.0" style="-fx-background-color: blue;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER_RIGHT" layoutX="8.0" layoutY="25.0" prefHeight="84.0" prefWidth="84.0" text="Welcome to the Cinema Club" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="profileBt" layoutX="21.0" layoutY="127.0" mnemonicParsing="false" onAction="#pressProfile" text="Profile" />
+            <Button fx:id="bookingsBtn" layoutX="12.0" layoutY="173.0" mnemonicParsing="false" onAction="#pressBookings" text="Bookings" />
+            <Button fx:id="filmDisBt" layoutX="4.0" layoutY="224.0" mnemonicParsing="false" onAction="#pressFilmDisplay" text="Film Display" />
+            <Button fx:id="filmeditBtn" layoutX="15.0" layoutY="275.0" mnemonicParsing="false" onAction="#pressFilmEdit" text="Film Edit" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

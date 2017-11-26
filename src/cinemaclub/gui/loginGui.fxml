@@ -35,6 +35,7 @@
          <children>
             <Button fx:id="register" alignment="CENTER" layoutX="134.0" layoutY="55.0" mnemonicParsing="false" onAction="#pressRegister" text="Register New User" />
             <Button fx:id="login" alignment="CENTER" layoutX="174.0" layoutY="14.0" mnemonicParsing="false" onAction="#pressButton" text="Login" />
+            <Button fx:id="newstage" layoutX="267.0" layoutY="14.0" mnemonicParsing="false" onAction="#newStage" text="New Stage" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="202.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="1">

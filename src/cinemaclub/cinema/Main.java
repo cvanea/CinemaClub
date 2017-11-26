@@ -52,7 +52,6 @@ public class Main {
 
     private static String inputData(String data) {
         // Returns inputs as a string
-
         Scanner input = new Scanner(System.in);
 
         System.out.print("Please enter your " + data + ": ");

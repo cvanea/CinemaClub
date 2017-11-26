@@ -43,11 +43,7 @@ public class RegisterGui implements Initializable {
     }
 
     public void loginButton(ActionEvent event) {
-        Main.set_pane(0);
-    }
-
-    public void checkBox(ActionEvent event) {
-//        errorLabel.setText("Checked");
+        Main.setPaneLogin(0);
     }
 
     @Override
