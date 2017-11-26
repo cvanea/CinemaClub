@@ -1,4 +1,4 @@
 package cinemaclub.gui;
 
-public class BookingsGui {
+public class BookingsGui extends AnchorCinema {
 }

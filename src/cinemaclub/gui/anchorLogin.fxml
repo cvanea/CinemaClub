@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -20,7 +21,7 @@
           <RowConstraints maxHeight="167.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Pane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: blue;">
+      <Pane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: blue;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER_RIGHT" layoutX="23.0" layoutY="155.0" prefHeight="90.0" prefWidth="150.0" text="Welcome to the Cinema Club" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
                <font>
@@ -28,6 +29,9 @@
                </font>
             </Label>
          </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </Pane>
    </children>
 </AnchorPane>
