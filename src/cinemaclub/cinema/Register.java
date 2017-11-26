@@ -22,13 +22,13 @@ class Register {
             validateUsername(username);
 
             dataBase.useStaffID(staffID);
-            User userCredentials = new Staff(new UserCredentials(username, email, password));
-            dataBase.writeToUserDetails(userCredentials.getName(), userCredentials);
+            User user = new Staff(new UserCredentials(username, email, password));
+            dataBase.writeToUserDetails(user.getName(), user);
         } else {
             validateUsername(username);
 
-            User userCredentials = new Customer(new UserCredentials(username, email, password));
-            dataBase.writeToUserDetails(userCredentials.getName(), userCredentials);
+            User user = new Customer(new UserCredentials(username, email, password));
+            dataBase.writeToUserDetails(user.getName(), user);
         }
 
         dataBase.printUserDatabase();
