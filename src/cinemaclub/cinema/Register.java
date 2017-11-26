@@ -21,14 +21,14 @@ class Register {
             validateID(staffID);
             validateUsername(username);
 
-            dataBase.useStaffID(staffID);
-            User userCredentials = new Staff(new UserCredentials(username, email, password));
-            dataBase.writeToUserDetails(userCredentials.getName(), userCredentials);
+            User user = new Staff(new UserCredentials(username, email, password));
+            dataBase.assignStaffID(staffID, username);
+            dataBase.writeToUserDetails(user.getName(), user);
         } else {
             validateUsername(username);
 
-            User userCredentials = new Customer(new UserCredentials(username, email, password));
-            dataBase.writeToUserDetails(userCredentials.getName(), userCredentials);
+            User user = new Customer(new UserCredentials(username, email, password));
+            dataBase.writeToUserDetails(user.getName(), user);
         }
 
         dataBase.printUserDatabase();
@@ -38,7 +38,7 @@ class Register {
         // Checks whether the staffID is correct
         if (dataBase.getStaffIDValue(staffId) == null) {
             throw new IncorrectStaffIDException();
-        } else if (!(staffId == null) && dataBase.getStaffIDValue(staffId)) {
+        } else if (!(staffId == null) && !dataBase.getStaffIDValue(staffId).equals("noStaff")) {
             throw new StaffIDTakenException();
         }
     }

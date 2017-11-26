@@ -2,13 +2,15 @@ package cinemaclub.database;
 
 import cinemaclub.user.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class DataBase {
     private static DataBase ourInstance = new DataBase();
 
-    private Map<String, Boolean> staffID = new HashMap<>();
+    private Map<String, String> staffID = new HashMap<>();
     private Map<String, User> userDetails = new HashMap<>();
 
     public static DataBase getInstance() {
@@ -19,21 +21,21 @@ public class DataBase {
         readFromExternalDB();
     }
 
-    public void addStaffID(String staffId) {
+    public void addStaffID(String staffId, String username) {
 
-        staffID.put(staffId, false);
+        staffID.put(staffId, username);
 
-        updateExternalDB();
+        updateExternalStaffIDDB(staffID);
     }
 
-    public void useStaffID(String staffId) {
+    public void assignStaffID(String staffId, String username) {
 
-        staffID.put(staffId, true);
+        staffID.put(staffId, username);
 
-        updateExternalDB();
+        updateExternalStaffIDDB(staffID);
     }
 
-    public Boolean getStaffIDValue(String staffId) {
+    public String getStaffIDValue(String staffId) {
 
         return staffID.get(staffId);
 
@@ -43,7 +45,7 @@ public class DataBase {
 
         userDetails.put(userName, user);
 
-        updateExternalDB();
+        updateExternalUserDB(userDetails);
     }
 
     public Boolean checkForUsername(String username) {
@@ -57,31 +59,110 @@ public class DataBase {
     }
 
     public void printUserDatabase() {
-        System.out.println(userDetails);
+        for (Map.Entry entry : userDetails.entrySet()) {
+            System.out.print(entry.toString() + "\n");
+        }
     }
 
+    private void updateExternalStaffIDDB(Map<String, String> staffID) {
 
+        try {
+            FileWriter writer = new FileWriter("staffID.txt");
 
-    private void updateExternalDB() {
-        // TODO: Write to external database
+            for (Map.Entry entry : staffID.entrySet()) {
+                writer.write(entry.toString() + "\n");
+            }
+
+            writer.close();
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
+
+    private void updateExternalUserDB(Map<String, User> userDetails) {
+
+        try {
+            FileWriter writer = new FileWriter("userDetails.txt");
+
+            for (Map.Entry entry : userDetails.entrySet()) {
+                writer.write(entry.toString() + "\n");
+            }
+
+            writer.close();
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+//    private void updateExternalFilmDB(Map<String, Film> filmDetails) {
+//
+//        try {
+//            FileWriter writer = new FileWriter("filmDetails.txt", true);
+//
+//            writer.write(filmDetails.toString());
+//
+//            writer.close();
+//
+//        } catch (NoSuchFileException e) {
+//            try {
+//                FileWriter writer = new FileWriter("filmDetails.txt");
+//
+//                writer.write(filmDetails.toString());
+//
+//                writer.close();
+//            } catch (IOException ex) {
+//                System.out.println(ex.getMessage());
+//            }
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
+//
+//    }
+
+//    private void updateExternalScreenDB(Map<String, Screen> screenDetails) {
+//
+//        try {
+//            FileWriter writer = new FileWriter("screenDetails.txt", true);
+//
+//            writer.write(screenDetails.toString());
+//
+//            writer.close();
+//
+//        } catch (NoSuchFileException e) {
+//            try {
+//                FileWriter writer = new FileWriter("screenDetails.txt");
+//
+//                writer.write(screenDetails.toString());
+//
+//                writer.close();
+//            } catch (IOException ex) {
+//                System.out.println(ex.getMessage());
+//            }
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
+//
+//    }
 
     private void readFromExternalDB() {
         // TODO: Read from external database
 
-        staffID.put("1", true);
-        staffID.put("2", true);
-        staffID.put("3", true);
-        staffID.put("4", true);
-        staffID.put("5", false);
-        staffID.put("6", false);
-        staffID.put("7", false);
-        staffID.put("8", false);
-        staffID.put("9", false);
-        staffID.put("10", false);
+        staffID.put("1", "Claudia");
+        staffID.put("2", "Alex");
+        staffID.put("3", "noStaff");
+        staffID.put("4", "noStaff");
+        staffID.put("5", "noStaff");
+        staffID.put("6", "noStaff");
+        staffID.put("7", "noStaff");
+        staffID.put("8", "noStaff");
+        staffID.put("9", "noStaff");
+        staffID.put("10", "noStaff");
 
         userDetails.put("Claudia", new Staff(new UserCredentials("Claudia", "claudia.vanea@hotmail.co.uk","pass")));
+        userDetails.put("Alex", new Staff(new UserCredentials("Alex", "Alex@hotmail.co.uk","passalex")));
         userDetails.put("Bob", new Customer(new UserCredentials("Bob", "bob@hotmail.co.uk", "pass2")));
 
     }

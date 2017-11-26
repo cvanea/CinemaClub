@@ -1,6 +1,7 @@
 package coolteam.java;
 
 import java.io.IOException;
+
 import java.util.Scanner;
 
 class Main {
@@ -8,7 +9,7 @@ class Main {
 
         WriteUserData.writeUserData(Register.registerUser());
 
-        Read.readFile("output.txt");
+//       System.out.println(s1.getPassword());
 
 //        Scanner input = new Scanner(System.in);
 //
