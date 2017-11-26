@@ -27,14 +27,14 @@ public class DataBase {
 
         staffID.put(staffId, false);
 
-        updateExternalStaffIDDB();
+//        updateExternalStaffIDDB();
     }
 
     public void useStaffID(String staffId) {
 
         staffID.put(staffId, true);
 
-        updateExternalStaffIDDB();
+//        updateExternalStaffIDDB();
     }
 
     public Boolean getStaffIDValue(String staffId) {
@@ -47,7 +47,7 @@ public class DataBase {
 
         userDetails.put(userName, user);
 
-        updateExternalUserDB();
+//        updateExternalUserDB();
     }
 
     public Boolean checkForUsername(String username) {
