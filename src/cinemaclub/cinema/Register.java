@@ -21,8 +21,8 @@ class Register {
             validateID(staffID);
             validateUsername(username);
 
-            dataBase.useStaffID(staffID);
             User user = new Staff(new UserCredentials(username, email, password));
+            dataBase.assignStaffID(staffID, username);
             dataBase.writeToUserDetails(user.getName(), user);
         } else {
             validateUsername(username);
@@ -38,7 +38,7 @@ class Register {
         // Checks whether the staffID is correct
         if (dataBase.getStaffIDValue(staffId) == null) {
             throw new IncorrectStaffIDException();
-        } else if (!(staffId == null) && dataBase.getStaffIDValue(staffId)) {
+        } else if (!(staffId == null) && !dataBase.getStaffIDValue(staffId).equals("noStaff")) {
             throw new StaffIDTakenException();
         }
     }
