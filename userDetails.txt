@@ -1,0 +1,4 @@
+Alex=Alex, alex@hotmail.co.uk, passalex
+Tester=Tester, test@test.com, passtest
+Bob=Bob, bob@hotmail.co.uk, pass2
+Claudia=Claudia, claudia@hotmail.com, pass

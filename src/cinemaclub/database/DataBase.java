@@ -46,6 +46,11 @@ public class DataBase {
 
     }
 
+    private Boolean isUsernameStaff(String username) {
+
+        return staffID.containsValue(username);
+    }
+
     public void writeToUserDetails(String userName, User user) {
 
         userDetails.put(userName, user);
@@ -137,25 +142,9 @@ public class DataBase {
 //    }
 
     private void readFromExternalDB() {
-        // TODO: Read from external databases
 
         readFromStaffDB();
-
-        staffID.put("1", "Claudia");
-        staffID.put("2", "Alex");
-        staffID.put("3", "noStaff");
-        staffID.put("4", "noStaff");
-        staffID.put("5", "noStaff");
-        staffID.put("6", "noStaff");
-        staffID.put("7", "noStaff");
-        staffID.put("8", "noStaff");
-        staffID.put("9", "noStaff");
-        staffID.put("10", "noStaff");
-
-        userDetails.put("Claudia", new Staff(new UserCredentials("Claudia", "claudia.vanea@hotmail.co.uk","pass")));
-        userDetails.put("Alex", new Staff(new UserCredentials("Alex", "Alex@hotmail.co.uk","passalex")));
-        userDetails.put("Bob", new Customer(new UserCredentials("Bob", "bob@hotmail.co.uk", "pass2")));
-
+        readFromUserDB();
     }
 
     private void readFromStaffDB() {
@@ -167,18 +156,50 @@ public class DataBase {
             String line;
 
             while ((line = br.readLine()) != null) {
+                // Reads one line at a time
 
+                String[] tokens = line.split("=");
 
+                String key = tokens[0];
+                String value = tokens[1];
 
-
-
-
-                System.out.println(line);
-
+                staffID.put(key, value);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    private void readFromUserDB() {
+
+        String fileName = "userDetails.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                // Reads one line at a time
+
+                String[] tokens = line.split("=");
+
+                String key = tokens[0];
+
+                String[] valueTokens = tokens[1].split(", ");
+
+                UserCredentials userCredentials = new UserCredentials(valueTokens[0], valueTokens[1], valueTokens[2]);
+                User value;
+
+                if (isUsernameStaff(key)) {
+                    value = new Staff(userCredentials);
+                } else {
+                    value = new Customer(userCredentials);
+                }
+
+                userDetails.put(key, value);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
