@@ -19,7 +19,6 @@ public class LoginGui {
     @FXML private Label errorLabel;
 
     public void pressButton(ActionEvent event) {
-
         try {
             cinema.loginUser(username.getText(), email.getText(), password.getText());
             System.out.println(cinema.getCurrentUser().IExist());
@@ -29,8 +28,13 @@ public class LoginGui {
             errorLabel.setText(e.getMessage());
         }
     }
+
     public void pressRegister(ActionEvent event) {
-        Main.set_pane(1);
+        Main.setPaneLogin(1);
+    }
+
+    public void newStage(ActionEvent event) {
+        Main.cinemaStage();
     }
 
 }
