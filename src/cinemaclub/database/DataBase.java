@@ -1,7 +1,12 @@
 package cinemaclub.database;
 
-import cinemaclub.user.*;
+import cinemaclub.user.Customer;
+import cinemaclub.user.Staff;
+import cinemaclub.user.User;
+import cinemaclub.user.UserCredentials;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
@@ -76,7 +81,7 @@ public class DataBase {
             writer.close();
 
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
     }
@@ -93,7 +98,7 @@ public class DataBase {
             writer.close();
 
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -109,7 +114,7 @@ public class DataBase {
 //            writer.close();
 //
 //        } catch (IOException e) {
-//            System.out.println(e.getMessage());
+//            e.printStackTrace();
 //        }
 //
 //    }
@@ -126,13 +131,15 @@ public class DataBase {
 //            writer.close();
 //
 //        } catch (IOException e) {
-//            System.out.println(e.getMessage());
+//            e.printStackTrace();
 //        }
 //
 //    }
 
     private void readFromExternalDB() {
         // TODO: Read from external databases
+
+        readFromStaffDB();
 
         staffID.put("1", "Claudia");
         staffID.put("2", "Alex");
@@ -150,4 +157,28 @@ public class DataBase {
         userDetails.put("Bob", new Customer(new UserCredentials("Bob", "bob@hotmail.co.uk", "pass2")));
 
     }
+
+    private void readFromStaffDB() {
+
+        String fileName = "staffID.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+
+            String line;
+
+            while ((line = br.readLine()) != null) {
+
+
+
+
+
+
+                System.out.println(line);
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
