@@ -28,7 +28,7 @@ public class RegisterGui implements Initializable {
     public void registerButton(ActionEvent event) {
 
         try {
-            if (staffCheck.equals(true)) {
+            if (staffCheck.isSelected()) {
                 cinema.registerUser(username.getText(), email.getText(), password.getText(), "staff", staffID.getText());
 
             } else {
