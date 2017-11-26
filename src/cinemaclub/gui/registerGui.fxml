@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="register" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.gui.RegisterGui">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="400.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="222.0" minHeight="10.0" prefHeight="211.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Button fx:id="register" alignment="CENTER" layoutX="178.0" layoutY="37.0" mnemonicParsing="false" onAction="#registerButton" text="Register" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <TextField fx:id="username" layoutX="85.0" layoutY="22.0" prefHeight="27.0" prefWidth="256.0" promptText="Username" />
+            <TextField fx:id="password" layoutX="85.0" layoutY="111.0" prefHeight="27.0" prefWidth="256.0" promptText="Password" />
+            <TextField fx:id="email" layoutX="85.0" layoutY="67.0" prefHeight="27.0" prefWidth="256.0" promptText="Email" />
+            <CheckBox fx:id="staffCheck" layoutX="85.0" layoutY="171.0" mnemonicParsing="false" onAction="#checkBox" text="Staff?" />
+            <TextField fx:id="staffID" layoutX="174.0" layoutY="167.0" promptText="Staff ID Number" />
+            <Label fx:id="errorLabel" alignment="CENTER" layoutX="47.0" layoutY="206.0" prefHeight="35.0" prefWidth="306.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
+         </children>
+      </AnchorPane>
+      <Label text="Register" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="back" mnemonicParsing="false" onAction="#loginButton" text="&lt;-" GridPane.columnIndex="1" />
+   </children>
+</GridPane>
