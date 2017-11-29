@@ -34,6 +34,7 @@ public class RegisterGui implements Initializable {
             cinema.registerUser(username.getText(), email.getText(), password.getText(), "customer", null);
             }
             errorLabel.setText("Registered");
+            Main.setPaneLogin(0);
 
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
             errorLabel.setText(e.getMessage());

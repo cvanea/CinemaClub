@@ -10,12 +10,25 @@ public class ProfileController extends AnchorCinema{
     @FXML Label nameBox;
     @FXML Label emailBox;
     @FXML Label passwordBox;
-    @FXML Label staffIDBox;
+//    @FXML Label staffIDBox;
 
-    public void setProfileText(ActionEvent event) {
+//    public void setNameBox(){
+//        nameBox.setText(cinema.getCurrentUser().getName());
+//    }
+
+
+   @FXML private void initialize() {
         nameBox.setText(cinema.getCurrentUser().getName());
-        System.out.println(cinema.getCurrentUser().IExist());
+        emailBox.setText(cinema.getCurrentUser().getEmail());
+        passwordBox.setText(cinema.getCurrentUser().getPassword());
+        //cinema.getProfileDetails.getUserName
+       }
+
+    public void pressEdit(ActionEvent event) {
+        Main.setPaneCinema(3);
     }
+
+
 
 
 }
