@@ -88,6 +88,12 @@ public class DataBase {
         updateExternalUserDB(userDetails);
     }
 
+    public void deleteUser(String username) {
+        userDetails.remove(username);
+
+        updateExternalUserDB(userDetails);
+    }
+
     public void printUserDatabase() {
         for (Map.Entry entry : userDetails.entrySet()) {
             System.out.print(entry.toString() + "\n");

@@ -1,7 +1,5 @@
 package cinemaclub.cinema;
 
-import cinemaclub.user.Customer;
-import cinemaclub.user.UserCredentials;
 import exceptions.*;
 
 import java.util.Scanner;
@@ -12,7 +10,6 @@ public class Main {
 
 //        registerTester();
 //        loginTester();
-//        setProfileTester();
         profileTester();
 
     }
@@ -63,39 +60,37 @@ public class Main {
         return input.next();
     }
 
-    private static void getProfileTester() {
-        Cinema cinema = new Cinema();
-        cinema.setCurrentUser(new Customer(new UserCredentials("Tester", "test@tester.com", "pass")));
-
-        System.out.println(cinema.getProfileDetails().getUserName());
-        System.out.println(cinema.getProfileDetails().getEmail());
-        System.out.println(cinema.getProfileDetails().getPassword());
-    }
-
     private static void profileTester() {
         Cinema cinema = new Cinema();
 
-//        try {
-//            cinema.registerUser("ProfileTester", "test@tester.com", "pass", "customer", null);
-//        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
-//            System.out.println(e.getMessage());
-//        }
+        cinema.deleteUser("ProfileTester");
+        cinema.deleteUser("NewTester");
+
+        try {
+            cinema.registerUser("ProfileTester", "test@tester.com", "pass", "customer", null);
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
+            System.out.println(e.getMessage());
+            System.exit(0);
+        }
 
         try {
             cinema.loginUser("ProfileTester", "test@tester.com", "pass");
         } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
             System.out.println(e.getMessage());
+            System.exit(0);
         }
-
-//        cinema.setCurrentUser(new Customer(new UserCredentials("Tester", "test@tester.com", "pass")));
 
         System.out.println(cinema.getProfileDetails().getUserName());
         System.out.println(cinema.getProfileDetails().getEmail());
         System.out.println(cinema.getProfileDetails().getPassword());
 
-        cinema.getProfileDetails().setUserName("NewTester");
-        cinema.getProfileDetails().setEmail("newtester@tester.com");
-        cinema.getProfileDetails().setPassword("newpass");
+        try {
+            cinema.setUsername("NewTester");
+            cinema.setUserEmail("newtester@tester.com");
+            cinema.setUserPassword("newpass");
+        } catch (UsernameTakenException e) {
+            System.out.println(e.getMessage());
+        }
 
         System.out.println(cinema.getProfileDetails().getUserName());
         System.out.println(cinema.getProfileDetails().getEmail());

@@ -25,10 +25,6 @@ public class Cinema {
         return currentUser;
     }
 
-    public void setCurrentUser(User currentUser) {
-        this.currentUser = currentUser;
-    }
-
     public void loginUser(String username, String email, String password)
         throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
         currentUser = login.loginUser(username, email, password);
@@ -43,7 +39,7 @@ public class Cinema {
         return profile.getProfileDetails(currentUser);
     }
 
-    public void setUsername(String newUsername) {
+    public void setUsername(String newUsername) throws UsernameTakenException {
         profile.setUsername(currentUser, newUsername);
     }
 
@@ -53,6 +49,10 @@ public class Cinema {
 
     public void setUserPassword(String newUsername) {
         profile.setPassword(currentUser, newUsername);
+    }
+
+    public void deleteUser(String username) {
+        profile.deleteUser(username);
     }
 
 }
