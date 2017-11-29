@@ -1,5 +1,6 @@
 package cinemaclub.gui;
 
+//import cinemaclub.cinema.Cinema;
 import javafx.event.ActionEvent;
 
 public class AnchorCinema {

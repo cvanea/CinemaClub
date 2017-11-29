@@ -16,8 +16,7 @@ public class RegisterGui implements Initializable {
 
     private Cinema cinema = new Cinema();
 
-    @FXML
-    private TextField username;
+    @FXML private TextField username;
     @FXML private TextField password;
     @FXML private TextField email;
     @FXML private TextField staffID;

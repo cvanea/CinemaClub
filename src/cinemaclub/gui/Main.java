@@ -1,5 +1,6 @@
 package cinemaclub.gui;
 
+import cinemaclub.cinema.Cinema;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,6 +13,8 @@ import java.util.List;
 
 public class Main extends Application {
 
+//    public Cinema cinema = new Cinema();
+
     static AnchorPane rootLogin;
     static AnchorPane rootCinema;
 
@@ -21,6 +24,26 @@ public class Main extends Application {
 
     private static int loginIdxCur = 0;
     private static int cinemaIdxCur = 0;
+
+    private static Stage loginStage;
+
+    private void setLoginStage(Stage stage) {
+        Main.loginStage = stage;
+    }
+
+    static public Stage getLoginStage() {
+        return Main.loginStage;
+    }
+
+    private static Stage cinemaStage;
+
+    private void setCinemaStage(Stage stage) {
+        Main.cinemaStage = stage;
+    }
+
+    static public Stage getCinemaStage() {
+        return Main.cinemaStage;
+    }
 
     @Override
     public void start(Stage loginStage) {
@@ -61,12 +84,13 @@ public class Main extends Application {
             rootCinema = loader.load();
             cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("cinemaHome.fxml")));
             cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("profileGui.fxml")));
-            cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("bookingsGui.fxml")));
+//            cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("bookingsGui.fxml")));
             rootCinema.getChildren().add(cinemaGrid.get(0));
             Stage newStage = new Stage(); // new stage
             Scene cinemaScene = new Scene(rootCinema, 600, 400);
             newStage.setScene(cinemaScene);
             newStage.show();
+//            System.out.println(cinema);
         } catch (Exception e) {
             e.printStackTrace();
         }
