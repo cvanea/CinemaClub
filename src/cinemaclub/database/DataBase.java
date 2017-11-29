@@ -52,9 +52,9 @@ public class DataBase {
         return staffID.containsValue(username);
     }
 
-    public void writeToUserDetails(String userName, User user) {
+    public void writeToUserDetails(String username, User user) {
 
-        userDetails.put(userName, user);
+        userDetails.put(username, user);
 
         updateExternalUserDB(userDetails);
     }
@@ -67,6 +67,25 @@ public class DataBase {
     public User getUser(String userName) {
 
         return userDetails.get(userName);
+    }
+
+    public void setUsername(String oldUsername, String newUsername, User user) {
+        userDetails.remove(oldUsername);
+        userDetails.put(newUsername, user);
+
+        updateExternalUserDB(userDetails);
+    }
+
+    public void setEmail(User user) {
+        userDetails.put(user.getName(), user);
+
+        updateExternalUserDB(userDetails);
+    }
+
+    public void setPassword(User user) {
+        userDetails.put(user.getName(), user);
+
+        updateExternalUserDB(userDetails);
     }
 
     public void printUserDatabase() {

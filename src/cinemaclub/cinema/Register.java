@@ -31,7 +31,7 @@ class Register {
             dataBase.writeToUserDetails(user.getName(), user);
         }
 
-        dataBase.printUserDatabase();
+//        dataBase.printUserDatabase();
     }
 
     private void validateID(String staffId) throws IncorrectStaffIDException, StaffIDTakenException {
