@@ -4,4 +4,5 @@ Tester=Tester, test@test.com, passtest
 Bob=Bob, bob@hotmail.co.uk, pass2
 test=test, 123, pass
 ales=ales, as@com, password
+ProfileTester=ProfileTester, test@tester.com, pass
 Claudia=Claudia, claudia@hotmail.com, pass
