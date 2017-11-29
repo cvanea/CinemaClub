@@ -5,14 +5,14 @@ import javafx.event.ActionEvent;
 
 public class AnchorCinema {
 
-    Cinema cinema;
+    Cinema cinema = LoginGui.getCinema();
 
-    public void setCinema(Cinema cinema) { // Setting the cinema-object
-        this.cinema = cinema;
-    }
+//    public void setCinema() { // Setting the cinema-object
+//        this.cinema = LoginGui.getCinema();
+//    }
 
     public void pressHome(ActionEvent event) {
-//        System.out.println(cinema.getCurrentUser().IExist());
+        System.out.println(cinema.getCurrentUser().IExist());
         Main.setPaneCinema(0);
     }
 

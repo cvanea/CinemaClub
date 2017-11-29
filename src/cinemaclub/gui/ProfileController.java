@@ -13,7 +13,7 @@ public class ProfileController extends AnchorCinema{
     @FXML Label staffIDBox;
 
     public void setProfileText(ActionEvent event) {
-//        nameBox.setText(cinema.getCurrentUser().getName());
+        nameBox.setText(cinema.getCurrentUser().getName());
         System.out.println(cinema.getCurrentUser().IExist());
     }
 

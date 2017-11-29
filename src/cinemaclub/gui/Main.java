@@ -78,12 +78,12 @@ public class Main extends Application {
         cinemaIdxCur = idx;
     }
     
-    public static void cinemaStage(Cinema cinema) {
+    public static void cinemaStage() {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("anchorCinema.fxml"));
             rootCinema = loader.load();
-            AnchorCinema mainController = loader.getController(); // This did the "trick"
-            mainController.setCinema(cinema);
+//            AnchorCinema mainController = loader.getController(); // This did the "trick"
+//            mainController.setCinema(cinema);
             cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("cinemaHome.fxml")));
             cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("profileGui.fxml")));
             cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("bookingsGui.fxml")));
@@ -93,7 +93,7 @@ public class Main extends Application {
             Scene cinemaScene = new Scene(rootCinema, 600, 400);
             newStage.setScene(cinemaScene);
             newStage.show();
-            System.out.println(cinema.getCurrentUser().IExist());
+//            System.out.println(cinema.getCurrentUser().IExist());
         } catch (Exception e) {
             e.printStackTrace();
         }
