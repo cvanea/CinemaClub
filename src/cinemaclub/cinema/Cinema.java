@@ -1,6 +1,7 @@
 package cinemaclub.cinema;
 
 import cinemaclub.user.User;
+import cinemaclub.user.UserCredentials;
 import exceptions.*;
 
 public class Cinema {
@@ -20,6 +21,14 @@ public class Cinema {
         profile = new Profile();
     }
 
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
     public void loginUser(String username, String email, String password)
         throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
         currentUser = login.loginUser(username, email, password);
@@ -30,8 +39,20 @@ public class Cinema {
         register.registerUser(username, email, password, userType, staffID);
     }
 
-    public User getCurrentUser() {
-        return currentUser;
+    public UserCredentials getProfileDetails() {
+        return profile.getProfileDetails(currentUser);
+    }
+
+    public void setUsername(String newUsername) {
+        profile.setUsername(currentUser, newUsername);
+    }
+
+    public void setUserEmail(String newUsername) {
+        profile.setEmail(currentUser, newUsername);
+    }
+
+    public void setUserPassword(String newUsername) {
+        profile.setPassword(currentUser, newUsername);
     }
 
 }
