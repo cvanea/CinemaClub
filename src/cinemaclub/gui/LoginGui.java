@@ -24,10 +24,10 @@ public class LoginGui {
     public void pressButton(ActionEvent event) {
         try {
             cinema.loginUser(username.getText(), email.getText(), password.getText());
-            System.out.println(cinema.getCurrentUser().IExist());
+//            System.out.println(cinema.getCurrentUser().IExist());
             errorLabel.setText(cinema.getCurrentUser().IExist());
             cinema.getCurrentUser();
-            Main.cinemaStage(); // Go To the Bookings Screen
+            Main.cinemaStage(cinema); // Go To the Bookings Screen
         } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
             System.out.println(e.getMessage());
             errorLabel.setText(e.getMessage());
@@ -40,7 +40,6 @@ public class LoginGui {
 
     public void newStage(ActionEvent event) {
         ((Node)(event.getSource())).getScene().getWindow().hide();
-        Main.cinemaStage();
+        Main.cinemaStage(cinema);
     }
-
 }

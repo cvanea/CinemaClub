@@ -1,11 +1,18 @@
 package cinemaclub.gui;
 
-//import cinemaclub.cinema.Cinema;
+import cinemaclub.cinema.Cinema;
 import javafx.event.ActionEvent;
 
 public class AnchorCinema {
 
+    Cinema cinema;
+
+    public void setCinema(Cinema cinema) { // Setting the cinema-object
+        this.cinema = cinema;
+    }
+
     public void pressHome(ActionEvent event) {
+//        System.out.println(cinema.getCurrentUser().IExist());
         Main.setPaneCinema(0);
     }
 
@@ -24,6 +31,5 @@ public class AnchorCinema {
     public void pressFilmEdit(ActionEvent event) {
 //        Main.setPaneCinema(1);
     }
-
 
 }
