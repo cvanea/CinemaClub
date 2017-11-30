@@ -10,8 +10,8 @@ public abstract class User {
 
     abstract public String IExist();
 
-    public String getName() {
-        return userCredentials.getUserName();
+    public String getUsername() {
+        return userCredentials.getUsername();
     }
 
     public String getEmail() {

@@ -77,13 +77,13 @@ public class DataBase {
     }
 
     public void setEmail(User user) {
-        userDetails.put(user.getName(), user);
+        userDetails.put(user.getUsername(), user);
 
         updateExternalUserDB(userDetails);
     }
 
     public void setPassword(User user) {
-        userDetails.put(user.getName(), user);
+        userDetails.put(user.getUsername(), user);
 
         updateExternalUserDB(userDetails);
     }

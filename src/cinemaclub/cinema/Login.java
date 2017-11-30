@@ -24,7 +24,7 @@ class Login {
 
     private void validateDetails(UserCredentials userCredentials)
         throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
-        User user = dataBase.getUser(userCredentials.getUserName());
+        User user = dataBase.getUser(userCredentials.getUsername());
         UserCredentials savedCredentials;
 
         if (user == null) {

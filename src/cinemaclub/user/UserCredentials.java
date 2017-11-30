@@ -28,7 +28,7 @@ public class UserCredentials {
         this.email = email;
     }
 
-    public String getUserName() {
+    public String getUsername() {
         return userName;
     }
 
@@ -38,12 +38,12 @@ public class UserCredentials {
 
     public Boolean checkCredentials(UserCredentials credentialsToValidate) {
 
-        return this.userName.equals(credentialsToValidate.getUserName()) &&
+        return this.userName.equals(credentialsToValidate.getUsername()) &&
             this.password.equals(credentialsToValidate.getPassword()) &&
             this.email.equals(credentialsToValidate.getEmail());
     }
 
     public String toString() {
-        return this.getUserName() + ", " + this.getEmail() + ", " + this.getPassword();
+        return this.getUsername() + ", " + this.getEmail() + ", " + this.getPassword();
     }
 }

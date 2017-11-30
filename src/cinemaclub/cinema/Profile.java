@@ -19,7 +19,7 @@ class Profile {
 
     void setUsername(User user, String newUsername) throws UsernameTakenException {
         validateUsername(newUsername);
-        String oldUsername = user.getName();
+        String oldUsername = user.getUsername();
         user.setUserName(newUsername);
         dataBase.setUsername(oldUsername, newUsername, user);
     }

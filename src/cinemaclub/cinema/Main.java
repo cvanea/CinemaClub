@@ -12,6 +12,8 @@ public class Main {
 //        loginTester();
         profileTester();
 
+        // FIX IF USER ENTERS "="
+
     }
 
     private static void loginTester() {
@@ -80,7 +82,7 @@ public class Main {
             System.exit(0);
         }
 
-        System.out.println(cinema.getProfileDetails().getUserName());
+        System.out.println(cinema.getProfileDetails().getUsername());
         System.out.println(cinema.getProfileDetails().getEmail());
         System.out.println(cinema.getProfileDetails().getPassword());
 
@@ -92,7 +94,7 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        System.out.println(cinema.getProfileDetails().getUserName());
+        System.out.println(cinema.getProfileDetails().getUsername());
         System.out.println(cinema.getProfileDetails().getEmail());
         System.out.println(cinema.getProfileDetails().getPassword());
 
