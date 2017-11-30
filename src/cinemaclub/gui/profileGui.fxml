@@ -53,6 +53,7 @@
             <Label fx:id="emailBox" maxHeight="30.0" maxWidth="250.0" prefHeight="30.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Label fx:id="passwordBox" maxHeight="30.0" maxWidth="250.0" prefHeight="30.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#pressEdit" text="Edit" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#pressReload" text="reload" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>

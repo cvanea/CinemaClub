@@ -9,8 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
-import javafx.stage.Window;
 
 public class LoginGui {
 
@@ -28,7 +26,6 @@ public class LoginGui {
     public void pressButton(ActionEvent event) {
         try {
             cinema.loginUser(username.getText(), email.getText(), password.getText());
-//            System.out.println(cinema.getCurrentUser().IExist());
             errorLabel.setText(cinema.getCurrentUser().IExist());
             cinema.getCurrentUser();
             Main.cinemaStage(); // Go To the Bookings Screen
