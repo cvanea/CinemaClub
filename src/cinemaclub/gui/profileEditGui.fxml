@@ -2,13 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.gui.ProfileController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.gui.ProfileEditController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="100.0" />
@@ -49,11 +50,10 @@
             <Label text="Name:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
             <Label text="Email:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
             <Label text="Password:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-            <Label fx:id="nameBox" layoutX="170.0" layoutY="67.0" maxHeight="30.0" maxWidth="250.0" prefHeight="30.0" GridPane.columnIndex="2" />
-            <Label fx:id="emailBox" maxHeight="30.0" maxWidth="250.0" prefHeight="30.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label fx:id="passwordBox" maxHeight="30.0" maxWidth="250.0" prefHeight="30.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#pressEdit" text="Edit" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#pressReload" text="reload" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+             <TextField fx:id="nameBoxEdit" layoutX="170.0" layoutY="67.0" maxHeight="30.0" maxWidth="250.0" prefHeight="30.0" GridPane.columnIndex="2" />
+             <TextField fx:id="emailBoxEdit" maxHeight="30.0" maxWidth="250.0" prefHeight="30.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+             <TextField fx:id="passwordBoxEdit" maxHeight="30.0" maxWidth="250.0" prefHeight="30.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#pressSubmitEdit" text="Submit" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </children>

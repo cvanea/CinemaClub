@@ -11,7 +11,7 @@ public class Cinema {
     private FilmDisplay filmDisplay;
     private FilmEdit filmEdit;
     private Profile profile;
-    private User currentUser = null;
+    public User currentUser = null;
 
     public Cinema() {
         login = new Login();

@@ -43,7 +43,7 @@
             <TextField fx:id="username" alignment="CENTER" layoutX="107.0" layoutY="14.0" promptText="Username" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="40.0" />
             <TextField fx:id="email" alignment="CENTER" layoutX="117.0" layoutY="83.0" promptText="Email" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0" />
             <TextField fx:id="password" alignment="CENTER" layoutX="117.0" layoutY="141.0" promptText="Password" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="160.0" />
-            <Label fx:id="errorLabel" alignment="CENTER" layoutX="48.0" layoutY="182.0" prefHeight="35.0" prefWidth="306.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
+            <Label fx:id="errorLabel" alignment="CENTER" layoutX="48.0" layoutY="194.0" prefHeight="35.0" prefWidth="306.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
          </children>
       </AnchorPane>
    </children>
