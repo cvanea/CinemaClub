@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<!--<?scenebuilder-stylesheet vista.css?>-->
+
+<VBox prefHeight="200.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml" fx:controller="cinemaclub.guitest.MainController">
+    <children>
+        <Label fx:id="headerLabel" maxWidth="1.7976931348623157E308" text="Header" VBox.vgrow="NEVER" />
+        <StackPane fx:id="vistaHolder" VBox.vgrow="ALWAYS" />
+    </children>
+</VBox>
