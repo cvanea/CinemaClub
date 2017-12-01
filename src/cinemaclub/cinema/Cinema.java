@@ -1,5 +1,7 @@
 package cinemaclub.cinema;
 
+import cinemaclub.user.Booking;
+import cinemaclub.user.Customer;
 import cinemaclub.user.User;
 import cinemaclub.user.UserCredentials;
 import exceptions.*;
@@ -14,7 +16,7 @@ public class Cinema {
     private FilmDisplay filmDisplay;
     private FilmEdit filmEdit;
     private Profile profile;
-    public User currentUser = null;
+    private User currentUser = null;
 
     public Cinema() {
         login = new Login();
@@ -52,6 +54,10 @@ public class Cinema {
 
     public void setUserPassword(String newUsername) {
         profile.setPassword(currentUser, newUsername);
+    }
+
+    public ArrayList<Booking> getBookingHistory(Customer customer) throws NoBookingsException {
+        return profile.getBookingHistory(customer);
     }
 
     public ArrayList<Film> displayFilms(LocalDate date) {

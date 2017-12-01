@@ -7,9 +7,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class DataBase {
     private static DataBase ourInstance = new DataBase();
@@ -92,6 +94,10 @@ public class DataBase {
         userDetails.remove(username);
 
         updateExternalUserDB(userDetails);
+    }
+
+    public Boolean noExistingBooking(Customer customer) {
+        return customer.getBookings().isEmpty();
     }
 
     public void printUserDatabase() {
@@ -212,7 +218,7 @@ public class DataBase {
 
                 String key = tokens[0];
 
-                String[] valueTokens = tokens[1].split(" ", 4);
+                String[] valueTokens = tokens[1].split(", ", 4);
 
                 UserCredentials userCredentials = new UserCredentials(valueTokens[0], valueTokens[1], valueTokens[2]);
                 User value;
@@ -220,14 +226,23 @@ public class DataBase {
                 if (isUsernameStaff(key)) {
                     value = new Staff(userCredentials);
                 } else {
+                    // valueTokens[3] = [UP 2017, IT 2017] || []
 
-                    // valueTokens[3] = [{UP 2017}, {IT 2017}]
+                    if (valueTokens[3].equals("[]")) {
+                        value = new Customer(userCredentials, new ArrayList<>());
+                    } else {
+                        ArrayList<Booking> bookings = new ArrayList<>();
+                        String[] removeParen = valueTokens[3].split(Pattern.quote("[]"), 0);
+                        String[] allBookings = removeParen[0].split(", ");
 
-                    ArrayList<Booking> bookings = new ArrayList<>();
+                        for (String i : allBookings) {
+                            String[] indiBooking = i.split(" ");
+                            Booking booking = new Booking(indiBooking[0], LocalDateTime.parse(indiBooking[1]));
+                            bookings.add(booking);
+                        }
 
-//                    bookings.add(new Booking("UP", LocalDateTime.now()));
-
-                    value = new Customer(userCredentials, bookings);
+                        value = new Customer(userCredentials, bookings);
+                    }
                 }
 
                 userDetails.put(key, value);

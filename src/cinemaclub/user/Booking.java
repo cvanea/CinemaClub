@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 
 public class Booking {
 
-    String filmTitle;
-    LocalDateTime dateTime;
+    private String filmTitle;
+    private LocalDateTime dateTime;
 
     public Booking(String filmTitle, LocalDateTime dateTime) {
         this.filmTitle = filmTitle;
@@ -31,6 +31,6 @@ public class Booking {
     @Override
     public String toString() {
 
-        return "{" + this.getFilmTitle() + " " + this.getDateTime() + "}";
+        return this.getFilmTitle() + " " + this.getDateTime();
     }
 }
