@@ -29,6 +29,7 @@ public class DataBase {
         readFromExternalDB();
     }
 
+    //STAFFID
     public void addStaffID(String staffId, String username) {
 
         staffIDs.put(staffId, username);
@@ -48,7 +49,9 @@ public class DataBase {
         return staffIDs.get(staffId);
 
     }
+    //END OF STAFFID
 
+    //USER
     private Boolean isUsernameStaff(String username) {
 
         return staffIDs.containsValue(username);
@@ -95,7 +98,9 @@ public class DataBase {
 
         updateExternalUserDB(userDetails);
     }
+    //END OF USER
 
+    //FILMS
     public void addFilm(String title, Film film) {
         films.put(title, film);
 
@@ -140,10 +145,13 @@ public class DataBase {
 
         updateExternalFilmDB(films);
     }
+    //END OF FILMS
 
+    //SCREEN
     public Boolean noExistingBooking(Customer customer) {
         return customer.getBookings().isEmpty();
     }
+    //END OF SCREEN
 
     public void printUserDatabase() {
         for (Map.Entry entry : userDetails.entrySet()) {
@@ -151,6 +159,7 @@ public class DataBase {
         }
     }
 
+    //WRITING TO EXTERNAL DATABASE TXT FILE
     private void updateExternalStaffIDDB(Map<String, String> staffID) {
 
         try {
@@ -217,7 +226,9 @@ public class DataBase {
 //        }
 //
 //    }
+    //END OF WRITING TO EXTERNAL
 
+    //READING FROM EXTERNAL
     private void readFromExternalDB() {
 
         readFromStaffDB();
@@ -322,4 +333,5 @@ public class DataBase {
             e.printStackTrace();
         }
     }
+    //END OF READING EXTERNAL
 }

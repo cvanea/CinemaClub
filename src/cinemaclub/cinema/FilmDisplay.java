@@ -18,7 +18,7 @@ class FilmDisplay {
         return new ArrayList<>();
     }
 
-//new Film("UP", "Path", "Film about man, boy, and a dog", 1)
+//new Film("UP", "Path", "Film about man boy and a dog", 1)
 
     Film getFilmDetails(String title) {
         return dataBase.getFilm(title);
