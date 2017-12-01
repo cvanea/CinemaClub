@@ -1,7 +1,11 @@
 package cinemaclub.cinema;
 
+import cinemaclub.user.Bookings;
 import exceptions.*;
 
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -64,6 +68,18 @@ public class Main {
 
     private static void profileTester() {
         Cinema cinema = new Cinema();
+
+        System.out.println(LocalDateTime.now());
+//        System.out.println(ZonedDateTime.now().format(DateTimeFormatter.RFC_1123_DATE_TIME));
+
+        Map<String, LocalDateTime> map = new HashMap<>();
+
+        map.put("UP", LocalDateTime.now());
+        map.put("IT", LocalDateTime.now());
+
+        Bookings booking = new Bookings(map);
+
+        System.out.println(booking);
 
         cinema.deleteUser("ProfileTester");
         cinema.deleteUser("NewTester");

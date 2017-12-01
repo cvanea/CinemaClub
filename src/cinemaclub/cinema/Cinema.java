@@ -4,6 +4,9 @@ import cinemaclub.user.User;
 import cinemaclub.user.UserCredentials;
 import exceptions.*;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 public class Cinema {
 
     private Login login;
@@ -49,6 +52,10 @@ public class Cinema {
 
     public void setUserPassword(String newUsername) {
         profile.setPassword(currentUser, newUsername);
+    }
+
+    public ArrayList<Film> displayFilms(LocalDate date) {
+        return filmDisplay.displayFilms(date);
     }
 
     public void deleteUser(String username) {

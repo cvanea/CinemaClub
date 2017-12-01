@@ -1,10 +1,7 @@
 package cinemaclub.database;
 
 import cinemaclub.cinema.Film;
-import cinemaclub.user.Customer;
-import cinemaclub.user.Staff;
-import cinemaclub.user.User;
-import cinemaclub.user.UserCredentials;
+import cinemaclub.user.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -222,6 +219,8 @@ public class DataBase {
                 if (isUsernameStaff(key)) {
                     value = new Staff(userCredentials);
                 } else {
+
+
                     value = new Customer(userCredentials);
                 }
 
