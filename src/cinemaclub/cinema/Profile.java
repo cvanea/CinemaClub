@@ -45,7 +45,7 @@ class Profile {
     }
 
     void deleteFutureBooking(Customer customer, String bookingTitle) {
-        
+
 
 
     }

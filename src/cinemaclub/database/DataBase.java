@@ -96,6 +96,51 @@ public class DataBase {
         updateExternalUserDB(userDetails);
     }
 
+    public void addFilm(String title, Film film) {
+        films.put(title, film);
+
+        updateExternalFilmDB(films);
+    }
+
+    public Boolean checkForFilm(String title) {
+        return films.containsKey(title);
+    }
+
+    public Film getFilm(String title) {
+        return films.get(title);
+    }
+
+    public void setFilmTitle(String oldTitle, String newTitle, Film film) {
+        films.remove(oldTitle);
+        films.put(newTitle, film);
+
+        updateExternalFilmDB(films);
+    }
+
+    public void setFilmImagePath(Film film) {
+        films.put(film.getTitle(), film);
+
+        updateExternalFilmDB(films);
+    }
+
+    public void setFilmDescription(Film film) {
+        films.put(film.getTitle(), film);
+
+        updateExternalFilmDB(films);
+    }
+
+    public void setFilmRunTime(Film film) {
+        films.put(film.getTitle(), film);
+
+        updateExternalFilmDB(films);
+    }
+
+    public void deleteFilm(String title) {
+        films.remove(title);
+
+        updateExternalFilmDB(films);
+    }
+
     public Boolean noExistingBooking(Customer customer) {
         return customer.getBookings().isEmpty();
     }

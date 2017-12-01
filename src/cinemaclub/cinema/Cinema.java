@@ -56,6 +56,10 @@ public class Cinema {
         profile.setPassword(currentUser, newUsername);
     }
 
+    public Film getFilm(String title) {
+        return filmDisplay.getFilmDetails(title);
+    }
+
     public ArrayList<Booking> getBookingHistory(Customer customer) throws NoBookingsException {
         return profile.getBookingHistory(customer);
     }
@@ -64,8 +68,31 @@ public class Cinema {
         return filmDisplay.displayFilms(date);
     }
 
+    public void addFilm(String title, String imagePath, String description, int runTime) throws FilmExistsException {
+        filmEdit.addFilm(title, imagePath, description, runTime);
+    }
+
+    public void setFilmTitle(Film film, String newTitle) throws FilmExistsException {
+        filmEdit.setFilmTitle(film, newTitle);
+    }
+
+    public void setFilmImagePath(Film film, String newImagePath) {
+        filmEdit.setFilmImagePath(film, newImagePath);
+    }
+
+    public void setFilmDecription(Film film, String newFilmDescription) {
+        filmEdit.setFilmDecription(film, newFilmDescription);
+    }
+
+    public void setFilmRunTime(Film film, int newRunTime) {
+        filmEdit.setFilmRunTime(film, newRunTime);
+    }
+
+    public void deleteFilm(String film) {
+        filmEdit.deleteFilm(film);
+    }
+
     public void deleteUser(String username) {
         profile.deleteUser(username);
     }
-
 }

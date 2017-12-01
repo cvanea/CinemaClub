@@ -15,12 +15,13 @@ class FilmDisplay {
 
     ArrayList<Film> displayFilms(LocalDate date) {
 
-
-
-
-
         return new ArrayList<>();
     }
 
 //new Film("UP", "Path", "Film about man, boy, and a dog", 1)
+
+    Film getFilmDetails(String title) {
+        return dataBase.getFilm(title);
+    }
+
 }
