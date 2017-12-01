@@ -1,5 +1,6 @@
 package cinemaclub.database;
 
+import cinemaclub.cinema.Film;
 import cinemaclub.user.Customer;
 import cinemaclub.user.Staff;
 import cinemaclub.user.User;
@@ -9,47 +10,48 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class DataBase {
     private static DataBase ourInstance = new DataBase();
 
-    private Map<String, String> staffID = new HashMap<>();
+    private Map<String, String> staffIDs = new HashMap<>();
     private Map<String, User> userDetails = new HashMap<>();
+    private Map<String, Film> films = new HashMap<>();
 
     public static DataBase getInstance() {
         return ourInstance;
     }
 
     private DataBase() {
+        
         readFromExternalDB();
     }
 
     public void addStaffID(String staffId, String username) {
 
-        staffID.put(staffId, username);
+        staffIDs.put(staffId, username);
 
-        updateExternalStaffIDDB(staffID);
+        updateExternalStaffIDDB(staffIDs);
     }
 
     public void assignStaffID(String staffId, String username) {
 
-        staffID.put(staffId, username);
+        staffIDs.put(staffId, username);
 
-        updateExternalStaffIDDB(staffID);
+        updateExternalStaffIDDB(staffIDs);
     }
 
     public String getStaffIDValue(String staffId) {
 
-        return staffID.get(staffId);
+        return staffIDs.get(staffId);
 
     }
 
     private Boolean isUsernameStaff(String username) {
 
-        return staffID.containsValue(username);
+        return staffIDs.containsValue(username);
     }
 
     public void writeToUserDetails(String username, User user) {
@@ -103,7 +105,7 @@ public class DataBase {
     private void updateExternalStaffIDDB(Map<String, String> staffID) {
 
         try {
-            FileWriter writer = new FileWriter("staffID.txt");
+            FileWriter writer = new FileWriter("staffIDs.txt");
 
             for (Map.Entry entry : staffID.entrySet()) {
                 writer.write(entry.toString() + "\n");
@@ -133,22 +135,22 @@ public class DataBase {
         }
     }
 
-//    private void updateExternalFilmDB(Map<String, Film> filmDetails) {
-//
-//        try {
-//            FileWriter writer = new FileWriter("filmDetails.txt", true);
-//
-//            for (Map.Entry entry : filmDetails.entrySet()) {
-//                writer.write(entry.toString() + "\n");
-//            }
-//
-//            writer.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
+    private void updateExternalFilmDB(Map<String, Film> films) {
+
+        try {
+            FileWriter writer = new FileWriter("films.txt");
+
+            for (Map.Entry entry : films.entrySet()) {
+                writer.write(entry.toString() + "\n");
+            }
+
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 //
 //    private void updateExternalScreenDB(Map<String, Screen> screenDetails) {
 //
@@ -171,11 +173,12 @@ public class DataBase {
 
         readFromStaffDB();
         readFromUserDB();
+        readFromFilmDB();
     }
 
     private void readFromStaffDB() {
 
-        String fileName = "staffID.txt";
+        String fileName = "staffIDs.txt";
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 
@@ -189,7 +192,7 @@ public class DataBase {
                 String key = tokens[0];
                 String value = tokens[1];
 
-                staffID.put(key, value);
+                staffIDs.put(key, value);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -223,6 +226,32 @@ public class DataBase {
                 }
 
                 userDetails.put(key, value);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void readFromFilmDB() {
+
+        String fileName = "films.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                // Reads one line at a time
+
+                String[] tokens = line.split("=");
+
+                String key = tokens[0];
+
+                String[] valueTokens = tokens[1].split(", ");
+
+                Film value = new Film(valueTokens[0], valueTokens[1], valueTokens[2], Integer.parseInt(valueTokens[3]));
+
+                films.put(key, value);
             }
         } catch (IOException e) {
             e.printStackTrace();
