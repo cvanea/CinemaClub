@@ -4,13 +4,14 @@ import exceptions.*;
 
 import java.util.Scanner;
 
-public class Main {
+public class MainTester {
 
     public static void main(String[] args) {
 
 //        registerTester();
 //        loginTester();
-        profileTester();
+//        profileTester();
+        filmEditTester();
 
         // FIX IF USER ENTERS "="
 
@@ -80,7 +81,6 @@ public class Main {
 //        System.out.println(customer);
 
 
-
         try {
             cinema.registerUser("ProfileTester", "test@tester.com", "pass", "customer", null);
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
@@ -111,5 +111,37 @@ public class Main {
         System.out.println(cinema.getProfileDetails().getEmail());
         System.out.println(cinema.getProfileDetails().getPassword());
 
+    }
+
+    private static void filmEditTester() {
+        Cinema cinema = new Cinema();
+
+        cinema.deleteFilm("UP");
+        cinema.deleteFilm("UPTest");
+
+        try {
+            cinema.addFilm("UP", "Path", 1, "A film about a man a boy and a dog");
+        } catch (FilmExistsException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println(cinema.getFilm("UP").getTitle());
+        System.out.println(cinema.getFilm("UP").getImagePath());
+        System.out.println(cinema.getFilm("UP").getRunTime());
+        System.out.println(cinema.getFilm("UP").getDescription());
+
+        try {
+            cinema.setFilmTitle(cinema.getFilm("UP"),"UPTest");
+            cinema.setFilmImagePath(cinema.getFilm("UPTest"),"PathTest");
+            cinema.setFilmRunTime(cinema.getFilm("UPTest"),2);
+            cinema.setFilmDecription(cinema.getFilm("UPTest"),"DescriptionTest");
+        } catch (FilmExistsException e) {
+            e.getMessage();
+        }
+
+        System.out.println(cinema.getFilm("UPTest").getTitle());
+        System.out.println(cinema.getFilm("UPTest").getImagePath());
+        System.out.println(cinema.getFilm("UPTest").getRunTime());
+        System.out.println(cinema.getFilm("UPTest").getDescription());
     }
 }

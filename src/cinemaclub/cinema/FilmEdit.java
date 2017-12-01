@@ -11,9 +11,9 @@ class FilmEdit {
         this.dataBase = DataBase.getInstance();
     }
 
-    void addFilm(String title, String imagePath, String description, int runTime) throws FilmExistsException {
+    void addFilm(String title, String imagePath, int runTime, String description) throws FilmExistsException {
         validateNewFilm(title);
-        Film film = new Film(title, imagePath, description, runTime);
+        Film film = new Film(title, imagePath, runTime, description);
         dataBase.addFilm(title, film);
     }
 
@@ -40,7 +40,7 @@ class FilmEdit {
     }
 
     void deleteFilm(String title) {
-        dataBase.deleteUser(title);
+        dataBase.deleteFilm(title);
     }
 
     private void validateNewFilm(String title) throws FilmExistsException {

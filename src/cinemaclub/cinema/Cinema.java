@@ -68,8 +68,8 @@ public class Cinema {
         return filmDisplay.displayFilms(date);
     }
 
-    public void addFilm(String title, String imagePath, String description, int runTime) throws FilmExistsException {
-        filmEdit.addFilm(title, imagePath, description, runTime);
+    public void addFilm(String title, String imagePath, int runTime, String description) throws FilmExistsException {
+        filmEdit.addFilm(title, imagePath, runTime, description);
     }
 
     public void setFilmTitle(Film film, String newTitle) throws FilmExistsException {
@@ -88,8 +88,8 @@ public class Cinema {
         filmEdit.setFilmRunTime(film, newRunTime);
     }
 
-    public void deleteFilm(String film) {
-        filmEdit.deleteFilm(film);
+    public void deleteFilm(String title) {
+        filmEdit.deleteFilm(title);
     }
 
     public void deleteUser(String username) {

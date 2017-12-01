@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Main application class.
+ * MainTester application class.
  */
 public class Main extends Application {
 

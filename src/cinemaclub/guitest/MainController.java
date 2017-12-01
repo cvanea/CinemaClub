@@ -5,7 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 
 /**
- * Main controller class for the entire layout.
+ * MainTester controller class for the entire layout.
  */
 public class MainController {
 

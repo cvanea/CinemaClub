@@ -312,9 +312,9 @@ public class DataBase {
 
                 String key = tokens[0];
 
-                String[] valueTokens = tokens[1].split(", ");
+                String[] valueTokens = tokens[1].split(", ", 4);
 
-                Film value = new Film(valueTokens[0], valueTokens[1], valueTokens[2], Integer.parseInt(valueTokens[3]));
+                Film value = new Film(valueTokens[0], valueTokens[1], Integer.parseInt(valueTokens[2]), valueTokens[3]);
 
                 films.put(key, value);
             }

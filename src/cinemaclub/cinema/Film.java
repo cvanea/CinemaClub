@@ -4,14 +4,14 @@ public class Film {
 
     String title;
     String imagePath;
-    String description;
     int runTime;
+    String description;
 
-    public Film(String title, String imagePath, String description, int runTime) {
+    public Film(String title, String imagePath, int runTime, String description) {
         this.title = title;
         this.imagePath = imagePath;
-        this.description = description;
         this.runTime = runTime;
+        this.description = description;
     }
 
     public String getTitle() {
@@ -30,14 +30,6 @@ public class Film {
         this.imagePath = imagePath;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public int getRunTime() {
         return runTime;
     }
@@ -46,8 +38,16 @@ public class Film {
         this.runTime = runTime;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
-        return this.getTitle() + ", " + this.getImagePath() + ", " + this.getDescription() + ", " +  this.getRunTime();
+        return this.getTitle() + ", " + this.getImagePath() + ", " + this.getRunTime() + ", " + this.getDescription() ;
     }
 }
