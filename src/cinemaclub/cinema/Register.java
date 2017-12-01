@@ -6,6 +6,8 @@ import exceptions.IncorrectStaffIDException;
 import exceptions.StaffIDTakenException;
 import exceptions.UsernameTakenException;
 
+import java.util.ArrayList;
+
 class Register {
 
     private DataBase dataBase;
@@ -27,11 +29,9 @@ class Register {
         } else {
             validateUsername(username);
 
-            User user = new Customer(new UserCredentials(username, email, password));
+            User user = new Customer(new UserCredentials(username, email, password), new ArrayList<>());
             dataBase.writeToUserDetails(user.getUsername(), user);
         }
-
-//        dataBase.printUserDatabase();
     }
 
     private void validateID(String staffId) throws IncorrectStaffIDException, StaffIDTakenException {

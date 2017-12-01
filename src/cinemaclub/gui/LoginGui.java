@@ -28,7 +28,7 @@ public class LoginGui {
             cinema.loginUser(username.getText(), email.getText(), password.getText());
             errorLabel.setText(cinema.getCurrentUser().IExist());
 //            cinema.getCurrentUser();
-            Main.cinemaStage(); // Go To the Bookings Screen
+            Main.cinemaStage(); // Go To the Booking Screen
         } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
             System.out.println(e.getMessage());
             errorLabel.setText(e.getMessage());

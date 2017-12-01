@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -211,7 +212,7 @@ public class DataBase {
 
                 String key = tokens[0];
 
-                String[] valueTokens = tokens[1].split(", ");
+                String[] valueTokens = tokens[1].split(" ", 4);
 
                 UserCredentials userCredentials = new UserCredentials(valueTokens[0], valueTokens[1], valueTokens[2]);
                 User value;
@@ -220,8 +221,13 @@ public class DataBase {
                     value = new Staff(userCredentials);
                 } else {
 
+                    // valueTokens[3] = [{UP 2017}, {IT 2017}]
 
-                    value = new Customer(userCredentials);
+                    ArrayList<Booking> bookings = new ArrayList<>();
+
+//                    bookings.add(new Booking("UP", LocalDateTime.now()));
+
+                    value = new Customer(userCredentials, bookings);
                 }
 
                 userDetails.put(key, value);

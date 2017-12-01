@@ -1,9 +1,1 @@
-alexstaff=alexstaff, as@com, password
-Alex=Alex, alex@hotmail.co.uk, passalex
-test2=test2, 11, p
-Tester=Tester, test@test.com, passtest
-Bob=Bob, bob@hotmail.co.uk, pass2
-test=test, 123, pass
-t=t, t, t
-Claudia=Claudia, claudia@hotmail.com, pass
-NewTester=NewTester, newtester@tester.com, newpass
+NewTester=NewTester, newtester@tester.com, newpass, []

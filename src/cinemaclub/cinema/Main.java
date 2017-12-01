@@ -1,11 +1,12 @@
 package cinemaclub.cinema;
 
-import cinemaclub.user.Bookings;
+import cinemaclub.user.Booking;
+import cinemaclub.user.Customer;
+import cinemaclub.user.UserCredentials;
 import exceptions.*;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -69,17 +70,20 @@ public class Main {
     private static void profileTester() {
         Cinema cinema = new Cinema();
 
-        System.out.println(LocalDateTime.now());
+//        System.out.println(LocalDateTime.now());
 //        System.out.println(ZonedDateTime.now().format(DateTimeFormatter.RFC_1123_DATE_TIME));
 
-        Map<String, LocalDateTime> map = new HashMap<>();
+//        Booking booking = new Booking("UP", LocalDateTime.now());
 
-        map.put("UP", LocalDateTime.now());
-        map.put("IT", LocalDateTime.now());
+//        System.out.println(booking);
 
-        Bookings booking = new Bookings(map);
+        ArrayList<Booking> bookings = new ArrayList<>();
 
-        System.out.println(booking);
+        bookings.add(new Booking("UP", LocalDateTime.now()));
+        bookings.add(new Booking("IT", LocalDateTime.now()));
+
+        Customer customer = new Customer(new UserCredentials("Test", "test@test", "pass"), bookings);
+        System.out.println(customer);
 
         cinema.deleteUser("ProfileTester");
         cinema.deleteUser("NewTester");

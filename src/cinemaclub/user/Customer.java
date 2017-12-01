@@ -1,23 +1,31 @@
 package cinemaclub.user;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Customer extends User {
 
-    Bookings bookings;
+    private ArrayList<Booking> bookings;
 
-    public Customer(UserCredentials userCredentials) {
+    public Customer(UserCredentials userCredentials, ArrayList<Booking> bookings) {
         super(userCredentials);
-//        this.bookings = bookings;
+        this.bookings = bookings;
     }
 
     public String IExist() {
         return "I exist as a customer!";
     }
 
-    public Bookings getBookings() {
+    public ArrayList<Booking> getBookings() {
         return bookings;
     }
 
-    public void setBookings(Bookings bookings) {
+    public void setBookings(ArrayList<Booking> bookings) {
         this.bookings = bookings;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", " + Arrays.toString(bookings.toArray());
     }
 }
