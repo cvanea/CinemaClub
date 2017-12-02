@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public class Film implements Serializable {
 
+    private static final long serialVersionUID = 8762368738673278L;
+
     String title;
     String imagePath;
     int runTime;

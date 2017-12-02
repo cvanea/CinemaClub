@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DataBase implements Serializable {
+
+    private static final long serialVersionUID = 8762368738673278L;
+
     private static DataBase ourInstance = readExternalDB();
 
     private static final String fileName = "DB.txt";

@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public abstract class User implements Serializable {
 
+    private static final long serialVersionUID = 8762368738673278L;
+
     private UserCredentials userCredentials;
 
     User(UserCredentials userCredentials) {

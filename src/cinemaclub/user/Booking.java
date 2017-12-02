@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 
 public class Booking implements Serializable {
 
+    private static final long serialVersionUID = 8762368738673278L;
+
     private String filmTitle;
     private LocalDateTime dateTime;
 
