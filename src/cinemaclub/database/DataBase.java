@@ -1,20 +1,17 @@
 package cinemaclub.database;
 
 import cinemaclub.cinema.Film;
-import cinemaclub.user.*;
+import cinemaclub.user.Customer;
+import cinemaclub.user.User;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
 
-public class DataBase {
-    private static DataBase ourInstance = new DataBase();
+public class DataBase implements Serializable {
+    private static DataBase ourInstance = readExternalDB();
+
+    private static final String fileName = "DB.txt";
 
     private Map<String, String> staffIDs = new HashMap<>();
     private Map<String, User> userDetails = new HashMap<>();
@@ -24,24 +21,19 @@ public class DataBase {
         return ourInstance;
     }
 
-    private DataBase() {
-        
-        readFromExternalDB();
-    }
-
     //STAFFID
     public void addStaffID(String staffId, String username) {
 
         staffIDs.put(staffId, username);
 
-        updateExternalStaffIDDB(staffIDs);
+        updateExternalDB();
     }
 
     public void assignStaffID(String staffId, String username) {
 
         staffIDs.put(staffId, username);
 
-        updateExternalStaffIDDB(staffIDs);
+        updateExternalDB();
     }
 
     public String getStaffIDValue(String staffId) {
@@ -61,7 +53,7 @@ public class DataBase {
 
         userDetails.put(username, user);
 
-        updateExternalUserDB(userDetails);
+        updateExternalDB();
     }
 
     public Boolean checkForUsername(String username) {
@@ -78,25 +70,25 @@ public class DataBase {
         userDetails.remove(oldUsername);
         userDetails.put(newUsername, user);
 
-        updateExternalUserDB(userDetails);
+        updateExternalDB();
     }
 
     public void setEmail(User user) {
         userDetails.put(user.getUsername(), user);
 
-        updateExternalUserDB(userDetails);
+        updateExternalDB();
     }
 
     public void setPassword(User user) {
         userDetails.put(user.getUsername(), user);
 
-        updateExternalUserDB(userDetails);
+        updateExternalDB();
     }
 
     public void deleteUser(String username) {
         userDetails.remove(username);
 
-        updateExternalUserDB(userDetails);
+        updateExternalDB();
     }
     //END OF USER
 
@@ -104,7 +96,7 @@ public class DataBase {
     public void addFilm(String title, Film film) {
         films.put(title, film);
 
-        updateExternalFilmDB(films);
+        updateExternalDB();
     }
 
     public Boolean checkForFilm(String title) {
@@ -119,31 +111,31 @@ public class DataBase {
         films.remove(oldTitle);
         films.put(newTitle, film);
 
-        updateExternalFilmDB(films);
+        updateExternalDB();
     }
 
     public void setFilmImagePath(Film film) {
         films.put(film.getTitle(), film);
 
-        updateExternalFilmDB(films);
+        updateExternalDB();
     }
 
     public void setFilmDescription(Film film) {
         films.put(film.getTitle(), film);
 
-        updateExternalFilmDB(films);
+        updateExternalDB();
     }
 
     public void setFilmRunTime(Film film) {
         films.put(film.getTitle(), film);
 
-        updateExternalFilmDB(films);
+        updateExternalDB();
     }
 
     public void deleteFilm(String title) {
         films.remove(title);
 
-        updateExternalFilmDB(films);
+        updateExternalDB();
     }
     //END OF FILMS
 
@@ -160,178 +152,36 @@ public class DataBase {
     }
 
     //WRITING TO EXTERNAL DATABASE TXT FILE
-    private void updateExternalStaffIDDB(Map<String, String> staffID) {
-
+    private void updateExternalDB() {
+        FileOutputStream fileOutputStream;
+        ObjectOutputStream objectOutputStream;
         try {
-            FileWriter writer = new FileWriter("staffIDs.txt");
-
-            for (Map.Entry entry : staffID.entrySet()) {
-                writer.write(entry.toString() + "\n");
-            }
-
-            writer.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private void updateExternalUserDB(Map<String, User> userDetails) {
-
-        try {
-            FileWriter writer = new FileWriter("userDetails.txt");
-
-            for (Map.Entry entry : userDetails.entrySet()) {
-                writer.write(entry.toString() + "\n");
-            }
-
-            writer.close();
-
+            fileOutputStream = new FileOutputStream(fileName);
+            objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(this);
+            fileOutputStream.close();
+            objectOutputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-    private void updateExternalFilmDB(Map<String, Film> films) {
-
-        try {
-            FileWriter writer = new FileWriter("films.txt");
-
-            for (Map.Entry entry : films.entrySet()) {
-                writer.write(entry.toString() + "\n");
-            }
-
-            writer.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-//
-//    private void updateExternalScreenDB(Map<String, Screen> screenDetails) {
-//
-//        try {
-//            FileWriter writer = new FileWriter("screenDetails.txt", true);
-//
-//            for (Map.Entry entry : screenDetails.entrySet()) {
-//                writer.write(entry.toString() + "\n");
-//            }
-//
-//            writer.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
     //END OF WRITING TO EXTERNAL
 
     //READING FROM EXTERNAL
-    private void readFromExternalDB() {
-
-        readFromStaffDB();
-        readFromUserDB();
-        readFromFilmDB();
-    }
-
-    private void readFromStaffDB() {
-
-        String fileName = "staffIDs.txt";
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-
-            String line;
-
-            while ((line = br.readLine()) != null) {
-                // Reads one line at a time
-
-                String[] tokens = line.split("=");
-
-                String key = tokens[0];
-                String value = tokens[1];
-
-                staffIDs.put(key, value);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    private static DataBase readExternalDB() {
+        DataBase dataBase;
+        FileInputStream fileInputStream;
+        ObjectInputStream objectInputStream;
+        try {
+            fileInputStream = new FileInputStream(fileName);
+            objectInputStream = new ObjectInputStream(fileInputStream);
+            dataBase = (DataBase) objectInputStream.readObject();
+            fileInputStream.close();
+            objectInputStream.close();
+        } catch (IOException | ClassNotFoundException e) {
+            dataBase = new DataBase();
         }
-    }
-
-    private void readFromUserDB() {
-
-        String fileName = "userDetails.txt";
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-
-            String line;
-
-            while ((line = br.readLine()) != null) {
-                // Reads one line at a time
-
-                String[] tokens = line.split("=");
-
-                String key = tokens[0];
-
-                String[] valueTokens = tokens[1].split(", ", 4);
-
-                UserCredentials userCredentials = new UserCredentials(valueTokens[0], valueTokens[1], valueTokens[2]);
-                User value;
-
-                if (isUsernameStaff(key)) {
-                    value = new Staff(userCredentials);
-                } else {
-                    // valueTokens[3] = [UP 2017, IT 2017] || []
-
-                    if (valueTokens[3].equals("[]")) {
-                        value = new Customer(userCredentials, new ArrayList<>());
-                    } else {
-                        ArrayList<Booking> bookings = new ArrayList<>();
-                        String[] removeParen = valueTokens[3].split(Pattern.quote("[]"), 0);
-                        String[] allBookings = removeParen[0].split(", ");
-
-                        for (String i : allBookings) {
-                            String[] indiBooking = i.split(" ");
-                            Booking booking = new Booking(indiBooking[0], LocalDateTime.parse(indiBooking[1]));
-                            bookings.add(booking);
-                        }
-
-                        value = new Customer(userCredentials, bookings);
-                    }
-                }
-
-                userDetails.put(key, value);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void readFromFilmDB() {
-
-        String fileName = "films.txt";
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-
-            String line;
-
-            while ((line = br.readLine()) != null) {
-                // Reads one line at a time
-
-                String[] tokens = line.split("=");
-
-                String key = tokens[0];
-
-                String[] valueTokens = tokens[1].split(", ", 4);
-
-                Film value = new Film(valueTokens[0], valueTokens[1], Integer.parseInt(valueTokens[2]), valueTokens[3]);
-
-                films.put(key, value);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        return dataBase;
     }
     //END OF READING EXTERNAL
 }

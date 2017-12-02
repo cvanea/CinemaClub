@@ -1,8 +1,9 @@
 package cinemaclub.user;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Booking {
+public class Booking implements Serializable {
 
     private String filmTitle;
     private LocalDateTime dateTime;

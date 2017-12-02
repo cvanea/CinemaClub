@@ -1,1 +1,0 @@
-NewTester=NewTester, newtester@tester.com, newpass, []

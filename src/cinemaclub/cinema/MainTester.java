@@ -10,10 +10,8 @@ public class MainTester {
 
 //        registerTester();
 //        loginTester();
-//        profileTester();
-        filmEditTester();
-
-        // FIX IF USER ENTERS "="
+        profileTester();
+//        filmEditTester();
 
     }
 

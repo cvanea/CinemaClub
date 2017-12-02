@@ -1,6 +1,8 @@
 package cinemaclub.cinema;
 
-public class Film {
+import java.io.Serializable;
+
+public class Film implements Serializable {
 
     String title;
     String imagePath;
