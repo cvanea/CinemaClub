@@ -60,8 +60,22 @@ class Profile {
         return pastBookings;
     }
 
+    ArrayList<Booking> getFutureBookingsHistory(User user) throws NoBookingsException {
+        ArrayList<Booking> allBookings = getBookingsHistory(user);
+        ArrayList<Booking> futureBookings = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String timeNow = LocalDateTime.now().format(formatter);
 
-    ArrayList<Booking> getBookingsHistory(User user) throws NoBookingsException {
+        for (Booking booking : allBookings) {
+            String bookingDateTime = booking.getDate() + " " + booking.getTime();
+            if (bookingDateTime.compareTo(timeNow) > 0) {
+                futureBookings.add(booking);
+            }
+        }
+        return futureBookings;
+    }
+
+    private ArrayList<Booking> getBookingsHistory(User user) throws NoBookingsException {
         if (user instanceof Customer) {
             Customer customer = (Customer) user;
             validateExistingBookingsHistory(customer);

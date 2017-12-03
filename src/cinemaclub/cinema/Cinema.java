@@ -75,16 +75,24 @@ public class Cinema {
         return filmDisplay.getFilmDetails(title);
     }
 
-    public ArrayList<Booking> getBookingsHistory() throws NoBookingsException {
-        return profile.getBookingsHistory(currentUser);
-    }
-
     public ArrayList<Booking> getBookingsHistory(Customer customer) throws NoBookingsException {
         return profile.getBookingsHistory(customer);
     }
 
     public ArrayList<Booking> getPastBookingsHistory(Customer customer) throws NoBookingsException {
         return profile.getPastBookingsHistory(customer);
+    }
+
+    public ArrayList<Booking> getPastBookingsHistory() throws NoBookingsException {
+        return profile.getPastBookingsHistory(currentUser);
+    }
+
+    public ArrayList<Booking> getFutureBookingsHistory(Customer customer) throws NoBookingsException {
+        return profile.getFutureBookingsHistory(customer);
+    }
+
+    public ArrayList<Booking> getFutureBookingsHistory() throws NoBookingsException {
+        return profile.getFutureBookingsHistory(currentUser);
     }
 
     public ArrayList<Film> displayFilms(LocalDate date) {

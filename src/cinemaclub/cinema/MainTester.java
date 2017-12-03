@@ -135,7 +135,6 @@ public class MainTester {
         System.out.println(timeNow);
         System.out.println(bookingDateTime.compareTo(timeNow));
 
-
         try {
             System.out.println(cinema.getBookingsHistory(customer));
         } catch (NoBookingsException e) {
@@ -144,6 +143,12 @@ public class MainTester {
 
         try {
             System.out.println(cinema.getPastBookingsHistory(customer));
+        } catch (NoBookingsException e) {
+            e.getMessage();
+        }
+
+        try {
+            System.out.println(cinema.getFutureBookingsHistory(customer));
         } catch (NoBookingsException e) {
             e.getMessage();
         }

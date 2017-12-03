@@ -51,8 +51,6 @@ public class Screen {
 
     @Override
     public String toString() {
-        return "Screen{" +
-            "seats=" + seats +
-            '}';
+        return "Screen{" + "seats=" + seats + '}';
     }
 }

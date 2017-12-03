@@ -63,11 +63,7 @@ public class Booking implements Serializable {
     @Override
     public String toString() {
         return "Booking{" +
-            "filmTitle='" + filmTitle + '\'' +
-            ", date='" + date + '\'' +
-            ", time='" + time + '\'' +
-            ", screenNumber=" + screenNumber +
-            ", seat='" + seat + '\'' +
-            '}';
+            "filmTitle='" + filmTitle + '\'' + ", date='" + date + '\'' + ", time='" + time + '\'' +
+            ", screenNumber=" + screenNumber + ", seat='" + seat + '\'' + '}';
     }
 }
