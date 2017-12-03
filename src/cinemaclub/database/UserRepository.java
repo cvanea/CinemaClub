@@ -84,6 +84,12 @@ public class UserRepository implements Serializable {
         dataBase.updateExternalDB();
     }
 
+    public void deleteUserBooking(User user) {
+        userDetails.put(user.getUsername(), user);
+
+        dataBase.updateExternalDB();
+    }
+
     public void printUserDatabase() {
         for (Map.Entry entry : userDetails.entrySet()) {
             System.out.print(entry.toString() + "\n");

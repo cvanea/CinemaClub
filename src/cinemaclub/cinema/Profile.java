@@ -1,12 +1,12 @@
 package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
-import cinemaclub.database.ScreenRepository;
 import cinemaclub.database.UserRepository;
 import cinemaclub.user.Booking;
 import cinemaclub.user.Customer;
 import cinemaclub.user.User;
 import cinemaclub.user.UserCredentials;
+import exceptions.NotAFutureBookingException;
 import exceptions.NoBookingsException;
 import exceptions.UsernameTakenException;
 
@@ -17,11 +17,9 @@ import java.util.ArrayList;
 class Profile {
 
     private UserRepository userRepository;
-    private ScreenRepository screenRepository;
 
     Profile() {
         this.userRepository = DataBase.getUserRepository();
-        this.screenRepository = DataBase.getScreenRepository();
     }
 
     UserCredentials getProfileDetails(User user) {
@@ -88,12 +86,14 @@ class Profile {
             return customer.getBookings();
     }
 
-//    void deleteFutureBooking(Customer customer, String bookingTitle) {
-//
-//
-//
-//    }
-
+    void deleteFutureBooking(User user, Booking booking) throws NotAFutureBookingException, NoBookingsException {
+        validateFutureBooking(user, booking);
+        if (user instanceof Customer) {
+            Customer customer = (Customer) user;
+            customer.deleteBooking(booking);
+            userRepository.deleteUserBooking(user);
+        }
+    }
 
     private void validateUsername(String username) throws UsernameTakenException {
 
@@ -106,6 +106,13 @@ class Profile {
 
         if (customer.noExistingBookings()) {
             throw new NoBookingsException();
+        }
+    }
+
+    private void validateFutureBooking(User user, Booking booking) throws NotAFutureBookingException, NoBookingsException {
+
+        if (!(this.getFutureBookingsHistory(user).contains(booking))){
+            throw new NotAFutureBookingException();
         }
     }
 

@@ -5,8 +5,6 @@ import cinemaclub.user.Customer;
 import cinemaclub.user.UserCredentials;
 import exceptions.*;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -123,17 +121,11 @@ public class MainTester {
 
         Customer customer = new Customer(new UserCredentials("BookingTest", "booking@booking.com", "bookingpass"), new ArrayList<>());
 
-        customer.addBooking(new Booking("Test", "2017-11-09", "10:30", 1, "A1"));
+        Booking test = new Booking("Test", "2017-11-09", "10:30", 1, "A1");
+        Booking futureTest = new Booking("FutureTest", "2018-11-09", "10:30", 1, "A1");
 
-        Booking test = customer.getBookingByTitle("Test");
-        String bookingDateTime = test.getDate() + " " + test.getTime();
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        String timeNow = LocalDateTime.now().format(formatter);
-
-        System.out.println(bookingDateTime);
-        System.out.println(timeNow);
-        System.out.println(bookingDateTime.compareTo(timeNow));
+        customer.addBooking(test);
+        customer.addBooking(futureTest);
 
         try {
             System.out.println(cinema.getBookingsHistory(customer));
@@ -149,6 +141,18 @@ public class MainTester {
 
         try {
             System.out.println(cinema.getFutureBookingsHistory(customer));
+        } catch (NoBookingsException e) {
+            e.getMessage();
+        }
+
+        try {
+            cinema.deleteFutureBooking(customer, futureTest);
+        } catch (NoBookingsException | NotAFutureBookingException e) {
+            e.getMessage();
+        }
+
+        try {
+            System.out.println(cinema.getBookingsHistory(customer));
         } catch (NoBookingsException e) {
             e.getMessage();
         }

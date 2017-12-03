@@ -95,6 +95,14 @@ public class Cinema {
         return profile.getFutureBookingsHistory(currentUser);
     }
 
+    public void deleteFutureBooking(Booking booking) throws NoBookingsException, NotAFutureBookingException {
+        profile.deleteFutureBooking(currentUser, booking);
+    }
+
+    public void deleteFutureBooking(Customer customer, Booking booking) throws NoBookingsException, NotAFutureBookingException {
+        profile.deleteFutureBooking(customer, booking);
+    }
+
     public ArrayList<Film> displayFilms(LocalDate date) {
         return filmDisplay.displayFilms(date);
     }
