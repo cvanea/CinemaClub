@@ -1,7 +1,13 @@
 package cinemaclub.cinema;
 
+import cinemaclub.user.Booking;
+import cinemaclub.user.Customer;
+import cinemaclub.user.UserCredentials;
 import exceptions.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainTester {
@@ -115,8 +121,29 @@ public class MainTester {
     private static void bookingHistoryTester() {
         Cinema cinema = new Cinema();
 
+        Customer customer = new Customer(new UserCredentials("BookingTest", "booking@booking.com", "bookingpass"), new ArrayList<>());
+
+        customer.addBooking(new Booking("Test", "2017-11-09", "10:30", 1, "A1"));
+
+        Booking test = customer.getBookingByTitle("Test");
+        String bookingDateTime = test.getDate() + " " + test.getTime();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String timeNow = LocalDateTime.now().format(formatter);
+
+        System.out.println(bookingDateTime);
+        System.out.println(timeNow);
+        System.out.println(bookingDateTime.compareTo(timeNow));
+
+
         try {
-            System.out.println(cinema.getBookingsHistory());
+            System.out.println(cinema.getBookingsHistory(customer));
+        } catch (NoBookingsException e) {
+            e.getMessage();
+        }
+
+        try {
+            System.out.println(cinema.getPastBookingsHistory(customer));
         } catch (NoBookingsException e) {
             e.getMessage();
         }

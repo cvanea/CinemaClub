@@ -1,23 +1,22 @@
 package cinemaclub.user;
 
-import cinemaclub.cinema.Screen;
-
 import java.io.Serializable;
-import java.util.Map;
 
 public class Booking implements Serializable {
 
     private static final long serialVersionUID = 8762368738673278L;
 
     private String filmTitle;
-    private Map<String, Integer> dateTime;
-    private Screen screen;
+    private String date;
+    private String time;
+    private Integer screenNumber;
     private String seat;
 
-    public Booking(String filmTitle, Map<String, Integer> dateTime, Screen screen, String seat) {
+    public Booking(String filmTitle, String date, String time, Integer screenNumber, String seat) {
         this.filmTitle = filmTitle;
-        this.dateTime = dateTime;
-        this.screen = screen;
+        this.date = date;
+        this.time = time;
+        this.screenNumber = screenNumber;
         this.seat = seat;
     }
 
@@ -29,20 +28,28 @@ public class Booking implements Serializable {
         this.filmTitle = filmTitle;
     }
 
-    public Map<String, Integer> getDateTime() {
-        return dateTime;
+    public String getDate() {
+        return date;
     }
 
-    public void setDateTime(Map<String, Integer> dateTime) {
-        this.dateTime = dateTime;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public Screen getScreen() {
-        return screen;
+    public String getTime() {
+        return time;
     }
 
-    public void setScreen(Screen screen) {
-        this.screen = screen;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public Integer screenNumber() {
+        return screenNumber;
+    }
+
+    public void setScreen(Integer screenNumber) {
+        this.screenNumber = screenNumber;
     }
 
     public String getSeat() {
@@ -51,5 +58,16 @@ public class Booking implements Serializable {
 
     public void setSeat(String seat) {
         this.seat = seat;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+            "filmTitle='" + filmTitle + '\'' +
+            ", date='" + date + '\'' +
+            ", time='" + time + '\'' +
+            ", screenNumber=" + screenNumber +
+            ", seat='" + seat + '\'' +
+            '}';
     }
 }

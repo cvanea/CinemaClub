@@ -1,6 +1,7 @@
 package cinemaclub.cinema;
 
 import cinemaclub.user.Booking;
+import cinemaclub.user.Customer;
 import cinemaclub.user.User;
 import cinemaclub.user.UserCredentials;
 import exceptions.*;
@@ -29,6 +30,7 @@ public class Cinema {
         screens = setupScreens();
     }
 
+    //Sets up the number of screens in the cinema and their seat number
     private Map<Integer, Screen> setupScreens() {
         Map<Integer, Screen> screensMap = new HashMap<>();
         screensMap.put(1, new Screen(5, 20));
@@ -75,6 +77,14 @@ public class Cinema {
 
     public ArrayList<Booking> getBookingsHistory() throws NoBookingsException {
         return profile.getBookingsHistory(currentUser);
+    }
+
+    public ArrayList<Booking> getBookingsHistory(Customer customer) throws NoBookingsException {
+        return profile.getBookingsHistory(customer);
+    }
+
+    public ArrayList<Booking> getPastBookingsHistory(Customer customer) throws NoBookingsException {
+        return profile.getPastBookingsHistory(customer);
     }
 
     public ArrayList<Film> displayFilms(LocalDate date) {

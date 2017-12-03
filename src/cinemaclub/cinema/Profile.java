@@ -10,6 +10,8 @@ import cinemaclub.user.UserCredentials;
 import exceptions.NoBookingsException;
 import exceptions.UsernameTakenException;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 class Profile {
@@ -43,12 +45,33 @@ class Profile {
         userRepository.setPassword(user);
     }
 
+    ArrayList<Booking> getPastBookingsHistory(User user) throws NoBookingsException {
+        ArrayList<Booking> allBookings = getBookingsHistory(user);
+        ArrayList<Booking> pastBookings = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String timeNow = LocalDateTime.now().format(formatter);
+
+        for (Booking booking : allBookings) {
+            String bookingDateTime = booking.getDate() + " " + booking.getTime();
+            if (bookingDateTime.compareTo(timeNow) < 0) {
+                pastBookings.add(booking);
+            }
+        }
+        return pastBookings;
+    }
+
+
     ArrayList<Booking> getBookingsHistory(User user) throws NoBookingsException {
         if (user instanceof Customer) {
             Customer customer = (Customer) user;
             validateExistingBookingsHistory(customer);
             return customer.getBookings();
         } else return null;
+    }
+
+    ArrayList<Booking> getBookingsHistory(Customer customer) throws NoBookingsException {
+            validateExistingBookingsHistory(customer);
+            return customer.getBookings();
     }
 
 //    void deleteFutureBooking(Customer customer, String bookingTitle) {

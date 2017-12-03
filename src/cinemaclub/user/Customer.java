@@ -24,6 +24,27 @@ public class Customer extends User {
         this.bookings = bookings;
     }
 
+    public void addBooking(Booking booking) {
+        bookings.add(booking);
+    }
+
+    public Booking getBookingByTitle(String title) {
+        for (Booking booking : bookings) {
+            if (booking.getFilmTitle().equals(title)) {
+                return booking;
+            }
+        }
+        return null;
+    }
+
+    public Boolean containsBooking(Booking booking) {
+        return bookings.contains(booking);
+    }
+
+    public void deleteBooking(Booking booking) {
+        bookings.remove(booking);
+    }
+
     public Boolean noExistingBookings() {
         return this.getBookings().isEmpty();
     }
