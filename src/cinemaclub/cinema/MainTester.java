@@ -65,8 +65,8 @@ public class MainTester {
     private static void profileTester() {
         Cinema cinema = new Cinema();
 
-//        cinema.deleteUser("ProfileTester");
-//        cinema.deleteUser("NewTester");
+        cinema.deleteUser("ProfileTester");
+        cinema.deleteUser("NewTester");
 
 
 //        System.out.println(ZonedDateTime.now().format(DateTimeFormatter.RFC_1123_DATE_TIME));

@@ -1,6 +1,7 @@
 package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
+import cinemaclub.database.UserRepository;
 import cinemaclub.user.*;
 import exceptions.IncorrectStaffIDException;
 import exceptions.StaffIDTakenException;
@@ -10,10 +11,10 @@ import java.util.ArrayList;
 
 class Register {
 
-    private DataBase dataBase;
+    private UserRepository userRepository;
 
     Register() {
-        this.dataBase = DataBase.getInstance();
+        this.userRepository = DataBase.getUserRepository();
     }
 
     void registerUser(String username, String email, String password, String userType, String staffID)
@@ -24,28 +25,28 @@ class Register {
             validateUsername(username);
 
             User user = new Staff(new UserCredentials(username, email, password));
-            dataBase.assignStaffID(staffID, username);
-            dataBase.writeToUserDetails(user.getUsername(), user);
+            userRepository.assignStaffID(staffID, username);
+            userRepository.writeToUserDetails(user.getUsername(), user);
         } else {
             validateUsername(username);
 
             User user = new Customer(new UserCredentials(username, email, password), new ArrayList<>());
-            dataBase.writeToUserDetails(user.getUsername(), user);
+            userRepository.writeToUserDetails(user.getUsername(), user);
         }
     }
 
     private void validateID(String staffId) throws IncorrectStaffIDException, StaffIDTakenException {
         // Checks whether the staffID is correct
-        if (dataBase.getStaffIDValue(staffId) == null) {
+        if (userRepository.getStaffIDValue(staffId) == null) {
             throw new IncorrectStaffIDException();
-        } else if (!(staffId == null) && !dataBase.getStaffIDValue(staffId).equals("noStaff")) {
+        } else if (!(staffId == null) && !userRepository.getStaffIDValue(staffId).equals("noStaff")) {
             throw new StaffIDTakenException();
         }
     }
 
     private void validateUsername(String username) throws UsernameTakenException {
 
-        if (dataBase.checkForUsername(username)) {
+        if (userRepository.checkForUsername(username)) {
             throw new UsernameTakenException();
         }
     }

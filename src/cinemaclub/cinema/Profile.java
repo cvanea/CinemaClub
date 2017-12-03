@@ -1,6 +1,8 @@
 package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
+import cinemaclub.database.ScreenRepository;
+import cinemaclub.database.UserRepository;
 import cinemaclub.user.Booking;
 import cinemaclub.user.Customer;
 import cinemaclub.user.User;
@@ -12,10 +14,12 @@ import java.util.ArrayList;
 
 class Profile {
 
-    private DataBase dataBase;
+    private UserRepository userRepository;
+    private ScreenRepository screenRepository;
 
     Profile() {
-        this.dataBase = DataBase.getInstance();
+        this.userRepository = DataBase.getUserRepository();
+        this.screenRepository = DataBase.getScreenRepository();
     }
 
     UserCredentials getProfileDetails(User user) {
@@ -26,18 +30,18 @@ class Profile {
         validateUsername(newUsername);
         String oldUsername = user.getUsername();
         user.setUserName(newUsername);
-        dataBase.setUsername(oldUsername, newUsername, user);
+        userRepository.setUsername(oldUsername, newUsername, user);
     }
 
     void setEmail(User user, String newEmail) {
         //TODO: MOVE USER CHANGES TO DATABASE TO AVOID DUPLICATION... FOOL
         user.setEmail(newEmail);
-        dataBase.setEmail(user);
+        userRepository.setEmail(user);
     }
 
     void setPassword(User user, String newPassword) {
         user.setPassword(newPassword);
-        dataBase.setEmail(user);
+        userRepository.setEmail(user);
     }
 
     ArrayList<Booking> getBookingHistory(Customer customer) throws NoBookingsException {
@@ -54,20 +58,21 @@ class Profile {
 
     private void validateUsername(String username) throws UsernameTakenException {
 
-        if (dataBase.checkForUsername(username)) {
+        if (userRepository.checkForUsername(username)) {
             throw new UsernameTakenException();
         }
     }
 
     private void validateExistingBookingHistory(Customer customer) throws NoBookingsException {
 
-        if (dataBase.noExistingBooking(customer)) {
+        // TODO create screen repository and refer to it here as well.
+        if (screenRepository.noExistingBooking(customer)) {
             throw new NoBookingsException();
         }
     }
 
     void deleteUser(String username) {
-        dataBase.deleteUser(username);
+        userRepository.deleteUser(username);
     }
 
 }
