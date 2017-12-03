@@ -12,6 +12,7 @@ public class MainTester {
 //        loginTester();
         profileTester();
 //        filmEditTester();
+//        seatsTester();
 
     }
 
@@ -64,8 +65,8 @@ public class MainTester {
     private static void profileTester() {
         Cinema cinema = new Cinema();
 
-        cinema.deleteUser("ProfileTester");
-        cinema.deleteUser("NewTester");
+//        cinema.deleteUser("ProfileTester");
+//        cinema.deleteUser("NewTester");
 
 
 //        System.out.println(ZonedDateTime.now().format(DateTimeFormatter.RFC_1123_DATE_TIME));
@@ -129,10 +130,10 @@ public class MainTester {
         System.out.println(cinema.getFilm("UP").getDescription());
 
         try {
-            cinema.setFilmTitle(cinema.getFilm("UP"),"UPTest");
-            cinema.setFilmImagePath(cinema.getFilm("UPTest"),"PathTest");
-            cinema.setFilmRunTime(cinema.getFilm("UPTest"),2);
-            cinema.setFilmDecription(cinema.getFilm("UPTest"),"DescriptionTest");
+            cinema.setFilmTitle(cinema.getFilm("UP"), "UPTest");
+            cinema.setFilmImagePath(cinema.getFilm("UPTest"), "PathTest");
+            cinema.setFilmRunTime(cinema.getFilm("UPTest"), 2);
+            cinema.setFilmDecription(cinema.getFilm("UPTest"), "DescriptionTest");
         } catch (FilmExistsException e) {
             e.getMessage();
         }
@@ -141,5 +142,13 @@ public class MainTester {
         System.out.println(cinema.getFilm("UPTest").getImagePath());
         System.out.println(cinema.getFilm("UPTest").getRunTime());
         System.out.println(cinema.getFilm("UPTest").getDescription());
+    }
+
+    private static void seatsTester() {
+
+        Screen screen = new Screen(5, 10);
+
+        System.out.println(screen.getSeats());
+
     }
 }

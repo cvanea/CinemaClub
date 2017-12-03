@@ -8,6 +8,8 @@ import exceptions.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Cinema {
 
@@ -16,6 +18,7 @@ public class Cinema {
     private FilmDisplay filmDisplay;
     private FilmEdit filmEdit;
     private Profile profile;
+    private Map<Integer, Screen> screens;
     private User currentUser = null;
 
     public Cinema() {
@@ -24,6 +27,17 @@ public class Cinema {
         filmDisplay = new FilmDisplay();
         filmEdit = new FilmEdit();
         profile = new Profile();
+        screens = setupScreens();
+    }
+
+    private Map<Integer, Screen> setupScreens() {
+        Map<Integer, Screen> screensMap = new HashMap<>();
+        screensMap.put(1, new Screen(5, 20));
+        return screensMap;
+    }
+
+    public Screen getScreen(Integer screenNumber) {
+        return screens.get(screenNumber);
     }
 
     public User getCurrentUser() {

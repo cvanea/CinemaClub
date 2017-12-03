@@ -30,6 +30,7 @@ class Profile {
     }
 
     void setEmail(User user, String newEmail) {
+        //TODO: MOVE USER CHANGES TO DATABASE TO AVOID DUPLICATION... FOOL
         user.setEmail(newEmail);
         dataBase.setEmail(user);
     }

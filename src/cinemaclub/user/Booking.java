@@ -1,5 +1,7 @@
 package cinemaclub.user;
 
+import cinemaclub.cinema.Screen;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -9,8 +11,10 @@ public class Booking implements Serializable {
 
     private String filmTitle;
     private LocalDateTime dateTime;
+    private Screen screen;
+    private String seat;
 
-    public Booking(String filmTitle, LocalDateTime dateTime) {
+    public Booking(String filmTitle, LocalDateTime dateTime,Screen screen, String seat) {
         this.filmTitle = filmTitle;
         this.dateTime = dateTime;
     }
