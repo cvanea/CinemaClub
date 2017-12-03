@@ -1,16 +1,16 @@
 package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
+import cinemaclub.database.FilmRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 class FilmDisplay {
-
-    private DataBase dataBase;
+    private FilmRepository filmRepository;
 
     FilmDisplay() {
-        this.dataBase = DataBase.getInstance();
+        this.filmRepository = DataBase.getFilmRepository();
     }
 
     ArrayList<Film> displayFilms(LocalDate date) {
@@ -21,7 +21,7 @@ class FilmDisplay {
 //new Film("UP", "Path", "Film about man boy and a dog", 1)
 
     Film getFilmDetails(String title) {
-        return dataBase.getFilm(title);
+        return filmRepository.getFilm(title);
     }
 
 }

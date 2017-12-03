@@ -1,7 +1,6 @@
 package cinemaclub.cinema;
 
 import cinemaclub.user.Booking;
-import cinemaclub.user.Customer;
 import cinemaclub.user.User;
 import cinemaclub.user.UserCredentials;
 import exceptions.*;
@@ -74,8 +73,8 @@ public class Cinema {
         return filmDisplay.getFilmDetails(title);
     }
 
-    public ArrayList<Booking> getBookingHistory(Customer customer) throws NoBookingsException {
-        return profile.getBookingHistory(customer);
+    public ArrayList<Booking> getBookingsHistory() throws NoBookingsException {
+        return profile.getBookingsHistory(currentUser);
     }
 
     public ArrayList<Film> displayFilms(LocalDate date) {
@@ -94,8 +93,8 @@ public class Cinema {
         filmEdit.setFilmImagePath(film, newImagePath);
     }
 
-    public void setFilmDecription(Film film, String newFilmDescription) {
-        filmEdit.setFilmDecription(film, newFilmDescription);
+    public void setFilmDescription(Film film, String newFilmDescription) {
+        filmEdit.setFilmDescription(film, newFilmDescription);
     }
 
     public void setFilmRunTime(Film film, int newRunTime) {

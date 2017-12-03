@@ -24,7 +24,7 @@ public class Screen {
         return seats;
     }
 
-    public Map<String, Boolean> getSeats() {
+    Map<String, Boolean> getSeats() {
         return seats;
     }
 

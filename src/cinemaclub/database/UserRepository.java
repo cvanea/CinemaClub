@@ -35,7 +35,6 @@ public class UserRepository implements Serializable {
     public String getStaffIDValue(String staffId) {
 
         return staffIDs.get(staffId);
-
     }
 
     private Boolean isUsernameStaff(String username) {

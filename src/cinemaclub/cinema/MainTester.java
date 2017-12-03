@@ -10,7 +10,8 @@ public class MainTester {
 
 //        registerTester();
 //        loginTester();
-        profileTester();
+//        profileTester();
+        bookingHistoryTester();
 //        filmEditTester();
 //        seatsTester();
 
@@ -68,7 +69,6 @@ public class MainTester {
         cinema.deleteUser("ProfileTester");
         cinema.deleteUser("NewTester");
 
-
 //        System.out.println(ZonedDateTime.now().format(DateTimeFormatter.RFC_1123_DATE_TIME));
 
 //        ArrayList<Booking> bookings = new ArrayList<>();
@@ -112,6 +112,16 @@ public class MainTester {
 
     }
 
+    private static void bookingHistoryTester() {
+        Cinema cinema = new Cinema();
+
+        try {
+            System.out.println(cinema.getBookingsHistory());
+        } catch (NoBookingsException e) {
+            e.getMessage();
+        }
+    }
+
     private static void filmEditTester() {
         Cinema cinema = new Cinema();
 
@@ -133,7 +143,7 @@ public class MainTester {
             cinema.setFilmTitle(cinema.getFilm("UP"), "UPTest");
             cinema.setFilmImagePath(cinema.getFilm("UPTest"), "PathTest");
             cinema.setFilmRunTime(cinema.getFilm("UPTest"), 2);
-            cinema.setFilmDecription(cinema.getFilm("UPTest"), "DescriptionTest");
+            cinema.setFilmDescription(cinema.getFilm("UPTest"), "DescriptionTest");
         } catch (FilmExistsException e) {
             e.getMessage();
         }
@@ -145,8 +155,9 @@ public class MainTester {
     }
 
     private static void seatsTester() {
+        Cinema cinema = new Cinema();
 
-        Screen screen = new Screen(5, 10);
+        Screen screen = cinema.getScreen(1);
 
         System.out.println(screen.getSeats());
 

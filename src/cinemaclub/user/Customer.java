@@ -24,6 +24,10 @@ public class Customer extends User {
         this.bookings = bookings;
     }
 
+    public Boolean noExistingBookings() {
+        return this.getBookings().isEmpty();
+    }
+
     @Override
     public String toString() {
         return super.toString() + ", " + Arrays.toString(bookings.toArray());

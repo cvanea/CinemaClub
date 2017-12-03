@@ -1,11 +1,6 @@
 package cinemaclub.database;
 
-import cinemaclub.cinema.Film;
-import cinemaclub.user.Customer;
-
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class DataBase implements Serializable {
 
@@ -16,9 +11,8 @@ public class DataBase implements Serializable {
     private static final String fileName = "DB.txt";
 
     private UserRepository userRepository = new UserRepository(this);
+    private FilmRepository filmRepository  = new FilmRepository(this);
     private ScreenRepository screenRepository = new ScreenRepository(this);
-
-    private Map<String, Film> films = new HashMap<>();
 
     public static DataBase getInstance() {
         return ourInstance;
@@ -32,60 +26,10 @@ public class DataBase implements Serializable {
         return ourInstance.screenRepository;
     }
 
-    //FILMS
-    public void addFilm(String title, Film film) {
-        films.put(title, film);
-
-        updateExternalDB();
+    public static FilmRepository getFilmRepository() {
+        return ourInstance.filmRepository;
     }
 
-    public Boolean checkForFilm(String title) {
-        return films.containsKey(title);
-    }
-
-    public Film getFilm(String title) {
-        return films.get(title);
-    }
-
-    public void setFilmTitle(String oldTitle, String newTitle, Film film) {
-        films.remove(oldTitle);
-        films.put(newTitle, film);
-
-        updateExternalDB();
-    }
-
-    public void setFilmImagePath(Film film) {
-        films.put(film.getTitle(), film);
-
-        updateExternalDB();
-    }
-
-    public void setFilmDescription(Film film) {
-        films.put(film.getTitle(), film);
-
-        updateExternalDB();
-    }
-
-    public void setFilmRunTime(Film film) {
-        films.put(film.getTitle(), film);
-
-        updateExternalDB();
-    }
-
-    public void deleteFilm(String title) {
-        films.remove(title);
-
-        updateExternalDB();
-    }
-    //END OF FILMS
-
-    //SCREEN
-    public Boolean noExistingBooking(Customer customer) {
-        return customer.getBookings().isEmpty();
-    }
-    //END OF SCREEN
-
-    //WRITING TO EXTERNAL DATABASE TXT FILE
     void updateExternalDB() {
         FileOutputStream fileOutputStream;
         ObjectOutputStream objectOutputStream;
@@ -99,9 +43,7 @@ public class DataBase implements Serializable {
             e.printStackTrace();
         }
     }
-    //END OF WRITING TO EXTERNAL
 
-    //READING FROM EXTERNAL
     private static DataBase readExternalDB() {
         DataBase dataBase;
         FileInputStream fileInputStream;
@@ -117,5 +59,4 @@ public class DataBase implements Serializable {
         }
         return dataBase;
     }
-    //END OF READING EXTERNAL
 }

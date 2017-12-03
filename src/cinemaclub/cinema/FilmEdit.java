@@ -1,51 +1,52 @@
 package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
+import cinemaclub.database.FilmRepository;
 import exceptions.FilmExistsException;
 
 class FilmEdit {
 
-    private DataBase dataBase;
+    private FilmRepository filmRepository;
 
     FilmEdit() {
-        this.dataBase = DataBase.getInstance();
+        this.filmRepository = DataBase.getFilmRepository();
     }
 
     void addFilm(String title, String imagePath, int runTime, String description) throws FilmExistsException {
         validateNewFilm(title);
         Film film = new Film(title, imagePath, runTime, description);
-        dataBase.addFilm(title, film);
+        filmRepository.addFilm(title, film);
     }
 
     void setFilmTitle(Film film, String newTitle) throws FilmExistsException {
         validateNewFilm(newTitle);
         String oldTitle = film.getTitle();
         film.setTitle(newTitle);
-        dataBase.setFilmTitle(oldTitle, newTitle, film);
+        filmRepository.setFilmTitle(oldTitle, newTitle, film);
     }
 
     void setFilmImagePath(Film film, String newImagePath) {
         film.setImagePath(newImagePath);
-        dataBase.setFilmImagePath(film);
+        filmRepository.setFilmImagePath(film);
     }
 
-    void setFilmDecription(Film film, String newDescription) {
+    void setFilmDescription(Film film, String newDescription) {
         film.setDescription(newDescription);
-        dataBase.setFilmDescription(film);
+        filmRepository.setFilmDescription(film);
     }
 
     void setFilmRunTime(Film film, int newRunTime) {
         film.setRunTime(newRunTime);
-        dataBase.setFilmRunTime(film);
+        filmRepository.setFilmRunTime(film);
     }
 
     void deleteFilm(String title) {
-        dataBase.deleteFilm(title);
+        filmRepository.deleteFilm(title);
     }
 
     private void validateNewFilm(String title) throws FilmExistsException {
 
-        if (dataBase.checkForFilm(title)) {
+        if (filmRepository.checkForFilm(title)) {
             throw new FilmExistsException();
         }
     }

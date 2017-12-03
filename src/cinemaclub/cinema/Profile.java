@@ -34,26 +34,28 @@ class Profile {
     }
 
     void setEmail(User user, String newEmail) {
-        //TODO: MOVE USER CHANGES TO DATABASE TO AVOID DUPLICATION... FOOL
         user.setEmail(newEmail);
         userRepository.setEmail(user);
     }
 
     void setPassword(User user, String newPassword) {
         user.setPassword(newPassword);
-        userRepository.setEmail(user);
+        userRepository.setPassword(user);
     }
 
-    ArrayList<Booking> getBookingHistory(Customer customer) throws NoBookingsException {
-        validateExistingBookingHistory(customer);
-        return customer.getBookings();
+    ArrayList<Booking> getBookingsHistory(User user) throws NoBookingsException {
+        if (user instanceof Customer) {
+            Customer customer = (Customer) user;
+            validateExistingBookingsHistory(customer);
+            return customer.getBookings();
+        } else return null;
     }
 
-    void deleteFutureBooking(Customer customer, String bookingTitle) {
-
-
-
-    }
+//    void deleteFutureBooking(Customer customer, String bookingTitle) {
+//
+//
+//
+//    }
 
 
     private void validateUsername(String username) throws UsernameTakenException {
@@ -63,10 +65,9 @@ class Profile {
         }
     }
 
-    private void validateExistingBookingHistory(Customer customer) throws NoBookingsException {
+    private void validateExistingBookingsHistory(Customer customer) throws NoBookingsException {
 
-        // TODO create screen repository and refer to it here as well.
-        if (screenRepository.noExistingBooking(customer)) {
+        if (customer.noExistingBookings()) {
             throw new NoBookingsException();
         }
     }
