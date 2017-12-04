@@ -51,7 +51,10 @@ public class ScreenRepository implements Serializable {
         filmTimes.remove(time);
 
         dataBase.updateExternalDB();
+    }
 
+    public void updateDB() {
+        dataBase.updateExternalDB();
     }
 
 }
