@@ -27,17 +27,17 @@ class FilmEdit {
 
     void setFilmImagePath(Film film, String newImagePath) {
         film.setImagePath(newImagePath);
-        filmRepository.setFilmImagePath(film);
+        filmRepository.updateDB();
     }
 
     void setFilmDescription(Film film, String newDescription) {
         film.setDescription(newDescription);
-        filmRepository.setFilmDescription(film);
+        filmRepository.updateDB();
     }
 
     void setFilmRunTime(Film film, String newRunTime) {
         film.setRunTime(newRunTime);
-        filmRepository.setFilmRunTime(film);
+        filmRepository.updateDB();
     }
 
     void deleteFilm(String title) {

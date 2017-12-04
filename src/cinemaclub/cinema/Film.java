@@ -52,6 +52,11 @@ public class Film implements Serializable {
 
     @Override
     public String toString() {
-        return this.getTitle() + ", " + this.getImagePath() + ", " + this.getRunTime() + ", " + this.getDescription() ;
+        return "Film{" +
+            "title='" + title + '\'' +
+            ", imagePath='" + imagePath + '\'' +
+            ", description='" + description + '\'' +
+            ", runTime='" + runTime + '\'' +
+            '}';
     }
 }

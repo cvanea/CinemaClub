@@ -37,7 +37,7 @@ public class UserRepository implements Serializable {
         return staffIDs.get(staffId);
     }
 
-    private Boolean isUsernameStaff(String username) {
+    private Boolean isStaff(String username) {
 
         return staffIDs.containsValue(username);
     }
@@ -66,32 +66,12 @@ public class UserRepository implements Serializable {
         dataBase.updateExternalDB();
     }
 
-    public void setEmail(User user) {
-        userDetails.put(user.getUsername(), user);
-
-        dataBase.updateExternalDB();
-    }
-
-    public void setPassword(User user) {
-        userDetails.put(user.getUsername(), user);
-
+    public void updateDB() {
         dataBase.updateExternalDB();
     }
 
     public void deleteUser(String username) {
         userDetails.remove(username);
-
-        dataBase.updateExternalDB();
-    }
-
-    public void deleteUserBooking(User user) {
-        userDetails.put(user.getUsername(), user);
-
-        dataBase.updateExternalDB();
-    }
-
-    public void addBooking(User user) {
-        userDetails.put(user.getUsername(), user);
 
         dataBase.updateExternalDB();
     }

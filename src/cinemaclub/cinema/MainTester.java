@@ -11,8 +11,8 @@ public class MainTester {
 //        registerTester();
 //        loginTester();
 //        profileTester();
-        bookingTester();
-//        filmEditTester();
+//        bookingTester();
+        filmEditTester();
 //        seatsTester();
 
     }
@@ -72,16 +72,20 @@ public class MainTester {
         try {
             cinema.registerUser("ProfileTester", "test@tester.com", "pass", "customer", null);
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
-            System.out.println(e.getMessage());
-            System.exit(0);
+            System.out.println(e.getMessage() + "1");
         }
 
         try {
             cinema.loginUser("ProfileTester", "test@tester.com", "pass");
         } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
-            System.out.println(e.getMessage());
-            System.exit(0);
+            System.out.println(e.getMessage() + "2");
         }
+
+//        try {
+//            cinema.loginUser("ProfileTester", "newtester@tester.com", "newpass");
+//        } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
+//            System.out.println(e.getMessage() + "3");
+//        }
 
         System.out.println(cinema.getProfileDetails().getUsername());
         System.out.println(cinema.getProfileDetails().getEmail());
@@ -178,7 +182,7 @@ public class MainTester {
             cinema.setFilmRunTime(cinema.getFilm("UPTest"), "02:00");
             cinema.setFilmDescription(cinema.getFilm("UPTest"), "DescriptionTest");
         } catch (FilmExistsException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
         System.out.println(cinema.getFilm("UPTest").getTitle());

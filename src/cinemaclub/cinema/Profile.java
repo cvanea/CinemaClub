@@ -36,12 +36,12 @@ class Profile {
 
     void setEmail(User user, String newEmail) {
         user.setEmail(newEmail);
-        userRepository.setEmail(user);
+        userRepository.updateDB();
     }
 
     void setPassword(User user, String newPassword) {
         user.setPassword(newPassword);
-        userRepository.setPassword(user);
+        userRepository.updateDB();
     }
 
     ArrayList<Booking> getPastBookingsHistory(User user) throws NoBookingsException {
@@ -96,7 +96,7 @@ class Profile {
         if (user instanceof Customer) {
             Customer customer = (Customer) user;
             customer.deleteBooking(booking);
-            userRepository.deleteUserBooking(user);
+            userRepository.updateDB();
         }
     }
 

@@ -10,6 +10,7 @@ import exceptions.SeatAlreadyTakenException;
 import exceptions.SeatNotFoundException;
 
 class BookingSystem {
+    //TODO SeatAlreadyTaken not working. Fix.
 
     private UserRepository userRepository;
     private ScreenRepository screenRepository;
@@ -24,10 +25,9 @@ class BookingSystem {
             Customer customer = (Customer) user;
             validateSeatAvailability(screen, seatRow, seatNumber);
             customer.addBooking(new Booking(film, date, time, screen.getScreenNumber(), seatRow + seatNumber));
-            userRepository.addBooking(user);
+            userRepository.updateDB();
         }
     }
-
 
     private void validateSeatAvailability(Screen screen, String seatRow, int seatNumber) throws SeatAlreadyTakenException, SeatNotFoundException {
         if (screen.isSeatTaken(seatRow, seatNumber)) {

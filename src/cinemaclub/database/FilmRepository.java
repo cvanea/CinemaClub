@@ -36,21 +36,7 @@ public class FilmRepository implements Serializable {
         dataBase.updateExternalDB();
     }
 
-    public void setFilmImagePath(Film film) {
-        films.put(film.getTitle(), film);
-
-        dataBase.updateExternalDB();
-    }
-
-    public void setFilmDescription(Film film) {
-        films.put(film.getTitle(), film);
-
-        dataBase.updateExternalDB();
-    }
-
-    public void setFilmRunTime(Film film) {
-        films.put(film.getTitle(), film);
-
+    public void updateDB() {
         dataBase.updateExternalDB();
     }
 
