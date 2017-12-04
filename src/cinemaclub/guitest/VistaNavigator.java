@@ -30,7 +30,6 @@ public class VistaNavigator {
     public static void setMainController(MainController mainController) {
         VistaNavigator.mainController = mainController;
     }
-
     /**
      * Loads the vista specified by the fxml file into the
      * vistaHolder pane of the main application layout.
@@ -48,6 +47,7 @@ public class VistaNavigator {
      *
      * @param fxml the fxml file to be loaded.
      */
+
     public static void loadVista(String fxml) {
         try {
             mainController.setVista(

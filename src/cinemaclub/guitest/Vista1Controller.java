@@ -18,4 +18,8 @@ public class Vista1Controller {
         VistaNavigator.loadVista(VistaNavigator.VISTA_2);
     }
 
+    void testPane() {
+        System.out.println("testpane");
+    }
+
 }
