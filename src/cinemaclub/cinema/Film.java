@@ -8,14 +8,14 @@ public class Film implements Serializable {
 
     String title;
     String imagePath;
-    int runTime;
     String description;
+    String runTime;
 
-    public Film(String title, String imagePath, int runTime, String description) {
+    public Film(String title, String imagePath, String description, String runTime) {
         this.title = title;
         this.imagePath = imagePath;
-        this.runTime = runTime;
         this.description = description;
+        this.runTime = runTime;
     }
 
     public String getTitle() {
@@ -34,20 +34,20 @@ public class Film implements Serializable {
         this.imagePath = imagePath;
     }
 
-    public int getRunTime() {
-        return runTime;
-    }
-
-    public void setRunTime(int runTime) {
-        this.runTime = runTime;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getRunTime() {
+        return runTime;
+    }
+
+    public void setRunTime(String runTime) {
+        this.runTime = runTime;
     }
 
     @Override

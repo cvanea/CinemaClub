@@ -1,11 +1,7 @@
 package cinemaclub.cinema;
 
-import cinemaclub.user.Booking;
-import cinemaclub.user.Customer;
-import cinemaclub.user.UserCredentials;
 import exceptions.*;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainTester {
@@ -15,7 +11,7 @@ public class MainTester {
 //        registerTester();
 //        loginTester();
 //        profileTester();
-        bookingHistoryTester();
+        bookingTester();
 //        filmEditTester();
 //        seatsTester();
 
@@ -73,17 +69,6 @@ public class MainTester {
         cinema.deleteUser("ProfileTester");
         cinema.deleteUser("NewTester");
 
-//        System.out.println(ZonedDateTime.now().format(DateTimeFormatter.RFC_1123_DATE_TIME));
-
-//        ArrayList<Booking> bookings = new ArrayList<>();
-//
-//        bookings.add(new Booking("UP", LocalDateTime.now()));
-//        bookings.add(new Booking("IT", LocalDateTime.now()));
-//
-//        Customer customer = new Customer(new UserCredentials("Test", "test@test", "pass"), bookings);
-//        System.out.println(customer);
-
-
         try {
             cinema.registerUser("ProfileTester", "test@tester.com", "pass", "customer", null);
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
@@ -116,45 +101,57 @@ public class MainTester {
 
     }
 
-    private static void bookingHistoryTester() {
+    private static void bookingTester() {
         Cinema cinema = new Cinema();
 
-        Customer customer = new Customer(new UserCredentials("BookingTest", "booking@booking.com", "bookingpass"), new ArrayList<>());
-
-        Booking test = new Booking("Test", "2017-11-09", "10:30", 1, "A1");
-        Booking futureTest = new Booking("FutureTest", "2018-11-09", "10:30", 1, "A1");
-
-        customer.addBooking(test);
-        customer.addBooking(futureTest);
+        cinema.deleteUser("BookingTest");
 
         try {
-            System.out.println(cinema.getBookingsHistory(customer));
-        } catch (NoBookingsException e) {
-            e.getMessage();
+            cinema.registerUser("BookingTest", "booking@booking.com", "bookingpass", "customer", null);
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
+            System.out.println(e.getMessage());
+            System.exit(0);
         }
 
         try {
-            System.out.println(cinema.getPastBookingsHistory(customer));
-        } catch (NoBookingsException e) {
-            e.getMessage();
+            cinema.loginUser("BookingTest", "booking@booking.com", "bookingpass");
+        } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
+            System.out.println(e.getMessage());
+            System.exit(0);
+        }
+
+        Film filmTest = new Film("FilmTest", "Path", "A tester film", "01:00");
+        Film filmTest2 = new Film("FilmTest2", "Path2", "A tester film2", "01:00");
+
+        try {
+            cinema.bookFilm("2018-11-09", "12:00", filmTest, cinema.getScreen(1), "A", 5);
+            cinema.bookFilm("2015-11-09", "12:00", filmTest2, cinema.getScreen(1), "B", 7);
+        } catch (SeatAlreadyTakenException | SeatNotFoundException e) {
+            System.out.println(e.getMessage());
         }
 
         try {
-            System.out.println(cinema.getFutureBookingsHistory(customer));
+            System.out.println(cinema.getPastBookingsHistory());
         } catch (NoBookingsException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
         try {
-            cinema.deleteFutureBooking(customer, futureTest);
-        } catch (NoBookingsException | NotAFutureBookingException e) {
-            e.getMessage();
+            System.out.println(cinema.getFutureBookingsHistory());
+        } catch (NoBookingsException | NoFutureBookingsException e) {
+            System.out.println(e.getMessage());
         }
 
         try {
-            System.out.println(cinema.getBookingsHistory(customer));
-        } catch (NoBookingsException e) {
-            e.getMessage();
+            cinema.deleteFutureBooking(cinema.getBookingByTitle("FilmTest"));
+        } catch (NoFutureBookingsException | NotAFutureBookingException | NoBookingsException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            System.out.println(cinema.getFutureBookingsHistory());
+        } catch (NoBookingsException | NoFutureBookingsException e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -165,7 +162,7 @@ public class MainTester {
         cinema.deleteFilm("UPTest");
 
         try {
-            cinema.addFilm("UP", "Path", 1, "A film about a man a boy and a dog");
+            cinema.addFilm("UP", "Path", "A film about a man, a boy, and a dog", "01:00");
         } catch (FilmExistsException e) {
             System.out.println(e.getMessage());
         }
@@ -178,7 +175,7 @@ public class MainTester {
         try {
             cinema.setFilmTitle(cinema.getFilm("UP"), "UPTest");
             cinema.setFilmImagePath(cinema.getFilm("UPTest"), "PathTest");
-            cinema.setFilmRunTime(cinema.getFilm("UPTest"), 2);
+            cinema.setFilmRunTime(cinema.getFilm("UPTest"), "02:00");
             cinema.setFilmDescription(cinema.getFilm("UPTest"), "DescriptionTest");
         } catch (FilmExistsException e) {
             e.getMessage();

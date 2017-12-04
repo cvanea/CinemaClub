@@ -6,7 +6,6 @@ import cinemaclub.user.User;
 import cinemaclub.user.UserCredentials;
 import exceptions.*;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +17,9 @@ public class Cinema {
     private FilmDisplay filmDisplay;
     private FilmEdit filmEdit;
     private Profile profile;
+    private BookingSystem bookingSystem;
     private Map<Integer, Screen> screens;
+    private ArrayList<Film> showings;
     private User currentUser = null;
 
     public Cinema() {
@@ -27,13 +28,14 @@ public class Cinema {
         filmDisplay = new FilmDisplay();
         filmEdit = new FilmEdit();
         profile = new Profile();
+        bookingSystem = new BookingSystem();
         screens = setupScreens();
     }
 
     //Sets up the number of screens in the cinema and their seat number
     private Map<Integer, Screen> setupScreens() {
         Map<Integer, Screen> screensMap = new HashMap<>();
-        screensMap.put(1, new Screen(5, 20));
+        screensMap.put(1, new Screen(1, 5, 10));
         return screensMap;
     }
 
@@ -87,28 +89,42 @@ public class Cinema {
         return profile.getPastBookingsHistory(currentUser);
     }
 
-    public ArrayList<Booking> getFutureBookingsHistory(Customer customer) throws NoBookingsException {
+    public ArrayList<Booking> getFutureBookingsHistory(Customer customer) throws NoBookingsException, NoFutureBookingsException {
         return profile.getFutureBookingsHistory(customer);
     }
 
-    public ArrayList<Booking> getFutureBookingsHistory() throws NoBookingsException {
+    public ArrayList<Booking> getFutureBookingsHistory() throws NoBookingsException, NoFutureBookingsException {
         return profile.getFutureBookingsHistory(currentUser);
     }
 
-    public void deleteFutureBooking(Booking booking) throws NoBookingsException, NotAFutureBookingException {
+    public void deleteFutureBooking(Booking booking)
+        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException {
         profile.deleteFutureBooking(currentUser, booking);
     }
 
-    public void deleteFutureBooking(Customer customer, Booking booking) throws NoBookingsException, NotAFutureBookingException {
+    public void deleteFutureBooking(Customer customer, Booking booking)
+        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException {
         profile.deleteFutureBooking(customer, booking);
     }
 
-    public ArrayList<Film> displayFilms(LocalDate date) {
+    public Booking getBookingByTitle(String filmTitle) {
+        if (currentUser instanceof Customer) {
+            Customer customer = (Customer) currentUser;
+            return customer.getBookingByTitle(filmTitle);
+        } else return null;
+    }
+
+    public void bookFilm(String date, String time, Film film, Screen screen, String seatRow, int seatNumber)
+        throws SeatAlreadyTakenException, SeatNotFoundException {
+        bookingSystem.bookFilm(currentUser, date, time, film, screen, seatRow, seatNumber);
+    }
+
+    public ArrayList<Film> displayFilms(String date) {
         return filmDisplay.displayFilms(date);
     }
 
-    public void addFilm(String title, String imagePath, int runTime, String description) throws FilmExistsException {
-        filmEdit.addFilm(title, imagePath, runTime, description);
+    public void addFilm(String title, String imagePath, String description, String runTime) throws FilmExistsException {
+        filmEdit.addFilm(title, imagePath, description, runTime);
     }
 
     public void setFilmTitle(Film film, String newTitle) throws FilmExistsException {
@@ -123,7 +139,7 @@ public class Cinema {
         filmEdit.setFilmDescription(film, newFilmDescription);
     }
 
-    public void setFilmRunTime(Film film, int newRunTime) {
+    public void setFilmRunTime(Film film, String newRunTime) {
         filmEdit.setFilmRunTime(film, newRunTime);
     }
 

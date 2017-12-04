@@ -1,31 +1,33 @@
 package cinemaclub.user;
 
+import cinemaclub.cinema.Film;
+
 import java.io.Serializable;
 
 public class Booking implements Serializable {
 
     private static final long serialVersionUID = 8762368738673278L;
 
-    private String filmTitle;
+    private Film film;
     private String date;
     private String time;
     private Integer screenNumber;
     private String seat;
 
-    public Booking(String filmTitle, String date, String time, Integer screenNumber, String seat) {
-        this.filmTitle = filmTitle;
+    public Booking(Film film, String date, String time, Integer screenNumber, String seat) {
+        this.film = film;
         this.date = date;
         this.time = time;
         this.screenNumber = screenNumber;
         this.seat = seat;
     }
 
-    public String getFilmTitle() {
-        return filmTitle;
+    public Film getFilm() {
+        return film;
     }
 
-    public void setFilmTitle(String filmTitle) {
-        this.filmTitle = filmTitle;
+    public void setFilm(Film film) {
+        this.film = film;
     }
 
     public String getDate() {
@@ -63,7 +65,7 @@ public class Booking implements Serializable {
     @Override
     public String toString() {
         return "Booking{" +
-            "filmTitle='" + filmTitle + '\'' + ", date='" + date + '\'' + ", time='" + time + '\'' +
+            "film='" + film + '\'' + ", date='" + date + '\'' + ", time='" + time + '\'' +
             ", screenNumber=" + screenNumber + ", seat='" + seat + '\'' + '}';
     }
 }

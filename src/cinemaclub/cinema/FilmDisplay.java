@@ -3,7 +3,6 @@ package cinemaclub.cinema;
 import cinemaclub.database.DataBase;
 import cinemaclub.database.FilmRepository;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 class FilmDisplay {
@@ -13,7 +12,7 @@ class FilmDisplay {
         this.filmRepository = DataBase.getFilmRepository();
     }
 
-    ArrayList<Film> displayFilms(LocalDate date) {
+    ArrayList<Film> displayFilms(String date) {
 
         return new ArrayList<>();
     }

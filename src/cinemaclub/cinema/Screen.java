@@ -7,9 +7,11 @@ import java.util.Map;
 
 public class Screen {
 
+    private Integer screenNumber;
     private final Map<String, Boolean> seats;
 
-    public Screen(int numberRow, int seatsPerRow) {
+    public Screen(Integer screenNumber, int numberRow, int seatsPerRow) {
+        this.screenNumber = screenNumber;
         seats = setupSeats(numberRow, seatsPerRow);
     }
 
@@ -28,7 +30,7 @@ public class Screen {
         return seats;
     }
 
-    public Boolean checkSeatAvailability(String row, int number) throws SeatNotFoundException {
+    public Boolean isSeatTaken(String row, int number) throws SeatNotFoundException {
         validateSeat(row, number);
         return seats.get(row + number);
     }
@@ -44,9 +46,17 @@ public class Screen {
     }
 
     private void validateSeat(String row, int number) throws SeatNotFoundException {
-        if (seats.containsKey(row + number)) {
+        if (!seats.containsKey(row + number)) {
             throw new SeatNotFoundException();
         }
+    }
+
+    public Integer getScreenNumber() {
+        return screenNumber;
+    }
+
+    public void setScreenNumber(Integer screenNumber) {
+        this.screenNumber = screenNumber;
     }
 
     @Override

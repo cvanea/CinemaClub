@@ -12,9 +12,9 @@ class FilmEdit {
         this.filmRepository = DataBase.getFilmRepository();
     }
 
-    void addFilm(String title, String imagePath, int runTime, String description) throws FilmExistsException {
+    void addFilm(String title, String imagePath, String description, String runTime) throws FilmExistsException {
         validateNewFilm(title);
-        Film film = new Film(title, imagePath, runTime, description);
+        Film film = new Film(title, imagePath, description, runTime);
         filmRepository.addFilm(title, film);
     }
 
@@ -35,7 +35,7 @@ class FilmEdit {
         filmRepository.setFilmDescription(film);
     }
 
-    void setFilmRunTime(Film film, int newRunTime) {
+    void setFilmRunTime(Film film, String newRunTime) {
         film.setRunTime(newRunTime);
         filmRepository.setFilmRunTime(film);
     }

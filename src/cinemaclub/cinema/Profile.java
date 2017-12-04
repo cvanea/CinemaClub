@@ -6,8 +6,9 @@ import cinemaclub.user.Booking;
 import cinemaclub.user.Customer;
 import cinemaclub.user.User;
 import cinemaclub.user.UserCredentials;
-import exceptions.NotAFutureBookingException;
 import exceptions.NoBookingsException;
+import exceptions.NoFutureBookingsException;
+import exceptions.NotAFutureBookingException;
 import exceptions.UsernameTakenException;
 
 import java.time.LocalDateTime;
@@ -58,7 +59,7 @@ class Profile {
         return pastBookings;
     }
 
-    ArrayList<Booking> getFutureBookingsHistory(User user) throws NoBookingsException {
+    ArrayList<Booking> getFutureBookingsHistory(User user) throws NoBookingsException, NoFutureBookingsException {
         ArrayList<Booking> allBookings = getBookingsHistory(user);
         ArrayList<Booking> futureBookings = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -70,7 +71,10 @@ class Profile {
                 futureBookings.add(booking);
             }
         }
-        return futureBookings;
+
+        if (futureBookings.isEmpty()) {
+            throw new NoFutureBookingsException();
+        } else return futureBookings;
     }
 
     private ArrayList<Booking> getBookingsHistory(User user) throws NoBookingsException {
@@ -86,8 +90,9 @@ class Profile {
             return customer.getBookings();
     }
 
-    void deleteFutureBooking(User user, Booking booking) throws NotAFutureBookingException, NoBookingsException {
-        validateFutureBooking(user, booking);
+    void deleteFutureBooking(User user, Booking booking)
+        throws NotAFutureBookingException, NoBookingsException, NoFutureBookingsException {
+        validateFutureBookingAsFuture(user, booking);
         if (user instanceof Customer) {
             Customer customer = (Customer) user;
             customer.deleteBooking(booking);
@@ -109,7 +114,8 @@ class Profile {
         }
     }
 
-    private void validateFutureBooking(User user, Booking booking) throws NotAFutureBookingException, NoBookingsException {
+    private void validateFutureBookingAsFuture(User user, Booking booking)
+        throws NotAFutureBookingException, NoBookingsException, NoFutureBookingsException {
 
         if (!(this.getFutureBookingsHistory(user).contains(booking))){
             throw new NotAFutureBookingException();

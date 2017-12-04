@@ -30,7 +30,7 @@ public class Customer extends User {
 
     public Booking getBookingByTitle(String title) {
         for (Booking booking : bookings) {
-            if (booking.getFilmTitle().equals(title)) {
+            if (booking.getFilm().getTitle().equals(title)) {
                 return booking;
             }
         }
