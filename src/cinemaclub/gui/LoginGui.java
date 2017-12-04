@@ -25,7 +25,7 @@ public class LoginGui {
 
     public void pressButton(ActionEvent event) {
         try {
-            cinema.loginUser(username.getText(), email.getText(), password.getText());
+            cinema.loginUser(username.getText(), password.getText());
             errorLabel.setText(cinema.getCurrentUser().IExist());
 //            cinema.getCurrentUser();
             Main.cinemaStage(); // Go To the Booking Screen

@@ -10,8 +10,8 @@ public class MainTester {
     public static void main(String[] args) {
 
 //        registerTester();
-//        loginTester();
-        logoutTester();
+        loginTester();
+//        logoutTester();
 //        profileTester();
 //        bookingTester();
 //        filmEditTester();
