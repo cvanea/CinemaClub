@@ -123,7 +123,7 @@ public class Cinema {
         bookingSystem.bookFilm(currentUser, date, time, film, screen, seatRow, seatNumber);
     }
 
-    public ArrayList<Film> displayFilmsPerScreenDate(String date) {
+    public ArrayList<Film> displayFilmsPerScreenDate(String date) throws PastDateException {
         return filmDisplay.displayFilms(date, this.getScreen(1));
     }
 

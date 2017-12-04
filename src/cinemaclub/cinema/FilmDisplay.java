@@ -3,7 +3,10 @@ package cinemaclub.cinema;
 import cinemaclub.database.DataBase;
 import cinemaclub.database.FilmRepository;
 import cinemaclub.database.ScreenRepository;
+import exceptions.PastDateException;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 class FilmDisplay {
@@ -15,8 +18,8 @@ class FilmDisplay {
         this.screenRepository = DataBase.getScreenRepository();
     }
 
-    ArrayList<Film> displayFilms(String date, Screen screen) {
-
+    ArrayList<Film> displayFilms(String date, Screen screen) throws PastDateException {
+        validateDate(date);
         ArrayList<Film> allFilms = displayAllFilms();
 
         screenRepository.getFilmsByDate(screen, date);
@@ -36,6 +39,15 @@ class FilmDisplay {
 
     Film getFilmDetails(String title) {
         return filmRepository.getFilm(title);
+    }
+
+    private void validateDate(String date) throws PastDateException {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String timeNow = LocalDateTime.now().format(formatter);
+
+        if (date.compareTo(timeNow) < 0) {
+            throw new PastDateException();
+        }
     }
 
 }
