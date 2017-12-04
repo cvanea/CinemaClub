@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<!--<?scenebuilder-stylesheet vista.css?>-->
+
+<HBox prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.LoginGui.LoginMainController">
+    <children>
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #022B3A;">
+         <children>
+              <Label fx:id="headerLabel" layoutY="77.0" maxWidth="1.7976931348623157E308" prefHeight="347.0" prefWidth="286.0" text="Welcome to the Cinema Club" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+        <StackPane fx:id="viewHolder" prefHeight="500.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
+            <children>
+                <AnchorPane prefHeight="500.0" prefWidth="550.0" />
+            </children></StackPane>
+    </children>
+</HBox>
