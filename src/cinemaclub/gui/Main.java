@@ -15,6 +15,8 @@ public class Main extends Application {
 
 //    public Cinema cinema = new Cinema();
 
+//    public final Model = new Model();
+
     static AnchorPane rootLogin;
     static AnchorPane rootCinema;
 
@@ -25,25 +27,11 @@ public class Main extends Application {
     private static int loginIdxCur = 0;
     private static int cinemaIdxCur = 0;
 
-//    private static Stage loginStage;
-
-//    private void setLoginStage(Stage stage) {
-//        Main.loginStage = stage;
-//    }
-//
-//    static public Stage getLoginStage() {
-//        return Main.loginStage;
-//    }
-//
-//    private static Stage cinemaStage;
-//
-//    private void setCinemaStage(Stage stage) {
-//        Main.cinemaStage = stage;
-//    }
-//
-//    static public Stage getCinemaStage() {
-//        return Main.cinemaStage;
-//    }
+    static AnchorCinema anchorCinema;
+    static CinemaHome cinemaHome;
+    static ProfileController profileController;
+    static BookingsGui bookingsGui;
+    static ProfileEditController profileEditController;
 
     @Override
     public void start(Stage loginStage) {
@@ -77,28 +65,31 @@ public class Main extends Application {
         rootCinema.getChildren().add(cinemaGrid.get(idx));
         cinemaIdxCur = idx;
     }
-    
-    public static void cinemaStage(Cinema cinema) {
+
+    public static void cinemaStage() {
         try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("anchorCinema.fxml"));
-            rootCinema = loader.load();
-            AnchorCinema mainController = loader.getController(); // This did the "trick"
-            mainController.setCinema(cinema);
-            cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("cinemaHome.fxml")));
-            cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("profileGui.fxml")));
-            cinemaGrid.add((GridPane)FXMLLoader.load(Main.class.getResource("bookingsGui.fxml")));
+            FXMLLoader anchor = new FXMLLoader(Main.class.getResource("anchorCinema.fxml"));
+            FXMLLoader profile = new FXMLLoader(Main.class.getResource("profileGui.fxml"));
+            FXMLLoader profileEdit = new FXMLLoader(Main.class.getResource("profileEditGui.fxml"));
+            FXMLLoader home = new FXMLLoader(Main.class.getResource("cinemaHome.fxml"));
+            FXMLLoader bookings = new FXMLLoader(Main.class.getResource("bookingsGui.fxml"));
+            rootCinema = anchor.load();
+            AnchorCinema controller = anchor.getController();
+            ProfileEditController profileEditor = profileEdit.getController();
+//            profileEditor.setModel(model);
+            cinemaGrid.add((GridPane)home.load());
+            cinemaGrid.add((GridPane)profile.load());
+            cinemaGrid.add((GridPane)bookings.load());
+            cinemaGrid.add((GridPane)profileEdit.load());
             rootCinema.getChildren().add(cinemaGrid.get(0));
-//            ProfileController profileController = loader.getController();
             Stage newStage = new Stage(); // new stage
             Scene cinemaScene = new Scene(rootCinema, 600, 400);
             newStage.setScene(cinemaScene);
             newStage.show();
-            System.out.println(cinema.getCurrentUser().IExist());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-
 
 }
