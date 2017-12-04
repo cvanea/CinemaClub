@@ -44,6 +44,15 @@ class FilmEdit {
         filmRepository.deleteFilm(title);
     }
 
+    void addFilmToShowings(String date, String time, Film film, Screen screen) {
+
+    }
+
+    void deleteShowing(String date, String time, Film film, Screen screen) {
+
+    }
+
+
     private void validateNewFilm(String title) throws FilmExistsException {
 
         if (filmRepository.checkForFilm(title)) {

@@ -19,7 +19,7 @@ public class Cinema {
     private Profile profile;
     private BookingSystem bookingSystem;
     private Map<Integer, Screen> screens;
-    private ArrayList<Film> showings;
+    private ArrayList<Film> availableFilms;
     private User currentUser = null;
 
     public Cinema() {
@@ -123,8 +123,16 @@ public class Cinema {
         bookingSystem.bookFilm(currentUser, date, time, film, screen, seatRow, seatNumber);
     }
 
-    public ArrayList<Film> displayFilms(String date) {
-        return filmDisplay.displayFilms(date);
+    public ArrayList<Film> displayFilmsPerScreenDate(String date) {
+        return filmDisplay.displayFilms(date, this.getScreen(1));
+    }
+
+    public ArrayList<Film> displayAllFilms() {
+        return filmDisplay.displayAllFilms();
+    }
+
+    public ArrayList<Film> displayAllScreenFilms() {
+        return filmDisplay.displayAllFilms(this.getScreen(1));
     }
 
     public void addFilm(String title, String imagePath, String description, String runTime) throws FilmExistsException {

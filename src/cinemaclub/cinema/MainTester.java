@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class MainTester {
 
+    //System integration testing.
     public static void main(String[] args) {
 
 //        registerTester();
