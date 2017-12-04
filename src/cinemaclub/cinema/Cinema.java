@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+//TODO Add functionality for staff to export a list of films with dates, times, number of booked and available seats.
+//TODO Have customer profile display more information such as First Name, Surname, email. So change register.
 public class Cinema {
 
     private Login login;
@@ -50,9 +52,9 @@ public class Cinema {
         currentUser = null;
     }
 
-    public void loginUser(String username, String email, String password)
+    public void loginUser(String username, String password)
         throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
-        currentUser = login.loginUser(username, email, password);
+        currentUser = login.loginUser(username, password);
     }
 
     public void registerUser(String username, String email, String password, String userType, String staffID)

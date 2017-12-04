@@ -24,7 +24,7 @@ public class MainTester {
 
         while (true) {
             try {
-                cinema.loginUser(inputData("username"), inputData("email"), inputData("password"));
+                cinema.loginUser(inputData("username"), inputData("password"));
 
                 System.out.println(cinema.getCurrentUser().IExist());
                 System.exit(0);
@@ -75,7 +75,7 @@ public class MainTester {
         }
 
         try {
-            cinema.loginUser("LogoutTester1", "logouttest1@tester.com", "pass1");
+            cinema.loginUser("LogoutTester1",  "pass1");
         } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
             System.out.println(e.getMessage() + "2");
         }
@@ -85,7 +85,7 @@ public class MainTester {
         cinema.logoutCurrentUser();
 
         try {
-            cinema.loginUser("LogoutTester2", "logouttester2@tester.com", "pass2");
+            cinema.loginUser("LogoutTester2", "pass2");
         } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
             System.out.println(e.getMessage() + "2");
         }
@@ -115,7 +115,7 @@ public class MainTester {
         }
 
         try {
-            cinema.loginUser("ProfileTester", "test@tester.com", "pass");
+            cinema.loginUser("ProfileTester",  "pass");
         } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
             System.out.println(e.getMessage() + "2");
         }
@@ -157,7 +157,7 @@ public class MainTester {
         }
 
         try {
-            cinema.loginUser("BookingTest", "booking@booking.com", "bookingpass");
+            cinema.loginUser("BookingTest",  "bookingpass");
         } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
             System.out.println(e.getMessage());
             System.exit(0);

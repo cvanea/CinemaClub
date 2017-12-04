@@ -14,28 +14,44 @@ class Login {
         this.userRepository = DataBase.getUserRepository();
     }
 
-    User loginUser(String username, String email, String password)
+    User loginUser(String username, String password)
         throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
 
-        UserCredentials userCredentials = new UserCredentials(username, email, password);
-        validateDetails(userCredentials);
+//        UserCredentials userCredentials = new UserCredentials(username, email, password);
+        validateUsername(username);
+        validatePassword(username, password);
 
         return userRepository.getUser(username);
     }
 
-    private void validateDetails(UserCredentials userCredentials)
-        throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
-        User user = userRepository.getUser(userCredentials.getUsername());
-        UserCredentials savedCredentials;
+    private void validateUsername(String username)
+        throws UserDetailsDoNotExistException {
 
-        if (user == null) {
+        if (userRepository.getUser(username) == null) {
             throw new UserDetailsDoNotExistException();
-        } else {
-            savedCredentials = user.getUserCredentials();
         }
+    }
 
-        if (!userCredentials.checkCredentials(savedCredentials)) {
+    private void validatePassword(String username, String password) throws UserDetailsIncorrectException {
+        if (!userRepository.getUser(username).getPassword().equals(password)) {
             throw new UserDetailsIncorrectException();
         }
     }
+
+//
+//    private void validateDetails(UserCredentials userCredentials)
+//        throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
+//        User user = userRepository.getUser(userCredentials.getUsername());
+//        UserCredentials savedCredentials;
+//
+//        if (user == null) {
+//            throw new UserDetailsDoNotExistException();
+//        } else {
+//            savedCredentials = user.getUserCredentials();
+//        }
+//
+//        if (!userCredentials.checkCredentials(savedCredentials)) {
+//            throw new UserDetailsIncorrectException();
+//        }
+//    }
 }
