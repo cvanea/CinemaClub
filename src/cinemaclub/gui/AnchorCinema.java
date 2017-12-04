@@ -2,6 +2,7 @@ package cinemaclub.gui;
 
 import cinemaclub.cinema.Cinema;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 
 public class AnchorCinema {
 
@@ -18,6 +19,9 @@ public class AnchorCinema {
 
     public void pressProfile(ActionEvent event) {
         Main.setPaneCinema(1);
+        FXMLLoader loader2 = new FXMLLoader(Main.class.getResource("ProfileGUI.fxml"));
+        ProfileController mainController2 = loader2.getController(); // This did the "trick"
+        mainController2.setCinema(cinema);
     }
 
     public void pressBookings(ActionEvent event) {
