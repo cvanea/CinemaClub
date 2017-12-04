@@ -47,6 +47,10 @@ public class Cinema {
         return currentUser;
     }
 
+    public void logoutCurrentUser() {
+        currentUser = null;
+    }
+
     public void loginUser(String username, String email, String password)
         throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
         currentUser = login.loginUser(username, email, password);

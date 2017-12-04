@@ -10,9 +10,10 @@ public class MainTester {
 
 //        registerTester();
 //        loginTester();
+        logoutTester();
 //        profileTester();
 //        bookingTester();
-        filmEditTester();
+//        filmEditTester();
 //        seatsTester();
 
     }
@@ -52,6 +53,43 @@ public class MainTester {
                 System.out.println(e.getMessage());
             }
         }
+    }
+
+    private static void logoutTester() {
+        Cinema cinema = new Cinema();
+
+        cinema.deleteUser("LogoutTester1");
+        cinema.deleteUser("LogoutTester2");
+
+        try {
+            cinema.registerUser("LogoutTester1", "logouttest1@tester.com", "pass1", "customer", null);
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
+            System.out.println(e.getMessage() + "1");
+        }
+
+        try {
+            cinema.registerUser("LogoutTester2", "logouttester2@tester.com", "pass2", "customer", null);
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
+            System.out.println(e.getMessage() + "1");
+        }
+
+        try {
+            cinema.loginUser("LogoutTester1", "logouttest1@tester.com", "pass1");
+        } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
+            System.out.println(e.getMessage() + "2");
+        }
+
+        System.out.println(cinema.getCurrentUser());
+
+        cinema.logoutCurrentUser();
+
+        try {
+            cinema.loginUser("LogoutTester2", "logouttester2@tester.com", "pass2");
+        } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
+            System.out.println(e.getMessage() + "2");
+        }
+
+        System.out.println(cinema.getCurrentUser());
     }
 
     private static String inputData(String data) {

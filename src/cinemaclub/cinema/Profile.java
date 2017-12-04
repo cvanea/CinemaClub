@@ -101,14 +101,12 @@ class Profile {
     }
 
     private void validateUsername(String username) throws UsernameTakenException {
-
         if (userRepository.checkForUsername(username)) {
             throw new UsernameTakenException();
         }
     }
 
     private void validateExistingBookingsHistory(Customer customer) throws NoBookingsException {
-
         if (customer.noExistingBookings()) {
             throw new NoBookingsException();
         }
@@ -116,7 +114,6 @@ class Profile {
 
     private void validateFutureBookingAsFuture(User user, Booking booking)
         throws NotAFutureBookingException, NoBookingsException, NoFutureBookingsException {
-
         if (!(this.getFutureBookingsHistory(user).contains(booking))){
             throw new NotAFutureBookingException();
         }
