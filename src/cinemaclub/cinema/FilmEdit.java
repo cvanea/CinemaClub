@@ -2,14 +2,19 @@ package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
 import cinemaclub.database.FilmRepository;
+import cinemaclub.database.ScreenRepository;
 import exceptions.FilmExistsException;
+
+import java.util.ArrayList;
 
 class FilmEdit {
 
     private FilmRepository filmRepository;
+    private ScreenRepository screenRepository;
 
     FilmEdit() {
         this.filmRepository = DataBase.getFilmRepository();
+        this.screenRepository = DataBase.getScreenRepository();
     }
 
     void addFilm(String title, String imagePath, String description, String runTime) throws FilmExistsException {
@@ -44,14 +49,25 @@ class FilmEdit {
         filmRepository.deleteFilm(title);
     }
 
-    void addFilmToShowings(String date, String time, Film film, Screen screen) {
-
+    ArrayList<Film> displayAllFilms() {
+        return filmRepository.getAllFilms();
     }
 
-    void deleteShowing(String date, String time, Film film, Screen screen) {
-
+    ArrayList<Film> displayAllFilms(Screen screen) {
+        return filmRepository.getAllFilms();
     }
 
+    Film getFilmDetails(String title) {
+        return filmRepository.getFilm(title);
+    }
+
+    void addFilmToShowings(Screen screen, String date, String time, Film film) {
+        screenRepository.addShowing(screen, date, time, film);
+    }
+
+    void deleteShowing(Screen screen, String date, String time) {
+        screenRepository.deleteShowing(screen, date, time);
+    }
 
     private void validateNewFilm(String title) throws FilmExistsException {
 

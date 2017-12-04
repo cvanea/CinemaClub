@@ -1,44 +1,30 @@
 package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
-import cinemaclub.database.FilmRepository;
 import cinemaclub.database.ScreenRepository;
 import exceptions.PastDateException;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Map;
 
 class FilmDisplay {
-    private FilmRepository filmRepository;
+    //TODO add displaying all showings as well as all films.
     private ScreenRepository screenRepository;
 
     FilmDisplay() {
-        this.filmRepository = DataBase.getFilmRepository();
         this.screenRepository = DataBase.getScreenRepository();
     }
 
-    ArrayList<Film> displayFilms(String date, Screen screen) throws PastDateException {
+    ArrayList<Film> getFilmsByDateScreen(String date, Screen screen) throws PastDateException {
         validateDate(date);
-        ArrayList<Film> allFilms = displayAllFilms();
-
-        screenRepository.getFilmsByDate(screen, date);
-
-        return new ArrayList<>();
+        return screenRepository.getFilmsByDate(screen, date);
     }
 
-    ArrayList<Film> displayAllFilms() {
-
-        return new ArrayList<>(filmRepository.getAllFilms());
-    }
-
-    ArrayList<Film> displayAllFilms(Screen screen) {
-
-        return new ArrayList<>(filmRepository.getAllFilms());
-    }
-
-    Film getFilmDetails(String title) {
-        return filmRepository.getFilm(title);
+    Map<String, Film> getShowingsByDate(String date, Screen screen) throws PastDateException {
+        validateDate(date);
+        return screenRepository.getShowingsByDate(screen, date);
     }
 
     private void validateDate(String date) throws PastDateException {

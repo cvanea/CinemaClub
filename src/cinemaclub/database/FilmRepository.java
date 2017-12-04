@@ -3,7 +3,7 @@ package cinemaclub.database;
 import cinemaclub.cinema.Film;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,8 +22,8 @@ public class FilmRepository implements Serializable {
         dataBase.updateExternalDB();
     }
 
-    public Collection<Film> getAllFilms() {
-        return films.values();
+    public ArrayList<Film> getAllFilms() {
+        return new ArrayList<>(films.values());
     }
 
     public Boolean checkForFilm(String title) {

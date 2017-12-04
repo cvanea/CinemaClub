@@ -19,7 +19,6 @@ public class Cinema {
     private Profile profile;
     private BookingSystem bookingSystem;
     private Map<Integer, Screen> screens;
-    private ArrayList<Film> availableFilms;
     private User currentUser = null;
 
     public Cinema() {
@@ -78,7 +77,7 @@ public class Cinema {
     }
 
     public Film getFilm(String title) {
-        return filmDisplay.getFilmDetails(title);
+        return filmEdit.getFilmDetails(title);
     }
 
     public ArrayList<Booking> getBookingsHistory(Customer customer) throws NoBookingsException {
@@ -123,16 +122,28 @@ public class Cinema {
         bookingSystem.bookFilm(currentUser, date, time, film, screen, seatRow, seatNumber);
     }
 
-    public ArrayList<Film> displayFilmsPerScreenDate(String date) throws PastDateException {
-        return filmDisplay.displayFilms(date, this.getScreen(1));
+    public ArrayList<Film> getFilmsPerScreenDate(String date) throws PastDateException {
+        return filmDisplay.getFilmsByDateScreen(date, this.getScreen(1));
+    }
+
+    public Map<String, Film> getShowingsByDate(String date) throws PastDateException {
+        return filmDisplay.getShowingsByDate(date, this.getScreen(1));
+    }
+
+    public void addFilmToShowings(String date, String time, Film film) {
+        filmEdit.addFilmToShowings(this.getScreen(1), date, time, film);
+    }
+
+    public void deleteShowing(String date, String time) {
+        filmEdit.deleteShowing(this.getScreen(1), date, time);
     }
 
     public ArrayList<Film> displayAllFilms() {
-        return filmDisplay.displayAllFilms();
+        return filmEdit.displayAllFilms();
     }
 
     public ArrayList<Film> displayAllScreenFilms() {
-        return filmDisplay.displayAllFilms(this.getScreen(1));
+        return filmEdit.displayAllFilms(this.getScreen(1));
     }
 
     public void addFilm(String title, String imagePath, String description, String runTime) throws FilmExistsException {
