@@ -17,7 +17,11 @@ import java.util.ResourceBundle;
 
 public class LoginUserController {
 
-    private Cinema cinema = new Cinema();
+    private static Cinema cinema = new Cinema();
+
+    public static Cinema getCinema() {
+        return cinema;
+    }
 
     @FXML
     private TextField username;

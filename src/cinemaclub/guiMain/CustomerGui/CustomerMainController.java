@@ -1,6 +1,9 @@
 package cinemaclub.guiMain.CustomerGui;
 
 import cinemaclub.cinema.Cinema;
+import cinemaclub.gui.LoginGui;
+import cinemaclub.guiMain.LoginGui.LoginMainController;
+import cinemaclub.guiMain.LoginGui.LoginUserController;
 import cinemaclub.guiMain.StageSceneNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +17,7 @@ import java.io.IOException;
  */
 public class CustomerMainController {
 
-    Cinema cinema;
+    static Cinema cinema = LoginUserController.getCinema();
 
     public void setCinema(Cinema cinema) { // Setting the cinema-object
         this.cinema = cinema;
@@ -29,11 +32,11 @@ public class CustomerMainController {
         ((Node)(event.getSource())).getScene().getWindow().hide();
     }
     public void pressProfile(ActionEvent event) throws IOException {
-        StageSceneNavigator.loadLoginView(StageSceneNavigator.CUSTOMER_PROFILE);
+        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE);
 
     }
     public void pressHome(ActionEvent event) throws IOException {
-        StageSceneNavigator.loadLoginView(StageSceneNavigator.CUSTOMER_HOME);
+        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
     }
 
     /**

@@ -1,5 +1,6 @@
 package cinemaclub.guiMain.CustomerGui;
 
+import cinemaclub.guiMain.StageSceneNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -17,8 +18,7 @@ public class CustomerProfileController extends CustomerMainController {
     }
 
     public void setProfileText(ActionEvent event) {
-//        nameBox.setText(cinema.getCurrentUser().getName());
-        System.out.println(cinema.getCurrentUser().IExist());
+        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE_EDIT);
     }
 
 }

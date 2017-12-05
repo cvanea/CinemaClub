@@ -20,7 +20,7 @@ public class AnchorCinema {
         Main.setPaneCinema(1);
         FXMLLoader loader2 = new FXMLLoader(Main.class.getResource("ProfileGUI.fxml"));
         ProfileController mainController2 = loader2.getController(); // This did the "trick"
-        mainController2.setCinema(cinema);
+//        mainController2.setCinema(cinema);
     }
 
     public void pressBookings(ActionEvent event) {
