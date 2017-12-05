@@ -6,14 +6,18 @@ public class UserCredentials implements Serializable {
 
     private static final long serialVersionUID = 8762368738673278L;
 
-    private String userName;
+    private String username;
     private String email;
     private String password;
+    private String firstName;
+    private String surname;
 
-    public UserCredentials(String userName, String email, String password) {
-        this.userName = userName;
+    public UserCredentials(String username, String email, String password, String firstName, String surname) {
+        this.username = username;
         this.password = password;
         this.email = email;
+        this.firstName = firstName;
+        this.surname = surname;
     }
 
     public String getPassword() {
@@ -33,18 +37,36 @@ public class UserCredentials implements Serializable {
     }
 
     public String getUsername() {
-        return userName;
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public Boolean checkCredentials(UserCredentials credentialsToValidate) {
 
-        return this.userName.equals(credentialsToValidate.getUsername()) &&
+        return this.username.equals(credentialsToValidate.getUsername()) &&
             this.password.equals(credentialsToValidate.getPassword()) &&
-            this.email.equals(credentialsToValidate.getEmail());
+            this.email.equals(credentialsToValidate.getEmail()) &&
+            this.firstName.equals(credentialsToValidate.getFirstName()) &&
+            this.surname.equals(credentialsToValidate.getSurname());
     }
 
     public String toString() {

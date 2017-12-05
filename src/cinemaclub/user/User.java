@@ -26,16 +26,32 @@ public abstract class User implements Serializable {
         return userCredentials.getPassword();
     }
 
+    public String getFirstName() {
+        return userCredentials.getFirstName();
+    }
+
+    public String getSurname() {
+        return userCredentials.getSurname();
+    }
+
     public void setPassword(String password) {
         userCredentials.setPassword(password);
     }
 
-    public void setUserName(String userName) {
-        userCredentials.setUserName(userName);
+    public void setUsername(String userName) {
+        userCredentials.setUsername(userName);
     }
 
     public void setEmail(String email) {
         userCredentials.setEmail(email);
+    }
+
+    public void setFirstName(String firstName) {
+        userCredentials.setFirstName(firstName);
+    }
+
+    public void setSurname(String surname) {
+        userCredentials.setSurname(surname);
     }
 
     public UserCredentials getUserCredentials() {

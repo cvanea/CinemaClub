@@ -30,7 +30,7 @@ class Profile {
     void setUsername(User user, String newUsername) throws UsernameTakenException {
         validateUsername(newUsername);
         String oldUsername = user.getUsername();
-        user.setUserName(newUsername);
+        user.setUsername(newUsername);
         userRepository.setUsername(oldUsername, newUsername, user);
     }
 
@@ -41,6 +41,16 @@ class Profile {
 
     void setPassword(User user, String newPassword) {
         user.setPassword(newPassword);
+        userRepository.updateDB();
+    }
+
+    void setFirstName(User user, String firstName) {
+        user.setFirstName(firstName);
+        userRepository.updateDB();
+    }
+
+    void setSurname(User user, String surname) {
+        user.setFirstName(surname);
         userRepository.updateDB();
     }
 

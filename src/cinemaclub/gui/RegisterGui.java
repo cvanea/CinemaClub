@@ -28,10 +28,10 @@ public class RegisterGui implements Initializable {
 
         try {
             if (staffCheck.isSelected()) {
-                cinema.registerUser(username.getText(), email.getText(), password.getText(), "staff", staffID.getText());
+                cinema.registerUser(username.getText(), email.getText(), password.getText(), "fix", "fix", "staff", staffID.getText());
 
             } else {
-            cinema.registerUser(username.getText(), email.getText(), password.getText(), "customer", null);
+            cinema.registerUser(username.getText(), email.getText(), password.getText(), "fix", "fix", "customer", null);
             }
             errorLabel.setText("Registered");
             Main.setPaneLogin(0);

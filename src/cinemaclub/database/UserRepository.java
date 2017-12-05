@@ -6,8 +6,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-// TODO update to directly manipulate user objects without puts.
-// TODO All CRUD stuff goes in here.
+// TODO All CRUD and helper stuff goes in here.
 public class UserRepository implements Serializable {
 
     private DataBase dataBase;

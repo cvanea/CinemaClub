@@ -17,20 +17,20 @@ class Register {
         this.userRepository = DataBase.getUserRepository();
     }
 
-    void registerUser(String username, String email, String password, String userType, String staffID)
+    void registerUser(String username, String email, String password, String firstName, String surname, String userType, String staffID)
         throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException  {
 
         if (userType.equals("staff")) {
             validateID(staffID);
             validateUsername(username);
 
-            User user = new Staff(new UserCredentials(username, email, password));
+            User user = new Staff(new UserCredentials(username, email, password, firstName, surname));
             userRepository.assignStaffID(staffID, username);
             userRepository.writeToUserDetails(user.getUsername(), user);
         } else {
             validateUsername(username);
 
-            User user = new Customer(new UserCredentials(username, email, password), new ArrayList<>());
+            User user = new Customer(new UserCredentials(username, email, password, firstName, surname), new ArrayList<>());
             userRepository.writeToUserDetails(user.getUsername(), user);
         }
     }

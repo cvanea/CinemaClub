@@ -17,7 +17,6 @@ class Login {
     User loginUser(String username, String password)
         throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
 
-//        UserCredentials userCredentials = new UserCredentials(username, email, password);
         validateUsername(username);
         validatePassword(username, password);
 
@@ -38,20 +37,4 @@ class Login {
         }
     }
 
-//
-//    private void validateDetails(UserCredentials userCredentials)
-//        throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
-//        User user = userRepository.getUser(userCredentials.getUsername());
-//        UserCredentials savedCredentials;
-//
-//        if (user == null) {
-//            throw new UserDetailsDoNotExistException();
-//        } else {
-//            savedCredentials = user.getUserCredentials();
-//        }
-//
-//        if (!userCredentials.checkCredentials(savedCredentials)) {
-//            throw new UserDetailsIncorrectException();
-//        }
-//    }
 }

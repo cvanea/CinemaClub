@@ -43,10 +43,11 @@ public class MainTester {
                 System.out.println("Are you staff? ");
 
                 if (input.nextLine().equals("y")) {
-                    cinema.registerUser(inputData("username"), inputData("email"), inputData("password"), "staff", inputData("staffID"));
+                    cinema.registerUser(inputData("username"), inputData("email"), inputData("password"),
+                        inputData("first name"), inputData("surname"), "staff", inputData("staffID"));
 
                 } else {
-                    cinema.registerUser(inputData("username"), inputData("email"), inputData("password"), "customer", null);
+                    cinema.registerUser(inputData("username"), inputData("email"), inputData("password"), inputData("first name"), inputData("surname"), "customer", null);
                 }
 
                 System.exit(0);
@@ -63,13 +64,13 @@ public class MainTester {
         cinema.deleteUser("LogoutTester2");
 
         try {
-            cinema.registerUser("LogoutTester1", "logouttest1@tester.com", "pass1", "customer", null);
+            cinema.registerUser("LogoutTester1", "logouttest1@tester.com", "pass1", "Logout", "Tester", "customer", null);
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
             System.out.println(e.getMessage() + "1");
         }
 
         try {
-            cinema.registerUser("LogoutTester2", "logouttester2@tester.com", "pass2", "customer", null);
+            cinema.registerUser("LogoutTester2", "logouttester2@tester.com", "pass2", "Logout2", "Tester2","customer", null);
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
             System.out.println(e.getMessage() + "1");
         }
@@ -109,7 +110,7 @@ public class MainTester {
         cinema.deleteUser("NewTester");
 
         try {
-            cinema.registerUser("ProfileTester", "test@tester.com", "pass", "customer", null);
+            cinema.registerUser("ProfileTester", "test@tester.com", "pass", "Profile", "Tester", "customer", null);
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
             System.out.println(e.getMessage() + "1");
         }
@@ -150,7 +151,7 @@ public class MainTester {
         cinema.deleteUser("BookingTest");
 
         try {
-            cinema.registerUser("BookingTest", "booking@booking.com", "bookingpass", "customer", null);
+            cinema.registerUser("BookingTest", "booking@booking.com", "bookingpass", "Booking", "Tester", "customer", null);
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
             System.out.println(e.getMessage());
             System.exit(0);
