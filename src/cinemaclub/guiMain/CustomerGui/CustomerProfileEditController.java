@@ -1,9 +1,8 @@
 package cinemaclub.guiMain.CustomerGui;
 
-import cinemaclub.gui.AnchorCinema;
-import cinemaclub.gui.Main;
 import cinemaclub.gui.ProfileController;
 import cinemaclub.guiMain.StageSceneNavigator;
+import exceptions.UsernameTakenException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -24,16 +23,20 @@ public class CustomerProfileEditController extends CustomerMainController{
 
 
    @FXML private void initialize() {
-       nameBoxEdit.setText(cinema.getProfileDetails().getUserName());
+       nameBoxEdit.setText(cinema.getProfileDetails().getUsername());
        emailBoxEdit.setText(cinema.getProfileDetails().getEmail());
        passwordBoxEdit.setText(cinema.getProfileDetails().getPassword());
        }
 
     public void pressSubmitEdit(ActionEvent event) throws IOException {
-        cinema.setUsername(nameBoxEdit.getText());
-        cinema.setUserEmail(emailBoxEdit.getText());
-        cinema.setUserPassword(passwordBoxEdit.getText());
-        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE);
+        try {
+            cinema.setUsername(nameBoxEdit.getText());
+            cinema.setUserEmail(emailBoxEdit.getText());
+            cinema.setUserPassword(passwordBoxEdit.getText());
+            StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE);
+        } catch (UsernameTakenException e) {
+            System.out.println(e.getMessage());
+        }
     }
     public void pressCancel(ActionEvent event) throws IOException {
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE);

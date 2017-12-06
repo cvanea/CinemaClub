@@ -12,7 +12,7 @@ public class CustomerProfileController extends CustomerMainController {
     @FXML Label passwordBox;
 
     @FXML private void initialize() {
-        nameBox.setText(cinema.getCurrentUser().getName());
+        nameBox.setText(cinema.getProfileDetails().getUsername());
         emailBox.setText(cinema.getCurrentUser().getEmail());
         passwordBox.setText(cinema.getCurrentUser().getPassword());
     }
