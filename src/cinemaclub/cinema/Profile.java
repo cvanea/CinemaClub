@@ -50,7 +50,7 @@ class Profile {
     }
 
     void setSurname(User user, String surname) {
-        user.setFirstName(surname);
+        user.setSurname(surname);
         userRepository.updateDB();
     }
 

@@ -14,6 +14,8 @@ public class CustomerProfileEditController extends CustomerMainController{
     @FXML TextField nameBoxEdit;
     @FXML TextField emailBoxEdit;
     @FXML TextField passwordBoxEdit;
+    @FXML TextField firstNameBoxEdit;
+    @FXML TextField lastNameBoxEdit;
 
     private ProfileController profileController;
 
@@ -25,13 +27,19 @@ public class CustomerProfileEditController extends CustomerMainController{
        nameBoxEdit.setText(cinema.getProfileDetails().getUsername());
        emailBoxEdit.setText(cinema.getProfileDetails().getEmail());
        passwordBoxEdit.setText(cinema.getProfileDetails().getPassword());
+       firstNameBoxEdit.setText(cinema.getProfileDetails().getFirstName());
+       lastNameBoxEdit.setText(cinema.getProfileDetails().getSurname());
        }
 
     public void pressSubmitEdit(ActionEvent event) throws IOException {
         try {
-            cinema.setUsername(nameBoxEdit.getText());
+            if(!nameBoxEdit.getText().equals(cinema.getProfileDetails().getUsername())) {
+                cinema.setUsername(nameBoxEdit.getText());
+            }
             cinema.setUserEmail(emailBoxEdit.getText());
             cinema.setUserPassword(passwordBoxEdit.getText());
+            cinema.setUserFirstName(firstNameBoxEdit.getText());
+            cinema.setUserSurname(lastNameBoxEdit.getText());
             StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE);
         } catch (UsernameTakenException e) {
             System.out.println(e.getMessage());
