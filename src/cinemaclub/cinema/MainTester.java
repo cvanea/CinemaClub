@@ -9,13 +9,13 @@ public class MainTester {
     //System integration testing.
     public static void main(String[] args) {
 
-//        registerTester();
+        registerTester();
 //        loginTester();
 //        logoutTester();
 //        profileTester();
 //        bookingTester();
 //        filmEditTester();
-        showingsTester();
+//        showingsTester();
 //        seatsTester();
 
     }

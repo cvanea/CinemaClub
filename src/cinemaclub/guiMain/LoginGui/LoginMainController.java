@@ -1,37 +1,23 @@
 package cinemaclub.guiMain.LoginGui;
 
 import cinemaclub.cinema.Cinema;
-import cinemaclub.guiMain.StageSceneNavigator;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * Main controller class for the entire layout.
  */
-public class LoginMainController implements Initializable {
+public class LoginMainController {
 
     /** Holder of a switchable vista. */
-    @FXML
-    private StackPane viewHolder;
-    @FXML
-    public Label errorMain;
+    @FXML private StackPane viewHolder;
 
-    public void pressTest(ActionEvent event) throws IOException {
-        System.out.println("works");
+    static Cinema cinema = new Cinema();
 
-//        StageSceneNavigator.staffStage(cinema);
-//        ((Node)(event.getSource())).getScene().getWindow().hide();
-//        Main.setPaneCinema(1);
+    public static Cinema getCinema() {
+        return cinema;
     }
-
 
     /**
      * Replaces the vista displayed in the vista holder with a new vista.
@@ -39,13 +25,8 @@ public class LoginMainController implements Initializable {
      * @param node the vista node to be swapped in.
      */
 
-
     public void setView(Node node) {
         viewHolder.getChildren().setAll(node);
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
 }

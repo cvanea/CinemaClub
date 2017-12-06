@@ -34,6 +34,10 @@ class Profile {
         userRepository.setUsername(oldUsername, newUsername, user);
     }
 
+    ArrayList<String> getAllStaffByID() {
+        return userRepository.getAllStaffByID();
+    }
+
     void setEmail(User user, String newEmail) {
         user.setEmail(newEmail);
         userRepository.updateDB();
@@ -52,6 +56,10 @@ class Profile {
     void setSurname(User user, String surname) {
         user.setSurname(surname);
         userRepository.updateDB();
+    }
+
+    void addStaffID(String id, String username) {
+        userRepository.addStaffID(id, username);
     }
 
     ArrayList<Booking> getPastBookingsHistory(User user) throws NoBookingsException {

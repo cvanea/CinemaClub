@@ -32,6 +32,7 @@ public class CustomerHomeController extends CustomerMainController implements In
     @FXML ListView<String> timesList;
 
     public void selectDate(ActionEvent actionEvent) {
+        //TODO HANDLE ERROR WHEN YOU SELECT A DATE WITH NO FILMS. HANDLE ERROR WHEN YOU SELECT A DATE IN THE PAST.
         try {
             String datePicked = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             ArrayList<Film> films = cinema.getFilmsByDate(datePicked);

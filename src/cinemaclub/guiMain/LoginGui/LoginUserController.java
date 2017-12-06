@@ -1,6 +1,5 @@
 package cinemaclub.guiMain.LoginGui;
 
-import cinemaclub.cinema.Cinema;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.UserDetailsDoNotExistException;
@@ -13,13 +12,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class LoginUserController {
-
-    private static Cinema cinema = new Cinema();
-
-    public static Cinema getCinema() {
-        return cinema;
-    }
+public class LoginUserController extends LoginMainController {
 
     @FXML private TextField username;
     @FXML private TextField password;
@@ -27,6 +20,7 @@ public class LoginUserController {
 
     @FXML private void initialize() {
         errorLabel.setText(GuiData.getSuccessMessage());
+        System.out.println(GuiData.getSuccessMessage());
     }
 
     public void pressButton(ActionEvent event) throws IOException {

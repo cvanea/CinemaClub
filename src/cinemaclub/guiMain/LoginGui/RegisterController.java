@@ -1,6 +1,5 @@
 package cinemaclub.guiMain.LoginGui;
 
-import cinemaclub.cinema.Cinema;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.IncorrectStaffIDException;
@@ -21,7 +20,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class RegisterController extends LoginMainController {
-    private Cinema cinema = new Cinema();
 
     @FXML private TextField username;
     @FXML private TextField password;
@@ -40,8 +38,8 @@ public class RegisterController extends LoginMainController {
             } else {
                 cinema.registerUser(username.getText(), email.getText(), password.getText(), firstName.getText(),surname.getText(), "customer", null);
             }
-            GuiData.setSuccessMessage("success");
             errorLabel.setText("Registered");
+            GuiData.setSuccessMessage("success");
             StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_USER);
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
             errorLabel.setText(e.getMessage());
