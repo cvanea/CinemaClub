@@ -33,6 +33,7 @@ public class LoginUserController {
             errorLabel.setText(cinema.getCurrentUser().IExist());
             cinema.getCurrentUser();
             StageSceneNavigator.customerStage(cinema);
+//            StageSceneNavigator.staffStage(cinema);
             ((Node)(event.getSource())).getScene().getWindow().hide();
         } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
             System.out.println(e.getMessage());
@@ -41,7 +42,6 @@ public class LoginUserController {
     }
 
     public void pressRegister(ActionEvent event) {
-//        Main.setPaneLogin(1);
         StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_REGISTER);
 
     }

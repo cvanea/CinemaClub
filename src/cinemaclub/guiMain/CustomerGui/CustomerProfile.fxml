@@ -18,9 +18,9 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.650146484375" minWidth="10.0" prefWidth="598.8627319335938" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="10.523785591125488" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="448.1822192668915" minHeight="10.0" prefHeight="443.4762144088745" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="86.2937240600586" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="556.7062759399414" minHeight="10.0" prefHeight="556.7062759399414" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="119.45355224609375" minHeight="10.0" prefHeight="35.68035888671875" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1">
@@ -104,14 +104,15 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="339.913818359375" minHeight="10.0" prefHeight="246.09707641601562" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="179.06692504882812" minHeight="10.0" prefHeight="56.2828369140625" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="268.583251953125" minHeight="10.0" prefHeight="254.7171630859375" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <AnchorPane prefHeight="534.0" prefWidth="1040.0" GridPane.rowIndex="1">
+                  <AnchorPane prefHeight="534.0" prefWidth="1040.0" GridPane.rowIndex="2">
                      <children>
-                        <ListView layoutX="70.0" layoutY="67.0" prefHeight="167.0" prefWidth="456.0" />
-                        <Label layoutX="237.0" layoutY="30.0" prefHeight="26.0" prefWidth="139.0" text="Past Bookings">
+                        <ListView fx:id="pastList" layoutX="70.0" layoutY="67.0" prefHeight="167.0" prefWidth="456.0" />
+                        <Label layoutX="229.0" layoutY="20.0" prefHeight="26.0" prefWidth="139.0" text="Past Bookings">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
@@ -120,7 +121,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="534.0" prefWidth="1040.0">
                      <children>
-                        <ListView layoutX="72.0" layoutY="48.0" prefHeight="171.0" prefWidth="456.0" />
+                        <ListView fx:id="futureList" layoutX="72.0" layoutY="48.0" onMouseClicked="#futureMouseClick" prefHeight="171.0" prefWidth="456.0" />
                         <Label layoutX="221.0" layoutY="12.0" prefHeight="26.0" prefWidth="164.0" text="Future Bookings" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="20.0" />
@@ -128,6 +129,11 @@
                         </Label>
                      </children>
                   </AnchorPane>
+                  <Button fx:id="cancelBook" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel Booking" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </GridPane>
             <Label text="Bookings" GridPane.columnIndex="1" GridPane.halignment="CENTER">
