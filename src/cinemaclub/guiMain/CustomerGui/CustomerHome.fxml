@@ -39,7 +39,7 @@
             </Label>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <DatePicker fx:id="dateBox" layoutX="140.0" layoutY="59.0" onAction="#selectDate" />
+                  <DatePicker fx:id="datePicker" layoutX="140.0" layoutY="59.0" onAction="#selectDate" />
                   <ListView fx:id="filmList" layoutX="28.0" layoutY="134.0" prefHeight="287.0" prefWidth="411.0" />
                </children>
             </AnchorPane>

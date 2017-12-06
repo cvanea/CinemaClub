@@ -11,7 +11,9 @@ import java.util.Map;
 public class ScreenRepository implements Serializable {
 
     private DataBase dataBase;
-    private Map<Screen, Map<String, Map<String, Film>>> showings;
+    private Map<String, Film> filmTimes = new HashMap<>();
+    private Map<String, Map<String, Film>> filmDateTimes = new HashMap<>();
+    private Map<Screen, Map<String, Map<String, Film>>> showings = new HashMap<>();
 
     ScreenRepository(DataBase dataBase) {
         this.dataBase = dataBase;
@@ -25,6 +27,8 @@ public class ScreenRepository implements Serializable {
         Map<String, Map<String, Film>> filmDatesTimes = showings.get(screen);
         Map<String, Film> filmTimes = filmDatesTimes.get(date);
 
+        System.out.println(new ArrayList<>(filmTimes.values()));
+
         return new ArrayList<>(filmTimes.values());
     }
 
@@ -35,17 +39,13 @@ public class ScreenRepository implements Serializable {
     }
 
     public void addShowing(Screen screen, String date, String time, Film film) {
-        Map<String, Film> filmTimes = new HashMap<>();
         filmTimes.put(time, film);
-
-        Map<String, Map<String, Film>> filmDateTimes = new HashMap<>();
         filmDateTimes.put(date, filmTimes);
-
         showings.put(screen, filmDateTimes);
 
         dataBase.updateExternalDB();
     }
-
+    
     public void deleteShowing(Screen screen, String date, String time) {
         Map<String, Film> filmTimes = this.getShowingsByDate(screen, date);
         filmTimes.remove(time);

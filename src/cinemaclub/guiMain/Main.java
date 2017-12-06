@@ -1,9 +1,6 @@
 package cinemaclub.guiMain;
-//package cinemaclub.guiMain.LoginGui;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,7 +25,6 @@ public class Main extends Application {
      * @return the loaded pane.
      * @throws IOException if the pane could not be loaded.
      */
-
 
     public static void main(String[] args) {
         launch(args);

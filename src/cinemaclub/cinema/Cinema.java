@@ -30,6 +30,8 @@ public class Cinema {
         profile = new Profile();
         bookingSystem = new BookingSystem();
         screens = setupScreens();
+        addInitialFilms();
+        addInitialShowings();
     }
 
     //Sets up the number of screens in the cinema and their seat number
@@ -37,6 +39,20 @@ public class Cinema {
         Map<Integer, Screen> screensMap = new HashMap<>();
         screensMap.put(1, new Screen(1, 5, 10));
         return screensMap;
+    }
+
+    private void addInitialFilms() {
+        try {
+            this.addFilm("UP", "/UP.jpg", "A great film", "01:00");
+            this.addFilm("Walle", "/walle.jpg", "A another great film", "02:00");
+        } catch (FilmExistsException e) {
+            System.out.println("Initial movies registered");
+        }
+    }
+
+    private void addInitialShowings() {
+        this.addFilmToShowings("2017-12-15", "13:00", this.getFilmByTitle("UP"));
+        this.addFilmToShowings("2017-12-15", "12:00", this.getFilmByTitle("Walle"));
     }
 
     public Screen getScreen(Integer screenNumber) {
@@ -77,8 +93,8 @@ public class Cinema {
         profile.setPassword(currentUser, newUsername);
     }
 
-    public Film getFilm(String title) {
-        return filmEdit.getFilmDetails(title);
+    public Film getFilmByTitle(String title) {
+        return filmEdit.getFilmDetailsByTitle(title);
     }
 
     public ArrayList<Booking> getBookingsHistory(Customer customer) throws NoBookingsException {
@@ -123,7 +139,7 @@ public class Cinema {
         bookingSystem.bookFilm(currentUser, date, time, film, screen, seatRow, seatNumber);
     }
 
-    public ArrayList<Film> getFilmsPerScreenDate(String date) throws PastDateException {
+    public ArrayList<Film> getFilmsByDate(String date) throws PastDateException {
         return filmDisplay.getFilmsByDateScreen(date, this.getScreen(1));
     }
 
