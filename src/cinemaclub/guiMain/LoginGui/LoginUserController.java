@@ -6,14 +6,11 @@ import exceptions.UserDetailsDoNotExistException;
 import exceptions.UserDetailsIncorrectException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class LoginUserController {
 
@@ -31,7 +28,7 @@ public class LoginUserController {
 
     public void pressButton(ActionEvent event) throws IOException {
         try {
-            cinema.loginUser(username.getText(), email.getText(), password.getText());
+            cinema.loginUser(username.getText(), password.getText());
             System.out.println(cinema.getCurrentUser().IExist());
             errorLabel.setText(cinema.getCurrentUser().IExist());
             cinema.getCurrentUser();
