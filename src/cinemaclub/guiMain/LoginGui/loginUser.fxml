@@ -13,7 +13,7 @@
 
 <!--<?scenebuilder-stylesheet vista.css?>-->
 
-<StackPane fx:id="viewLoginUser" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="cinemaclub.guiMain.LoginGui.LoginUserController">
+<StackPane fx:id="viewLoginUser" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.LoginGui.LoginUserController">
    <children>
       <GridPane prefHeight="400.0" prefWidth="550.0">
          <columnConstraints>
@@ -38,16 +38,15 @@
             </Label>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="register" alignment="CENTER" layoutX="134.0" layoutY="55.0" mnemonicParsing="false" onAction="#pressRegister" text="Register New User" />
-                  <Button fx:id="login" alignment="CENTER" layoutX="174.0" layoutY="14.0" mnemonicParsing="false" onAction="#pressButton" text="Login" />
-                  <Button fx:id="newstage" layoutX="267.0" layoutY="14.0" mnemonicParsing="false" onAction="#newStage" text="New Stage" />
+                  <Button fx:id="register" alignment="CENTER" layoutX="209.0" layoutY="55.0" mnemonicParsing="false" onAction="#pressRegister" text="Register New User" />
+                  <Button fx:id="login" alignment="CENTER" layoutX="249.0" layoutY="14.0" mnemonicParsing="false" onAction="#pressButton" text="Login" />
+                  <Button fx:id="newstage" layoutX="330.0" layoutY="14.0" mnemonicParsing="false" onAction="#newStage" text="New Stage" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="202.0" prefWidth="400.0" GridPane.rowIndex="1">
                <children>
-                  <TextField fx:id="username" alignment="CENTER" layoutX="107.0" layoutY="14.0" promptText="Username" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="40.0" />
-                  <TextField fx:id="email" alignment="CENTER" layoutX="117.0" layoutY="83.0" promptText="Email" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0" />
-                  <TextField fx:id="password" alignment="CENTER" layoutX="117.0" layoutY="141.0" promptText="Password" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="160.0" />
+                  <TextField fx:id="username" alignment="CENTER" layoutX="100.0" layoutY="71.0" promptText="Username" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="71.0" />
+                  <TextField fx:id="password" alignment="CENTER" layoutX="100.0" layoutY="131.0" promptText="Password" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="131.0" />
                   <Label fx:id="errorLabel" alignment="CENTER" layoutX="48.0" layoutY="194.0" prefHeight="35.0" prefWidth="306.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
                </children>
             </AnchorPane>

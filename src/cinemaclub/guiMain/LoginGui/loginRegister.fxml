@@ -18,26 +18,28 @@
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="222.0" minHeight="10.0" prefHeight="211.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="291.0" minHeight="10.0" prefHeight="285.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
-            <Button fx:id="register" alignment="CENTER" layoutX="241.0" layoutY="37.0" mnemonicParsing="false" onAction="#registerButton" text="Register" />
+            <Button fx:id="register" alignment="CENTER" layoutX="332.0" layoutY="16.0" mnemonicParsing="false" onAction="#registerButton" text="Register" />
+            <Label fx:id="errorLabel" alignment="CENTER" layoutX="48.0" layoutY="12.0" prefHeight="35.0" prefWidth="260.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+      <AnchorPane prefHeight="284.0" prefWidth="550.0" GridPane.rowIndex="1">
          <children>
             <TextField fx:id="username" layoutX="85.0" layoutY="22.0" prefHeight="27.0" prefWidth="256.0" promptText="Username" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
             <TextField fx:id="email" layoutX="85.0" layoutY="67.0" prefHeight="27.0" prefWidth="256.0" promptText="Email" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
             <TextField fx:id="password" layoutX="85.0" layoutY="111.0" prefHeight="27.0" prefWidth="256.0" promptText="Password" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
-            <CheckBox fx:id="staffCheck" layoutX="156.0" layoutY="173.0" mnemonicParsing="false" text="Staff?" />
-            <TextField fx:id="staffID" layoutX="233.0" layoutY="168.0" promptText="Staff ID Number" />
-            <Label fx:id="errorLabel" alignment="CENTER" layoutX="47.0" layoutY="206.0" prefHeight="35.0" prefWidth="306.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
+            <CheckBox fx:id="staffCheck" layoutX="156.0" layoutY="249.0" mnemonicParsing="false" text="Staff?" />
+            <TextField fx:id="staffID" layoutX="233.0" layoutY="245.0" promptText="Staff ID Number" />
+               <TextField fx:id="firstName" layoutX="150.0" layoutY="158.0" prefHeight="27.0" prefWidth="250.0" promptText="First Name" />
+               <TextField fx:id="surname" layoutX="150.0" layoutY="204.0" prefHeight="27.0" prefWidth="250.0" promptText="Surname" />
          </children>
       </AnchorPane>
-      <Label text="Register" GridPane.halignment="CENTER">
+      <Label alignment="BOTTOM_CENTER" text="Register" GridPane.halignment="CENTER">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
