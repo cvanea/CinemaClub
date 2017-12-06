@@ -1,6 +1,7 @@
 package cinemaclub.guiMain.StaffGui;
 
 import cinemaclub.cinema.Cinema;
+import cinemaclub.guiMain.LoginGui.LoginMainController;
 import cinemaclub.guiMain.StageSceneNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,19 +15,26 @@ import java.io.IOException;
  */
 public class StaffMainController {
 
-    Cinema cinema;
+    static Cinema cinema = LoginMainController.getCinema();
 
     public void setCinema(Cinema cinema) { // Setting the cinema-object
-        this.cinema = cinema;
+        StaffMainController.cinema = cinema;
     }
 
     /** Holder of a switchable vista. */
     @FXML
-    private StackPane vistaHolder;
+    private StackPane viewHolder;
 
-    public void pressTest(ActionEvent event) throws IOException {
-        StageSceneNavigator.customerStage(cinema);
+    public void pressLogOut(ActionEvent event) throws IOException {
+        StageSceneNavigator.loginStage();
         ((Node)(event.getSource())).getScene().getWindow().hide();
+    }
+    public void pressProfile(ActionEvent event) throws IOException {
+        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE);
+
+    }
+    public void pressHome(ActionEvent event) throws IOException {
+        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
     }
 
     /**
@@ -36,7 +44,7 @@ public class StaffMainController {
      */
 
     public void setView(Node node) {
-        vistaHolder.getChildren().setAll(node);
+        viewHolder.getChildren().setAll(node);
     }
 
 }
