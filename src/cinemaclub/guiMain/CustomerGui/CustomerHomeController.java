@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
@@ -27,19 +28,18 @@ public class CustomerHomeController extends CustomerMainController implements In
     @FXML Label descriptionText;
     @FXML DatePicker datePicker;
     @FXML ListView<String> filmList;
+    @FXML ListView<String> timesList;
 
     public void selectDate(ActionEvent actionEvent) {
         try {
             String datePicked = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             ArrayList<Film> films = cinema.getFilmsByDate(datePicked);
-            System.out.println(films);
             ArrayList<String> filmTitles = new ArrayList<>();
 
             for (Film film : films) {
                 filmTitles.add(film.getTitle());
             }
 
-            System.out.println(filmTitles);
             ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
             filmList.setItems(data);
         } catch (PastDateException e) {
@@ -47,10 +47,18 @@ public class CustomerHomeController extends CustomerMainController implements In
         }
     }
 
-    public void pressPickSeat(ActionEvent actionEvent) {
-        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
+    public void chooseFilm(MouseEvent actionEvent) {
+        String chosenFilm = filmList.getSelectionModel().getSelectedItem();
+        ArrayList<String> times = cinema.getTimesByFilm(cinema.getFilmByTitle(chosenFilm));
+
+        ObservableList<String> data = FXCollections.observableArrayList(times);
+        timesList.setItems(data);
     }
 
+    public void pressPickTime(ActionEvent actionEvent) {
+        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Image img = new Image("/walle.jpg");

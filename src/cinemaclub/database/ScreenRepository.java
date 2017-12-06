@@ -27,8 +27,6 @@ public class ScreenRepository implements Serializable {
         Map<String, Map<String, Film>> filmDatesTimes = showings.get(screen);
         Map<String, Film> filmTimes = filmDatesTimes.get(date);
 
-        System.out.println(new ArrayList<>(filmTimes.values()));
-
         return new ArrayList<>(filmTimes.values());
     }
 
@@ -38,6 +36,17 @@ public class ScreenRepository implements Serializable {
         return filmDatesTimes.get(date);
     }
 
+    public ArrayList<String> getTimesByFilm(Film film) {
+        ArrayList<String> times = new ArrayList<>();
+
+        for (String time : filmTimes.keySet()) {
+            if (filmTimes.get(time) == film) {
+                times.add(time);
+            }
+        }
+        return times;
+    }
+
     public void addShowing(Screen screen, String date, String time, Film film) {
         filmTimes.put(time, film);
         filmDateTimes.put(date, filmTimes);
@@ -45,7 +54,7 @@ public class ScreenRepository implements Serializable {
 
         dataBase.updateExternalDB();
     }
-    
+
     public void deleteShowing(Screen screen, String date, String time) {
         Map<String, Film> filmTimes = this.getShowingsByDate(screen, date);
         filmTimes.remove(time);
