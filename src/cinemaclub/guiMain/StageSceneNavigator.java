@@ -142,7 +142,7 @@ public class StageSceneNavigator {
     private static Pane loadStaffPane(Cinema cinema) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         Pane staffPane = (Pane) loader.load(StageSceneNavigator.class.getResourceAsStream(StageSceneNavigator.STAFF_MAIN));
-        StaffMainController staffMainController  = loader.getController();
+        StaffMainController staffMainController = loader.getController();
         staffMainController.setCinema(cinema);
         StageSceneNavigator.setStaffMainController(staffMainController);
         StageSceneNavigator.loadStaffView(StageSceneNavigator.VISTA_1);
