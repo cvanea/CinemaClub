@@ -64,7 +64,7 @@ public class ScreenRepository implements Serializable {
 
     public Screen getScreenByNumber(Integer number) {
         for (Screen screen : showings.keySet()) {
-            if (screen.getScreenNumber() == number) {
+            if (screen.getScreenNumber().equals(number)) {
                 System.out.println("if reached");
                 return screen;
             }
