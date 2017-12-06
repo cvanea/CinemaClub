@@ -12,6 +12,7 @@ import java.util.Map;
 
 //TODO Add functionality for staff to export a list of films with dates, times, number of booked and available seats.
 //TODO Make proper script which creates a new cinema with default filled database entries.
+//TODO Checking when adding showings for overlapping films.
 //TODO INIT WITH ONE DEFAULT STAFF AND ONE DEFAULT CUSTOMER
 public class Cinema {
 
