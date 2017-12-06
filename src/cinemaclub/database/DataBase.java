@@ -51,6 +51,7 @@ public class DataBase implements Serializable {
             fileInputStream.close();
             objectInputStream.close();
         } catch (IOException | ClassNotFoundException e) {
+            //TODO INITIAL DEFAULTS FOR THE CINEMA GO HERE
             dataBase = new DataBase();
         }
         return dataBase;

@@ -33,6 +33,7 @@ public class Cinema {
         screens = setupScreens();
         addInitialFilms();
         addInitialShowings();
+        addInitialStaffID();
     }
 
     //Sets up the number of screens in the cinema and their seat number
@@ -43,7 +44,6 @@ public class Cinema {
             screensMap.put(1, new Screen(1, 5, 10));
             return screensMap;
         } catch (ScreenAlreadySetupException e) {
-            System.out.println("catch block");
             Map<Integer, Screen> screenMap = new HashMap<>();
             screenMap.put(1, filmDisplay.getScreenByNumber(1));
             return screenMap;
@@ -68,6 +68,16 @@ public class Cinema {
     private void addInitialShowings() {
         this.addFilmToShowings("2017-12-15", "13:00", this.getFilmByTitle("UP"));
         this.addFilmToShowings("2017-12-15", "12:00", this.getFilmByTitle("Walle"));
+    }
+
+    private void addInitialStaffID() {
+        if (profile.getAllStaffByID().isEmpty()) {
+            profile.addStaffID("1", "noStaff");
+            profile.addStaffID("2", "noStaff");
+            profile.addStaffID("3", "noStaff");
+            profile.addStaffID("4", "noStaff");
+            profile.addStaffID("5", "noStaff");
+        }
     }
 
     public Screen getScreen(Integer screenNumber) {

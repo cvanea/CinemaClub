@@ -3,6 +3,7 @@ package cinemaclub.database;
 import cinemaclub.user.User;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,43 +18,40 @@ public class UserRepository implements Serializable {
     }
 
     public void addStaffID(String staffId, String username) {
-
         staffIDs.put(staffId, username);
 
         dataBase.updateExternalDB();
     }
 
     public void assignStaffID(String staffId, String username) {
-
         staffIDs.put(staffId, username);
 
         dataBase.updateExternalDB();
     }
 
     public String getStaffIDValue(String staffId) {
-
         return staffIDs.get(staffId);
     }
 
-    private Boolean isStaff(String username) {
+    public ArrayList<String> getAllStaffByID() {
+        return new ArrayList<>(staffIDs.values());
+    }
 
+    private Boolean isStaff(String username) {
         return staffIDs.containsValue(username);
     }
 
     public void writeToUserDetails(String username, User user) {
-
         userDetails.put(username, user);
 
         dataBase.updateExternalDB();
     }
 
     public Boolean checkForUsername(String username) {
-
         return userDetails.containsKey(username);
     }
 
     public User getUser(String userName) {
-
         return userDetails.get(userName);
     }
 

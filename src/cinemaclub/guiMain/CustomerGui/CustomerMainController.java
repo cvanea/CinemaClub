@@ -1,9 +1,7 @@
 package cinemaclub.guiMain.CustomerGui;
 
 import cinemaclub.cinema.Cinema;
-import cinemaclub.gui.LoginGui;
 import cinemaclub.guiMain.LoginGui.LoginMainController;
-import cinemaclub.guiMain.LoginGui.LoginUserController;
 import cinemaclub.guiMain.StageSceneNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,10 +15,10 @@ import java.io.IOException;
  */
 public class CustomerMainController {
 
-    static Cinema cinema = LoginUserController.getCinema();
+    static Cinema cinema = LoginMainController.getCinema();
 
     public void setCinema(Cinema cinema) { // Setting the cinema-object
-        this.cinema = cinema;
+        CustomerMainController.cinema = cinema;
     }
 
     /** Holder of a switchable vista. */
