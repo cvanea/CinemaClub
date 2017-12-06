@@ -37,8 +37,8 @@ public class StageSceneNavigator {
 
     //Staff
     public static final String STAFF_MAIN = "StaffGui/StaffMain.fxml";
-    public static final String VISTA_1 = "vista1.fxml";
-    public static final String VISTA_2 = "vista2.fxml";
+    public static final String STAFF_HOME = "StaffGui/StaffHome.fxml";
+
 
     /** The main application layout controller. */
     private static LoginMainController loginMainController;
@@ -145,7 +145,7 @@ public class StageSceneNavigator {
         StaffMainController staffMainController  = loader.getController();
         staffMainController.setCinema(cinema);
         StageSceneNavigator.setStaffMainController(staffMainController);
-        StageSceneNavigator.loadStaffView(StageSceneNavigator.VISTA_1);
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_HOME);
 
         return staffPane;
     }

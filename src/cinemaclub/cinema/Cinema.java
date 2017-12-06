@@ -73,8 +73,15 @@ public class Cinema {
         profile.setEmail(currentUser, newUsername);
     }
 
-    public void setUserPassword(String newUsername) {
-        profile.setPassword(currentUser, newUsername);
+    public void setUserPassword(String newPassword) {
+        profile.setPassword(currentUser, newPassword);
+    }
+
+    public void setUserFirstName(String firstName) {
+        profile.setFirstName(currentUser, firstName);
+    }
+    public void setUserSurname(String surname) {
+        profile.setSurname(currentUser, surname);
     }
 
     public Film getFilm(String title) {
