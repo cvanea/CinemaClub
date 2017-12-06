@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 //TODO Add functionality for staff to export a list of films with dates, times, number of booked and available seats.
+//TODO Make proper script which creates a new cinema with default filled database entries.
 public class Cinema {
 
     private Login login;
@@ -30,13 +31,43 @@ public class Cinema {
         profile = new Profile();
         bookingSystem = new BookingSystem();
         screens = setupScreens();
+        addInitialFilms();
+        addInitialShowings();
     }
 
     //Sets up the number of screens in the cinema and their seat number
     private Map<Integer, Screen> setupScreens() {
-        Map<Integer, Screen> screensMap = new HashMap<>();
-        screensMap.put(1, new Screen(1, 5, 10));
-        return screensMap;
+        try {
+            validateExistingScreen(1);
+            Map<Integer, Screen> screensMap = new HashMap<>();
+            screensMap.put(1, new Screen(1, 5, 10));
+            return screensMap;
+        } catch (ScreenAlreadySetupException e) {
+            System.out.println("catch block");
+            Map<Integer, Screen> screenMap = new HashMap<>();
+            screenMap.put(1, filmDisplay.getScreenByNumber(1));
+            return screenMap;
+        }
+    }
+
+    private void validateExistingScreen(Integer screenNumber) throws ScreenAlreadySetupException {
+        if (filmDisplay.getScreenByNumber(screenNumber) != null) {
+            throw new ScreenAlreadySetupException();
+        }
+    }
+
+    private void addInitialFilms() {
+        try {
+            this.addFilm("UP", "/UP.jpg", "A great film", "01:00");
+            this.addFilm("Walle", "/walle.jpg", "A another great film", "02:00");
+        } catch (FilmExistsException e) {
+            System.out.println("Initial movies registered");
+        }
+    }
+
+    private void addInitialShowings() {
+        this.addFilmToShowings("2017-12-15", "13:00", this.getFilmByTitle("UP"));
+        this.addFilmToShowings("2017-12-15", "12:00", this.getFilmByTitle("Walle"));
     }
 
     public Screen getScreen(Integer screenNumber) {
@@ -84,8 +115,8 @@ public class Cinema {
         profile.setSurname(currentUser, surname);
     }
 
-    public Film getFilm(String title) {
-        return filmEdit.getFilmDetails(title);
+    public Film getFilmByTitle(String title) {
+        return filmEdit.getFilmDetailsByTitle(title);
     }
 
     public ArrayList<Booking> getBookingsHistory(Customer customer) throws NoBookingsException {
@@ -130,7 +161,7 @@ public class Cinema {
         bookingSystem.bookFilm(currentUser, date, time, film, screen, seatRow, seatNumber);
     }
 
-    public ArrayList<Film> getFilmsPerScreenDate(String date) throws PastDateException {
+    public ArrayList<Film> getFilmsByDate(String date) throws PastDateException {
         return filmDisplay.getFilmsByDateScreen(date, this.getScreen(1));
     }
 
@@ -138,7 +169,12 @@ public class Cinema {
         return filmDisplay.getShowingsByDate(date, this.getScreen(1));
     }
 
+    public ArrayList<String> getTimesByFilm(Film film) {
+        return filmDisplay.getTimesByFilm(film);
+    }
+
     public void addFilmToShowings(String date, String time, Film film) {
+        //TODO ADD EXCEPTION IN CASE FILM IS ALREADY SHOWING AT THAT TIME
         filmEdit.addFilmToShowings(this.getScreen(1), date, time, film);
     }
 

@@ -1,14 +1,24 @@
 package cinemaclub.guiMain.CustomerGui;
 
-import cinemaclub.cinema.Cinema;
+import cinemaclub.cinema.Film;
+import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
+import exceptions.PastDateException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CustomerHomeController extends CustomerMainController implements Initializable {
@@ -16,12 +26,44 @@ public class CustomerHomeController extends CustomerMainController implements In
     @FXML ImageView imageBox;
     @FXML Label titleText;
     @FXML Label descriptionText;
+    @FXML Label runTime;
+    @FXML DatePicker datePicker;
+    @FXML ListView<String> filmList;
+    @FXML ListView<String> timesList;
 
     public void selectDate(ActionEvent actionEvent) {
+        try {
+            String datePicked = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            ArrayList<Film> films = cinema.getFilmsByDate(datePicked);
+            ArrayList<String> filmTitles = new ArrayList<>();
 
+            for (Film film : films) {
+                filmTitles.add(film.getTitle());
+            }
+
+            ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
+            filmList.setItems(data);
+            GuiData.setDate(datePicked);
+        } catch (PastDateException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public void pressPickSeat(ActionEvent actionEvent) {
+    public void chooseFilm(MouseEvent actionEvent) {
+        String chosenFilm = filmList.getSelectionModel().getSelectedItem();
+        ArrayList<String> times = cinema.getTimesByFilm(cinema.getFilmByTitle(chosenFilm));
+
+        ObservableList<String> data = FXCollections.observableArrayList(times);
+        timesList.setItems(data);
+        setFilmInfo(cinema.getFilmByTitle(chosenFilm));
+    }
+
+    public void chooseTime(MouseEvent actionEvent) {
+        GuiData.setTime(timesList.getSelectionModel().getSelectedItem());
+    }
+
+    public void pressPickTime(ActionEvent actionEvent) {
+        //TODO MAKE CUSTOM EXCEPTION IF THEY DONT PICK A TIME
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
     }
 
@@ -31,10 +73,12 @@ public class CustomerHomeController extends CustomerMainController implements In
         imageBox.setImage(img);
     }
 
-    public void setFilmInfo(Cinema cinema){
-        titleText.setText("Title");
-        descriptionText.setText("Description");
-        Image img = new Image("/walle.jpg");
+    private void setFilmInfo(Film film){
+        titleText.setText(film.getTitle());
+        descriptionText.setText(film.getDescription());
+        runTime.setText(film.getRunTime());
+        Image img = new Image(film.getImagePath());
         imageBox.setImage(img);
+        GuiData.setFilm(film);
     }
 }

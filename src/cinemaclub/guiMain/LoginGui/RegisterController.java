@@ -1,6 +1,7 @@
 package cinemaclub.guiMain.LoginGui;
 
 import cinemaclub.cinema.Cinema;
+import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.IncorrectStaffIDException;
 import exceptions.StaffIDTakenException;
@@ -31,12 +32,6 @@ public class RegisterController extends LoginMainController {
     @FXML private CheckBox staffCheck;
     @FXML private Label errorLabel;
 
-    private String successMessage;
-
-    public String getSuccessMessage() {
-        return successMessage;
-    }
-
     public void registerButton(ActionEvent event) {
 
         try {
@@ -45,7 +40,7 @@ public class RegisterController extends LoginMainController {
             } else {
                 cinema.registerUser(username.getText(), email.getText(), password.getText(), firstName.getText(),surname.getText(), "customer", null);
             }
-            successMessage = "Success!";
+            GuiData.setSuccessMessage("success");
             errorLabel.setText("Registered");
             StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_USER);
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
@@ -63,6 +58,7 @@ public class RegisterController extends LoginMainController {
         stage.initOwner(
                 ((Node)event.getSource()).getScene().getWindow() );
         stage.show();
+        GuiData.setSuccessMessage("success");
         StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_USER);
     }
 

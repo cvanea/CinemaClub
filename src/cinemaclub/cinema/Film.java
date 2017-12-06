@@ -52,11 +52,7 @@ public class Film implements Serializable {
 
     @Override
     public String toString() {
-        return "Film{" +
-            "title='" + title + '\'' +
-            ", imagePath='" + imagePath + '\'' +
-            ", description='" + description + '\'' +
-            ", runTime='" + runTime + '\'' +
-            '}';
+        return "Film{" + "title='" + title + '\'' + ", imagePath='" + imagePath + '\'' +
+            ", description='" + description + '\'' + ", runTime='" + runTime + '\'' + '}';
     }
 }

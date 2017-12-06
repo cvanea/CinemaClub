@@ -2,10 +2,13 @@ package cinemaclub.cinema;
 
 import exceptions.SeatNotFoundException;
 
+import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class Screen {
+public class Screen implements Serializable {
+
+    private static final long serialVersionUID = 8762368738673278L;
 
     private Integer screenNumber;
     private final Map<String, Boolean> seats;
@@ -35,7 +38,7 @@ public class Screen {
         return seats.get(row + number);
     }
 
-    public void bookSeat(String row, int number) throws SeatNotFoundException {
+    void bookSeat(String row, int number) throws SeatNotFoundException {
         validateSeat(row, number);
         seats.put(row + number, true);
     }

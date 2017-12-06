@@ -11,7 +11,9 @@ import java.util.Map;
 public class ScreenRepository implements Serializable {
 
     private DataBase dataBase;
-    private Map<Screen, Map<String, Map<String, Film>>> showings;
+    private Map<String, Film> filmTimes = new HashMap<>();
+    private Map<String, Map<String, Film>> filmDateTimes = new HashMap<>();
+    private Map<Screen, Map<String, Map<String, Film>>> showings = new HashMap<>();
 
     ScreenRepository(DataBase dataBase) {
         this.dataBase = dataBase;
@@ -34,13 +36,20 @@ public class ScreenRepository implements Serializable {
         return filmDatesTimes.get(date);
     }
 
+    public ArrayList<String> getTimesByFilm(Film film) {
+        ArrayList<String> times = new ArrayList<>();
+
+        for (String time : filmTimes.keySet()) {
+            if (filmTimes.get(time) == film) {
+                times.add(time);
+            }
+        }
+        return times;
+    }
+
     public void addShowing(Screen screen, String date, String time, Film film) {
-        Map<String, Film> filmTimes = new HashMap<>();
         filmTimes.put(time, film);
-
-        Map<String, Map<String, Film>> filmDateTimes = new HashMap<>();
         filmDateTimes.put(date, filmTimes);
-
         showings.put(screen, filmDateTimes);
 
         dataBase.updateExternalDB();
@@ -51,6 +60,16 @@ public class ScreenRepository implements Serializable {
         filmTimes.remove(time);
 
         dataBase.updateExternalDB();
+    }
+
+    public Screen getScreenByNumber(Integer number) {
+        for (Screen screen : showings.keySet()) {
+            if (screen.getScreenNumber().equals(number)) {
+                System.out.println("if reached");
+                return screen;
+            }
+        }
+        return null;
     }
 
     public void updateDB() {

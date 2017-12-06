@@ -10,11 +10,12 @@ public class MainTester {
     public static void main(String[] args) {
 
 //        registerTester();
-        loginTester();
+//        loginTester();
 //        logoutTester();
 //        profileTester();
 //        bookingTester();
 //        filmEditTester();
+        showingsTester();
 //        seatsTester();
 
     }
@@ -202,33 +203,53 @@ public class MainTester {
     private static void filmEditTester() {
         Cinema cinema = new Cinema();
 
-        cinema.deleteFilm("UP");
+        cinema.deleteFilm("Test");
         cinema.deleteFilm("UPTest");
 
         try {
-            cinema.addFilm("UP", "Path", "A film about a man, a boy, and a dog", "01:00");
+            cinema.addFilm("Test", "Path", "A film about a man, a boy, and a dog", "01:00");
         } catch (FilmExistsException e) {
             System.out.println(e.getMessage());
         }
 
-        System.out.println(cinema.getFilm("UP").getTitle());
-        System.out.println(cinema.getFilm("UP").getImagePath());
-        System.out.println(cinema.getFilm("UP").getRunTime());
-        System.out.println(cinema.getFilm("UP").getDescription());
+        System.out.println(cinema.getFilmByTitle("Test").getTitle());
+        System.out.println(cinema.getFilmByTitle("Test").getImagePath());
+        System.out.println(cinema.getFilmByTitle("Test").getRunTime());
+        System.out.println(cinema.getFilmByTitle("Test").getDescription());
 
         try {
-            cinema.setFilmTitle(cinema.getFilm("UP"), "UPTest");
-            cinema.setFilmImagePath(cinema.getFilm("UPTest"), "PathTest");
-            cinema.setFilmRunTime(cinema.getFilm("UPTest"), "02:00");
-            cinema.setFilmDescription(cinema.getFilm("UPTest"), "DescriptionTest");
+            cinema.setFilmTitle(cinema.getFilmByTitle("Test"), "UPTest");
+            cinema.setFilmImagePath(cinema.getFilmByTitle("UPTest"), "PathTest");
+            cinema.setFilmRunTime(cinema.getFilmByTitle("UPTest"), "02:00");
+            cinema.setFilmDescription(cinema.getFilmByTitle("UPTest"), "DescriptionTest");
         } catch (FilmExistsException e) {
             System.out.println(e.getMessage());
         }
 
-        System.out.println(cinema.getFilm("UPTest").getTitle());
-        System.out.println(cinema.getFilm("UPTest").getImagePath());
-        System.out.println(cinema.getFilm("UPTest").getRunTime());
-        System.out.println(cinema.getFilm("UPTest").getDescription());
+        System.out.println(cinema.getFilmByTitle("UPTest").getTitle());
+        System.out.println(cinema.getFilmByTitle("UPTest").getImagePath());
+        System.out.println(cinema.getFilmByTitle("UPTest").getRunTime());
+        System.out.println(cinema.getFilmByTitle("UPTest").getDescription());
+    }
+
+    private static void showingsTester() {
+        Cinema cinema = new Cinema();
+
+        try {
+            cinema.addFilm("Tester", "testpath", "testing showings", "01:00");
+        } catch (FilmExistsException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println(cinema.getFilmByTitle("Tester"));
+
+        cinema.addFilmToShowings("2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
+
+        try {
+            System.out.println(cinema.getShowingsByDate("2018-02-20"));
+        } catch (PastDateException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void seatsTester() {

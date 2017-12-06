@@ -30,7 +30,7 @@ public class FilmRepository implements Serializable {
         return films.containsKey(title);
     }
 
-    public Film getFilm(String title) {
+    public Film getFilmByTitle(String title) {
         return films.get(title);
     }
 
