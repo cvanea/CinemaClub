@@ -1,6 +1,7 @@
 package cinemaclub.guiMain.LoginGui;
 
 import cinemaclub.cinema.Cinema;
+import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.IncorrectStaffIDException;
 import exceptions.StaffIDTakenException;
@@ -22,8 +23,7 @@ import java.io.IOException;
 public class RegisterController extends LoginMainController {
     private Cinema cinema = new Cinema();
 
-    @FXML
-    private TextField username;
+    @FXML private TextField username;
     @FXML private TextField password;
     @FXML private TextField firstName;
     @FXML private TextField surname;
@@ -32,17 +32,17 @@ public class RegisterController extends LoginMainController {
     @FXML private CheckBox staffCheck;
     @FXML private Label errorLabel;
 
-
     public void registerButton(ActionEvent event) {
 
         try {
             if (staffCheck.isSelected()) {
                 cinema.registerUser(username.getText(), email.getText(), password.getText(), firstName.getText(), surname.getText(),"staff", staffID.getText());
-
             } else {
                 cinema.registerUser(username.getText(), email.getText(), password.getText(), firstName.getText(),surname.getText(), "customer", null);
             }
+            GuiData.setSuccessMessage("success");
             errorLabel.setText("Registered");
+            StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_USER);
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
             errorLabel.setText(e.getMessage());
             System.out.println(e.getMessage());
@@ -58,6 +58,7 @@ public class RegisterController extends LoginMainController {
         stage.initOwner(
                 ((Node)event.getSource()).getScene().getWindow() );
         stage.show();
+        GuiData.setSuccessMessage("success");
         StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_USER);
     }
 

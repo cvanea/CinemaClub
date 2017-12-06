@@ -27,7 +27,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label contentDisplay="CENTER" text="Home - Film Times" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="LEFT">
+            <Label contentDisplay="CENTER" text="Home - Choose Seat" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="LEFT">
                <font>
                   <Font name="System Bold" size="48.0" />
                </font>
@@ -42,22 +42,27 @@
                         <Image url="@../../../../Images/UP.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="23.0" layoutY="36.0" text="Film Title" AnchorPane.leftAnchor="20.0">
+                  <Label fx:id="titleText" layoutX="23.0" layoutY="36.0" text="Film Title" AnchorPane.leftAnchor="20.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="20.0" layoutY="80.0" text="Film Description" AnchorPane.leftAnchor="20.0">
+                  <Label fx:id="descriptionText" layoutX="20.0" layoutY="80.0" prefHeight="131.0" prefWidth="260.0" text="Film Description" AnchorPane.leftAnchor="20.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="20.0" layoutY="119.0" text="Film Date" AnchorPane.leftAnchor="20.0">
+                  <Label fx:id="dateText" layoutX="20.0" layoutY="249.0" text="Film Date" AnchorPane.leftAnchor="20.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="49.0" layoutY="191.0" text="Film Time" AnchorPane.leftAnchor="20.0">
+                  <Label fx:id="timeText" layoutX="18.0" layoutY="282.0" text="Film Time" AnchorPane.leftAnchor="18.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="runtimeText" layoutX="20.0" layoutY="211.0" text="Run Time">
                      <font>
                         <Font size="20.0" />
                      </font>

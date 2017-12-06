@@ -53,8 +53,8 @@ class FilmEdit {
         return filmRepository.getAllFilms();
     }
 
-    Film getFilmDetails(String title) {
-        return filmRepository.getFilm(title);
+    Film getFilmDetailsByTitle(String title) {
+        return filmRepository.getFilmByTitle(title);
     }
 
     void addFilmToShowings(Screen screen, String date, String time, Film film) {

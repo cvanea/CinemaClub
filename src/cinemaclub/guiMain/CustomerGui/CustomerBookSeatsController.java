@@ -1,7 +1,6 @@
 package cinemaclub.guiMain.CustomerGui;
 
-import cinemaclub.cinema.Cinema;
-import cinemaclub.guiMain.LoginGui.RegisterController;
+import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,9 +25,10 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
     @FXML ImageView imageBox;
     @FXML Label titleText;
     @FXML Label descriptionText;
+    @FXML Label timeText;
+    @FXML Label runtimeText;
+    @FXML Label dateText;
     @FXML Button a1but;
-
-
 
     public void pressReserveSeat(ActionEvent actionEvent) throws IOException {
         // TODO: Add reserve seats
@@ -42,19 +42,16 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
         stage.show();
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
         System.out.println("test");
-
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Image img = new Image("/walle.jpg");
-        imageBox.setImage(img);
-    }
-
-    public void setFilmInfo(Cinema cinema){
-        titleText.setText("Title");
-        descriptionText.setText("Description");
-        Image img = new Image("/walle.jpg");
+        titleText.setText(GuiData.getFilm().getTitle());
+        descriptionText.setText(GuiData.getFilm().getDescription());
+        runtimeText.setText(GuiData.getFilm().getRunTime());
+        timeText.setText(GuiData.getTime());
+        dateText.setText(GuiData.getDate());
+        Image img = new Image(GuiData.getFilm().getImagePath());
         imageBox.setImage(img);
     }
 }
