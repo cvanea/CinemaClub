@@ -33,9 +33,23 @@ public class CustomerProfileController extends CustomerMainController {
         passwordBox.setText(cinema.getCurrentUser().getPassword());
         firstNameBox.setText(cinema.getProfileDetails().getFirstName());
         lastNameBox.setText(cinema.getProfileDetails().getSurname());
+        fillFutureBookings();
+        fillPastBookings();
     }
 
     public void cancelBooking(ActionEvent event){
+
+    }
+
+    public void futureMouseClick(ActionEvent event){
+
+    }
+
+    public void setProfileText(ActionEvent event) {
+        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE_EDIT);
+    }
+
+    public void fillFutureBookings() {
         try {
             ArrayList<Booking> bookings = cinema.getFutureBookingsHistory();
             ArrayList<String> filmTitles = new ArrayList<>();
@@ -52,15 +66,25 @@ public class CustomerProfileController extends CustomerMainController {
         } catch (NoBookingsException | NoFutureBookingsException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
-    public void futureMouseClick(ActionEvent event){
+    public void fillPastBookings() {
+        try {
+            ArrayList<Booking> bookings = cinema.getPastBookingsHistory();
+            ArrayList<String> filmTitles = new ArrayList<>();
 
-    }
-
-    public void setProfileText(ActionEvent event) {
-        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE_EDIT);
+            for (Booking booking : bookings) {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append(booking.getFilm().getTitle()).append(" | ").append(booking.getDate()).append(" | ").append(booking.getTime()).append(" | ").append(booking.getSeat());
+                filmTitles.add(stringBuilder.toString());
+//                System.out.println(stringBuilder.toString());
+            }
+            ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
+            pastList.setItems(data);
+            System.out.println("empty bookings");
+        } catch (NoBookingsException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
