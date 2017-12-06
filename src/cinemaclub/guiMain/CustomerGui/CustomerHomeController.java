@@ -1,7 +1,7 @@
 package cinemaclub.guiMain.CustomerGui;
 
-import cinemaclub.cinema.Cinema;
 import cinemaclub.cinema.Film;
+import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.PastDateException;
 import javafx.collections.FXCollections;
@@ -26,6 +26,7 @@ public class CustomerHomeController extends CustomerMainController implements In
     @FXML ImageView imageBox;
     @FXML Label titleText;
     @FXML Label descriptionText;
+    @FXML Label runTime;
     @FXML DatePicker datePicker;
     @FXML ListView<String> filmList;
     @FXML ListView<String> timesList;
@@ -42,6 +43,7 @@ public class CustomerHomeController extends CustomerMainController implements In
 
             ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
             filmList.setItems(data);
+            GuiData.setDate(datePicked);
         } catch (PastDateException e) {
             System.out.println(e.getMessage());
         }
@@ -53,22 +55,30 @@ public class CustomerHomeController extends CustomerMainController implements In
 
         ObservableList<String> data = FXCollections.observableArrayList(times);
         timesList.setItems(data);
+        setFilmInfo(cinema.getFilmByTitle(chosenFilm));
+    }
+
+    public void chooseTime(MouseEvent actionEvent) {
+        GuiData.setTime(timesList.getSelectionModel().getSelectedItem());
     }
 
     public void pressPickTime(ActionEvent actionEvent) {
+        //TODO MAKE CUSTOM EXCEPTION IF THEY DONT PICK A TIME
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
     }
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Image img = new Image("/walle.jpg");
         imageBox.setImage(img);
     }
 
-    public void setFilmInfo(Cinema cinema){
-        titleText.setText("Title");
-        descriptionText.setText("Description");
-        Image img = new Image("/walle.jpg");
+    private void setFilmInfo(Film film){
+        titleText.setText(film.getTitle());
+        descriptionText.setText(film.getDescription());
+        runTime.setText(film.getRunTime());
+        Image img = new Image(film.getImagePath());
         imageBox.setImage(img);
+        GuiData.setFilm(film);
     }
 }
