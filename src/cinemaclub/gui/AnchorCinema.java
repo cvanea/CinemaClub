@@ -28,11 +28,11 @@ public class AnchorCinema {
     }
 
     public void pressFilmDisplay(ActionEvent event) {
-//        Main.setPaneCinema(1);
+//        MainTester.setPaneCinema(1);
     }
 
     public void pressFilmEdit(ActionEvent event) {
-//        Main.setPaneCinema(1);
+//        MainTester.setPaneCinema(1);
     }
 
 

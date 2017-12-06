@@ -1,6 +1,6 @@
 package cinemaclub.user;
 
-public class Staff extends cinemaclub.user.User {
+public class Staff extends User {
 
     public Staff(UserCredentials userCredentials) {
         super(userCredentials);

@@ -1,5 +1,6 @@
 package cinemaclub.gui;
 
+import exceptions.UsernameTakenException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -20,15 +21,19 @@ public class ProfileEditController extends AnchorCinema{
 
 
    @FXML private void initialize() {
-       nameBoxEdit.setText(cinema.getProfileDetails().getUserName());
+       nameBoxEdit.setText(cinema.getProfileDetails().getUsername());
        emailBoxEdit.setText(cinema.getProfileDetails().getEmail());
        passwordBoxEdit.setText(cinema.getProfileDetails().getPassword());
        }
 
     public void pressSubmitEdit(ActionEvent event) throws IOException {
-        cinema.setUsername(nameBoxEdit.getText());
-        cinema.setUserEmail(emailBoxEdit.getText());
-        cinema.setUserPassword(passwordBoxEdit.getText());
+        try {
+            cinema.setUsername(nameBoxEdit.getText());
+            cinema.setUserEmail(emailBoxEdit.getText());
+            cinema.setUserPassword(passwordBoxEdit.getText());
+        } catch (UsernameTakenException e) {
+            System.out.println(e.getMessage());
+        }
 //        profileController.nameBox.setText("hello");
 //        profileController.reload();
         Main.setPaneCinema(1);

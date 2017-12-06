@@ -5,19 +5,19 @@ import javafx.event.ActionEvent;
 public class CinemaHome extends AnchorCinema {
 
 //    public void pressProfile(ActionEvent event) {
-//        Main.setPaneCinema(1);
+//        MainTester.setPaneCinema(1);
 //    }
 //
 //    public void pressFilmDisplay(ActionEvent event) {
-////        Main.setPaneCinema(1);
+////        MainTester.setPaneCinema(1);
 //    }
 //
 //    public void pressBookings(ActionEvent event) {
-//        Main.setPaneCinema(2);
+//        MainTester.setPaneCinema(2);
 //    }
 //
 //    public void pressFilmEdit(ActionEvent event) {
-////        Main.setPaneCinema(1);
+////        MainTester.setPaneCinema(1);
 //    }
 
 
