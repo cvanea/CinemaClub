@@ -28,7 +28,7 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
     @FXML Label descriptionText;
     @FXML Button a1but;
 
-    
+
 
     public void pressReserveSeat(ActionEvent actionEvent) throws IOException {
         // TODO: Add reserve seats
