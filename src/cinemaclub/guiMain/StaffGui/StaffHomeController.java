@@ -15,28 +15,28 @@ import java.util.ResourceBundle;
 
 public class StaffHomeController extends CustomerMainController implements Initializable {
 
-    @FXML ImageView imageBox;
-    @FXML Label titleText;
-    @FXML Label descriptionText;
+//    @FXML ImageView imageBox;
+//    @FXML Label titleText;
+//    @FXML Label descriptionText;
 
     public void selectDate(ActionEvent actionEvent) {
 
     }
 
     public void pressPickSeat(ActionEvent actionEvent) {
-        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
+//        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Image img = new Image("/walle.jpg");
-        imageBox.setImage(img);
+//        Image img = new Image("/walle.jpg");
+//        imageBox.setImage(img);
     }
 
     public void setFilmInfo(Cinema cinema){
-        titleText.setText("Title");
-        descriptionText.setText("Description");
-        Image img = new Image("/walle.jpg");
-        imageBox.setImage(img);
+//        titleText.setText("Title");
+//        descriptionText.setText("Description");
+//        Image img = new Image("/walle.jpg");
+//        imageBox.setImage(img);
     }
 }

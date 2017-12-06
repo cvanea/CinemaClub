@@ -2,6 +2,7 @@ package cinemaclub.guiMain.LoginGui;
 
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
+import cinemaclub.user.Customer;
 import exceptions.UserDetailsDoNotExistException;
 import exceptions.UserDetailsIncorrectException;
 import javafx.event.ActionEvent;
@@ -26,10 +27,12 @@ public class LoginUserController extends LoginMainController {
     public void pressButton(ActionEvent event) throws IOException {
         try {
             cinema.loginUser(username.getText(), password.getText());
-            System.out.println(cinema.getCurrentUser().IExist());
             errorLabel.setText(cinema.getCurrentUser().IExist());
-            StageSceneNavigator.customerStage(cinema);
-//            StageSceneNavigator.staffStage(cinema);
+            if(cinema.getCurrentUser() instanceof Customer){
+                StageSceneNavigator.customerStage(cinema);
+            } else {
+                StageSceneNavigator.staffStage(cinema);
+            }
             ((Node)(event.getSource())).getScene().getWindow().hide();
         } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
             System.out.println(e.getMessage());
