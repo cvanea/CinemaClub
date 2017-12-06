@@ -25,6 +25,8 @@ public class RegisterController extends LoginMainController {
     @FXML
     private TextField username;
     @FXML private TextField password;
+    @FXML private TextField firstName;
+    @FXML private TextField surname;
     @FXML private TextField email;
     @FXML private TextField staffID;
     @FXML private CheckBox staffCheck;
@@ -35,10 +37,10 @@ public class RegisterController extends LoginMainController {
 
         try {
             if (staffCheck.isSelected()) {
-                cinema.registerUser(username.getText(), email.getText(), password.getText(), "first name", "surname", "staff", staffID.getText());
+                cinema.registerUser(username.getText(), email.getText(), password.getText(), firstName.getText(), surname.getText(),"staff", staffID.getText());
 
             } else {
-                cinema.registerUser(username.getText(), email.getText(), password.getText(), "first name", "surname", "customer", null);
+                cinema.registerUser(username.getText(), email.getText(), password.getText(), firstName.getText(),surname.getText(), "customer", null);
             }
             errorLabel.setText("Registered");
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
