@@ -39,6 +39,7 @@ public class Screen implements Serializable {
     }
 
     public void bookSeat(String row, int number) throws SeatNotFoundException {
+    void bookSeat(String row, int number) throws SeatNotFoundException {
         validateSeat(row, number);
         seats.put(row + number, true);
     }

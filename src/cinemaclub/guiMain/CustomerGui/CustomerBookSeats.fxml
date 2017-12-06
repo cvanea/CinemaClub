@@ -52,17 +52,32 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dateText" layoutX="20.0" layoutY="249.0" text="Film Date" AnchorPane.leftAnchor="20.0">
+                  <Label layoutX="20.0" layoutY="249.0" text="Film Date:" AnchorPane.leftAnchor="20.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="timeText" layoutX="18.0" layoutY="282.0" text="Film Time" AnchorPane.leftAnchor="18.0">
+                  <Label layoutX="18.0" layoutY="282.0" text="Film Time:" AnchorPane.leftAnchor="18.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="runtimeText" layoutX="20.0" layoutY="211.0" text="Run Time">
+                  <Label layoutX="20.0" layoutY="211.0" text="Runtime:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="runtimeText" layoutX="125.0" layoutY="212.0" prefHeight="25.0" prefWidth="100.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dateText" layoutX="125.0" layoutY="249.0" prefHeight="25.0" prefWidth="100.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="timeText" layoutX="125.0" layoutY="282.0" prefHeight="25.0" prefWidth="100.0">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -89,11 +104,16 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="a1but" mnemonicParsing="false" text="A1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Button mnemonicParsing="false" text="A1" GridPane.columnIndex="1" />
+                  <Button fx:id="A1" mnemonicParsing="false" onAction="#pressSeat" text="A1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button fx:id="A2" mnemonicParsing="false" text="A2" GridPane.columnIndex="1" />
                </children>
             </GridPane>
             <Button mnemonicParsing="false" onAction="#pressReserveSeat" text="Reserve Seat" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label fx:id="errorLabel" prefHeight="134.0" prefWidth="368.0" GridPane.columnIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>

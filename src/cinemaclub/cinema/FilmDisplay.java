@@ -31,6 +31,10 @@ class FilmDisplay {
         return screenRepository.getTimesByFilm(film);
     }
 
+    Screen getScreenByNumber(Integer number) {
+        return screenRepository.getScreenByNumber(number);
+    }
+
     private void validateDate(String date) throws PastDateException {
         //TODO MAKE SURE DATE WITHOUT TIME WORKS HERE
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");

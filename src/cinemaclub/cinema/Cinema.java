@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 //TODO Add functionality for staff to export a list of films with dates, times, number of booked and available seats.
+//TODO Make proper script which creates a new cinema with default filled database entries.
 public class Cinema {
 
     private Login login;
@@ -36,9 +37,23 @@ public class Cinema {
 
     //Sets up the number of screens in the cinema and their seat number
     private Map<Integer, Screen> setupScreens() {
-        Map<Integer, Screen> screensMap = new HashMap<>();
-        screensMap.put(1, new Screen(1, 5, 10));
-        return screensMap;
+        try {
+            validateExistingScreen(1);
+            Map<Integer, Screen> screensMap = new HashMap<>();
+            screensMap.put(1, new Screen(1, 5, 10));
+            return screensMap;
+        } catch (ScreenAlreadySetupException e) {
+            System.out.println("catch block");
+            Map<Integer, Screen> screenMap = new HashMap<>();
+            screenMap.put(1, filmDisplay.getScreenByNumber(1));
+            return screenMap;
+        }
+    }
+
+    private void validateExistingScreen(Integer screenNumber) throws ScreenAlreadySetupException {
+        if (filmDisplay.getScreenByNumber(screenNumber) != null) {
+            throw new ScreenAlreadySetupException();
+        }
     }
 
     private void addInitialFilms() {
