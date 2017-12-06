@@ -23,7 +23,6 @@ public class LoginUserController {
     @FXML
     private TextField username;
     @FXML private TextField password;
-    @FXML private TextField email;
     @FXML private Label errorLabel;
 
     public void pressButton(ActionEvent event) throws IOException {
@@ -43,7 +42,6 @@ public class LoginUserController {
     public void pressRegister(ActionEvent event) {
 //        Main.setPaneLogin(1);
         StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_REGISTER);
-
     }
 
     public void newStage(ActionEvent event) throws IOException {

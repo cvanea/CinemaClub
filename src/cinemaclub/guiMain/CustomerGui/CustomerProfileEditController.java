@@ -21,7 +21,6 @@ public class CustomerProfileEditController extends CustomerMainController{
         this.profileController = profileController;
     }
 
-
    @FXML private void initialize() {
        nameBoxEdit.setText(cinema.getProfileDetails().getUsername());
        emailBoxEdit.setText(cinema.getProfileDetails().getEmail());

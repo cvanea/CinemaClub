@@ -22,8 +22,7 @@ import java.io.IOException;
 public class RegisterController extends LoginMainController {
     private Cinema cinema = new Cinema();
 
-    @FXML
-    private TextField username;
+    @FXML private TextField username;
     @FXML private TextField password;
     @FXML private TextField firstName;
     @FXML private TextField surname;
@@ -32,17 +31,23 @@ public class RegisterController extends LoginMainController {
     @FXML private CheckBox staffCheck;
     @FXML private Label errorLabel;
 
+    private String successMessage;
+
+    public String getSuccessMessage() {
+        return successMessage;
+    }
 
     public void registerButton(ActionEvent event) {
 
         try {
             if (staffCheck.isSelected()) {
                 cinema.registerUser(username.getText(), email.getText(), password.getText(), firstName.getText(), surname.getText(),"staff", staffID.getText());
-
             } else {
                 cinema.registerUser(username.getText(), email.getText(), password.getText(), firstName.getText(),surname.getText(), "customer", null);
             }
+            successMessage = "Success!";
             errorLabel.setText("Registered");
+            StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_USER);
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
             errorLabel.setText(e.getMessage());
             System.out.println(e.getMessage());
