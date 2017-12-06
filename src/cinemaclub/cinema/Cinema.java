@@ -143,10 +143,6 @@ public class Cinema {
         return filmEdit.displayAllFilms();
     }
 
-    public ArrayList<Film> displayAllScreenFilms() {
-        return filmEdit.displayAllFilms(this.getScreen(1));
-    }
-
     public void addFilm(String title, String imagePath, String description, String runTime) throws FilmExistsException {
         filmEdit.addFilm(title, imagePath, description, runTime);
     }

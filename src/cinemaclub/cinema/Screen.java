@@ -15,9 +15,9 @@ public class Screen {
         seats = setupSeats(numberRow, seatsPerRow);
     }
 
-    private Map<String, Boolean> setupSeats(int row, int seatsPerRow) {
+    private Map<String, Boolean> setupSeats(int numberRow, int seatsPerRow) {
         Map<String, Boolean> seats = new LinkedHashMap<>();
-        for (int i = 0; i < row; i++) {
+        for (int i = 0; i < numberRow; i++) {
             for (int j = 0; j < seatsPerRow; j++) {
                 char rowLetter = (char) ('A' + i);
                 seats.put(String.valueOf(rowLetter) + (j + 1) , false);

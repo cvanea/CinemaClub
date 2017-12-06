@@ -14,10 +14,6 @@ public class DataBase implements Serializable {
     private FilmRepository filmRepository  = new FilmRepository(this);
     private ScreenRepository screenRepository = new ScreenRepository(this);
 
-    public static DataBase getInstance() {
-        return ourInstance;
-    }
-
     public static UserRepository getUserRepository() {
         return ourInstance.userRepository;
     }

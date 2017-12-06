@@ -29,6 +29,7 @@ public class Customer extends User {
     }
 
     public Booking getBookingByTitle(String title) {
+        //TODO WONT WORK FOR MULTIPLE BOOKINGS OF SAME TITLE.
         for (Booking booking : bookings) {
             if (booking.getFilm().getTitle().equals(title)) {
                 return booking;

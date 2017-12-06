@@ -10,7 +10,7 @@ import exceptions.SeatAlreadyTakenException;
 import exceptions.SeatNotFoundException;
 
 class BookingSystem {
-    //TODO SeatAlreadyTaken not working. Fix.
+    //TODO SeatAlreadyTaken not working. Fix. Test because I think it's now fixed.
 
     private UserRepository userRepository;
     private ScreenRepository screenRepository;

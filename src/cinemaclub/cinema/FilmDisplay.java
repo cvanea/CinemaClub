@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 class FilmDisplay {
-    //TODO add displaying all showings as well as all films.
+    //TODO add method that checks across all screens for a given date
     private ScreenRepository screenRepository;
 
     FilmDisplay() {
@@ -28,6 +28,7 @@ class FilmDisplay {
     }
 
     private void validateDate(String date) throws PastDateException {
+        //TODO MAKE SURE DATE WITHOUT TIME WORKS HERE
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String timeNow = LocalDateTime.now().format(formatter);
 

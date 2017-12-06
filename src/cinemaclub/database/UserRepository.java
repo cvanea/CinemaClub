@@ -6,7 +6,6 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-// TODO All CRUD and helper stuff goes in here.
 public class UserRepository implements Serializable {
 
     private DataBase dataBase;

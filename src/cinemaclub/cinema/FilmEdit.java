@@ -53,10 +53,6 @@ class FilmEdit {
         return filmRepository.getAllFilms();
     }
 
-    ArrayList<Film> displayAllFilms(Screen screen) {
-        return filmRepository.getAllFilms();
-    }
-
     Film getFilmDetails(String title) {
         return filmRepository.getFilm(title);
     }
@@ -76,4 +72,3 @@ class FilmEdit {
         }
     }
 }
-

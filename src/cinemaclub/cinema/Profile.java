@@ -55,6 +55,7 @@ class Profile {
     }
 
     ArrayList<Booking> getPastBookingsHistory(User user) throws NoBookingsException {
+        //TODO CHECK NO PAST BOOKINGS EXCEPTION
         ArrayList<Booking> allBookings = getBookingsHistory(user);
         ArrayList<Booking> pastBookings = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");

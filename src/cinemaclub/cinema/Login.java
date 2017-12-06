@@ -23,9 +23,7 @@ class Login {
         return userRepository.getUser(username);
     }
 
-    private void validateUsername(String username)
-        throws UserDetailsDoNotExistException {
-
+    private void validateUsername(String username) throws UserDetailsDoNotExistException {
         if (userRepository.getUser(username) == null) {
             throw new UserDetailsDoNotExistException();
         }
@@ -36,5 +34,4 @@ class Login {
             throw new UserDetailsIncorrectException();
         }
     }
-
 }
