@@ -36,9 +36,17 @@ public class Cinema {
 
     //Sets up the number of screens in the cinema and their seat number
     private Map<Integer, Screen> setupScreens() {
-        Map<Integer, Screen> screensMap = new HashMap<>();
-        screensMap.put(1, new Screen(1, 5, 10));
-        return screensMap;
+//        try {
+            Map<Integer, Screen> screensMap = new HashMap<>();
+            screensMap.put(1, new Screen(1, 5, 10));
+            return screensMap;
+//        } catch (ScreenAlreadySetupException e) {
+//            //TODO CALL FROM DATABASE SCREEN
+//        }
+    }
+
+    private void validateExistingScreen(Integer screenNumber) {
+//        if ()
     }
 
     private void addInitialFilms() {

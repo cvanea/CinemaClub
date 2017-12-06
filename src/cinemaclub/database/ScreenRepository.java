@@ -62,6 +62,16 @@ public class ScreenRepository implements Serializable {
         dataBase.updateExternalDB();
     }
 
+    public Screen getScreenByNumber(Integer number) {
+        for (Screen screen : showings.keySet()) {
+            if (screen.getScreenNumber() == number) {
+                System.out.println("if reached");
+                return screen;
+            }
+        }
+        return null;
+    }
+
     public void updateDB() {
         dataBase.updateExternalDB();
     }
