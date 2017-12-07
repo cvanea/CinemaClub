@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.StaffScreenController">
+   <children>
+      <AnchorPane prefHeight="534.0" prefWidth="1040.0" GridPane.rowIndex="1">
+      </AnchorPane>
+      <GridPane style="-fx-background-color: #0B4F6C;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="500.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="10.523785591125488" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="554.9196166992188" minHeight="10.0" prefHeight="554.9196166992188" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label contentDisplay="CENTER" text="Home - Screen" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <ListView layoutX="47.0" layoutY="115.0" prefHeight="100.0" prefWidth="150.0" />
+                  <Label layoutX="19.0" layoutY="11.0" text="Dates + Times">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="23.0" layoutY="72.0" text="Dates">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ListView layoutX="90.0" layoutY="276.0" prefHeight="100.0" prefWidth="100.0" />
+                  <Label layoutX="26.0" layoutY="247.0" text="Times">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <GridPane prefHeight="555.0" prefWidth="527.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</StackPane>

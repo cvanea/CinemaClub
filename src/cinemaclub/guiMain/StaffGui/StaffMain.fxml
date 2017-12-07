@@ -13,13 +13,12 @@
     <children>
         <AnchorPane prefHeight="80.0" prefWidth="1200.0" style="-fx-background-color: #022B3A;">
             <children>
-                <Label fx:id="headerLabel" layoutX="42.0" layoutY="2.0" maxWidth="1.7976931348623157E308" prefHeight="71.0" prefWidth="403.0" text="Cinema Club" textFill="WHITE">
+                <Label fx:id="headerLabel" layoutX="42.0" layoutY="2.0" maxWidth="1.7976931348623157E308" prefHeight="71.0" prefWidth="506.0" text="Cinema Club - Staff View" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="36.0" />
                     </font>
                 </Label>
-                <Button layoutX="978.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressHome" text="Home" />
-                <Button layoutX="1046.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressProfile" text="Profile" />
+                <Button layoutX="1050.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressHome" text="Films" />
                 <Button layoutX="1115.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressLogOut" text="Log Out" />
             </children>
         </AnchorPane>

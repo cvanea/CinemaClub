@@ -29,12 +29,9 @@ public class StaffMainController {
         StageSceneNavigator.loginStage();
         ((Node)(event.getSource())).getScene().getWindow().hide();
     }
-    public void pressProfile(ActionEvent event) throws IOException {
-        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE);
 
-    }
     public void pressHome(ActionEvent event) throws IOException {
-        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_HOME);
     }
 
     /**
