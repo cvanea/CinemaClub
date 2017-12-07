@@ -23,11 +23,15 @@ public class StaffMainController {
 
     /** Holder of a switchable vista. */
     @FXML
-    private StackPane vistaHolder;
+    private StackPane viewHolder;
 
-    public void pressTest(ActionEvent event) throws IOException {
-        StageSceneNavigator.customerStage(cinema);
+    public void pressLogOut(ActionEvent event) throws IOException {
+        StageSceneNavigator.loginStage();
         ((Node)(event.getSource())).getScene().getWindow().hide();
+    }
+
+    public void pressHome(ActionEvent event) throws IOException {
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_HOME);
     }
 
     /**
@@ -37,7 +41,7 @@ public class StaffMainController {
      */
 
     public void setView(Node node) {
-        vistaHolder.getChildren().setAll(node);
+        viewHolder.getChildren().setAll(node);
     }
 
 }

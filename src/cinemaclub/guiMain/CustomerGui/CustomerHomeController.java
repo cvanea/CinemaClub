@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -26,7 +27,9 @@ public class CustomerHomeController extends CustomerMainController implements In
     @FXML ImageView imageBox;
     @FXML Label titleText;
     @FXML Label descriptionText;
+    @FXML Label runtimeText;
     @FXML Label runTime;
+    @FXML Button pickSeatButton;
     @FXML DatePicker datePicker;
     @FXML ListView<String> filmList;
     @FXML ListView<String> timesList;
@@ -44,6 +47,7 @@ public class CustomerHomeController extends CustomerMainController implements In
 
             ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
             filmList.setItems(data);
+            filmList.setOpacity(1);
             GuiData.setDate(datePicked);
         } catch (PastDateException e) {
             System.out.println(e.getMessage());
@@ -57,10 +61,13 @@ public class CustomerHomeController extends CustomerMainController implements In
         ObservableList<String> data = FXCollections.observableArrayList(times);
         timesList.setItems(data);
         setFilmInfo(cinema.getFilmByTitle(chosenFilm));
+        runtimeText.setOpacity(1);
+        timesList.setOpacity(1);
     }
 
     public void chooseTime(MouseEvent actionEvent) {
         GuiData.setTime(timesList.getSelectionModel().getSelectedItem());
+        pickSeatButton.setOpacity(1);
     }
 
     public void pressPickTime(ActionEvent actionEvent) {
@@ -71,7 +78,12 @@ public class CustomerHomeController extends CustomerMainController implements In
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Image img = new Image("/walle.jpg");
-        imageBox.setImage(img);
+//        imageBox.setImage(img);
+        runtimeText.setOpacity(0);
+        timesList.setOpacity(0);
+        filmList.setOpacity(0);
+        pickSeatButton.setOpacity(0);
+
     }
 
     private void setFilmInfo(Film film){

@@ -5,18 +5,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <!--<?scenebuilder-stylesheet vista.css?>-->
 
-<VBox prefHeight="200.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="cinemaclub.guiMain.StaffGui.StaffMainController">
+<VBox fillWidth="false" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.StaffMainController">
     <children>
-        <Label fx:id="headerLabel" maxWidth="1.7976931348623157E308" prefHeight="90.0" prefWidth="300.0" text="Header" VBox.vgrow="NEVER">
-            <graphic>
-                <Button mnemonicParsing="false" onAction="#pressTest" text="test" />
-            </graphic></Label>
-        <StackPane fx:id="vistaHolder" VBox.vgrow="ALWAYS">
+        <AnchorPane prefHeight="80.0" prefWidth="1200.0" style="-fx-background-color: #022B3A;">
             <children>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                <Label fx:id="headerLabel" layoutX="42.0" layoutY="2.0" maxWidth="1.7976931348623157E308" prefHeight="71.0" prefWidth="506.0" text="Cinema Club - Staff View" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="36.0" />
+                    </font>
+                </Label>
+                <Button layoutX="1050.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressHome" text="Films" />
+                <Button layoutX="1115.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressLogOut" text="Log Out" />
+            </children>
+        </AnchorPane>
+        <StackPane fx:id="viewHolder" VBox.vgrow="ALWAYS">
+            <children>
+                <AnchorPane prefHeight="680.0" prefWidth="1200.0" />
             </children></StackPane>
     </children>
 </VBox>
