@@ -24,8 +24,8 @@ public class StageSceneNavigator {
      */
 
     // Login
-    public static final String LOGIN_MAIN    = "LoginGui/loginMain.fxml";
-    public static final String LOGIN_USER    = "LoginGui/loginUser.fxml";
+    public static final String LOGIN_MAIN = "LoginGui/loginMain.fxml";
+    public static final String LOGIN_USER = "LoginGui/loginUser.fxml";
     public static final String LOGIN_REGISTER = "LoginGui/loginRegister.fxml";
 
     //Customer
