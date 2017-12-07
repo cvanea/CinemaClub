@@ -21,8 +21,7 @@
       <GridPane style="-fx-background-color: #0B4F6C;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="10.0" prefWidth="500.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="10.523785591125488" vgrow="SOMETIMES" />
@@ -61,6 +60,7 @@
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -68,16 +68,16 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="updateButton" layoutX="103.0" layoutY="369.0" mnemonicParsing="false" onAction="#pressPickSeat" text="Update">
+                        <Button fx:id="updateButton" layoutX="133.0" layoutY="374.0" mnemonicParsing="false" onAction="#pressPickSeat" text="Update">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <TextField layoutX="50.0" layoutY="75.0" prefWidth="200.0" promptText="Title" AnchorPane.leftAnchor="50.0" />
-                        <TextArea layoutX="50.0" layoutY="116.0" prefHeight="150.0" prefWidth="200.0" promptText="Description" AnchorPane.leftAnchor="50.0" />
-                        <TextField layoutX="50.0" layoutY="286.0" prefWidth="200.0" promptText="Image URL" AnchorPane.leftAnchor="50.0" />
-                        <TextField layoutX="50.0" layoutY="326.0" prefWidth="200.0" promptText="Runtime" AnchorPane.leftAnchor="50.0" />
-                        <Label layoutX="35.0" layoutY="23.0" text="Film Infomation">
+                        <TextField layoutX="80.0" layoutY="80.0" prefWidth="200.0" promptText="Title" AnchorPane.leftAnchor="80.0" />
+                        <TextArea layoutX="80.0" layoutY="121.0" prefHeight="150.0" prefWidth="200.0" promptText="Description" AnchorPane.leftAnchor="80.0" />
+                        <TextField layoutX="80.0" layoutY="291.0" prefWidth="200.0" promptText="Image URL" AnchorPane.leftAnchor="80.0" />
+                        <TextField layoutX="80.0" layoutY="331.0" prefWidth="200.0" promptText="Runtime" AnchorPane.leftAnchor="80.0" />
+                        <Label layoutX="65.0" layoutY="28.0" text="Film Information">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -86,43 +86,47 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <ListView layoutX="41.0" layoutY="72.0" prefHeight="100.0" prefWidth="150.0" />
-                        <Label layoutX="13.0" layoutY="-4.0" text="Dates + Times">
-                           <font>
-                              <Font name="System Bold" size="30.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="21.0" layoutY="37.0" text="Dates">
+                        <ListView layoutX="55.0" layoutY="116.0" prefHeight="100.0" prefWidth="150.0" />
+                        <Label layoutX="97.0" layoutY="61.0" text="Dates">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <ListView layoutX="19.0" layoutY="345.0" prefHeight="100.0" prefWidth="100.0" />
-                        <Label layoutX="20.0" layoutY="315.0" text="Times">
+                        <Button fx:id="addFilm1" layoutX="83.0" layoutY="318.0" mnemonicParsing="false" text="Add Date">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="removeFim1" layoutX="74.0" layoutY="230.0" mnemonicParsing="false" text="Delete Date">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <DatePicker layoutX="35.0" layoutY="276.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                     <children>
+                        <ListView layoutX="93.0" layoutY="103.0" prefHeight="100.0" prefWidth="100.0" />
+                        <Label layoutX="107.0" layoutY="63.0" text="Times">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <Button fx:id="addFilm1" layoutX="69.0" layoutY="274.0" mnemonicParsing="false" text="Add Date">
+                        <TextField layoutX="60.0" layoutY="288.0" prefHeight="27.0" prefWidth="90.0" promptText="(HH:mm)" />
+                        <Button fx:id="addFilm11" layoutX="162.0" layoutY="284.0" mnemonicParsing="false" text="Add Time">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="removeFim1" layoutX="60.0" layoutY="186.0" mnemonicParsing="false" text="Delete Date">
+                        <Button fx:id="addFilm111" layoutX="82.0" layoutY="233.0" mnemonicParsing="false" text="Delete Time">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <DatePicker layoutX="21.0" layoutY="232.0" />
-                        <TextField layoutX="20.0" layoutY="482.0" prefHeight="27.0" prefWidth="90.0" promptText="(HH:mm)" />
-                        <Button fx:id="addFilm11" layoutX="122.0" layoutY="478.0" mnemonicParsing="false" text="Add Time">
+                        <Button fx:id="updateButton1" layoutX="80.0" layoutY="397.0" mnemonicParsing="false" onAction="#pressScreenView" text="Go to Screen">
                            <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="addFilm111" layoutX="123.0" layoutY="412.0" mnemonicParsing="false" text="Delete Time">
-                           <font>
-                              <Font size="16.0" />
+                              <Font size="18.0" />
                            </font>
                         </Button>
                      </children>
