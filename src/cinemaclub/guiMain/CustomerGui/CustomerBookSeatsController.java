@@ -83,37 +83,43 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
 
     }
 
-    public void seatTaken(Button button) {
-        String seat = button.getText();
-        String[] splitSeat = seat.split("(?!^)");
-        seatRow = splitSeat[0];
-        seatNumber = Integer.parseInt(splitSeat[1]);
+    public void splitSeat(Button button) {
+    String seat = button.getText();
+    String[] splitSeat = seat.split("(?!^)");
+    seatRow =splitSeat[0];
+    seatNumber =Integer.parseInt(splitSeat[1]);
+}
+
+    public Boolean seatTaken() {
+        //TODO: Get the correct screen for each movie
         try {
             if (cinema.getScreen(1).isSeatTaken(seatRow, seatNumber)) {
 //                errorLabel.setText("Seat taken!");
+                return true;
+            } else{
+                return false;
             }
         } catch (SeatNotFoundException e) {
             System.out.println(e.getMessage());
+            return null;
         }
     }
 
     public Button seatSelect(Button button) {
-        Image imgSeat;
-        if (selectedSeat != null) {
-            imgSeat = new Image("/seatW32.png");
-            selectedSeat.setGraphic(new ImageView(imgSeat));
+        Image imgSeatWhite = new Image("/seatW32.png");
+        Image imgSeatYellow = new Image("/seatY32.png");
+        if(selectedSeat == null){
+            button.setGraphic(new ImageView(imgSeatYellow));
+            selectedSeat = button;
+        } else if (selectedSeat == button){
+            selectedSeat.setGraphic(new ImageView(imgSeatWhite));
+            selectedSeat = null;
+        } else {
+            button.setGraphic(new ImageView(imgSeatYellow));
+            selectedSeat.setGraphic(new ImageView(imgSeatWhite));
+            selectedSeat = button;
         }
-        try {
-            if (cinema.getScreen(1).isSeatTaken(seatRow, seatNumber)) {
-                imgSeat = new Image("/seatR32.png");
-            } else {
-                imgSeat = new Image("/seatY32.png");
-                selectedSeat = button;
-            }
-            button.setGraphic(new ImageView(imgSeat));
-        } catch (SeatNotFoundException e) {
 
-        }
         return selectedSeat;
     }
 
@@ -124,6 +130,7 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
         int numCols = 10;
         int rowHeight = 500 / numRows;
         int columnWidth = 780 / numCols;
+        Image imgSeat;
 
         for (int r = 1; r < numRows + 1; r++) {
 
@@ -139,31 +146,25 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
                 ColumnConstraints column = new ColumnConstraints(columnWidth);
                 gridSeats.getColumnConstraints().add(column);
                 Button button = new Button(String.valueOf(seatName));
-
-                try {
-                    Image imgSeat;
-                    if (cinema.getScreen(1).isSeatTaken(getCharForNumber(r), c)) {
-                        imgSeat = new Image("/seatR32.png");
-
-                    } else {
-                        imgSeat = new Image("/seatW32.png");
-                    }
-
-                    button.setGraphic(new ImageView(imgSeat));
-
-                    button.setOnAction((ActionEvent e) -> {
-                        Object o = e.getSource();
-                        Button b = null;
-                        if (o instanceof Button) {
-                            b = (Button) o;
-                        }
-                        seatTaken(b);
-                        seatSelect(b);
-                    });
-
-                } catch (SeatNotFoundException e) {
-
+                splitSeat(button);
+                if (seatTaken()) {
+                    imgSeat = new Image("/seatR32.png");
+                } else {
+                    imgSeat = new Image("/seatW32.png");
                 }
+                button.setGraphic(new ImageView(imgSeat));
+
+                button.setOnAction((ActionEvent e) -> {
+                    Object object = e.getSource();
+                    Button b = null;
+                    if (object instanceof Button) {
+                        b = (Button) object;
+                    }
+                    splitSeat(b);
+                    if (!seatTaken()) {
+                        seatSelect(b);
+                    }
+                });
                 GridPane.setHalignment(button, HPos.CENTER);
                 gridSeats.add(button, c - 1, r - 1);
             }
