@@ -10,6 +10,8 @@ import java.util.Map;
 
 public class ScreenRepository implements Serializable {
 
+    //TODO ADD SHOWING CLASS. HAVE MAP OF SCREEN/SHOWING.
+
     private DataBase dataBase;
     private Map<String, Film> filmTimes = new HashMap<>();
     private Map<String, Map<String, Film>> filmDateTimes = new HashMap<>();
@@ -17,6 +19,10 @@ public class ScreenRepository implements Serializable {
 
     ScreenRepository(DataBase dataBase) {
         this.dataBase = dataBase;
+    }
+
+    public void addScreen(Screen screen) {
+        showings.put(screen, new HashMap<>());
     }
 
     public Map<String, Map<String, Film>> getScreenShowings(Screen screen) {

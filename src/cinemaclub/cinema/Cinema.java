@@ -22,7 +22,7 @@ public class Cinema {
     private FilmEdit filmEdit;
     private Profile profile;
     private BookingSystem bookingSystem;
-    private Map<Integer, Screen> screens;
+    private Map<Integer, Screen> screens = new HashMap<>();
     private User currentUser = null;
 
     public Cinema() {
@@ -32,6 +32,8 @@ public class Cinema {
         filmEdit = new FilmEdit();
         profile = new Profile();
         bookingSystem = new BookingSystem();
+//        screens.put(1, filmDisplay.getScreenByNumber(1));
+
         screens = setupScreens();
         addInitialFilms();
         addInitialShowings();
