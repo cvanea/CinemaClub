@@ -38,6 +38,7 @@ public class StageSceneNavigator {
     //Staff
     public static final String STAFF_MAIN = "StaffGui/StaffMain.fxml";
     public static final String STAFF_HOME = "StaffGui/StaffHome.fxml";
+    public static final String STAFF_SCREEN = "StaffGui/StaffScreen.fxml";
 
 
     /** The main application layout controller. */
