@@ -171,7 +171,7 @@ public class MainTester {
         try {
             cinema.bookFilm("2018-11-09", "12:00", cinema.getScreen(1), "A", 5);
             cinema.bookFilm("2015-11-09", "12:00", cinema.getScreen(1), "B", 7);
-        } catch (SeatAlreadyTakenException | SeatNotFoundException e) {
+        } catch (SeatAlreadyTakenException | SeatNotFoundException | ShowingDoesNotExistException e) {
             System.out.println(e.getMessage());
         }
 
@@ -189,7 +189,7 @@ public class MainTester {
 
         try {
             cinema.deleteFutureBooking(cinema.getBookingByTitle("FilmTest"));
-        } catch (NoFutureBookingsException | NotAFutureBookingException | NoBookingsException e) {
+        } catch (NoFutureBookingsException | NotAFutureBookingException | NoBookingsException | SeatNotFoundException e) {
             System.out.println(e.getMessage());
         }
 

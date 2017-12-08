@@ -74,6 +74,30 @@ public class ScreenRepository implements Serializable {
         return times;
     }
 
+    public ArrayList<String> getDatesByFilm(Screen screen, Film film) {
+        ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
+        ArrayList<String> dates = new ArrayList<>();
+
+        for (Showing showing : showingsByScreen) {
+            if (showing.getFilm() == film) {
+                dates.add(showing.getDate());
+            }
+        }
+        return dates;
+    }
+
+    public ArrayList<Showing> getAllShowingsByFilm(Screen screen, Film film) {
+        ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
+        ArrayList<Showing> showingsByFilm = new ArrayList<>();
+
+        for (Showing showing : showingsByScreen) {
+            if (showing.getFilm() == film) {
+                showingsByFilm.add(showing);
+            }
+        }
+        return showingsByFilm;
+    }
+
     public void addShowing(Screen screen, Showing showing) {
         ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
         showingsByScreen.add(showing);

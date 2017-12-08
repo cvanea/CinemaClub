@@ -154,12 +154,12 @@ public class Cinema {
     }
 
     public void deleteFutureBooking(Booking booking)
-        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException {
+        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
         profile.deleteFutureBooking(currentUser, booking);
     }
 
     public void deleteFutureBooking(Customer customer, Booking booking)
-        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException {
+        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
         profile.deleteFutureBooking(customer, booking);
     }
 

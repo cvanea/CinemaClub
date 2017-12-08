@@ -28,22 +28,14 @@ import java.util.ResourceBundle;
 
 public class CustomerBookSeatsController extends CustomerMainController implements Initializable {
 
-    @FXML
-    ImageView imageBox;
-    @FXML
-    Label titleText;
-    @FXML
-    Label descriptionText;
-    @FXML
-    Label timeText;
-    @FXML
-    Label runtimeText;
-    @FXML
-    Label dateText;
-    @FXML
-    Label errorLabel;
-    @FXML
-    GridPane gridSeats;
+    @FXML ImageView imageBox;
+    @FXML Label titleText;
+    @FXML Label descriptionText;
+    @FXML Label timeText;
+    @FXML Label runtimeText;
+    @FXML Label dateText;
+    @FXML Label errorLabel;
+    @FXML GridPane gridSeats;
 
     private String seatRow;
     private int seatNumber;
