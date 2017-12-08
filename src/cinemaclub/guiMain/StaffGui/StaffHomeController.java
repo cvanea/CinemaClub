@@ -96,13 +96,19 @@ public class StaffHomeController extends StaffMainController implements Initiali
 //        }
 //        ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
 //        filmList.setItems(data);
-        setTimesList();
+//        setTimesList();
+        setDateList();
     }
 
     public void setTimesList(){
         ArrayList<String> times = cinema.getTimesByFilm(cinema.getFilmByTitle(chosenFilm.getTitle()));
         ObservableList<String> data = FXCollections.observableArrayList(times);
         timesList.setItems(data);
+    }
+    public void setDateList(){
+        ArrayList<String> times = cinema.getDatesByFilm(cinema.getFilmByTitle(chosenFilm.getTitle()));
+        ObservableList<String> data = FXCollections.observableArrayList(times);
+        datesList.setItems(data);
     }
 
 }
