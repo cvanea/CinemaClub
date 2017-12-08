@@ -66,13 +66,17 @@ public class Cinema {
             this.addFilm("UP", "/UP.jpg", "A great film", "01:00");
             this.addFilm("Walle", "/walle.jpg", "A another great film", "02:00");
         } catch (FilmExistsException e) {
-            System.out.println("Initial movies registered");
+            System.out.println("Initial movies already registered");
         }
     }
 
     private void addInitialShowings() {
-        this.addShowing("2017-12-15", "13:00", this.getFilmByTitle("UP"));
-        this.addShowing("2017-12-15", "12:00", this.getFilmByTitle("Walle"));
+        try {
+            this.addShowing("2017-12-15", "13:00", this.getFilmByTitle("UP"));
+            this.addShowing("2017-12-15", "12:00", this.getFilmByTitle("Walle"));
+        } catch (ShowingAlreadyExistsException e) {
+            System.out.println("Initial showings already registered");
+        }
     }
 
     private void addInitialStaffID() {
@@ -192,8 +196,15 @@ public class Cinema {
         return filmDisplay.getTimesByFilm(this.getScreen(1), film);
     }
 
-    public void addShowing(String date, String time, Film film) {
-        //TODO ADD EXCEPTION IN CASE FILM IS ALREADY SHOWING AT THAT TIME
+    public ArrayList<String> getDatesByFilm(Film film) {
+        return filmDisplay.getDatesByFilm(this.getScreen(1), film);
+    }
+
+    public ArrayList<Showing> getAllShowingsByFilm(Film film) {
+        return filmDisplay.getAllShowingsByFilm(this.getScreen(1), film);
+    }
+
+    public void addShowing(String date, String time, Film film) throws ShowingAlreadyExistsException {
         filmEdit.addShowing(this.getScreen(1), date, time, film);
     }
 

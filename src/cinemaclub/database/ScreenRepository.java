@@ -53,9 +53,8 @@ public class ScreenRepository implements Serializable {
     }
 
     public Showing getShowingByDateTime(Screen screen, String date, String time) {
-        ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
 
-        for (Showing showing : showingsByScreen) {
+        for (Showing showing : showingsWithoutScreen) {
             if (showing.getDate().equals(date) && showing.getTime().equals(time)) {
                 return showing;
             }

@@ -45,14 +45,14 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        titleText.setText(GuiData.getFilm().getTitle());
-        descriptionText.setText(GuiData.getFilm().getDescription());
-        runtimeText.setText(GuiData.getFilm().getRunTime());
-        timeText.setText(GuiData.getTime());
-        dateText.setText(GuiData.getDate());
-        Image img = new Image(GuiData.getFilm().getImagePath());
-        imageBox.setImage(img);
         showing = cinema.getShowingByDateTime(GuiData.getDate(), GuiData.getTime());
+        titleText.setText(showing.getFilm().getTitle());
+        descriptionText.setText(showing.getFilm().getDescription());
+        runtimeText.setText(showing.getFilm().getRunTime());
+        timeText.setText(showing.getTime());
+        dateText.setText(showing.getDate());
+        Image img = new Image(showing.getFilm().getImagePath());
+        imageBox.setImage(img);
         setupSeatButtons();
     }
 
@@ -119,8 +119,6 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
     }
 
     public void setupSeatButtons() {
-
-        //TODO: add get max number of rows and cols to model - replace value here
         int numRows = showing.getScreen().getNumberRow();
         int numCols = showing.getScreen().getSeatsPerRow();
         int rowHeight = 500 / numRows;
@@ -133,9 +131,7 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
 
             for (int c = 1; c < numCols + 1; c++) {
                 String letter = getCharForNumber(r);
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(letter).append(c);
-                String seatName = stringBuilder.toString();
+                String seatName = letter + c;
                 ColumnConstraints column = new ColumnConstraints(columnWidth);
                 gridSeats.getColumnConstraints().add(column);
                 Button button = new Button(String.valueOf(seatName));
