@@ -53,14 +53,18 @@ public class CustomerHomeController extends CustomerMainController implements In
     }
 
     public void chooseFilm(MouseEvent actionEvent) {
-        String chosenFilm = filmList.getSelectionModel().getSelectedItem();
-        ArrayList<String> times = cinema.getTimesByFilm(cinema.getFilmByTitle(chosenFilm));
+        try {
+            String chosenFilm = filmList.getSelectionModel().getSelectedItem();
+            ArrayList<String> times = cinema.getTimesByFilm(cinema.getFilmByTitle(chosenFilm));
 
-        ObservableList<String> data = FXCollections.observableArrayList(times);
-        timesList.setItems(data);
-        setFilmInfo(cinema.getFilmByTitle(chosenFilm));
-        runtimeText.setOpacity(1);
-        timesList.setOpacity(1);
+            ObservableList<String> data = FXCollections.observableArrayList(times);
+            timesList.setItems(data);
+            setFilmInfo(cinema.getFilmByTitle(chosenFilm));
+            runtimeText.setOpacity(1);
+            timesList.setOpacity(1);
+        } catch (NullPointerException e) {
+            System.out.println("There are no showings on there!");
+        }
     }
 
     public void chooseTime(MouseEvent actionEvent) {
@@ -82,7 +86,7 @@ public class CustomerHomeController extends CustomerMainController implements In
         pickSeatButton.setOpacity(0);
     }
 
-    private void setFilmInfo(Film film){
+    private void setFilmInfo(Film film) throws NullPointerException {
         titleText.setText(film.getTitle());
         descriptionText.setText(film.getDescription());
         runTime.setText(film.getRunTime());

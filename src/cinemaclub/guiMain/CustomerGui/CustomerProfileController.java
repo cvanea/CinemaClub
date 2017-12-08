@@ -1,12 +1,10 @@
 package cinemaclub.guiMain.CustomerGui;
 
-import cinemaclub.cinema.Film;
-import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
 import cinemaclub.user.Booking;
 import exceptions.NoBookingsException;
 import exceptions.NoFutureBookingsException;
-import exceptions.PastDateException;
+import exceptions.NoPastBookingsException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class CustomerProfileController extends CustomerMainController {
@@ -82,7 +79,7 @@ public class CustomerProfileController extends CustomerMainController {
             ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
             pastList.setItems(data);
             System.out.println("empty bookings");
-        } catch (NoBookingsException e) {
+        } catch (NoBookingsException | NoPastBookingsException e) {
             System.out.println(e.getMessage());
         }
     }

@@ -142,11 +142,11 @@ public class Cinema {
         return profile.getBookingsHistory(customer);
     }
 
-    public ArrayList<Booking> getPastBookingsHistory(Customer customer) throws NoBookingsException {
+    public ArrayList<Booking> getPastBookingsHistory(Customer customer) throws NoBookingsException, NoPastBookingsException {
         return profile.getPastBookingsHistory(customer);
     }
 
-    public ArrayList<Booking> getPastBookingsHistory() throws NoBookingsException {
+    public ArrayList<Booking> getPastBookingsHistory() throws NoBookingsException, NoPastBookingsException {
         return profile.getPastBookingsHistory(currentUser);
     }
 

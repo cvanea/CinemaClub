@@ -187,7 +187,7 @@ public class MainTester {
 
         try {
             System.out.println(cinema.getPastBookingsHistory());
-        } catch (NoBookingsException e) {
+        } catch (NoBookingsException | NoPastBookingsException e) {
             System.out.println(e.getMessage());
         }
 
