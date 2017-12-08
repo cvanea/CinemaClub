@@ -10,9 +10,9 @@ public class DataBase implements Serializable {
 
     private static final String fileName = "DB.txt";
 
-    private static UserRepository userRepository = new UserRepository(ourInstance);
-    private static FilmRepository filmRepository  = new FilmRepository(ourInstance);
-    private static ScreenRepository screenRepository = new ScreenRepository(ourInstance);
+    private UserRepository userRepository = new UserRepository(this);
+    private FilmRepository filmRepository  = new FilmRepository(this);
+    private ScreenRepository screenRepository = new ScreenRepository(this);
 
     public static UserRepository getUserRepository() {
         return ourInstance.userRepository;
