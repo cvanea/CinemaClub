@@ -1,15 +1,13 @@
 package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
+import cinemaclub.database.ScreenRepository;
 import cinemaclub.database.UserRepository;
 import cinemaclub.user.Booking;
 import cinemaclub.user.Customer;
 import cinemaclub.user.User;
 import cinemaclub.user.UserCredentials;
-import exceptions.NoBookingsException;
-import exceptions.NoFutureBookingsException;
-import exceptions.NotAFutureBookingException;
-import exceptions.UsernameTakenException;
+import exceptions.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -18,9 +16,11 @@ import java.util.ArrayList;
 class Profile {
 
     private UserRepository userRepository;
+    private ScreenRepository screenRepository;
 
     Profile() {
         this.userRepository = DataBase.getUserRepository();
+        this.screenRepository = DataBase.getScreenRepository();
     }
 
     UserCredentials getProfileDetails(User user) {
@@ -110,12 +110,19 @@ class Profile {
     }
 
     void deleteFutureBooking(User user, Booking booking)
-        throws NotAFutureBookingException, NoBookingsException, NoFutureBookingsException {
+        throws NotAFutureBookingException, NoBookingsException, NoFutureBookingsException, SeatNotFoundException {
         validateFutureBookingAsFuture(user, booking);
         if (user instanceof Customer) {
             Customer customer = (Customer) user;
             customer.deleteBooking(booking);
+            Showing showing = booking.getShowing();
+
+            String seat = booking.getSeat();
+            String[] splitSeat = seat.split("(?!^)");
+
+            showing.unbookSeat(splitSeat[0], Integer.parseInt(splitSeat[1]));
             userRepository.updateDB();
+            screenRepository.updateDB();
         }
     }
 

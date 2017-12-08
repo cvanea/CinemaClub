@@ -170,21 +170,21 @@ public class Cinema {
         } else return null;
     }
 
-    public void bookFilm(String date, String time, Film film, Screen screen, String seatRow, int seatNumber)
-        throws SeatAlreadyTakenException, SeatNotFoundException {
-        bookingSystem.bookFilm(currentUser, date, time, film, screen, seatRow, seatNumber);
+    public void bookFilm(String date, String time, Screen screen, String seatRow, int seatNumber)
+        throws SeatAlreadyTakenException, SeatNotFoundException, ShowingDoesNotExistException {
+        bookingSystem.bookFilm(currentUser, date, time, screen, seatRow, seatNumber);
     }
 
     public ArrayList<Film> getFilmsByDate(String date) throws PastDateException {
         return filmDisplay.getFilmsByDateScreen(date, this.getScreen(1));
     }
 
-    public Map<String, Film> getShowingsByDate(String date) throws PastDateException {
+    public ArrayList<Showing> getShowingsByDate(String date) throws PastDateException {
         return filmDisplay.getShowingsByDate(date, this.getScreen(1));
     }
 
     public ArrayList<String> getTimesByFilm(Film film) {
-        return filmDisplay.getTimesByFilm(film);
+        return filmDisplay.getTimesByFilm(this.getScreen(1), film);
     }
 
     public void addFilmToShowings(String date, String time, Film film) {

@@ -58,7 +58,7 @@ class FilmEdit {
     }
 
     void addFilmToShowings(Screen screen, String date, String time, Film film) {
-        screenRepository.addShowing(screen, date, time, film);
+        screenRepository.addShowing(screen, new Showing(screen, date, time, film, new ArrayList<>()));
     }
 
     void deleteShowing(Screen screen, String date, String time) {

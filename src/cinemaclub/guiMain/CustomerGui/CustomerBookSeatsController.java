@@ -86,8 +86,8 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
     public void splitSeat(Button button) {
     String seat = button.getText();
     String[] splitSeat = seat.split("(?!^)");
-    seatRow =splitSeat[0];
-    seatNumber =Integer.parseInt(splitSeat[1]);
+    seatRow = splitSeat[0];
+    seatNumber = Integer.parseInt(splitSeat[1]);
 }
 
     public Boolean seatTaken() {

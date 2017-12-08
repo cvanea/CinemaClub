@@ -169,8 +169,8 @@ public class MainTester {
         Film filmTest2 = new Film("FilmTest2", "Path2", "A tester film2", "01:00");
 
         try {
-            cinema.bookFilm("2018-11-09", "12:00", filmTest, cinema.getScreen(1), "A", 5);
-            cinema.bookFilm("2015-11-09", "12:00", filmTest2, cinema.getScreen(1), "B", 7);
+            cinema.bookFilm("2018-11-09", "12:00", cinema.getScreen(1), "A", 5);
+            cinema.bookFilm("2015-11-09", "12:00", cinema.getScreen(1), "B", 7);
         } catch (SeatAlreadyTakenException | SeatNotFoundException e) {
             System.out.println(e.getMessage());
         }
