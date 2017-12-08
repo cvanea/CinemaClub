@@ -49,6 +49,7 @@ public class StaffHomeController extends StaffMainController implements Initiali
     }
 
     public void chooseFilm(MouseEvent actionEvent) {
+        timesList.getItems().clear();
         chosenFilm = cinema.getFilmByTitle(filmList.getSelectionModel().getSelectedItem());
         setDateList();
         setFilmInfo(chosenFilm);
@@ -116,5 +117,4 @@ public class StaffHomeController extends StaffMainController implements Initiali
         ObservableList<String> data = FXCollections.observableArrayList(dates);
         datesList.setItems(data);
     }
-
 }
