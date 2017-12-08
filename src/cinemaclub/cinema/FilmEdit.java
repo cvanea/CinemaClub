@@ -7,6 +7,7 @@ import exceptions.FilmExistsException;
 import exceptions.ShowingAlreadyExistsException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 class FilmEdit {
 
@@ -60,7 +61,7 @@ class FilmEdit {
 
     void addShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException {
         validateShowing(screen, date, time);
-        screenRepository.addShowing(screen, new Showing(screen, date, time, film, new ArrayList<>()));
+        screenRepository.addShowing(screen, new Showing(screen, date, time, film, new HashMap<>()));
     }
 
     void deleteShowing(Screen screen, String date, String time) {
@@ -70,6 +71,8 @@ class FilmEdit {
     void addScreen(Integer screenNumber, int numberRow, int seatsPerRow) {
         screenRepository.addScreen(new Screen(screenNumber, numberRow, seatsPerRow));
     }
+
+//    void export
 
     private void validateNewFilm(String title) throws FilmExistsException {
         if (filmRepository.checkForFilm(title)) {
