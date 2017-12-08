@@ -40,11 +40,9 @@ public class CustomerHomeController extends CustomerMainController implements In
             String datePicked = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             ArrayList<Film> films = cinema.getFilmsByDate(datePicked);
             ArrayList<String> filmTitles = new ArrayList<>();
-
             for (Film film : films) {
                 filmTitles.add(film.getTitle());
             }
-
             ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
             filmList.setItems(data);
             filmList.setOpacity(1);
@@ -71,19 +69,17 @@ public class CustomerHomeController extends CustomerMainController implements In
     }
 
     public void pressPickTime(ActionEvent actionEvent) {
-        //TODO MAKE CUSTOM EXCEPTION IF THEY DONT PICK A TIME
+        //TODO MAKE CUSTOM EXCEPTION IF THEY DON'T PICK A TIME
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Image img = new Image("/walle.jpg");
-//        imageBox.setImage(img);
         runtimeText.setOpacity(0);
         timesList.setOpacity(0);
         filmList.setOpacity(0);
         pickSeatButton.setOpacity(0);
-
     }
 
     private void setFilmInfo(Film film){

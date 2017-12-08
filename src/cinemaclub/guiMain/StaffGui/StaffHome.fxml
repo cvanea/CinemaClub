@@ -38,7 +38,7 @@
             </Label>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <ListView fx:id="filmList" layoutX="25.0" layoutY="72.0" prefHeight="287.0" prefWidth="250.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+                  <ListView fx:id="filmList" layoutX="25.0" layoutY="72.0" onMouseClicked="#chooseFilm" prefHeight="287.0" prefWidth="250.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" />
                   <Label layoutX="88.0" layoutY="20.0" text="Film List">
                      <font>
                         <Font name="System Bold" size="30.0" />
@@ -68,15 +68,15 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="updateButton" layoutX="133.0" layoutY="374.0" mnemonicParsing="false" onAction="#pressPickSeat" text="Update">
+                        <Button fx:id="updateButton" layoutX="133.0" layoutY="374.0" mnemonicParsing="false" onAction="#updateFilmInfo" text="Update">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <TextField layoutX="80.0" layoutY="80.0" prefWidth="200.0" promptText="Title" AnchorPane.leftAnchor="80.0" />
-                        <TextArea layoutX="80.0" layoutY="121.0" prefHeight="150.0" prefWidth="200.0" promptText="Description" AnchorPane.leftAnchor="80.0" />
-                        <TextField layoutX="80.0" layoutY="291.0" prefWidth="200.0" promptText="Image URL" AnchorPane.leftAnchor="80.0" />
-                        <TextField layoutX="80.0" layoutY="331.0" prefWidth="200.0" promptText="Runtime" AnchorPane.leftAnchor="80.0" />
+                        <TextField fx:id="titleField" layoutX="80.0" layoutY="80.0" prefWidth="200.0" promptText="Title" AnchorPane.leftAnchor="80.0" />
+                        <TextArea fx:id="descriptionArea" layoutX="80.0" layoutY="121.0" prefHeight="150.0" prefWidth="200.0" promptText="Description" AnchorPane.leftAnchor="80.0" />
+                        <TextField fx:id="imageField" layoutX="80.0" layoutY="291.0" prefWidth="200.0" promptText="Image URL" AnchorPane.leftAnchor="80.0" />
+                        <TextField fx:id="runtimeField" layoutX="80.0" layoutY="331.0" prefWidth="200.0" promptText="Runtime" AnchorPane.leftAnchor="80.0" />
                         <Label layoutX="65.0" layoutY="28.0" text="Film Information">
                            <font>
                               <Font name="System Bold" size="30.0" />
@@ -86,7 +86,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <ListView layoutX="55.0" layoutY="116.0" prefHeight="100.0" prefWidth="150.0" />
+                        <ListView fx:id="datesList" layoutX="55.0" layoutY="116.0" prefHeight="100.0" prefWidth="150.0" />
                         <Label layoutX="97.0" layoutY="61.0" text="Dates">
                            <font>
                               <Font name="System Bold" size="24.0" />
@@ -107,7 +107,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                      <children>
-                        <ListView layoutX="93.0" layoutY="103.0" prefHeight="100.0" prefWidth="100.0" />
+                        <ListView fx:id="timesList" layoutX="93.0" layoutY="103.0" prefHeight="100.0" prefWidth="100.0" />
                         <Label layoutX="107.0" layoutY="63.0" text="Times">
                            <font>
                               <Font name="System Bold" size="24.0" />
