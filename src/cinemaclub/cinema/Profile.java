@@ -118,7 +118,7 @@ class Profile {
             Showing showing = booking.getShowing();
 
             String seat = booking.getSeat();
-            String[] splitSeat = seat.split("(?!^)");
+            String[] splitSeat = seat.split("(?!^)", 2);
 
             showing.unbookSeat(splitSeat[0], Integer.parseInt(splitSeat[1]));
             userRepository.updateDB();
