@@ -14,6 +14,7 @@ import java.util.Map;
 //TODO Make proper script which creates a new cinema with default filled database entries.
 //TODO Checking when adding showings for overlapping films.
 //TODO INIT WITH ONE DEFAULT STAFF AND ONE DEFAULT CUSTOMER
+//TODO prevent from registering as an empty string
 public class Cinema {
 
     private Login login;
@@ -66,13 +67,17 @@ public class Cinema {
             this.addFilm("UP", "/UP.jpg", "A great film", "01:00");
             this.addFilm("Walle", "/walle.jpg", "A another great film", "02:00");
         } catch (FilmExistsException e) {
-            System.out.println("Initial movies registered");
+            System.out.println("Initial movies already registered");
         }
     }
 
     private void addInitialShowings() {
-        this.addShowing("2017-12-15", "13:00", this.getFilmByTitle("UP"));
-        this.addShowing("2017-12-15", "12:00", this.getFilmByTitle("Walle"));
+        try {
+            this.addShowing("2017-12-15", "13:00", this.getFilmByTitle("UP"));
+            this.addShowing("2017-12-15", "12:00", this.getFilmByTitle("Walle"));
+        } catch (ShowingAlreadyExistsException e) {
+            System.out.println("Initial showings already registered");
+        }
     }
 
     private void addInitialStaffID() {
@@ -138,11 +143,11 @@ public class Cinema {
         return profile.getBookingsHistory(customer);
     }
 
-    public ArrayList<Booking> getPastBookingsHistory(Customer customer) throws NoBookingsException {
+    public ArrayList<Booking> getPastBookingsHistory(Customer customer) throws NoBookingsException, NoPastBookingsException {
         return profile.getPastBookingsHistory(customer);
     }
 
-    public ArrayList<Booking> getPastBookingsHistory() throws NoBookingsException {
+    public ArrayList<Booking> getPastBookingsHistory() throws NoBookingsException, NoPastBookingsException {
         return profile.getPastBookingsHistory(currentUser);
     }
 
@@ -196,8 +201,11 @@ public class Cinema {
         return filmDisplay.getDatesByFilm(this.getScreen(1), film);
     }
 
-    public void addShowing(String date, String time, Film film) {
-        //TODO ADD EXCEPTION IN CASE FILM IS ALREADY SHOWING AT THAT TIME
+    public ArrayList<Showing> getAllShowingsByFilm(Film film) {
+        return filmDisplay.getAllShowingsByFilm(this.getScreen(1), film);
+    }
+
+    public void addShowing(String date, String time, Film film) throws ShowingAlreadyExistsException {
         filmEdit.addShowing(this.getScreen(1), date, time, film);
     }
 

@@ -62,8 +62,7 @@ class Profile {
         userRepository.addStaffID(id, username);
     }
 
-    ArrayList<Booking> getPastBookingsHistory(User user) throws NoBookingsException {
-        //TODO CHECK NO PAST BOOKINGS EXCEPTION
+    ArrayList<Booking> getPastBookingsHistory(User user) throws NoBookingsException, NoPastBookingsException {
         ArrayList<Booking> allBookings = getBookingsHistory(user);
         ArrayList<Booking> pastBookings = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -75,7 +74,10 @@ class Profile {
                 pastBookings.add(booking);
             }
         }
-        return pastBookings;
+
+        if (pastBookings.isEmpty()) {
+            throw new NoPastBookingsException();
+        } else return pastBookings;
     }
 
     ArrayList<Booking> getFutureBookingsHistory(User user) throws NoBookingsException, NoFutureBookingsException {
@@ -118,7 +120,7 @@ class Profile {
             Showing showing = booking.getShowing();
 
             String seat = booking.getSeat();
-            String[] splitSeat = seat.split("(?!^)");
+            String[] splitSeat = seat.split("(?!^)", 2);
 
             showing.unbookSeat(splitSeat[0], Integer.parseInt(splitSeat[1]));
             userRepository.updateDB();

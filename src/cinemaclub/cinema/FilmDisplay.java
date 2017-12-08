@@ -34,6 +34,10 @@ class FilmDisplay {
         return screenRepository.getDatesByFilm(screen, film);
     }
 
+    ArrayList<Showing> getAllShowingsByFilm(Screen screen, Film film) {
+        return screenRepository.getAllShowingsByFilm(screen, film);
+    }
+
     Showing getShowingByDateTime(Screen screen, String date, String time) {
         return screenRepository.getShowingByDateTime(screen, date, time);
     }

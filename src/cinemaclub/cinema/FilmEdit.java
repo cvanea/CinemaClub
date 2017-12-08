@@ -4,6 +4,7 @@ import cinemaclub.database.DataBase;
 import cinemaclub.database.FilmRepository;
 import cinemaclub.database.ScreenRepository;
 import exceptions.FilmExistsException;
+import exceptions.ShowingAlreadyExistsException;
 
 import java.util.ArrayList;
 
@@ -57,7 +58,8 @@ class FilmEdit {
         return filmRepository.getFilmByTitle(title);
     }
 
-    void addShowing(Screen screen, String date, String time, Film film) {
+    void addShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException {
+        validateShowing(screen, date, time);
         screenRepository.addShowing(screen, new Showing(screen, date, time, film, new ArrayList<>()));
     }
 
@@ -70,9 +72,14 @@ class FilmEdit {
     }
 
     private void validateNewFilm(String title) throws FilmExistsException {
-
         if (filmRepository.checkForFilm(title)) {
             throw new FilmExistsException();
+        }
+    }
+
+    private void validateShowing(Screen screen, String date, String time) throws ShowingAlreadyExistsException {
+        if (screenRepository.getShowingByDateTime(screen, date, time) != null) {
+            throw new ShowingAlreadyExistsException();
         }
     }
 }

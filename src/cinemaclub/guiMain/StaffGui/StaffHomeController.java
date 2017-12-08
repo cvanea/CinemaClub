@@ -1,23 +1,18 @@
 package cinemaclub.guiMain.StaffGui;
 
-import cinemaclub.cinema.Cinema;
 import cinemaclub.cinema.Film;
-import cinemaclub.guiMain.CustomerGui.CustomerMainController;
+import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.FilmExistsException;
-import exceptions.UsernameTakenException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -35,15 +30,7 @@ public class StaffHomeController extends StaffMainController implements Initiali
     @FXML ListView<String> datesList;
     @FXML ListView<String> timesList;
 
-    Film chosenFilm;
-
-    public void selectDate(ActionEvent actionEvent) {
-
-    }
-
-    public void pressPickSeat(ActionEvent actionEvent) {
-//        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
-    }
+    private Film chosenFilm;
 
     public void pressScreenView(ActionEvent actionEvent) {
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREEN);
@@ -62,10 +49,18 @@ public class StaffHomeController extends StaffMainController implements Initiali
     }
 
     public void chooseFilm(MouseEvent actionEvent) {
+        timesList.getItems().clear();
         chosenFilm = cinema.getFilmByTitle(filmList.getSelectionModel().getSelectedItem());
+        setDateList();
         setFilmInfo(chosenFilm);
         GuiData.setFilm(chosenFilm);
     }
+
+    public void chooseFilmDate(MouseEvent actionEvent) {
+        setTimesList(datesList.getSelectionModel().getSelectedItem());
+        GuiData.setDate(datesList.getSelectionModel().getSelectedItem());
+    }
+
     public void chooseFilmTime(MouseEvent actionEvent) {
         GuiData.setTime(timesList.getSelectionModel().getSelectedItem());
     }
@@ -81,10 +76,9 @@ public class StaffHomeController extends StaffMainController implements Initiali
         } catch (FilmExistsException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
-    public void setFilmInfo(Film film){
+    private void setFilmInfo(Film film){
         titleField.setText(film.getTitle());
         descriptionArea.setText(film.getDescription());
         imageField.setText(film.getImagePath());
@@ -96,19 +90,31 @@ public class StaffHomeController extends StaffMainController implements Initiali
 //        }
 //        ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
 //        filmList.setItems(data);
-//        setTimesList();
-        setDateList();
     }
 
-    public void setTimesList(){
-        ArrayList<String> times = cinema.getTimesByFilm(cinema.getFilmByTitle(chosenFilm.getTitle()));
+    private void setTimesList(String date){
+        ArrayList<Showing> showings = cinema.getAllShowingsByFilm(chosenFilm);
+        ArrayList<String> times = new ArrayList<>();
+
+        for (Showing showing : showings) {
+            if (showing.getDate().equals(date)) {
+                times.add(showing.getTime());
+            }
+        }
+
         ObservableList<String> data = FXCollections.observableArrayList(times);
         timesList.setItems(data);
     }
-    public void setDateList(){
-        ArrayList<String> times = cinema.getDatesByFilm(cinema.getFilmByTitle(chosenFilm.getTitle()));
-        ObservableList<String> data = FXCollections.observableArrayList(times);
+
+    private void setDateList(){
+        ArrayList<Showing> showings = cinema.getAllShowingsByFilm(chosenFilm);
+        ArrayList<String> dates = new ArrayList<>();
+
+        for (Showing showing : showings) {
+            dates.add(showing.getDate());
+        }
+
+        ObservableList<String> data = FXCollections.observableArrayList(dates);
         datesList.setItems(data);
     }
-
 }

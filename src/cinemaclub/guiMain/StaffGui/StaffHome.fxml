@@ -86,7 +86,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <ListView fx:id="datesList" layoutX="55.0" layoutY="116.0" prefHeight="100.0" prefWidth="150.0" />
+                        <ListView fx:id="datesList" layoutX="55.0" layoutY="116.0" onMouseClicked="#chooseFilmDate" prefHeight="100.0" prefWidth="150.0" />
                         <Label layoutX="97.0" layoutY="61.0" text="Dates">
                            <font>
                               <Font name="System Bold" size="24.0" />

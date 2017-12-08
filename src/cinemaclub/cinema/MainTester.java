@@ -168,8 +168,12 @@ public class MainTester {
         Film filmTest = new Film("FilmTest", "Path", "A tester film", "01:00");
         Film filmTest2 = new Film("FilmTest2", "Path2", "A tester film2", "01:00");
 
-        cinema.addShowing("2018-11-09", "15:00", filmTest);
-        cinema.addShowing("2018-11-09", "12:00", filmTest2);
+        try {
+            cinema.addShowing("2018-11-09", "15:00", filmTest);
+            cinema.addShowing("2018-11-09", "12:00", filmTest2);
+        } catch (ShowingAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
 
         Showing testShowing = cinema.getShowingByDateTime("2018-11-09", "15:00");
         Showing testShowing2 = cinema.getShowingByDateTime("2018-11-09", "12:00");
@@ -183,7 +187,7 @@ public class MainTester {
 
         try {
             System.out.println(cinema.getPastBookingsHistory());
-        } catch (NoBookingsException e) {
+        } catch (NoBookingsException | NoPastBookingsException e) {
             System.out.println(e.getMessage());
         }
 
@@ -249,7 +253,11 @@ public class MainTester {
 
         System.out.println(cinema.getFilmByTitle("Tester"));
 
-        cinema.addShowing("2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
+        try {
+            cinema.addShowing("2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
+        } catch (ShowingAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
 
         try {
             System.out.println(cinema.getShowingsByDate("2018-02-20"));
