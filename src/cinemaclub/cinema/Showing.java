@@ -9,11 +9,11 @@ public class Showing implements Serializable {
 
     private static final long serialVersionUID = 8762368738673278L;
 
-    Screen screen;
-    String date;
-    String time;
-    Film film;
-    ArrayList<String> takenSeats;
+    private Screen screen;
+    private String date;
+    private String time;
+    private Film film;
+    private ArrayList<String> takenSeats;
 
     Showing(Screen screen, String date, String time, Film film, ArrayList<String> takenSeats) {
         this.screen = screen;

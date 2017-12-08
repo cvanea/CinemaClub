@@ -9,8 +9,8 @@ public class MainTester {
     //System integration testing.
     public static void main(String[] args) {
 
-        registerTester();
-//        loginTester();
+//        registerTester();
+        loginTester();
 //        logoutTester();
 //        profileTester();
 //        bookingTester();
@@ -168,10 +168,16 @@ public class MainTester {
         Film filmTest = new Film("FilmTest", "Path", "A tester film", "01:00");
         Film filmTest2 = new Film("FilmTest2", "Path2", "A tester film2", "01:00");
 
+        cinema.addShowing("2018-11-09", "15:00", filmTest);
+        cinema.addShowing("2018-11-09", "12:00", filmTest2);
+
+        Showing testShowing = cinema.getShowingByDateTime("2018-11-09", "15:00");
+        Showing testShowing2 = cinema.getShowingByDateTime("2018-11-09", "12:00");
+
         try {
-            cinema.bookFilm("2018-11-09", "12:00", cinema.getScreen(1), "A", 5);
-            cinema.bookFilm("2015-11-09", "12:00", cinema.getScreen(1), "B", 7);
-        } catch (SeatAlreadyTakenException | SeatNotFoundException | ShowingDoesNotExistException e) {
+            cinema.bookFilm(testShowing, "A", 5);
+            cinema.bookFilm(testShowing2, "B", 7);
+        } catch (SeatAlreadyTakenException | SeatNotFoundException e) {
             System.out.println(e.getMessage());
         }
 
@@ -243,7 +249,7 @@ public class MainTester {
 
         System.out.println(cinema.getFilmByTitle("Tester"));
 
-        cinema.addFilmToShowings("2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
+        cinema.addShowing("2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
 
         try {
             System.out.println(cinema.getShowingsByDate("2018-02-20"));

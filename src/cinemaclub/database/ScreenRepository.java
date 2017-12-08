@@ -13,6 +13,7 @@ public class ScreenRepository implements Serializable {
 
     private DataBase dataBase;
 
+    private ArrayList<Showing> showingsWithoutScreen = new ArrayList<>();
     private Map<Screen, ArrayList<Showing>> showings = new HashMap<>();
 
     ScreenRepository(DataBase dataBase) {
@@ -20,7 +21,7 @@ public class ScreenRepository implements Serializable {
     }
 
     public void addScreen(Screen screen) {
-        showings.put(screen, new ArrayList<>());
+        showings.put(screen, showingsWithoutScreen);
     }
 
     public ArrayList<Showing> getScreenShowings(Screen screen) {
@@ -99,9 +100,8 @@ public class ScreenRepository implements Serializable {
     }
 
     public void addShowing(Screen screen, Showing showing) {
-        ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
-        showingsByScreen.add(showing);
-        showings.put(screen, showingsByScreen);
+        showingsWithoutScreen.add(showing);
+        showings.put(screen, showingsWithoutScreen);
 
         dataBase.updateExternalDB();
     }

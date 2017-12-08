@@ -1,5 +1,6 @@
 package cinemaclub.guiMain.CustomerGui;
 
+import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.SeatAlreadyTakenException;
@@ -40,6 +41,7 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
     private String seatRow;
     private int seatNumber;
     private Button selectedSeat = null;
+    private Showing showing;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -50,15 +52,16 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
         dateText.setText(GuiData.getDate());
         Image img = new Image(GuiData.getFilm().getImagePath());
         imageBox.setImage(img);
+        showing = cinema.getShowingByDateTime(GuiData.getDate(), GuiData.getTime());
         setupSeatButtons();
     }
 
     public void pressReserveSeat(ActionEvent actionEvent) throws IOException {
         try {
-            if (cinema.getScreen(1).isSeatTaken(seatRow, seatNumber)) {
+            if (showing.isSeatTaken(seatRow, seatNumber)) {
                 errorLabel.setText("Seat taken!");
             } else {
-                cinema.bookFilm(GuiData.getDate(), GuiData.getTime(), GuiData.getFilm(), cinema.getScreen(1), seatRow, seatNumber);
+                cinema.bookFilm(showing, seatRow, seatNumber);
                 Stage stage = new Stage();
                 Parent root = FXMLLoader.load(CustomerBookSeatsController.class.getResource("ModalBooked.fxml"));
                 stage.setScene(new Scene(root));
@@ -76,16 +79,16 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
     }
 
     public void splitSeat(Button button) {
-    String seat = button.getText();
-    String[] splitSeat = seat.split("(?!^)");
-    seatRow = splitSeat[0];
-    seatNumber = Integer.parseInt(splitSeat[1]);
+        String seat = button.getText();
+        String[] splitSeat = seat.split("(?!^)");
+        seatRow = splitSeat[0];
+        seatNumber = Integer.parseInt(splitSeat[1]);
 }
 
-    public Boolean seatTaken() {
+    public Boolean isSeatTaken() {
         //TODO: Get the correct screen for each movie
         try {
-            if (cinema.getScreen(1).isSeatTaken(seatRow, seatNumber)) {
+            if (showing.isSeatTaken(seatRow, seatNumber)) {
 //                errorLabel.setText("Seat taken!");
                 return true;
             } else{
@@ -125,12 +128,10 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
         Image imgSeat;
 
         for (int r = 1; r < numRows + 1; r++) {
-
             RowConstraints row = new RowConstraints(rowHeight);
             gridSeats.getRowConstraints().add(row);
 
             for (int c = 1; c < numCols + 1; c++) {
-
                 String letter = getCharForNumber(r);
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.append(letter).append(c);
@@ -139,24 +140,30 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
                 gridSeats.getColumnConstraints().add(column);
                 Button button = new Button(String.valueOf(seatName));
                 splitSeat(button);
-                if (seatTaken()) {
+
+                if (isSeatTaken()) {
                     imgSeat = new Image("/seatR32.png");
                 } else {
                     imgSeat = new Image("/seatW32.png");
                 }
+
                 button.setGraphic(new ImageView(imgSeat));
 
                 button.setOnAction((ActionEvent e) -> {
                     Object object = e.getSource();
                     Button b = null;
+
                     if (object instanceof Button) {
                         b = (Button) object;
                     }
+
                     splitSeat(b);
-                    if (!seatTaken()) {
+
+                    if (!isSeatTaken()) {
                         seatSelect(b);
                     }
                 });
+
                 GridPane.setHalignment(button, HPos.CENTER);
                 gridSeats.add(button, c - 1, r - 1);
             }

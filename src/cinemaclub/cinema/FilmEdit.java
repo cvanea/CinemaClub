@@ -57,12 +57,16 @@ class FilmEdit {
         return filmRepository.getFilmByTitle(title);
     }
 
-    void addFilmToShowings(Screen screen, String date, String time, Film film) {
+    void addShowing(Screen screen, String date, String time, Film film) {
         screenRepository.addShowing(screen, new Showing(screen, date, time, film, new ArrayList<>()));
     }
 
     void deleteShowing(Screen screen, String date, String time) {
         screenRepository.deleteShowing(screen, date, time);
+    }
+
+    void addScreen(Integer screenNumber, int numberRow, int seatsPerRow) {
+        screenRepository.addScreen(new Screen(screenNumber, numberRow, seatsPerRow));
     }
 
     private void validateNewFilm(String title) throws FilmExistsException {
