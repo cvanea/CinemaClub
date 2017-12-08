@@ -8,10 +8,14 @@ public class Screen implements Serializable {
     private static final long serialVersionUID = 8762368738673278L;
 
     private Integer screenNumber;
+    private int numberRow;
+    private int seatsPerRow;
     private ArrayList<String> seats = new ArrayList<>();
 
     public Screen(Integer screenNumber, int numberRow, int seatsPerRow) {
         this.screenNumber = screenNumber;
+        this.numberRow = numberRow;
+        this.seatsPerRow = seatsPerRow;
         setupSeats(numberRow, seatsPerRow);
     }
 
@@ -35,6 +39,22 @@ public class Screen implements Serializable {
 
     public void setScreenNumber(Integer screenNumber) {
         this.screenNumber = screenNumber;
+    }
+
+    public int getNumberRow() {
+        return numberRow;
+    }
+
+    public void setNumberRow(int numberRow) {
+        this.numberRow = numberRow;
+    }
+
+    public int getSeatsPerRow() {
+        return seatsPerRow;
+    }
+
+    public void setSeatsPerRow(int seatsPerRow) {
+        this.seatsPerRow = seatsPerRow;
     }
 
     @Override

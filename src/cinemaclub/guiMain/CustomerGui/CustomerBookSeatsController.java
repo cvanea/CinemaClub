@@ -121,8 +121,8 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
     public void setupSeatButtons() {
 
         //TODO: add get max number of rows and cols to model - replace value here
-        int numRows = 5;
-        int numCols = 10;
+        int numRows = showing.getScreen().getNumberRow();
+        int numCols = showing.getScreen().getSeatsPerRow();
         int rowHeight = 500 / numRows;
         int columnWidth = 780 / numCols;
         Image imgSeat;
