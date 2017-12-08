@@ -192,6 +192,10 @@ public class Cinema {
         return filmDisplay.getTimesByFilm(this.getScreen(1), film);
     }
 
+    public ArrayList<String> getDatesByFilm(Film film) {
+        return filmDisplay.getDatesByFilm(this.getScreen(1), film);
+    }
+
     public void addShowing(String date, String time, Film film) {
         //TODO ADD EXCEPTION IN CASE FILM IS ALREADY SHOWING AT THAT TIME
         filmEdit.addShowing(this.getScreen(1), date, time, film);

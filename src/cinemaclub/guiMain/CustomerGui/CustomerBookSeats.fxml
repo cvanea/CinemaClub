@@ -86,7 +86,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <GridPane fx:id="gridSeats" layoutY="13.0" maxHeight="550.0" maxWidth="800.0" prefHeight="512.0" prefWidth="724.0">
+                  <GridPane fx:id="gridSeats" layoutX="7.0" layoutY="18.0" maxHeight="550.0" maxWidth="800.0" prefHeight="512.0" prefWidth="724.0">
                   </GridPane>
                </children>
             </AnchorPane>
