@@ -14,6 +14,7 @@ import java.util.Map;
 //TODO Make proper script which creates a new cinema with default filled database entries.
 //TODO Checking when adding showings for overlapping films.
 //TODO INIT WITH ONE DEFAULT STAFF AND ONE DEFAULT CUSTOMER
+//TODO prevent from registering as an empty string
 public class Cinema {
 
     private Login login;
