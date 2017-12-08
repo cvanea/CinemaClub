@@ -7,7 +7,6 @@ import exceptions.PastDateException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Map;
 
 class FilmDisplay {
     //TODO add method that checks across all screens for a given date
@@ -22,13 +21,17 @@ class FilmDisplay {
         return screenRepository.getFilmsByDate(screen, date);
     }
 
-    Map<String, Film> getShowingsByDate(String date, Screen screen) throws PastDateException {
+    ArrayList<Showing> getShowingsByDate(String date, Screen screen) throws PastDateException {
         validateDate(date);
         return screenRepository.getShowingsByDate(screen, date);
     }
 
-    ArrayList<String> getTimesByFilm(Film film) {
-        return screenRepository.getTimesByFilm(film);
+    ArrayList<String> getTimesByFilm(Screen screen, Film film) {
+        return screenRepository.getTimesByFilm(screen, film);
+    }
+
+    Showing getShowingByDateTime(Screen screen, String date, String time) {
+        return screenRepository.getShowingByDateTime(screen, date, time);
     }
 
     Screen getScreenByNumber(Integer number) {

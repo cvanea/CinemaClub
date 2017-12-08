@@ -1,6 +1,8 @@
 package cinemaclub.user;
 
 import cinemaclub.cinema.Film;
+import cinemaclub.cinema.Screen;
+import cinemaclub.cinema.Showing;
 
 import java.io.Serializable;
 
@@ -8,50 +10,20 @@ public class Booking implements Serializable {
 
     private static final long serialVersionUID = 8762368738673278L;
 
-    private Film film;
-    private String date;
-    private String time;
-    private Integer screenNumber;
+    private Showing showing;
     private String seat;
 
-    public Booking(Film film, String date, String time, Integer screenNumber, String seat) {
-        this.film = film;
-        this.date = date;
-        this.time = time;
-        this.screenNumber = screenNumber;
+    public Booking(Showing showing, String seat) {
+        this.showing = showing;
         this.seat = seat;
     }
 
-    public Film getFilm() {
-        return film;
+    public Showing getShowing() {
+        return showing;
     }
 
-    public void setFilm(Film film) {
-        this.film = film;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public Integer screenNumber() {
-        return screenNumber;
-    }
-
-    public void setScreen(Integer screenNumber) {
-        this.screenNumber = screenNumber;
+    public void setShowing(Showing showing) {
+        this.showing = showing;
     }
 
     public String getSeat() {
@@ -62,10 +34,27 @@ public class Booking implements Serializable {
         this.seat = seat;
     }
 
+    public Screen getScreen() {
+        return showing.getScreen();
+    }
+
+    public String getDate() {
+        return showing.getDate();
+    }
+
+    public String getTime() {
+        return showing.getTime();
+    }
+
+    public Film getFilm() {
+        return showing.getFilm();
+    }
+
     @Override
     public String toString() {
         return "Booking{" +
-            "film='" + film + '\'' + ", date='" + date + '\'' + ", time='" + time + '\'' +
-            ", screenNumber=" + screenNumber + ", seat='" + seat + '\'' + '}';
+            "showing=" + showing +
+            ", seat='" + seat + '\'' +
+            '}';
     }
 }

@@ -24,8 +24,8 @@ public class StageSceneNavigator {
      */
 
     // Login
-    public static final String LOGIN_MAIN    = "LoginGui/loginMain.fxml";
-    public static final String LOGIN_USER    = "LoginGui/loginUser.fxml";
+    public static final String LOGIN_MAIN = "LoginGui/loginMain.fxml";
+    public static final String LOGIN_USER = "LoginGui/loginUser.fxml";
     public static final String LOGIN_REGISTER = "LoginGui/loginRegister.fxml";
 
     //Customer
@@ -91,22 +91,23 @@ public class StageSceneNavigator {
 
     public static void loadLoginView(String fxml) {
         try {
-            loginMainController.setView(
-                FXMLLoader.load(StageSceneNavigator.class.getResource(fxml)));
+            loginMainController.setView(FXMLLoader.load(StageSceneNavigator.class.getResource(fxml)));
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }  public static void loadCustomerView(String fxml) {
+    }
+
+    public static void loadCustomerView(String fxml) {
         try {
-            customerMainController.setView(
-                FXMLLoader.load(StageSceneNavigator.class.getResource(fxml)));
+            customerMainController.setView(FXMLLoader.load(StageSceneNavigator.class.getResource(fxml)));
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }  public static void loadStaffView(String fxml) {
+    }
+
+    public static void loadStaffView(String fxml) {
         try {
-            staffMainController.setView(
-                FXMLLoader.load(StageSceneNavigator.class.getResource(fxml)));
+            staffMainController.setView(FXMLLoader.load(StageSceneNavigator.class.getResource(fxml)));
         } catch (IOException e) {
             e.printStackTrace();
         }

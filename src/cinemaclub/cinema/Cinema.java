@@ -12,6 +12,8 @@ import java.util.Map;
 
 //TODO Add functionality for staff to export a list of films with dates, times, number of booked and available seats.
 //TODO Make proper script which creates a new cinema with default filled database entries.
+//TODO Checking when adding showings for overlapping films.
+//TODO INIT WITH ONE DEFAULT STAFF AND ONE DEFAULT CUSTOMER
 public class Cinema {
 
     private Login login;
@@ -20,7 +22,7 @@ public class Cinema {
     private FilmEdit filmEdit;
     private Profile profile;
     private BookingSystem bookingSystem;
-    private Map<Integer, Screen> screens;
+    private Map<Integer, Screen> screens = new HashMap<>();
     private User currentUser = null;
 
     public Cinema() {
@@ -30,6 +32,8 @@ public class Cinema {
         filmEdit = new FilmEdit();
         profile = new Profile();
         bookingSystem = new BookingSystem();
+//        screens.put(1, filmDisplay.getScreenByNumber(1));
+
         screens = setupScreens();
         addInitialFilms();
         addInitialShowings();
@@ -42,6 +46,7 @@ public class Cinema {
             validateExistingScreen(1);
             Map<Integer, Screen> screensMap = new HashMap<>();
             screensMap.put(1, new Screen(1, 5, 10));
+            filmEdit.addScreen(1, 5, 10);
             return screensMap;
         } catch (ScreenAlreadySetupException e) {
             Map<Integer, Screen> screenMap = new HashMap<>();
@@ -66,8 +71,8 @@ public class Cinema {
     }
 
     private void addInitialShowings() {
-        this.addFilmToShowings("2017-12-15", "13:00", this.getFilmByTitle("UP"));
-        this.addFilmToShowings("2017-12-15", "12:00", this.getFilmByTitle("Walle"));
+        this.addShowing("2017-12-15", "13:00", this.getFilmByTitle("UP"));
+        this.addShowing("2017-12-15", "12:00", this.getFilmByTitle("Walle"));
     }
 
     private void addInitialStaffID() {
@@ -150,12 +155,12 @@ public class Cinema {
     }
 
     public void deleteFutureBooking(Booking booking)
-        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException {
+        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
         profile.deleteFutureBooking(currentUser, booking);
     }
 
     public void deleteFutureBooking(Customer customer, Booking booking)
-        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException {
+        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
         profile.deleteFutureBooking(customer, booking);
     }
 
@@ -166,26 +171,30 @@ public class Cinema {
         } else return null;
     }
 
-    public void bookFilm(String date, String time, Film film, Screen screen, String seatRow, int seatNumber)
+    public void bookFilm(Showing showing, String seatRow, int seatNumber)
         throws SeatAlreadyTakenException, SeatNotFoundException {
-        bookingSystem.bookFilm(currentUser, date, time, film, screen, seatRow, seatNumber);
+        bookingSystem.bookFilm(currentUser, showing, seatRow, seatNumber);
     }
 
     public ArrayList<Film> getFilmsByDate(String date) throws PastDateException {
         return filmDisplay.getFilmsByDateScreen(date, this.getScreen(1));
     }
 
-    public Map<String, Film> getShowingsByDate(String date) throws PastDateException {
+    public ArrayList<Showing> getShowingsByDate(String date) throws PastDateException {
         return filmDisplay.getShowingsByDate(date, this.getScreen(1));
     }
 
-    public ArrayList<String> getTimesByFilm(Film film) {
-        return filmDisplay.getTimesByFilm(film);
+    public Showing getShowingByDateTime(String date, String time) {
+        return filmDisplay.getShowingByDateTime(this.getScreen(1), date, time);
     }
 
-    public void addFilmToShowings(String date, String time, Film film) {
+    public ArrayList<String> getTimesByFilm(Film film) {
+        return filmDisplay.getTimesByFilm(this.getScreen(1), film);
+    }
+
+    public void addShowing(String date, String time, Film film) {
         //TODO ADD EXCEPTION IN CASE FILM IS ALREADY SHOWING AT THAT TIME
-        filmEdit.addFilmToShowings(this.getScreen(1), date, time, film);
+        filmEdit.addShowing(this.getScreen(1), date, time, film);
     }
 
     public void deleteShowing(String date, String time) {

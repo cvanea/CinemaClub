@@ -2,6 +2,7 @@ package cinemaclub.database;
 
 import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Screen;
+import cinemaclub.cinema.Showing;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,53 +12,105 @@ import java.util.Map;
 public class ScreenRepository implements Serializable {
 
     private DataBase dataBase;
-    private Map<String, Film> filmTimes = new HashMap<>();
-    private Map<String, Map<String, Film>> filmDateTimes = new HashMap<>();
-    private Map<Screen, Map<String, Map<String, Film>>> showings = new HashMap<>();
+
+    private ArrayList<Showing> showingsWithoutScreen = new ArrayList<>();
+    private Map<Screen, ArrayList<Showing>> showings = new HashMap<>();
 
     ScreenRepository(DataBase dataBase) {
         this.dataBase = dataBase;
     }
 
-    public Map<String, Map<String, Film>> getScreenShowings(Screen screen) {
+    public void addScreen(Screen screen) {
+        showings.put(screen, showingsWithoutScreen);
+    }
+
+    public ArrayList<Showing> getScreenShowings(Screen screen) {
         return showings.get(screen);
     }
 
     public ArrayList<Film> getFilmsByDate(Screen screen, String date) {
-        Map<String, Map<String, Film>> filmDatesTimes = showings.get(screen);
-        Map<String, Film> filmTimes = filmDatesTimes.get(date);
+        ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
+        ArrayList<Film> films = new ArrayList<>();
 
-        return new ArrayList<>(filmTimes.values());
+        for (Showing showing : showingsByScreen) {
+            if (showing.getDate().equals(date)) {
+                films.add(showing.getFilm());
+            }
+        }
+        return films;
     }
 
-    public Map<String, Film> getShowingsByDate(Screen screen, String date) {
-        Map<String, Map<String, Film>> filmDatesTimes = showings.get(screen);
+    public ArrayList<Showing> getShowingsByDate(Screen screen, String date) {
+        ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
+        ArrayList<Showing> showingsByDate = new ArrayList<>();
 
-        return filmDatesTimes.get(date);
+        for (Showing showing : showingsByScreen) {
+            if (showing.getDate().equals(date)) {
+                showingsByDate.add(showing);
+            }
+        }
+        return showingsByDate;
     }
 
-    public ArrayList<String> getTimesByFilm(Film film) {
+    public Showing getShowingByDateTime(Screen screen, String date, String time) {
+        ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
+
+        for (Showing showing : showingsByScreen) {
+            if (showing.getDate().equals(date) && showing.getTime().equals(time)) {
+                return showing;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<String> getTimesByFilm(Screen screen, Film film) {
+        ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
         ArrayList<String> times = new ArrayList<>();
 
-        for (String time : filmTimes.keySet()) {
-            if (filmTimes.get(time) == film) {
-                times.add(time);
+        for (Showing showing : showingsByScreen) {
+            if (showing.getFilm() == film) {
+                times.add(showing.getTime());
             }
         }
         return times;
     }
 
-    public void addShowing(Screen screen, String date, String time, Film film) {
-        filmTimes.put(time, film);
-        filmDateTimes.put(date, filmTimes);
-        showings.put(screen, filmDateTimes);
+    public ArrayList<String> getDatesByFilm(Screen screen, Film film) {
+        ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
+        ArrayList<String> dates = new ArrayList<>();
+
+        for (Showing showing : showingsByScreen) {
+            if (showing.getFilm() == film) {
+                dates.add(showing.getDate());
+            }
+        }
+        return dates;
+    }
+
+    public ArrayList<Showing> getAllShowingsByFilm(Screen screen, Film film) {
+        ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
+        ArrayList<Showing> showingsByFilm = new ArrayList<>();
+
+        for (Showing showing : showingsByScreen) {
+            if (showing.getFilm() == film) {
+                showingsByFilm.add(showing);
+            }
+        }
+        return showingsByFilm;
+    }
+
+    public void addShowing(Screen screen, Showing showing) {
+        showingsWithoutScreen.add(showing);
+        showings.put(screen, showingsWithoutScreen);
 
         dataBase.updateExternalDB();
     }
 
     public void deleteShowing(Screen screen, String date, String time) {
-        Map<String, Film> filmTimes = this.getShowingsByDate(screen, date);
-        filmTimes.remove(time);
+        ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
+        Showing showing = getShowingByDateTime(screen, date, time);
+        showingsByScreen.remove(showing);
+        showings.put(screen, showingsByScreen);
 
         dataBase.updateExternalDB();
     }

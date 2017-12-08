@@ -21,7 +21,6 @@ public class LoginUserController extends LoginMainController {
 
     @FXML private void initialize() {
         errorLabel.setText(GuiData.getSuccessMessage());
-        System.out.println(GuiData.getSuccessMessage());
     }
 
     public void pressButton(ActionEvent event) throws IOException {
