@@ -50,6 +50,8 @@ public class Booking implements Serializable {
         return showing.getFilm();
     }
 
+    public String getTitle() { return  showing.getFilm().getTitle();}
+
     @Override
     public String toString() {
         return "Booking{" +

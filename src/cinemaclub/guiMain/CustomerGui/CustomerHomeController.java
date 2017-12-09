@@ -74,6 +74,7 @@ public class CustomerHomeController extends CustomerMainController implements In
 
     public void pressPickTime(ActionEvent actionEvent) {
         //TODO MAKE CUSTOM EXCEPTION IF THEY DON'T PICK A TIME
+        GuiData.setShowing(cinema.getShowingByDateTime(GuiData.getDate(), GuiData.getTime()));
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
     }
 

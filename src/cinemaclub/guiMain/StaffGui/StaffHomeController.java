@@ -33,7 +33,9 @@ public class StaffHomeController extends StaffMainController implements Initiali
     private Film chosenFilm;
 
     public void pressScreenView(ActionEvent actionEvent) {
-        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREEN);
+        GuiData.setShowing(cinema.getShowingByDateTime(GuiData.getDate(), GuiData.getTime()));
+//        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREEN);
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREEN_EDIT);
     }
 
     @Override

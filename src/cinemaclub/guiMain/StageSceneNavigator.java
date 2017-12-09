@@ -31,14 +31,16 @@ public class StageSceneNavigator {
     //Customer
     public static final String CUSTOMER_MAIN = "CustomerGui/CustomerMain.fxml";
     public static final String CUSTOMER_HOME = "CustomerGui/CustomerHome.fxml";
-        public static final String CUSTOMER_BOOK_SEATS = "CustomerGui/CustomerBookSeats.fxml";
+    public static final String CUSTOMER_BOOK_SEATS = "CustomerGui/CustomerBookSeats.fxml";
     public static final String CUSTOMER_PROFILE = "CustomerGui/CustomerProfile.fxml";
     public static final String CUSTOMER_PROFILE_EDIT = "CustomerGui/CustomerProfileEdit.fxml";
 
     //Staff
     public static final String STAFF_MAIN = "StaffGui/StaffMain.fxml";
     public static final String STAFF_HOME = "StaffGui/StaffHome.fxml";
-    public static final String STAFF_SCREEN = "StaffGui/StaffScreen.fxml";
+    public static final String STAFF_SCREEN_EDIT = "StaffGui/StaffScreenEdit.fxml";
+    public static final String STAFF_PROFILE_EDIT = "StaffGui/StaffProfileEdit.fxml";
+    public static final String STAFF_PROFILE = "StaffGui/StaffProfile.fxml";
 
 
     /** The main application layout controller. */

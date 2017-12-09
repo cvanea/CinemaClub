@@ -2,16 +2,20 @@ package cinemaclub.guiMain.CustomerGui;
 
 import cinemaclub.guiMain.StageSceneNavigator;
 import cinemaclub.user.Booking;
-import exceptions.NoBookingsException;
-import exceptions.NoFutureBookingsException;
-import exceptions.NoPastBookingsException;
+import cinemaclub.user.User;
+import exceptions.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
+import java.awt.print.Book;
 import java.util.ArrayList;
 
 public class CustomerProfileController extends CustomerMainController {
@@ -21,8 +25,18 @@ public class CustomerProfileController extends CustomerMainController {
     @FXML Label passwordBox;
     @FXML Label firstNameBox;
     @FXML Label lastNameBox;
-    @FXML ListView futureList;
-    @FXML ListView pastList;
+    @FXML TableView<Booking> futureTable;
+    @FXML TableColumn <Booking, String> filmTable;
+    @FXML TableColumn <Booking, String> dateTable;
+    @FXML TableColumn <Booking, String> timeTable;
+    @FXML TableColumn <Booking, String> seatTable;
+    @FXML TableView<Booking> pastTable;
+    @FXML TableColumn <Booking, String> filmTableP;
+    @FXML TableColumn <Booking, String> dateTableP;
+    @FXML TableColumn <Booking, String> timeTableP;
+    @FXML TableColumn <Booking, String> seatTableP;
+
+    Booking chosenBooking;
 
     @FXML private void initialize() {
         nameBox.setText(cinema.getProfileDetails().getUsername());
@@ -35,11 +49,18 @@ public class CustomerProfileController extends CustomerMainController {
     }
 
     public void cancelBooking(ActionEvent event){
+        try {
+            cinema.deleteFutureBooking(chosenBooking);
+            fillFutureBookings();
+
+        } catch(NoBookingsException | NotAFutureBookingException | NoFutureBookingsException | SeatNotFoundException e){
+            System.out.println(e.getMessage());
+        }
 
     }
 
-    public void futureMouseClick(ActionEvent event){
-
+    public void futureMouseClick(MouseEvent event){
+        chosenBooking = futureTable.getSelectionModel().getSelectedItem();
     }
 
     public void setProfileText(ActionEvent event) {
@@ -49,17 +70,13 @@ public class CustomerProfileController extends CustomerMainController {
     public void fillFutureBookings() {
         try {
             ArrayList<Booking> bookings = cinema.getFutureBookingsHistory();
-            ArrayList<String> filmTitles = new ArrayList<>();
+            ObservableList<Booking> bookingObservableList = FXCollections.observableArrayList(bookings);
+            filmTable.setCellValueFactory(new PropertyValueFactory<>("Title"));
+            dateTable.setCellValueFactory(new PropertyValueFactory<>("Date"));
+            timeTable.setCellValueFactory(new PropertyValueFactory<>("Time"));
+            seatTable.setCellValueFactory(new PropertyValueFactory<>("Seat"));
+            futureTable.setItems(bookingObservableList);
 
-            for (Booking booking : bookings) {
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(booking.getFilm().getTitle()).append(" | ").append(booking.getDate()).append(" | ").append(booking.getTime()).append(" | ").append(booking.getSeat());
-                filmTitles.add(stringBuilder.toString());
-//                System.out.println(stringBuilder.toString());
-            }
-
-            ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
-            futureList.setItems(data);
         } catch (NoBookingsException | NoFutureBookingsException e) {
             System.out.println(e.getMessage());
         }
@@ -68,16 +85,12 @@ public class CustomerProfileController extends CustomerMainController {
     public void fillPastBookings() {
         try {
             ArrayList<Booking> bookings = cinema.getPastBookingsHistory();
-            ArrayList<String> filmTitles = new ArrayList<>();
-
-            for (Booking booking : bookings) {
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(booking.getFilm().getTitle()).append(" | ").append(booking.getDate()).append(" | ").append(booking.getTime()).append(" | ").append(booking.getSeat());
-                filmTitles.add(stringBuilder.toString());
-//                System.out.println(stringBuilder.toString());
-            }
-            ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
-            pastList.setItems(data);
+            ObservableList<Booking> bookingObservableList = FXCollections.observableArrayList(bookings);
+            filmTableP.setCellValueFactory(new PropertyValueFactory<>("Title"));
+            dateTableP.setCellValueFactory(new PropertyValueFactory<>("Date"));
+            timeTableP.setCellValueFactory(new PropertyValueFactory<>("Time"));
+            seatTableP.setCellValueFactory(new PropertyValueFactory<>("Seat"));
+            pastTable.setItems(bookingObservableList);
             System.out.println("empty bookings");
         } catch (NoBookingsException | NoPastBookingsException e) {
             System.out.println(e.getMessage());
