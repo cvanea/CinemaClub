@@ -1,3 +1,3 @@
-Film, Date, Time, Screen, Number of Available Seats, Number of Booked Seats, Booked Seats, Username
+Film, Date, Time, Screen, Number of Booked Seats, Number of Available Seats, Booked Seats, Username
 UP, 2017-12-15, 13:00, Screen 1, Taken seats: 0, Free seats: 50, {}
 Walle, 2017-12-15, 12:00, Screen 1, Taken seats: 1, Free seats: 49, {A6=tom}
