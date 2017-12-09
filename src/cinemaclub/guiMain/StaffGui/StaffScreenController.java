@@ -1,32 +1,28 @@
 package cinemaclub.guiMain.StaffGui;
 
-import cinemaclub.cinema.Cinema;
 import cinemaclub.cinema.Showing;
-import cinemaclub.guiMain.CustomerGui.CustomerMainController;
+import cinemaclub.database.DataBase;
+import cinemaclub.database.UserRepository;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.user.Booking;
-import exceptions.NoBookingsException;
-import exceptions.NoFutureBookingsException;
-import exceptions.SeatNotFoundException;
+import cinemaclub.user.User;
+import cinemaclub.user.UserCredentials;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.HPos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
 
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class StaffScreenController extends StaffMainController implements Initializable {
@@ -38,17 +34,21 @@ public class StaffScreenController extends StaffMainController implements Initia
     @FXML Label dateText;
     @FXML Label timeText;
     @FXML GridPane gridSeats;
-    @FXML TableView<Booking> userTable;
-    @FXML TableColumn<Booking, String> userName;
-    @FXML TableColumn <Booking, String> firstName;
-    @FXML TableColumn <Booking, String> lastName;
-    @FXML TableColumn <Booking, String> seatName;
-
+    @FXML TableView<BookedUser> userTable;
+    @FXML TableColumn<BookedUser, String> userName;
+    @FXML TableColumn <BookedUser, String> firstName;
+    @FXML TableColumn <BookedUser, String> lastName;
+    @FXML TableColumn <BookedUser, String> seatName;
 
     private Showing showing;
 
     public void pressExport(ActionEvent actionEvent) {
+        cinema.exportShowingsToCsv();
+    }
 
+    public void userMouseClick(MouseEvent event) {
+        BookedUser chosenUserBooking = userTable.getSelectionModel().getSelectedItem();
+//        Booking booking = chosenUserBooking.getUserName()
     }
 
     public void pressDelete(ActionEvent actionEvent) {
@@ -56,17 +56,16 @@ public class StaffScreenController extends StaffMainController implements Initia
     }
 
     public void fillUserTable() {
-//        try {
-//            ArrayList<Booking> bookings = cinema.getFutureBookingsHistory();
-//            ObservableList<Booking> bookingObservableList = FXCollections.observableArrayList(bookings);
-//            userName.setCellValueFactory(new PropertyValueFactory<>("User"));
-//            firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-//            lastName.setCellValueFactory(new PropertyValueFactory<>("Surname"));
-//            seatName.setCellValueFactory(new PropertyValueFactory<>("Seat"));
-//            userTable.setItems(bookingObservableList);
-//        } catch (NoBookingsException | NoFutureBookingsException e) {
-//            System.out.println(e.getMessage());
-//        }
+        ObservableList <BookedUser> data2 = FXCollections.observableArrayList();
+        Map<String, String> bookedSeats = GuiData.showing.getTakenSeats();
+        for(Map.Entry<String, String> entry: bookedSeats.entrySet()) {
+            data2.add(new BookedUser(entry.getValue(), "First Name", "Surname", entry.getKey()));
+        }
+            userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
+            firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+            lastName.setCellValueFactory(new PropertyValueFactory<>("Surname"));
+            seatName.setCellValueFactory(new PropertyValueFactory<>("Seat"));
+            userTable.setItems(data2);
     }
 
     @Override

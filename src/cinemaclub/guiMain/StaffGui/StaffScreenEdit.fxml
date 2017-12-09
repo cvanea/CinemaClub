@@ -85,7 +85,7 @@
             <AnchorPane prefHeight="150.0" prefWidth="899.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <Button fx:id="exportButton" layoutX="774.0" layoutY="74.0" mnemonicParsing="false" onAction="#pressExport" text="Export to CSV" />
-                  <TableView fx:id="userTable" layoutX="8.0" layoutY="11.0" onMouseClicked="#futureMouseClick" prefHeight="89.0" prefWidth="575.0">
+                  <TableView fx:id="userTable" layoutX="8.0" layoutY="11.0" onMouseClicked="#userMouseClick" prefHeight="89.0" prefWidth="575.0">
                      <columns>
                         <TableColumn fx:id="userName" prefWidth="161.82757568359375" text="User Name" />
                         <TableColumn fx:id="firstName" prefWidth="149.17233276367188" text="First Name" />

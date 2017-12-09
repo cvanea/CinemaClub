@@ -13,7 +13,7 @@ public class UserRepository implements Serializable {
     private Map<String, String> staffIDs = new HashMap<>();
     private Map<String, User> userDetails = new HashMap<>();
 
-    UserRepository(DataBase dataBase) {
+    public UserRepository(DataBase dataBase) {
         this.dataBase = dataBase;
     }
 

@@ -19,7 +19,7 @@ public class GuiData {
     private static String date;
     private static String time;
     public static Button selectedSeat = null;
-    private static Showing showing;
+    public static Showing showing;
     private static String seatRow;
     private static int seatNumber;
 
