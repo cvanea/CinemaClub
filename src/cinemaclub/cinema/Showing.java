@@ -96,4 +96,10 @@ public class Showing implements Serializable {
             ", takenSeats=" + takenSeats +
             '}';
     }
+
+    String toCsv() {
+        return film.getTitle() + ", " + date + ", " + time + ", Screen " + screen.getScreenNumber() +
+            ", Taken seats: " + takenSeats.size() + ", Free seats: " + (screen.getSeats().size() - takenSeats.size()) + ", " + takenSeats + "\n";
+    }
+
 }
