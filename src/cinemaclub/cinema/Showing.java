@@ -13,7 +13,6 @@ public class Showing implements Serializable {
     private String date;
     private String time;
     private Film film;
-//    private ArrayList<String> takenSeats;
     private Map<String, String> takenSeats;
 
     Showing(Screen screen, String date, String time, Film film, Map<String, String> takenSeats) {
