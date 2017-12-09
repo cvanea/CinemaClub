@@ -12,8 +12,6 @@ import java.util.Map;
 
 //TODO Make proper script which creates a new cinema with default filled database entries.
 //TODO Checking when adding showings for overlapping films.
-//TODO INIT WITH ONE DEFAULT STAFF AND ONE DEFAULT CUSTOMER
-//TODO prevent from registering as an empty string
 public class Cinema {
 
     private Login login;
@@ -183,10 +181,17 @@ public class Cinema {
         profile.deleteFutureBooking(customer, booking);
     }
 
-    public Booking getBookingByTitle(String filmTitle) {
+    public ArrayList<Booking> getBookingByTitle(String filmTitle) {
         if (currentUser instanceof Customer) {
             Customer customer = (Customer) currentUser;
-            return customer.getBookingByTitle(filmTitle);
+            return customer.getBookingsByTitle(filmTitle);
+        } else return null;
+    }
+
+    public Booking getBookingByTitleDateTime(String filmTitle, String date, String time) {
+        if (currentUser instanceof Customer) {
+            Customer customer = (Customer) currentUser;
+            return customer.getBookingsByTitleDateTime(filmTitle, date, time);
         } else return null;
     }
 

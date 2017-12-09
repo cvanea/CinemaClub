@@ -86,7 +86,6 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
 }
 
     public Boolean isSeatTaken() {
-        //TODO: Get the correct screen for each movie
         try {
             if (showing.isSeatTaken(seatRow, seatNumber)) {
 //                errorLabel.setText("Seat taken!");

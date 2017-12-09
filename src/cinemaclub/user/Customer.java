@@ -28,10 +28,20 @@ public class Customer extends User {
         bookings.add(booking);
     }
 
-    public Booking getBookingByTitle(String title) {
-        //TODO WONT WORK FOR MULTIPLE BOOKINGS OF SAME TITLE.
+    public ArrayList<Booking> getBookingsByTitle(String title) {
+        ArrayList<Booking> titleBookings = new ArrayList<>();
         for (Booking booking : bookings) {
             if (booking.getFilm().getTitle().equals(title)) {
+                titleBookings.add(booking);
+            }
+        }
+        return titleBookings;
+    }
+
+    public Booking getBookingsByTitleDateTime(String title, String date, String time) {
+        for (Booking booking : bookings) {
+            if (booking.getFilm().getTitle().equals(title) && booking.getDate().equals(date) &&
+                booking.getTime().equals(time)) {
                 return booking;
             }
         }
