@@ -25,7 +25,7 @@ class BookingSystem {
             Customer customer = (Customer) user;
             validateSeatAvailability(showing, seatRow, seatNumber);
             customer.addBooking(new Booking(showing, seatRow + seatNumber));
-            showing.bookSeat(seatRow, seatNumber);
+            showing.bookSeat(customer.getUsername(), seatRow, seatNumber);
             userRepository.updateDB();
             screenRepository.updateDB();
         }
