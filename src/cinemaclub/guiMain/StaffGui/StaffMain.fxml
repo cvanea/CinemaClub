@@ -11,16 +11,22 @@
 
 <VBox fillWidth="false" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.StaffMainController">
     <children>
-        <AnchorPane prefHeight="80.0" prefWidth="1200.0" style="-fx-background-color: #022B3A;">
+        <AnchorPane prefHeight="75.0" prefWidth="1200.0" style="-fx-background-color: #022B3A;">
             <children>
-                <Label fx:id="headerLabel" layoutX="42.0" layoutY="2.0" maxWidth="1.7976931348623157E308" prefHeight="71.0" prefWidth="506.0" text="Cinema Club - Staff View" textFill="WHITE">
+                <Label fx:id="headerLabel" layoutX="42.0" layoutY="2.0" maxWidth="1.7976931348623157E308" prefHeight="71.0" prefWidth="345.0" text="Cinema Club - Staff" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="36.0" />
                     </font>
                 </Label>
-                <Button layoutX="1050.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressHome" text="Films" />
-                <Button layoutX="1115.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressLogOut" text="Log Out" />
-            <Button layoutX="976.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressProfile" text="Profile" />
+                <Button fx:id="filmsBut" layoutX="884.0" layoutY="23.0" mnemonicParsing="false" onAction="#pressHome" text="Films" />
+            <Button fx:id="showBut" layoutX="952.0" layoutY="23.0" mnemonicParsing="false" onAction="#pressShowings" text="Showings" />
+            <Button fx:id="profileBut" layoutX="1044.0" layoutY="23.0" mnemonicParsing="false" onAction="#pressProfile" text="Profile" />
+                <Button fx:id="logBut" layoutX="1115.0" layoutY="23.0" mnemonicParsing="false" onAction="#pressLogOut" text="Log Out" />
+            <Label fx:id="headerLabelEdit" layoutX="402.0" layoutY="1.0" maxWidth="1.7976931348623157E308" prefHeight="71.0" prefWidth="439.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
         <StackPane fx:id="viewHolder" VBox.vgrow="ALWAYS">
