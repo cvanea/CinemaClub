@@ -35,7 +35,7 @@ public class StaffMainController {
     }
 
     public void pressHome(ActionEvent event) throws IOException {
-        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_HOME);
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_FILM);
     }
 
     public void pressProfile(ActionEvent event) throws IOException {
