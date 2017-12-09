@@ -5,6 +5,7 @@ import cinemaclub.database.DataBase;
 import cinemaclub.database.UserRepository;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.user.Booking;
+import cinemaclub.user.Customer;
 import cinemaclub.user.User;
 import cinemaclub.user.UserCredentials;
 import javafx.collections.FXCollections;
@@ -22,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -39,6 +41,12 @@ public class StaffScreenController extends StaffMainController implements Initia
     @FXML TableColumn <BookedUser, String> firstName;
     @FXML TableColumn <BookedUser, String> lastName;
     @FXML TableColumn <BookedUser, String> seatName;
+//    @FXML TableView<Customer> userTable;
+//    @FXML TableColumn<Customer, String> userName;
+//    @FXML TableColumn <Customer, String> firstName;
+//    @FXML TableColumn <Customer, String> lastName;
+//    @FXML TableColumn <Customer, String> seatName;
+
 
     private Showing showing;
 
@@ -59,7 +67,7 @@ public class StaffScreenController extends StaffMainController implements Initia
         ObservableList <BookedUser> data2 = FXCollections.observableArrayList();
         Map<String, String> bookedSeats = GuiData.showing.getTakenSeats();
         for(Map.Entry<String, String> entry: bookedSeats.entrySet()) {
-            data2.add(new BookedUser(entry.getValue(), "First Name", "Surname", entry.getKey()));
+            data2.add(new BookedUser(entry.getValue(), cinema.getUser(entry.getValue()).getFirstName(), cinema.getUser(entry.getValue()).getSurname(), entry.getKey()));
         }
             userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
             firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));

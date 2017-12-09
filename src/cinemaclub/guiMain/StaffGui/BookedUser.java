@@ -31,19 +31,19 @@ public class BookedUser {
             surname.set(sName);
         }
 
-    public String getUserName() {
+        public String getUserName() {
         return userName.get();
     }
 
-    public void setUserName(String uName) {
+        public void setUserName(String uName) {
         userName.set(uName);
     }
 
-    public void setSeat(String Seat) {
+        public void setSeat(String Seat) {
         seat.set(Seat);
     }
 
-    public String getSeat() {
+        public String getSeat() {
         return seat.get();
     }
 

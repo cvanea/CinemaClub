@@ -34,6 +34,10 @@ public class StaffMainController {
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_HOME);
     }
 
+    public void pressProfile(ActionEvent event) throws IOException {
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_PROFILE);
+    }
+
     /**
      * Replaces the vista displayed in the vista holder with a new vista.
      *
