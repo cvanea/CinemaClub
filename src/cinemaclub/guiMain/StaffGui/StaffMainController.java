@@ -6,6 +6,7 @@ import cinemaclub.guiMain.StageSceneNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
@@ -25,6 +26,9 @@ public class StaffMainController {
     @FXML
     private StackPane viewHolder;
 
+    @FXML
+    public Label headerLabelEdit;
+
     public void pressLogOut(ActionEvent event) throws IOException {
         StageSceneNavigator.loginStage();
         ((Node)(event.getSource())).getScene().getWindow().hide();
@@ -36,6 +40,10 @@ public class StaffMainController {
 
     public void pressProfile(ActionEvent event) throws IOException {
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_PROFILE);
+    }
+
+    public void pressShowings(ActionEvent event) throws IOException {
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SHOWINGS);
     }
 
     /**

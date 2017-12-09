@@ -41,6 +41,7 @@ public class StageSceneNavigator {
     public static final String STAFF_SCREEN_EDIT = "StaffGui/StaffScreenEdit.fxml";
     public static final String STAFF_PROFILE_EDIT = "StaffGui/StaffProfileEdit.fxml";
     public static final String STAFF_PROFILE = "StaffGui/StaffProfile.fxml";
+    public static final String STAFF_SHOWINGS = "StaffGui/StaffShowings.fxml";
 
 
     /** The main application layout controller. */
