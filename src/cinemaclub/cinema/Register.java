@@ -2,7 +2,11 @@ package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
 import cinemaclub.database.UserRepository;
-import cinemaclub.user.*;
+import cinemaclub.user.Customer;
+import cinemaclub.user.Staff;
+import cinemaclub.user.User;
+import cinemaclub.user.UserCredentials;
+import exceptions.EmptyUserInputException;
 import exceptions.IncorrectStaffIDException;
 import exceptions.StaffIDTakenException;
 import exceptions.UsernameTakenException;
@@ -18,11 +22,16 @@ class Register {
     }
 
     void registerUser(String username, String email, String password, String firstName, String surname, String userType, String staffID)
-        throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException  {
+        throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException, EmptyUserInputException  {
 
         if (userType.equals("staff")) {
             validateID(staffID);
             validateUsername(username);
+            validateInput(username);
+            validateInput(email);
+            validateInput(password);
+            validateInput(firstName);
+            validateInput(surname);
 
             User user = new Staff(new UserCredentials(username, email, password, firstName, surname));
             userRepository.assignStaffID(staffID, username);
@@ -48,6 +57,12 @@ class Register {
 
         if (userRepository.checkForUsername(username)) {
             throw new UsernameTakenException();
+        }
+    }
+
+    private void validateInput(String input) throws EmptyUserInputException {
+        if (input.equals("")) {
+            throw new EmptyUserInputException();
         }
     }
 

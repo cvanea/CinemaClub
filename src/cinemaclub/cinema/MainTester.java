@@ -53,7 +53,7 @@ public class MainTester {
                 }
 
                 System.exit(0);
-            } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
+            } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -67,13 +67,13 @@ public class MainTester {
 
         try {
             cinema.registerUser("LogoutTester1", "logouttest1@tester.com", "pass1", "Logout", "Tester", "customer", null);
-        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
             System.out.println(e.getMessage() + "1");
         }
 
         try {
             cinema.registerUser("LogoutTester2", "logouttester2@tester.com", "pass2", "Logout2", "Tester2","customer", null);
-        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
             System.out.println(e.getMessage() + "1");
         }
 
@@ -113,7 +113,7 @@ public class MainTester {
 
         try {
             cinema.registerUser("ProfileTester", "test@tester.com", "pass", "Profile", "Tester", "customer", null);
-        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
             System.out.println(e.getMessage() + "1");
         }
 
@@ -154,7 +154,7 @@ public class MainTester {
 
         try {
             cinema.registerUser("BookingTest", "booking@booking.com", "bookingpass", "Booking", "Tester", "customer", null);
-        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
             System.out.println(e.getMessage());
             System.exit(0);
         }
