@@ -15,7 +15,7 @@ public class Showing implements Serializable {
     private Film film;
     private Map<String, String> takenSeats;
 
-    Showing(Screen screen, String date, String time, Film film, Map<String, String> takenSeats) {
+    public Showing(Screen screen, String date, String time, Film film, Map<String, String> takenSeats) {
         this.screen = screen;
         this.date = date;
         this.time = time;

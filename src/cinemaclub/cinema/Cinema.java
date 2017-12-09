@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO Make proper script which creates a new cinema with default filled database entries.
 //TODO Checking when adding showings for overlapping films.
 public class Cinema {
 
@@ -30,72 +29,7 @@ public class Cinema {
         filmEdit = new FilmEdit();
         profile = new Profile();
         bookingSystem = new BookingSystem();
-//        screens.put(1, filmDisplay.getScreenByNumber(1));
-
-        screens = setupScreens();
-        addInitialFilms();
-        addInitialShowings();
-        addInitialStaffID();
-        addInitialUsers();
-    }
-
-    //Sets up the number of screens in the cinema and their seat number
-    private Map<Integer, Screen> setupScreens() {
-        try {
-            validateExistingScreen(1);
-            Map<Integer, Screen> screensMap = new HashMap<>();
-            Screen screen = new Screen(1, 5, 10);
-            screensMap.put(1, screen);
-            filmEdit.addScreen(screen);
-            return screensMap;
-        } catch (ScreenAlreadySetupException e) {
-            Map<Integer, Screen> screenMap = new HashMap<>();
-            screenMap.put(1, filmDisplay.getScreenByNumber(1));
-            return screenMap;
-        }
-    }
-
-    private void validateExistingScreen(Integer screenNumber) throws ScreenAlreadySetupException {
-        if (filmDisplay.getScreenByNumber(screenNumber) != null) {
-            throw new ScreenAlreadySetupException();
-        }
-    }
-
-    private void addInitialFilms() {
-        try {
-            this.addFilm("UP", "/UP.jpg", "A great film", "01:00");
-            this.addFilm("Walle", "/walle.jpg", "A another great film", "02:00");
-        } catch (FilmExistsException e) {
-            System.out.println("Initial movies already registered");
-        }
-    }
-
-    private void addInitialShowings() {
-        try {
-            this.addShowing("2017-12-15", "13:00", this.getFilmByTitle("UP"));
-            this.addShowing("2017-12-15", "12:00", this.getFilmByTitle("Walle"));
-        } catch (ShowingAlreadyExistsException e) {
-            System.out.println("Initial showings already registered");
-        }
-    }
-
-    private void addInitialStaffID() {
-        if (profile.getAllStaffByID().isEmpty()) {
-            profile.addStaffID("1", "noStaff");
-            profile.addStaffID("2", "noStaff");
-            profile.addStaffID("3", "noStaff");
-            profile.addStaffID("4", "noStaff");
-            profile.addStaffID("5", "noStaff");
-        }
-    }
-
-    private void addInitialUsers() {
-        try {
-            this.registerUser("c", "cTester@tester.com", "c", "Customer", "Tester", "Customer", null);
-            this.registerUser("s", "sTester@tester.com", "s", "Staff", "Tester", "Staff", "1");
-        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
-            System.out.println("Initial users already registered");
-        }
+        screens.put(1, filmDisplay.getScreenByNumber(1));
     }
 
     public Screen getScreen(Integer screenNumber) {
