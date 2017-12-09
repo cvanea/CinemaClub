@@ -67,7 +67,7 @@ class Register {
     }
 
     private void validateInput(String input) throws EmptyUserInputException {
-        if (input.isEmpty()) {
+        if (input.equals("")) {
             throw new EmptyUserInputException();
         }
     }
