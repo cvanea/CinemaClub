@@ -2,6 +2,7 @@ package cinemaclub.guiMain.LoginGui;
 
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
+import exceptions.EmptyUserInputException;
 import exceptions.IncorrectStaffIDException;
 import exceptions.StaffIDTakenException;
 import exceptions.UsernameTakenException;
@@ -41,7 +42,7 @@ public class RegisterController extends LoginMainController {
             errorLabel.setText("Registered");
             GuiData.setSuccessMessage("success");
             StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_USER);
-        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
             errorLabel.setText(e.getMessage());
             System.out.println(e.getMessage());
         }

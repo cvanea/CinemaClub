@@ -77,10 +77,11 @@ class FilmEdit {
     }
 
     void exportShowingsToCsv() {
+        //TODO SHOULD UPDATE WHEN SOMEONE CHANGES THEIR PROFILE USERNAME.
         try {
             FileWriter writer = new FileWriter("Showings.csv");
 
-            writer.write("Film, Date, Time, Screen, Number of Available Seats, Number of Booked Seats, Booked Seats, Username\n");
+            writer.write("Film, Date, Time, Screen, Number of Booked Seats, Number of Available Seats, Booked Seats, Username\n");
 
             Map<Screen, ArrayList<Showing>> showings = screenRepository.getShowings();
             ArrayList<Showing> allShowings = new ArrayList<>();

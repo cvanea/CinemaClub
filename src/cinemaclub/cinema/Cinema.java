@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO Add functionality for staff to export a list of films with dates, times, number of booked and available seats.
 //TODO Make proper script which creates a new cinema with default filled database entries.
 //TODO Checking when adding showings for overlapping films.
 //TODO INIT WITH ONE DEFAULT STAFF AND ONE DEFAULT CUSTOMER
@@ -39,6 +38,7 @@ public class Cinema {
         addInitialFilms();
         addInitialShowings();
         addInitialStaffID();
+        addInitialUsers();
     }
 
     //Sets up the number of screens in the cinema and their seat number
@@ -91,6 +91,15 @@ public class Cinema {
         }
     }
 
+    private void addInitialUsers() {
+        try {
+            this.registerUser("c", "cTester@tester.com", "c", "Customer", "Tester", "Customer", null);
+            this.registerUser("s", "sTester@tester.com", "s", "Staff", "Tester", "Staff", "1");
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
+            System.out.println("Initial users already registered");
+        }
+    }
+
     public Screen getScreen(Integer screenNumber) {
         return screens.get(screenNumber);
     }
@@ -103,13 +112,17 @@ public class Cinema {
         currentUser = null;
     }
 
+    public User getUser(String username) {
+        return profile.getUser(username);
+    }
+
     public void loginUser(String username, String password)
         throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
         currentUser = login.loginUser(username, password);
     }
 
     public void registerUser(String username, String email, String password, String firstName, String surname, String userType, String staffID)
-        throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException {
+        throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException, EmptyUserInputException {
         register.registerUser(username, email, password, firstName, surname, userType, staffID);
     }
 
