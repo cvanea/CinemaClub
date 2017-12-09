@@ -10,13 +10,14 @@ public class MainTester {
     public static void main(String[] args) {
 
 //        registerTester();
-        loginTester();
+//        loginTester();
 //        logoutTester();
 //        profileTester();
 //        bookingTester();
 //        filmEditTester();
 //        showingsTester();
 //        seatsTester();
+        exportTester();
 
     }
 
@@ -272,6 +273,11 @@ public class MainTester {
         Screen screen = cinema.getScreen(1);
 
         System.out.println(screen.getSeats());
+    }
 
+    private static void exportTester() {
+        Cinema cinema = new Cinema();
+
+        cinema.exportShowingsToCsv();
     }
 }

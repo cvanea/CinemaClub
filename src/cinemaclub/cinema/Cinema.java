@@ -46,8 +46,9 @@ public class Cinema {
         try {
             validateExistingScreen(1);
             Map<Integer, Screen> screensMap = new HashMap<>();
-            screensMap.put(1, new Screen(1, 5, 10));
-            filmEdit.addScreen(1, 5, 10);
+            Screen screen = new Screen(1, 5, 10);
+            screensMap.put(1, screen);
+            filmEdit.addScreen(screen);
             return screensMap;
         } catch (ScreenAlreadySetupException e) {
             Map<Integer, Screen> screenMap = new HashMap<>();
@@ -211,6 +212,10 @@ public class Cinema {
 
     public void deleteShowing(String date, String time) {
         filmEdit.deleteShowing(this.getScreen(1), date, time);
+    }
+
+    public void exportShowingsToCsv() {
+        filmEdit.exportShowingsToCsv();
     }
 
     public ArrayList<Film> displayAllFilms() {

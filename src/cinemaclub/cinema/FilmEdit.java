@@ -6,9 +6,14 @@ import cinemaclub.database.ScreenRepository;
 import exceptions.FilmExistsException;
 import exceptions.ShowingAlreadyExistsException;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 class FilmEdit {
+    //TODO Add staff export to csv method.
 
     private FilmRepository filmRepository;
     private ScreenRepository screenRepository;
@@ -60,15 +65,39 @@ class FilmEdit {
 
     void addShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException {
         validateShowing(screen, date, time);
-        screenRepository.addShowing(screen, new Showing(screen, date, time, film, new ArrayList<>()));
+        screenRepository.addShowing(screen, new Showing(screen, date, time, film, new HashMap<>()));
     }
 
     void deleteShowing(Screen screen, String date, String time) {
         screenRepository.deleteShowing(screen, date, time);
     }
 
-    void addScreen(Integer screenNumber, int numberRow, int seatsPerRow) {
-        screenRepository.addScreen(new Screen(screenNumber, numberRow, seatsPerRow));
+    void addScreen(Screen screen) {
+        screenRepository.addScreen(screen);
+    }
+
+    void exportShowingsToCsv() {
+        try {
+            FileWriter writer = new FileWriter("Showings.csv");
+
+            writer.write("Film, Date, Time, Screen, Number of Available Seats, Number of Booked Seats, Booked Seats, Username\n");
+
+            Map<Screen, ArrayList<Showing>> showings = screenRepository.getShowings();
+            ArrayList<Showing> allShowings = new ArrayList<>();
+
+            for (Screen screen : showings.keySet()) {
+                allShowings.addAll(showings.get(screen));
+            }
+
+            for (Showing showing : allShowings) {
+                writer.write(showing.toCsv());
+                System.out.print(showing.toCsv());
+            }
+
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void validateNewFilm(String title) throws FilmExistsException {

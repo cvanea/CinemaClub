@@ -3,7 +3,7 @@ package cinemaclub.cinema;
 import exceptions.SeatNotFoundException;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.Map;
 
 public class Showing implements Serializable {
 
@@ -13,9 +13,10 @@ public class Showing implements Serializable {
     private String date;
     private String time;
     private Film film;
-    private ArrayList<String> takenSeats;
+//    private ArrayList<String> takenSeats;
+    private Map<String, String> takenSeats;
 
-    Showing(Screen screen, String date, String time, Film film, ArrayList<String> takenSeats) {
+    Showing(Screen screen, String date, String time, Film film, Map<String, String> takenSeats) {
         this.screen = screen;
         this.date = date;
         this.time = time;
@@ -55,25 +56,26 @@ public class Showing implements Serializable {
         this.film = film;
     }
 
-    public ArrayList<String> getTakenSeats() {
+    public Map<String, String> getTakenSeats() {
         return takenSeats;
     }
 
-    public void setTakenSeats(ArrayList<String> takenSeats) {
+    public void setTakenSeats(Map<String, String> takenSeats) {
         this.takenSeats = takenSeats;
     }
 
     public Boolean isSeatTaken(String row, int number) throws SeatNotFoundException {
         validateSeat(row, number);
-        return takenSeats.contains(row + number);
+
+        return takenSeats.containsKey(row + number);
     }
 
-    void bookSeat(String row, int number) throws SeatNotFoundException {
+    void bookSeat(String username, String row, int number) throws SeatNotFoundException {
         validateSeat(row, number);
-        takenSeats.add(row + number);
+        takenSeats.put(row + number, username);
     }
 
-    public void unbookSeat(String row, int number) throws SeatNotFoundException {
+    void unbookSeat(String row, int number) throws SeatNotFoundException {
         validateSeat(row, number);
         takenSeats.remove(row + number);
     }
@@ -94,4 +96,10 @@ public class Showing implements Serializable {
             ", takenSeats=" + takenSeats +
             '}';
     }
+
+    String toCsv() {
+        return film.getTitle() + ", " + date + ", " + time + ", Screen " + screen.getScreenNumber() +
+            ", Taken seats: " + takenSeats.size() + ", Free seats: " + (screen.getSeats().size() - takenSeats.size()) + ", " + takenSeats + "\n";
+    }
+
 }

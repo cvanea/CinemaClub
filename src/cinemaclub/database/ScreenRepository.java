@@ -123,6 +123,10 @@ public class ScreenRepository implements Serializable {
         return null;
     }
 
+    public Map<Screen, ArrayList<Showing>> getShowings() {
+        return showings;
+    }
+
     public void updateDB() {
         dataBase.updateExternalDB();
     }
