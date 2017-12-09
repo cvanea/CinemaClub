@@ -38,6 +38,7 @@ public class Cinema {
         addInitialFilms();
         addInitialShowings();
         addInitialStaffID();
+        addInitialUsers();
     }
 
     //Sets up the number of screens in the cinema and their seat number
@@ -87,6 +88,15 @@ public class Cinema {
             profile.addStaffID("3", "noStaff");
             profile.addStaffID("4", "noStaff");
             profile.addStaffID("5", "noStaff");
+        }
+    }
+
+    private void addInitialUsers() {
+        try {
+            this.registerUser("c", "cTester@tester.com", "c", "Customer", "Tester", "Customer", null);
+            this.registerUser("s", "sTester@tester.com", "s", "Staff", "Tester", "Staff", "1");
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
+            System.out.println("Initial users already registered");
         }
     }
 

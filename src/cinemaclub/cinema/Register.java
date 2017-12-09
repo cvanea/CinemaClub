@@ -32,12 +32,18 @@ class Register {
             validateInput(password);
             validateInput(firstName);
             validateInput(surname);
+            validateInput(staffID);
 
             User user = new Staff(new UserCredentials(username, email, password, firstName, surname));
             userRepository.assignStaffID(staffID, username);
             userRepository.writeToUserDetails(user.getUsername(), user);
         } else {
             validateUsername(username);
+            validateInput(username);
+            validateInput(email);
+            validateInput(password);
+            validateInput(firstName);
+            validateInput(surname);
 
             User user = new Customer(new UserCredentials(username, email, password, firstName, surname), new ArrayList<>());
             userRepository.writeToUserDetails(user.getUsername(), user);
