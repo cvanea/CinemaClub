@@ -36,7 +36,7 @@ public class RegisterGui implements Initializable {
             errorLabel.setText("Registered");
             Main.setPaneLogin(0);
 
-        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
             errorLabel.setText(e.getMessage());
             System.out.println(e.getMessage());
         }

@@ -23,6 +23,10 @@ class Profile {
         this.screenRepository = DataBase.getScreenRepository();
     }
 
+    User getUser(String username) {
+        return userRepository.getUser(username);
+    }
+
     UserCredentials getProfileDetails(User user) {
         return user.getUserCredentials();
     }
