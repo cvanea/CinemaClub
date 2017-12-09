@@ -1,6 +1,15 @@
 package cinemaclub.database;
 
+import cinemaclub.cinema.Film;
+import cinemaclub.cinema.Screen;
+import cinemaclub.cinema.Showing;
+import cinemaclub.user.Customer;
+import cinemaclub.user.Staff;
+import cinemaclub.user.UserCredentials;
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class DataBase implements Serializable {
 
@@ -54,27 +63,30 @@ public class DataBase implements Serializable {
             //TODO INITIAL DEFAULTS FOR THE CINEMA GO HERE
             dataBase = new DataBase();
 
-//            userRepository.addStaffID("1", "noStaff");
-//            userRepository.addStaffID("2", "noStaff");
-//            userRepository.addStaffID("3", "noStaff");
-//            userRepository.addStaffID("4", "noStaff");
-//            userRepository.addStaffID("5", "noStaff");
-//
-//            Film up = new Film("UP", "/UP.jpg", "A great film", "01:00");
-//            Film walle = new Film("Walle", "/walle.jpg", "A another great film", "02:00");
-//
-//            filmRepository.addFilm("UP", up);
-//            filmRepository.addFilm("Walle", walle);
-//
-//            Screen screen1 = new Screen(1, 5, 10);
-//
-//            screenRepository.addScreen(screen1);
-//
-//            screenRepository.addShowing(screen1, "2017-12-15", "13:00", up);
-//            screenRepository.addShowing(screen1, "2017-12-15", "11:00", walle);
+            dataBase.userRepository.addStaffID("1", "noStaff");
+            dataBase.userRepository.addStaffID("2", "noStaff");
+            dataBase.userRepository.addStaffID("3", "noStaff");
+            dataBase.userRepository.addStaffID("4", "noStaff");
+            dataBase.userRepository.addStaffID("5", "noStaff");
 
+            Film up = new Film("UP", "/UP.jpg", "A great film", "01:00");
+            Film walle = new Film("Walle", "/walle.jpg", "A another great film", "02:00");
+
+            dataBase.filmRepository.addFilm("UP", up);
+            dataBase.filmRepository.addFilm("Walle", walle);
+
+            Screen screen1 = new Screen(1, 5, 10);
+
+            dataBase.screenRepository.addScreen(screen1);
+
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "13:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "12:00", walle, new HashMap<>()));
+
+            dataBase.userRepository.addUser("c", new Customer(
+                new UserCredentials("c", "c@c.com", "c", "Customer", "Tester"), new ArrayList<>()));
+            dataBase.userRepository.addUser("s", new Staff(
+                new UserCredentials("s", "s@s.com", "s", "Staff", "Tester")));
         }
         return dataBase;
     }
-
 }
