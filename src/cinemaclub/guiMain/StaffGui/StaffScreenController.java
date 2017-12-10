@@ -1,13 +1,10 @@
 package cinemaclub.guiMain.StaffGui;
 
 import cinemaclub.cinema.Showing;
-import cinemaclub.database.DataBase;
-import cinemaclub.database.UserRepository;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.user.Booking;
 import cinemaclub.user.Customer;
 import cinemaclub.user.User;
-import cinemaclub.user.UserCredentials;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,7 +20,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -36,17 +32,11 @@ public class StaffScreenController extends StaffMainController implements Initia
     @FXML Label dateText;
     @FXML Label timeText;
     @FXML GridPane gridSeats;
-    @FXML TableView<BookedUser> userTable;
-    @FXML TableColumn<BookedUser, String> userName;
-    @FXML TableColumn <BookedUser, String> firstName;
-    @FXML TableColumn <BookedUser, String> lastName;
-    @FXML TableColumn <BookedUser, String> seatName;
-//    @FXML TableView<Customer> userTable;
-//    @FXML TableColumn<Customer, String> userName;
-//    @FXML TableColumn <Customer, String> firstName;
-//    @FXML TableColumn <Customer, String> lastName;
-//    @FXML TableColumn <Customer, String> seatName;
-
+    @FXML TableView<BookingUserInfo> userTable;
+    @FXML TableColumn<BookingUserInfo, String> username;
+    @FXML TableColumn <BookingUserInfo, String> firstName;
+    @FXML TableColumn <BookingUserInfo, String> lastName;
+    @FXML TableColumn <BookingUserInfo, String> seat;
 
     private Showing showing;
 
@@ -55,43 +45,83 @@ public class StaffScreenController extends StaffMainController implements Initia
     }
 
     public void userMouseClick(MouseEvent event) {
-        BookedUser chosenUserBooking = userTable.getSelectionModel().getSelectedItem();
-//        Booking booking = chosenUserBooking.getUserName()
+        BookingUserInfo chosenUser = userTable.getSelectionModel().getSelectedItem();
     }
 
     public void pressDelete(ActionEvent actionEvent) {
 //        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
     }
 
-    public void fillUserTable() {
-        ObservableList <BookedUser> data2 = FXCollections.observableArrayList();
-        Map<String, String> bookedSeats = GuiData.showing.getTakenSeats();
-        for(Map.Entry<String, String> entry: bookedSeats.entrySet()) {
-            data2.add(new BookedUser(entry.getValue(), cinema.getUser(entry.getValue()).getFirstName(), cinema.getUser(entry.getValue()).getSurname(), entry.getKey()));
+    private void fillUserTable() {
+        ObservableList <BookingUserInfo> data = FXCollections.observableArrayList();
+
+        Map<String, String> takenSeats = showing.getTakenSeats();
+
+        for (Map.Entry<String, String> entry : takenSeats.entrySet()) {
+            String username = entry.getValue();
+            User user = cinema.getUser(username);
+
+            if (user instanceof Customer) {
+                Customer customer = (Customer) user;
+                Booking booking = customer.getBookingByShowing(showing);
+                //TODO: FIX BOOKING to get all seats (Not just A1)
+                data.add(new BookingUserInfo(customer, booking));
+            }
         }
-            userName.setCellValueFactory(new PropertyValueFactory<>("userName"));
-            firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-            lastName.setCellValueFactory(new PropertyValueFactory<>("Surname"));
-            seatName.setCellValueFactory(new PropertyValueFactory<>("Seat"));
-            userTable.setItems(data2);
+
+        username.setCellValueFactory(new PropertyValueFactory<>("username"));
+        firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("surname"));
+        seat.setCellValueFactory(new PropertyValueFactory<>("seat"));
+        userTable.setItems(data);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setFilmInfo();
         showing = GuiData.getShowing();
-        GuiData.setupSeatButtons(gridSeats, 780,500, "staff" );
+        setFilmInfo();
+        GuiData.setupSeatButtons(gridSeats, 780,450, "staff");
         fillUserTable();
     }
 
-    public void setFilmInfo(){
-        titleText.setText(GuiData.getFilm().getTitle());
-        descriptionText.setText(GuiData.getFilm().getDescription());
-        runtimeText.setText(GuiData.getFilm().getRunTime());
-        timeText.setText(GuiData.getTime());
-        dateText.setText(GuiData.getDate());
-        Image img = new Image(GuiData.getFilm().getImagePath());
+    private void setFilmInfo(){
+        titleText.setText(showing.getFilm().getTitle());
+        descriptionText.setText(showing.getFilm().getDescription());
+        runtimeText.setText(showing.getFilm().getRunTime());
+        timeText.setText(showing.getTime());
+        dateText.setText(showing.getDate());
+        Image img = new Image(showing.getFilm().getImagePath());
         imageBox.setImage(img);
     }
 
+    public class BookingUserInfo {
+
+        String username;
+        String firstName;
+        String surname;
+        String seat;
+
+        private BookingUserInfo(Customer customer, Booking booking) {
+            this.username = customer.getUsername();
+            this.firstName = customer.getFirstName();
+            this.surname = customer.getSurname();
+            this.seat = customer.getSeat(booking);
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public String getSurname() {
+            return surname;
+        }
+
+        public String getSeat() {
+            return seat;
+        }
+    }
 }

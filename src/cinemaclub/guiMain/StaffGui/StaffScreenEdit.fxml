@@ -87,10 +87,10 @@
                   <Button fx:id="exportButton" layoutX="774.0" layoutY="74.0" mnemonicParsing="false" onAction="#pressExport" text="Export to CSV" />
                   <TableView fx:id="userTable" layoutX="8.0" layoutY="11.0" onMouseClicked="#userMouseClick" prefHeight="89.0" prefWidth="575.0">
                      <columns>
-                        <TableColumn fx:id="userName" prefWidth="161.82757568359375" text="User Name" />
+                        <TableColumn fx:id="username" prefWidth="161.82757568359375" text="Username" />
                         <TableColumn fx:id="firstName" prefWidth="149.17233276367188" text="First Name" />
                         <TableColumn fx:id="lastName" prefWidth="185.81805419921875" text="Last Name" />
-                        <TableColumn fx:id="seatName" prefWidth="81.31329345703125" text="Seat" />
+                        <TableColumn fx:id="seat" prefWidth="81.31329345703125" text="Seat" />
                      </columns>
                   </TableView>
                   <Button fx:id="deleteBooking" layoutX="234.0" layoutY="109.0" mnemonicParsing="false" onAction="#pressDelete" text="Delete Booking" />

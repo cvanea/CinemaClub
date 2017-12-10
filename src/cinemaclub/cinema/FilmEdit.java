@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 class FilmEdit {
-    //TODO Add staff export to csv method.
 
     private FilmRepository filmRepository;
     private ScreenRepository screenRepository;
@@ -77,7 +76,6 @@ class FilmEdit {
     }
 
     void exportShowingsToCsv() {
-        //TODO SHOULD UPDATE WHEN SOMEONE CHANGES THEIR PROFILE USERNAME.
         try {
             FileWriter writer = new FileWriter("Showings.csv");
 
@@ -111,5 +109,6 @@ class FilmEdit {
         if (screenRepository.getShowingByDateTime(screen, date, time) != null) {
             throw new ShowingAlreadyExistsException();
         }
+//        else if (screenRepository.getShowingByDateTime(screen, date, ))
     }
 }

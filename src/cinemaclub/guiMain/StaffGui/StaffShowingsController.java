@@ -1,5 +1,6 @@
 package cinemaclub.guiMain.StaffGui;
 
+import cinemaclub.cinema.Cinema;
 import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
@@ -17,7 +18,6 @@ import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 public class StaffShowingsController extends StaffMainController implements Initializable {
@@ -34,46 +34,43 @@ public class StaffShowingsController extends StaffMainController implements Init
     @FXML TextField timeField;
     @FXML Label errorLabel;
 
-    private String selecFilm = null;
-    private String selecDate = null;
-    private String selecTime = null;
-    private Integer selecScreen = 1;
-
+    private String selectedFilm = null;
+    private String selectedDate = null;
+    private String selectedTime = null;
+    private Integer selectedScreen = 1;
 
     private Showing chosenShowing;
 
     public void initialize(URL location, ResourceBundle resources) {
-        ArrayList<Film> films = cinema.displayAllFilms();
-        ArrayList<String> filmTitles = new ArrayList<>();
-
-        for (Film film : films) {
-            filmTitles.add(film.getTitle());
-        }
-        ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
+        fillFilmBox();
         //TODO: Get all screens populate screenBox
         ObservableList<Integer> dataScreen = FXCollections.observableArrayList();
         dataScreen.add(1);
-        filmBox.setItems(data);
         screenBox.setItems(dataScreen);
         fillShowingsTable();
     }
 
+    public void fillFilmBox(){
+        filmBox.setItems(GuiData.getFilmList(cinema));
+    }
+
     public void pressDelete(ActionEvent event) {
         cinema.deleteShowing(chosenShowing.getDate(), chosenShowing.getTime());
+        fillShowingsTable();
     }
 
     public void pressViewShowing(ActionEvent event) {
         GuiData.setShowing(chosenShowing);
-        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREEN_EDIT);
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREEN);
     }
 
     public void pressAddShowing(ActionEvent event) {
         //TODO: ADD TIME VALIDATOR
-        selecTime = timeField.getText();
-        if (selecFilm != null & selecDate != null & selecTime != null & selecScreen != null) {
+        selectedTime = timeField.getText();
+        if (selectedFilm != null & selectedDate != null & selectedTime != null & selectedScreen != null) {
             try {
-                cinema.addShowing(selecDate, selecTime, cinema.getFilmByTitle(selecFilm));
-                errorLabel.setText("New Showing of "+ selecFilm + " Added" );
+                cinema.addShowing(selectedDate, selectedTime, cinema.getFilmByTitle(selectedFilm));
+                errorLabel.setText("New Showing of "+ selectedFilm + " Added" );
                 fillShowingsTable();
             } catch (ShowingAlreadyExistsException e) {
                 System.out.println(e.getMessage());
@@ -93,24 +90,26 @@ public class StaffShowingsController extends StaffMainController implements Init
 
     }
     public void selectFilm(ActionEvent event) {
-        selecFilm = filmBox.getSelectionModel().getSelectedItem();
+        selectedFilm = filmBox.getSelectionModel().getSelectedItem();
     }
 
     public void selectScreen(ActionEvent event) {
-        selecScreen = screenBox.getSelectionModel().getSelectedItem();
+        selectedScreen = screenBox.getSelectionModel().getSelectedItem();
     }
 
     public void selectDate(ActionEvent event) {
-        selecDate = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        selectedDate = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
 
-    public void fillShowingsTable() {
-        ObservableList <Showing> data2 = FXCollections.observableArrayList();
+    private void fillShowingsTable() {
+        ObservableList <Showing> data = FXCollections.observableArrayList();
+        ArrayList<Showing> showings = cinema.getAllShowings();
+        data.addAll(showings);
         filmCol.setCellValueFactory(new PropertyValueFactory<>("FilmTitle"));
         dateCol.setCellValueFactory(new PropertyValueFactory<>("Date"));
         timeCol.setCellValueFactory(new PropertyValueFactory<>("Time"));
-        screenCol.setCellValueFactory(new PropertyValueFactory<>("Screen"));
-        seatsCol.setCellValueFactory(new PropertyValueFactory<>("Seat"));
-        showingTable.setItems(data2);
+        screenCol.setCellValueFactory(new PropertyValueFactory<>("ScreenNumber"));
+        seatsCol.setCellValueFactory(new PropertyValueFactory<>("NumberOfAvailableSeats"));
+        showingTable.setItems(data);
     }
 }

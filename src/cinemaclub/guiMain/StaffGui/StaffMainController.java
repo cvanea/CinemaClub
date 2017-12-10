@@ -1,10 +1,12 @@
 package cinemaclub.guiMain.StaffGui;
 
 import cinemaclub.cinema.Cinema;
+import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.LoginGui.LoginMainController;
 import cinemaclub.guiMain.StageSceneNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -29,20 +31,31 @@ public class StaffMainController {
     @FXML
     public Label headerLabelEdit;
 
+    public void initialize() {
+        headerLabelEdit.setText(GuiData.getViewTitle());
+    }
+
+
     public void pressLogOut(ActionEvent event) throws IOException {
         StageSceneNavigator.loginStage();
         ((Node)(event.getSource())).getScene().getWindow().hide();
     }
 
     public void pressHome(ActionEvent event) throws IOException {
+        GuiData.setViewTitle("Films");
+        headerLabelEdit.setText(GuiData.getViewTitle());
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_FILM);
     }
 
     public void pressProfile(ActionEvent event) throws IOException {
+        GuiData.setViewTitle("Profile");
+        headerLabelEdit.setText(GuiData.getViewTitle());
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_PROFILE);
     }
 
     public void pressShowings(ActionEvent event) throws IOException {
+        GuiData.setViewTitle("Showings");
+        headerLabelEdit.setText(GuiData.getViewTitle());
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SHOWINGS);
     }
 

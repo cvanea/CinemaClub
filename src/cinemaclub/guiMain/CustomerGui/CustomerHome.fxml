@@ -15,76 +15,102 @@
 
 <StackPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.CustomerGui.CustomerHomeController">
    <children>
-      <AnchorPane prefHeight="534.0" prefWidth="1040.0" GridPane.rowIndex="1">
-      </AnchorPane>
-      <GridPane style="-fx-background-color: #0B4F6C;">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="590.5879516601562" minWidth="10.0" prefWidth="482.349853515625" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.650146484375" minWidth="10.0" prefWidth="717.650146484375" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="10.523785591125488" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="448.1822192668915" minHeight="10.0" prefHeight="443.4762144088745" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <AnchorPane prefHeight="680.0" prefWidth="1200.0" GridPane.rowIndex="1">
          <children>
-            <Label contentDisplay="CENTER" text="Home - Film Times" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="LEFT">
-               <font>
-                  <Font name="System Bold" size="48.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin>
-            </Label>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-               <children>
-                  <DatePicker fx:id="datePicker" layoutX="140.0" layoutY="59.0" onAction="#selectDate" />
-                  <ListView fx:id="filmList" layoutX="28.0" layoutY="134.0" onMouseClicked="#chooseFilm" prefHeight="287.0" prefWidth="411.0" />
-               </children>
-            </AnchorPane>
-            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane layoutX="261.0" layoutY="113.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="590.5879516601562" minWidth="10.0" prefWidth="435.57611083984375" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="764.4238891601562" minWidth="10.0" prefWidth="764.4238891601562" />
               </columnConstraints>
               <rowConstraints>
+                <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="38.89710235595703" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="564.102897644043" minHeight="10.0" prefHeight="564.102897644043" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <Label contentDisplay="CENTER" text="Home - Film Times" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="LEFT">
+                     <font>
+                        <Font name="System Bold" size="48.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <AnchorPane prefHeight="565.0" prefWidth="430.0" GridPane.rowIndex="1">
                      <children>
-                        <Label fx:id="titleText" layoutX="14.0" layoutY="14.0" prefHeight="39.0" prefWidth="332.0">
+                        <DatePicker fx:id="datePicker" layoutX="100.0" layoutY="45.0" onAction="#selectDate" prefHeight="27.0" prefWidth="267.0" />
+                        <ListView fx:id="filmList" layoutX="101.0" layoutY="134.0" onMouseClicked="#chooseFilm" prefHeight="375.0" prefWidth="267.0" AnchorPane.bottomAnchor="50.0" />
+                        <Label layoutX="101.0" layoutY="-2.0" text="Pick a Date:">
                            <font>
-                              <Font name="System Bold" size="32.0" />
+                              <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="descriptionText" alignment="TOP_LEFT" layoutX="14.0" layoutY="53.0" prefHeight="144.0" prefWidth="316.0" wrapText="true">
+                        <Label fx:id="pickFilm" layoutX="104.0" layoutY="104.0" text="Pick a Film:">
                            <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <ListView fx:id="timesList" layoutX="107.0" layoutY="257.0" onMouseClicked="#chooseTime" prefHeight="100.0" prefWidth="150.0" />
-                        <Button fx:id="pickSeatButton" layoutX="130.0" layoutY="365.0" mnemonicParsing="false" onAction="#pressPickTime" text="Pick Time">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Button>
-                        <Label fx:id="runtimeText" layoutX="109.0" layoutY="212.0" text="Runtime:">
-                           <font>
-                              <Font name="System Bold" size="19.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="runTime" layoutX="202.0" layoutY="212.0">
-                           <font>
-                              <Font name="System Bold" size="19.0" />
+                              <Font size="20.0" />
                            </font>
                         </Label>
                      </children>
                   </AnchorPane>
-                  <ImageView fx:id="imageBox" fitHeight="513.0" fitWidth="292.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.6490478515625" minWidth="10.0" prefWidth="371.47003173828125" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="390.92803955078125" minWidth="10.0" prefWidth="319.52996826171875" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane fx:id="filmDisplayPane" minWidth="300.0" prefHeight="565.0" prefWidth="352.0">
+                           <children>
+                              <Label fx:id="titleText" layoutX="-1.0" layoutY="25.0" prefHeight="39.0" prefWidth="381.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="descriptionText" alignment="TOP_LEFT" layoutY="101.0" prefHeight="120.0" prefWidth="377.0" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ListView fx:id="timesList" layoutX="93.0" layoutY="328.0" onMouseClicked="#chooseTime" prefHeight="142.0" prefWidth="179.0" />
+                              <Button fx:id="pickSeatButton" layoutX="113.0" layoutY="479.0" mnemonicParsing="false" onAction="#pressPickTime" text="Book Showing" AnchorPane.bottomAnchor="51.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="runtimeText" layoutY="225.0" styleClass="custFilmTitle" text="Runtime:" AnchorPane.leftAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="runTime" layoutX="3.0" layoutY="248.0" prefHeight="38.0" prefWidth="233.0" AnchorPane.leftAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="runtimeText1" layoutY="73.0" styleClass="custFilmTitle" text="Description:" AnchorPane.leftAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="runtimeText11" layoutY="-2.0" styleClass="custFilmTitle" text="Film Title:" AnchorPane.leftAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="runtimeText2" layoutX="1.0" layoutY="287.0" styleClass="custFilmTitle" text="Showing Times:">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <ImageView fx:id="imageBox" fitHeight="544.0" fitWidth="388.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                     </children>
+                  </GridPane>
                </children>
             </GridPane>
-         </children>
-      </GridPane>
+         </children></AnchorPane>
    </children>
 </StackPane>

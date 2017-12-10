@@ -199,7 +199,7 @@ public class MainTester {
         }
 
         try {
-            cinema.deleteFutureBooking(cinema.getBookingByTitle("FilmTest"));
+            cinema.deleteFutureBooking(cinema.getBookingByTitleDateTime("FilmTest", "2018-11-09", "15:00"));
         } catch (NoFutureBookingsException | NotAFutureBookingException | NoBookingsException | SeatNotFoundException e) {
             System.out.println(e.getMessage());
         }

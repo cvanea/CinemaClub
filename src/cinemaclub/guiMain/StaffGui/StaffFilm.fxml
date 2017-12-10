@@ -20,37 +20,41 @@
    <children>
       <AnchorPane prefHeight="534.0" prefWidth="1040.0" GridPane.rowIndex="1">
       </AnchorPane>
-      <GridPane style="-fx-background-color: #0B4F6C;">
+      <GridPane style="-fx-background-color: #ffffff;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints maxHeight="77.85747528076172" minHeight="10.0" prefHeight="45.716129302978516" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="634.2838706970215" minHeight="10.0" prefHeight="634.2838706970215" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="680.0" minHeight="10.0" prefHeight="680.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <ListView fx:id="filmList" layoutX="25.0" layoutY="37.0" onKeyPressed="#chooseFilm" onMouseClicked="#chooseFilm" prefHeight="464.0" prefWidth="255.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="20.0" />
-                  <Label layoutX="25.0" layoutY="-8.0" text="Film List">
+                  <ListView fx:id="filmList" layoutX="25.0" layoutY="80.0" onMouseClicked="#chooseFilm" prefHeight="497.0" prefWidth="254.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0" />
+                  <Label layoutX="25.0" layoutY="20.0" styleClass="filmTitle" text="Film List" AnchorPane.topAnchor="15.0">
                      <font>
-                        <Font name="System Bold" size="30.0" />
+                        <Font name="Arial Bold" size="30.0" />
                      </font>
                   </Label>
-                  <Button fx:id="addFilm" layoutX="153.0" layoutY="505.0" mnemonicParsing="false" onAction="#addFilmPane" text="Add New Film">
+                  <Button fx:id="addFilm" layoutX="156.0" layoutY="604.0" mnemonicParsing="false" onAction="#addFilmPane" text="Add New Film" AnchorPane.bottomAnchor="45.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="removeFim" layoutX="27.0" layoutY="506.0" mnemonicParsing="false" onAction="#deleteFilm" text="Delete Film">
+                  <Button fx:id="removeFim" layoutX="26.0" layoutY="604.0" mnemonicParsing="false" onAction="#deleteFilm" text="Delete Film" AnchorPane.bottomAnchor="45.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
+                  <Label fx:id="errorLabelFilmList" alignment="TOP_LEFT" layoutX="28.0" layoutY="560.0" prefHeight="42.0" prefWidth="249.0" textFill="RED" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane GridPane.columnIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="528.7122192382812" minWidth="10.0" prefWidth="528.7122192382812" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="417.54974365234375" minWidth="10.0" prefWidth="372.28778076171875" />
@@ -59,58 +63,58 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane fx:id="infoPane" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="updateButton" layoutX="300.0" layoutY="319.0" mnemonicParsing="false" onAction="#updateFilmPane" text="Update Film">
+                        <Button fx:id="updateButton" layoutX="316.0" layoutY="394.0" mnemonicParsing="false" onAction="#updateFilmPane" text="Update Film">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="imageBox" fitHeight="341.0" fitWidth="232.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="descriptionText" alignment="TOP_LEFT" layoutX="234.0" layoutY="143.0" prefHeight="170.0" prefWidth="272.0" textAlignment="RIGHT" wrapText="true">
+                        <ImageView fx:id="imageBox" fitHeight="341.0" fitWidth="232.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="60.0" />
+                        <Label fx:id="descriptionText" alignment="TOP_LEFT" layoutX="240.0" layoutY="244.0" prefHeight="137.0" prefWidth="272.0" wrapText="true">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Arial" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="descriptionLabel" layoutX="241.0" layoutY="110.0" text="Description:">
+                        <Label fx:id="descriptionLabel" layoutX="240.0" layoutY="218.0" text="Description:" AnchorPane.leftAnchor="240.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="Arial Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="titleLabel" layoutX="238.0" layoutY="33.0" text="Film Title:">
+                        <Label fx:id="titleLabel" layoutX="240.0" layoutY="51.0" text="Film Title:" AnchorPane.leftAnchor="240.0" AnchorPane.topAnchor="60.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="Arial Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="runtimeLabel" layoutX="241.0" layoutY="73.0" text="Runtime:">
+                        <Label fx:id="runtimeLabel" layoutX="240.0" layoutY="134.0" text="Runtime:" AnchorPane.leftAnchor="240.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="Arial Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="runtimeText" layoutX="331.0" layoutY="67.0" prefHeight="37.0" prefWidth="183.0">
+                        <Label fx:id="runtimeText" alignment="TOP_LEFT" layoutX="240.0" layoutY="160.0" prefHeight="50.0" prefWidth="280.0" wrapText="true" AnchorPane.leftAnchor="240.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="titleText" layoutX="332.0" layoutY="28.0" prefHeight="41.0" prefWidth="173.0">
+                        <Label fx:id="titleText" alignment="TOP_LEFT" layoutX="240.0" layoutY="83.0" prefHeight="50.0" prefWidth="280.0" wrapText="true" AnchorPane.leftAnchor="240.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="16.0" />
                            </font>
                         </Label>
-                        <TableView fx:id="filmTable" layoutX="10.0" layoutY="444.0" prefHeight="152.0" prefWidth="491.0">
+                        <TableView fx:id="filmTable" layoutX="6.0" layoutY="465.0" prefHeight="175.0" prefWidth="519.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0">
                           <columns>
                             <TableColumn fx:id="dateCol" prefWidth="164.5262451171875" text="Date of Showing" />
-                            <TableColumn fx:id="timeCol" prefWidth="145.21353149414062" text="Time of Showing" />
-                              <TableColumn fx:id="screenCol" prefWidth="62.78656005859375" text="Screen" />
-                              <TableColumn fx:id="seatsCol" prefWidth="117.8245849609375" text="# Available Seats" />
+                            <TableColumn fx:id="timeCol" prefWidth="116.6104736328125" text="Time of Showing" />
+                              <TableColumn fx:id="screenCol" prefWidth="93.06207275390625" text="Screen" />
+                              <TableColumn fx:id="seatsCol" prefWidth="142.9378662109375" text="# Available Seats" />
                           </columns>
                         </TableView>
-                        <Label layoutX="4.0" layoutY="-5.0" text="Film Information">
+                        <Label layoutX="4.0" layoutY="16.0" styleClass="filmTitle" text="Film Information" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="15.0">
                            <font>
-                              <Font name="System Bold" size="30.0" />
+                              <Font name="Arial Bold" size="30.0" />
                            </font>
                         </Label>
-                        <Label layoutX="14.0" layoutY="399.0" text="Film Showings">
+                        <Label layoutX="14.0" layoutY="417.0" styleClass="filmTitle" text="Film Showings" AnchorPane.leftAnchor="0.0">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -121,48 +125,58 @@
                      <children>
                         <AnchorPane fx:id="editPane" layoutX="-4.0" layoutY="-12.0" prefHeight="635.0" prefWidth="404.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label layoutX="17.0" layoutY="8.0" text="Add/ Update Film">
+                              <Label fx:id="updateTitle" layoutX="15.0" layoutY="11.0" styleClass="filmTitle" text="Update Film" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0">
                                  <font>
-                                    <Font name="System Bold" size="30.0" />
+                                    <Font name="Arial Bold" size="30.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="updateButton1" layoutX="61.0" layoutY="547.0" mnemonicParsing="false" onAction="#updateFilmInfo" text="Update">
+                              <Button fx:id="updateFilm" layoutX="22.0" layoutY="600.0" mnemonicParsing="false" onAction="#updateFilmInfo" text="Update" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="updateButton11" layoutX="220.0" layoutY="546.0" mnemonicParsing="false" onAction="#pressAddFilm" text="Add Film">
+                              <Button fx:id="addFilm" layoutX="107.0" layoutY="600.0" mnemonicParsing="false" onAction="#pressAddFilm" text="Add Film" AnchorPane.bottomAnchor="45.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="updateButton12" layoutX="200.0" layoutY="482.0" mnemonicParsing="false" onAction="#pressUploadImage" text="Upload Image">
+                              <Button fx:id="updateButton12" layoutX="20.0" layoutY="474.0" mnemonicParsing="false" onAction="#pressUploadImage" text="Upload New Image" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="titleField" layoutX="109.0" layoutY="86.0" prefHeight="50.0" prefWidth="243.0" promptText="Title" />
-                              <TextArea fx:id="descriptionArea" layoutX="14.0" layoutY="243.0" prefHeight="148.0" prefWidth="345.0" promptText="Description" />
-                              <TextField fx:id="imageField" layoutX="17.0" layoutY="412.0" prefHeight="50.0" prefWidth="161.0" promptText="Image URL" />
-                              <TextField fx:id="runtimeField" layoutX="109.0" layoutY="151.0" prefHeight="50.0" prefWidth="132.0" promptText="Runtime" />
-                              <ImageView fx:id="imageBoxEdit" fitHeight="173.0" fitWidth="49.0" layoutX="244.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true">
+                              <TextField fx:id="titleField" layoutX="106.0" layoutY="58.0" prefHeight="50.0" prefWidth="243.0" promptText="Title" />
+                              <TextArea fx:id="descriptionArea" layoutX="14.0" layoutY="230.0" prefHeight="167.0" prefWidth="345.0" promptText="Description" wrapText="true" AnchorPane.leftAnchor="10.0" />
+                              <TextField fx:id="imageField" layoutX="19.0" layoutY="413.0" prefHeight="50.0" prefWidth="185.0" promptText="Image URL" AnchorPane.leftAnchor="10.0" />
+                              <TextField fx:id="runtimeField" layoutX="106.0" layoutY="131.0" prefHeight="50.0" prefWidth="132.0" promptText="Runtime" />
+                              <ImageView fx:id="imageBoxEdit" fitHeight="217.0" fitWidth="144.0" layoutX="208.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../Images/UP.jpg" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="titleLabel1" layoutX="13.0" layoutY="98.0" text="Film Title:">
+                              <Label fx:id="titleLabel1" layoutX="9.0" layoutY="70.0" text="Film Title:" AnchorPane.leftAnchor="10.0">
                                  <font>
-                                    <Font size="20.0" />
+                                    <Font name="Arial Bold" size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="titleLabel11" layoutX="17.0" layoutY="158.0" text="Runtime:">
+                              <Label fx:id="titleLabel11" layoutX="11.0" layoutY="144.0" text="Runtime:" AnchorPane.leftAnchor="10.0">
                                  <font>
-                                    <Font size="20.0" />
+                                    <Font name="Arial Bold" size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="descriptionLabel1" layoutX="16.0" layoutY="213.0" text="Description:">
+                              <Label fx:id="descriptionLabel1" layoutX="13.0" layoutY="200.0" text="Description:" AnchorPane.leftAnchor="10.0">
                                  <font>
-                                    <Font size="20.0" />
+                                    <Font name="Arial Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="addTitle" layoutX="18.0" layoutY="11.0" styleClass="filmTitle" text="Add Film" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0">
+                                 <font>
+                                    <Font name="Arial Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="errorLabel" alignment="TOP_LEFT" layoutX="19.0" layoutY="517.0" prefHeight="76.0" prefWidth="187.0" textFill="RED" wrapText="true">
+                                 <font>
+                                    <Font name="Arial" size="16.0" />
                                  </font>
                               </Label>
                            </children>

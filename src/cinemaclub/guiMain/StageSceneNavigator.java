@@ -39,6 +39,7 @@ public class StageSceneNavigator {
     public static final String STAFF_MAIN = "StaffGui/StaffMain.fxml";
     public static final String STAFF_FILM = "StaffGui/StaffFilm.fxml";
     public static final String STAFF_SCREEN_EDIT = "StaffGui/StaffScreenEdit.fxml";
+    public static final String STAFF_SCREEN = "StaffGui/StaffScreen.fxml";
     public static final String STAFF_PROFILE_EDIT = "StaffGui/StaffProfileEdit.fxml";
     public static final String STAFF_PROFILE = "StaffGui/StaffProfile.fxml";
     public static final String STAFF_SHOWINGS = "StaffGui/StaffShowings.fxml";
@@ -192,7 +193,7 @@ public class StageSceneNavigator {
 
     public static Scene createScene(Pane stageMainPane) {
         Scene scene = new Scene(stageMainPane);
-//        scene.getStylesheets().setAll(getClass().getResource("vista.css").toExternalForm());
+        scene.getStylesheets().setAll(StageSceneNavigator.class.getResource("style.css").toExternalForm());
         return scene;
     }
 

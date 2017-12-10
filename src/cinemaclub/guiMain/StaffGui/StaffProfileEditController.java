@@ -6,11 +6,14 @@ import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.UsernameTakenException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class StaffProfileEditController extends StaffMainController{
+public class StaffProfileEditController extends StaffMainController implements Initializable{
 
     @FXML TextField nameBoxEdit;
     @FXML TextField emailBoxEdit;
@@ -24,7 +27,7 @@ public class StaffProfileEditController extends StaffMainController{
         this.profileController = profileController;
     }
 
-   @FXML private void initialize() {
+   @FXML public void initialize(URL location, ResourceBundle resources) {
        nameBoxEdit.setText(cinema.getProfileDetails().getUsername());
        emailBoxEdit.setText(cinema.getProfileDetails().getEmail());
        passwordBoxEdit.setText(cinema.getProfileDetails().getPassword());
