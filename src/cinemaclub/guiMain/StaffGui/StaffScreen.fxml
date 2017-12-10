@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.StaffScreenController">
+   <children>
+      <AnchorPane prefHeight="534.0" prefWidth="1040.0" GridPane.rowIndex="1">
+      </AnchorPane>
+      <GridPane style="-fx-background-color: #0B4F6C;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="658.0661010742188" minHeight="10.0" prefHeight="656.3326416015625" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="23.6673583984375" minHeight="10.0" prefHeight="23.6673583984375" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane prefHeight="680.0" prefWidth="275.0">
+               <children>
+                  <Label fx:id="titleText" layoutX="-7.0" layoutY="308.0" prefHeight="70.0" prefWidth="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="descriptionText" alignment="TOP_LEFT" layoutY="386.0" maxWidth="300.0" prefHeight="144.0" prefWidth="300.0" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="runtimeLabel" layoutX="10.0" layoutY="541.0" text="Runtime:">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="runtimeText" layoutX="100.0" layoutY="537.0" prefHeight="40.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imageBox" fitHeight="300.0" fitWidth="300.0" layoutX="3.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport></ImageView>
+                  <Label fx:id="runtimeText1" layoutX="42.0" layoutY="583.0" text="Date:">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dateText" layoutX="100.0" layoutY="576.0" prefHeight="40.0" prefWidth="207.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="runtimeText2" layoutX="39.0" layoutY="626.0" text="Time:">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="timeText" layoutX="100.0" layoutY="619.0" prefHeight="40.0" prefWidth="208.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+               <children>
+                  <GridPane fx:id="gridSeats" layoutX="167.0" layoutY="31.0" maxHeight="550.0" maxWidth="800.0" prefHeight="512.0" prefWidth="724.0" AnchorPane.rightAnchor="0.0">
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </children>
+</StackPane>

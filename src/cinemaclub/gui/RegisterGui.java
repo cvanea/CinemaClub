@@ -16,8 +16,7 @@ public class RegisterGui implements Initializable {
 
     private Cinema cinema = new Cinema();
 
-    @FXML
-    private TextField username;
+    @FXML private TextField username;
     @FXML private TextField password;
     @FXML private TextField email;
     @FXML private TextField staffID;
@@ -29,14 +28,15 @@ public class RegisterGui implements Initializable {
 
         try {
             if (staffCheck.isSelected()) {
-                cinema.registerUser(username.getText(), email.getText(), password.getText(), "staff", staffID.getText());
+                cinema.registerUser(username.getText(), email.getText(), password.getText(), "fix", "fix", "staff", staffID.getText());
 
             } else {
-            cinema.registerUser(username.getText(), email.getText(), password.getText(), "customer", null);
+            cinema.registerUser(username.getText(), email.getText(), password.getText(), "fix", "fix", "customer", null);
             }
             errorLabel.setText("Registered");
+            Main.setPaneLogin(0);
 
-        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException e) {
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
             errorLabel.setText(e.getMessage());
             System.out.println(e.getMessage());
         }

@@ -1,39 +1,36 @@
 package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
+import cinemaclub.database.UserRepository;
 import cinemaclub.user.*;
 import exceptions.UserDetailsDoNotExistException;
 import exceptions.UserDetailsIncorrectException;
 
 class Login {
 
-    private DataBase dataBase;
+    private UserRepository userRepository;
 
     Login() {
-        this.dataBase = DataBase.getInstance();
+        this.userRepository = DataBase.getUserRepository();
     }
 
-    User loginUser(String username, String email, String password)
+    User loginUser(String username, String password)
         throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
 
-        UserCredentials userCredentials = new UserCredentials(username, email, password);
-        validateDetails(userCredentials);
+        validateUsername(username);
+        validatePassword(username, password);
 
-        return dataBase.getUser(username);
+        return userRepository.getUser(username);
     }
 
-    private void validateDetails(UserCredentials userCredentials)
-        throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
-        User user = dataBase.getUser(userCredentials.getUserName());
-        UserCredentials savedCredentials;
-
-        if (user == null) {
+    private void validateUsername(String username) throws UserDetailsDoNotExistException {
+        if (userRepository.getUser(username) == null) {
             throw new UserDetailsDoNotExistException();
-        } else {
-            savedCredentials = user.getUserCredentials();
         }
+    }
 
-        if (!userCredentials.checkCredentials(savedCredentials)) {
+    private void validatePassword(String username, String password) throws UserDetailsIncorrectException {
+        if (!userRepository.getUser(username).getPassword().equals(password)) {
             throw new UserDetailsIncorrectException();
         }
     }

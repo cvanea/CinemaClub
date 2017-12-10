@@ -1,205 +1,91 @@
 package cinemaclub.database;
 
+import cinemaclub.cinema.Film;
+import cinemaclub.cinema.Screen;
+import cinemaclub.cinema.Showing;
 import cinemaclub.user.Customer;
 import cinemaclub.user.Staff;
-import cinemaclub.user.User;
 import cinemaclub.user.UserCredentials;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
-public class DataBase {
-    private static DataBase ourInstance = new DataBase();
+public class DataBase implements Serializable {
 
-    private Map<String, String> staffID = new HashMap<>();
-    private Map<String, User> userDetails = new HashMap<>();
+    private static final long serialVersionUID = 8762368738673278L;
 
-    public static DataBase getInstance() {
-        return ourInstance;
+    private static DataBase ourInstance = readExternalDB();
+
+    private static final String fileName = "DB.txt";
+
+    private UserRepository userRepository = new UserRepository(this);
+    private FilmRepository filmRepository  = new FilmRepository(this);
+    private ScreenRepository screenRepository = new ScreenRepository(this);
+
+    public static UserRepository getUserRepository() {
+        return ourInstance.userRepository;
     }
 
-    private DataBase() {
-        readFromExternalDB();
+    public static ScreenRepository getScreenRepository() {
+        return ourInstance.screenRepository;
     }
 
-    public void addStaffID(String staffId, String username) {
-
-        staffID.put(staffId, username);
-
-        updateExternalStaffIDDB(staffID);
+    public static FilmRepository getFilmRepository() {
+        return ourInstance.filmRepository;
     }
 
-    public void assignStaffID(String staffId, String username) {
-
-        staffID.put(staffId, username);
-
-        updateExternalStaffIDDB(staffID);
-    }
-
-    public String getStaffIDValue(String staffId) {
-
-        return staffID.get(staffId);
-
-    }
-
-    private Boolean isUsernameStaff(String username) {
-
-        return staffID.containsValue(username);
-    }
-
-    public void writeToUserDetails(String userName, User user) {
-
-        userDetails.put(userName, user);
-
-        updateExternalUserDB(userDetails);
-    }
-
-    public Boolean checkForUsername(String username) {
-
-        return userDetails.containsKey(username);
-    }
-
-    public User getUser(String userName) {
-
-        return userDetails.get(userName);
-    }
-
-    public void printUserDatabase() {
-        for (Map.Entry entry : userDetails.entrySet()) {
-            System.out.print(entry.toString() + "\n");
-        }
-    }
-
-    private void updateExternalStaffIDDB(Map<String, String> staffID) {
-
+    void updateExternalDB() {
+        FileOutputStream fileOutputStream;
+        ObjectOutputStream objectOutputStream;
         try {
-            FileWriter writer = new FileWriter("staffID.txt");
-
-            for (Map.Entry entry : staffID.entrySet()) {
-                writer.write(entry.toString() + "\n");
-            }
-
-            writer.close();
-
+            fileOutputStream = new FileOutputStream(fileName);
+            objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(this);
+            fileOutputStream.close();
+            objectOutputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    private void updateExternalUserDB(Map<String, User> userDetails) {
-
+    private static DataBase readExternalDB() {
+        DataBase dataBase;
+        FileInputStream fileInputStream;
+        ObjectInputStream objectInputStream;
         try {
-            FileWriter writer = new FileWriter("userDetails.txt");
+            fileInputStream = new FileInputStream(fileName);
+            objectInputStream = new ObjectInputStream(fileInputStream);
+            dataBase = (DataBase) objectInputStream.readObject();
+            fileInputStream.close();
+            objectInputStream.close();
+        } catch (IOException | ClassNotFoundException e) {
+            dataBase = new DataBase();
 
-            for (Map.Entry entry : userDetails.entrySet()) {
-                writer.write(entry.toString() + "\n");
-            }
+            dataBase.userRepository.addStaffID("1", "noStaff");
+            dataBase.userRepository.addStaffID("2", "noStaff");
+            dataBase.userRepository.addStaffID("3", "noStaff");
+            dataBase.userRepository.addStaffID("4", "noStaff");
+            dataBase.userRepository.addStaffID("5", "noStaff");
 
-            writer.close();
+            Film up = new Film("UP", "/UP.jpg", "A great film", "01:00");
+            Film walle = new Film("Walle", "/walle.jpg", "A another great film", "02:00");
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            dataBase.filmRepository.addFilm("UP", up);
+            dataBase.filmRepository.addFilm("Walle", walle);
+
+            Screen screen1 = new Screen(1, 5, 10);
+
+            dataBase.screenRepository.addScreen(screen1);
+
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "13:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "12:00", walle, new HashMap<>()));
+
+            dataBase.userRepository.addUser("c", new Customer(
+                new UserCredentials("c", "c@c.com", "c", "Customer", "Tester"), new ArrayList<>()));
+            dataBase.userRepository.addUser("s", new Staff(
+                new UserCredentials("s", "s@s.com", "s", "Staff", "Tester")));
         }
-    }
-
-//    private void updateExternalFilmDB(Map<String, Film> filmDetails) {
-//
-//        try {
-//            FileWriter writer = new FileWriter("filmDetails.txt", true);
-//
-//            for (Map.Entry entry : filmDetails.entrySet()) {
-//                writer.write(entry.toString() + "\n");
-//            }
-//
-//            writer.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
-//
-//    private void updateExternalScreenDB(Map<String, Screen> screenDetails) {
-//
-//        try {
-//            FileWriter writer = new FileWriter("screenDetails.txt", true);
-//
-//            for (Map.Entry entry : screenDetails.entrySet()) {
-//                writer.write(entry.toString() + "\n");
-//            }
-//
-//            writer.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
-
-    private void readFromExternalDB() {
-
-        readFromStaffDB();
-        readFromUserDB();
-    }
-
-    private void readFromStaffDB() {
-
-        String fileName = "staffID.txt";
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-
-            String line;
-
-            while ((line = br.readLine()) != null) {
-                // Reads one line at a time
-
-                String[] tokens = line.split("=");
-
-                String key = tokens[0];
-                String value = tokens[1];
-
-                staffID.put(key, value);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void readFromUserDB() {
-
-        String fileName = "userDetails.txt";
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-
-            String line;
-
-            while ((line = br.readLine()) != null) {
-                // Reads one line at a time
-
-                String[] tokens = line.split("=");
-
-                String key = tokens[0];
-
-                String[] valueTokens = tokens[1].split(", ");
-
-                UserCredentials userCredentials = new UserCredentials(valueTokens[0], valueTokens[1], valueTokens[2]);
-                User value;
-
-                if (isUsernameStaff(key)) {
-                    value = new Staff(userCredentials);
-                } else {
-                    value = new Customer(userCredentials);
-                }
-
-                userDetails.put(key, value);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        return dataBase;
     }
 }

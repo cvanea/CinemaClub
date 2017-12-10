@@ -1,12 +1,66 @@
 package cinemaclub.cinema;
 
 import cinemaclub.database.DataBase;
+import cinemaclub.database.ScreenRepository;
+import exceptions.PastDateException;
 
-public class FilmDisplay {
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
-    private DataBase dataBase;
+class FilmDisplay {
+    private ScreenRepository screenRepository;
 
     FilmDisplay() {
-        this.dataBase = DataBase.getInstance();
+        this.screenRepository = DataBase.getScreenRepository();
     }
+
+    ArrayList<Film> getFilmsByDateScreen(String date, Screen screen) throws PastDateException {
+        validateDate(date);
+        return screenRepository.getFilmsByDate(screen, date);
+    }
+
+    ArrayList<Showing> getShowingsByDate(String date, Screen screen) throws PastDateException {
+        validateDate(date);
+        return screenRepository.getShowingsByDate(screen, date);
+    }
+
+    ArrayList<Showing> getAllShowingsByDate(String date) throws PastDateException {
+        validateDate(date);
+        return screenRepository.getAllShowingsByDate(date);
+    }
+
+    ArrayList<Showing> getAllShowings() {
+        return screenRepository.getAllShowings();
+    }
+
+    ArrayList<String> getTimesByFilm(Screen screen, Film film) {
+        return screenRepository.getTimesByFilm(screen, film);
+    }
+
+    ArrayList<String> getDatesByFilm(Screen screen, Film film) {
+        return screenRepository.getDatesByFilm(screen, film);
+    }
+
+    ArrayList<Showing> getAllShowingsByFilm(Screen screen, Film film) {
+        return screenRepository.getAllShowingsByFilm(screen, film);
+    }
+
+    Showing getShowingByDateTime(Screen screen, String date, String time) {
+        return screenRepository.getShowingByDateTime(screen, date, time);
+    }
+
+    Screen getScreenByNumber(Integer number) {
+        return screenRepository.getScreenByNumber(number);
+    }
+
+    private void validateDate(String date) throws PastDateException {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String timeNow = LocalDateTime.now().format(formatter);
+
+        if (date.compareTo(timeNow) < 0) {
+            throw new PastDateException();
+        }
+    }
+
 }

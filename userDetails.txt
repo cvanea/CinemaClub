@@ -1,5 +1,0 @@
-Alex=Alex, alex@hotmail.co.uk, passalex
-Tester=Tester, test@test.com, passtest
-Bob=Bob, bob@hotmail.co.uk, pass2
-test=test, 123, pass
-Claudia=Claudia, claudia@hotmail.com, pass
