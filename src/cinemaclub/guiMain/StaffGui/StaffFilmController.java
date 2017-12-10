@@ -1,9 +1,7 @@
 package cinemaclub.guiMain.StaffGui;
 
 import cinemaclub.cinema.Film;
-import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
-import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.FilmExistsException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,17 +19,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class StaffFilmController extends StaffMainController implements Initializable {
 
@@ -63,7 +57,7 @@ public class StaffFilmController extends StaffMainController implements Initiali
         populateFilmList();
     }
 
-    public void populateFilmList(){
+    private void populateFilmList(){
         ArrayList<Film> films = cinema.displayAllFilms();
         ArrayList<String> filmTitles = new ArrayList<>();
         for (Film film : films) {
@@ -72,6 +66,7 @@ public class StaffFilmController extends StaffMainController implements Initiali
         ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
         filmList.setItems(data);
     }
+
     public void chooseFilm(MouseEvent actionEvent) {
         chosenFilm = cinema.getFilmByTitle(filmList.getSelectionModel().getSelectedItem());
         filmTitle = chosenFilm.getTitle();

@@ -158,6 +158,10 @@ public class Cinema {
         return filmDisplay.getAllShowingsByFilm(this.getScreen(1), film);
     }
 
+    public ArrayList<Showing> getAllShowings() {
+        return filmDisplay.getAllShowings();
+    }
+
     public void addShowing(String date, String time, Film film) throws ShowingAlreadyExistsException {
         filmEdit.addShowing(this.getScreen(1), date, time, film);
     }

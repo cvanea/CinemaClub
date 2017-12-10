@@ -63,6 +63,18 @@ public class Showing implements Serializable {
         this.takenSeats = takenSeats;
     }
 
+    public int getNumberOfAvailableSeats() {
+        return getScreen().getSeats().size() - takenSeats.size();
+    }
+
+    public Integer getScreenNumber() {
+        return screen.getScreenNumber();
+    }
+
+    public String getFilmTitle() {
+        return film.getTitle();
+    }
+
     public Boolean isSeatTaken(String row, int number) throws SeatNotFoundException {
         validateSeat(row, number);
 

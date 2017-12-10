@@ -107,6 +107,10 @@ public class ScreenRepository implements Serializable {
         return showingsByFilm;
     }
 
+    public ArrayList<Showing> getAllShowings() {
+        return showingsWithoutScreen;
+    }
+
     public void addShowing(Screen screen, Showing showing) {
         showingsWithoutScreen.add(showing);
         showings.put(screen, showingsWithoutScreen);
