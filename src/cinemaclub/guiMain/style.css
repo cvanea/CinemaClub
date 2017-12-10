@@ -96,3 +96,12 @@
     -fx-font-weight: bold;
 }
 
+.mainTitle {
+    -fx-font-size: 24pt;
+    -fx-font-weight: bold;
+}
+.custFilmTitle{
+    -fx-font-size: 16pt;
+    -fx-text-fill: #F77F00;
+    -fx-font-weight: bold;
+}

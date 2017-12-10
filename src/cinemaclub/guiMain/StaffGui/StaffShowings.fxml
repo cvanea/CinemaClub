@@ -25,12 +25,12 @@
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.307373046875" minWidth="10.0" prefWidth="217.51092529296875" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints maxHeight="554.9196166992188" minHeight="10.0" prefHeight="46.96212387084961" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="554.9196166992188" minHeight="10.0" prefHeight="525.1656494140625" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="554.9196166992188" minHeight="10.0" prefHeight="62.724552154541016" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="554.9196166992188" minHeight="10.0" prefHeight="508.275447845459" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="554.9196166992188" minHeight="10.0" prefHeight="108.8343505859375" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TableView fx:id="showingTable" onMouseClicked="#selectShowing" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TableView fx:id="showingTable" onMouseClicked="#selectShowing" prefHeight="516.0" prefWidth="921.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <columns>
                 <TableColumn fx:id="filmCol" prefWidth="266.8230743408203" text="Film" />
                 <TableColumn fx:id="dateCol" prefWidth="214.57489013671875" text="Date" />
@@ -53,13 +53,14 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <AnchorPane prefHeight="525.0" prefWidth="206.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
-                  <Button layoutX="42.0" layoutY="186.0" mnemonicParsing="false" onAction="#pressDelete" text="Delete Showing" />
-                  <Button layoutX="48.0" layoutY="249.0" mnemonicParsing="false" onAction="#pressViewShowing" text="View Showing" />
-                  <Button layoutX="34.0" layoutY="469.0" mnemonicParsing="false" onAction="#pressExport" text="Export All Showings" />
+                  <Button layoutX="48.0" layoutY="234.0" mnemonicParsing="false" onAction="#pressDelete" text="Delete Showing" />
+                  <Button layoutX="56.0" layoutY="302.0" mnemonicParsing="false" onAction="#pressViewShowing" text="View Showing" />
+                  <Button layoutX="35.0" layoutY="475.0" mnemonicParsing="false" onAction="#pressExport" text="Export All Showings" />
                </children>
             </AnchorPane>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" styleClass="filmTitle" text="Table of All Showings" GridPane.columnIndex="1" />
          </children>
       </GridPane>
    </children>
