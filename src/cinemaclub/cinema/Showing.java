@@ -15,7 +15,7 @@ public class Showing implements Serializable {
     private Film film;
     private Map<String, String> takenSeats;
 
-    Showing(Screen screen, String date, String time, Film film, Map<String, String> takenSeats) {
+    public Showing(Screen screen, String date, String time, Film film, Map<String, String> takenSeats) {
         this.screen = screen;
         this.date = date;
         this.time = time;
@@ -61,6 +61,18 @@ public class Showing implements Serializable {
 
     public void setTakenSeats(Map<String, String> takenSeats) {
         this.takenSeats = takenSeats;
+    }
+
+    public int getNumberOfAvailableSeats() {
+        return getScreen().getSeats().size() - takenSeats.size();
+    }
+
+    public Integer getScreenNumber() {
+        return screen.getScreenNumber();
+    }
+
+    public String getFilmTitle() {
+        return film.getTitle();
     }
 
     public Boolean isSeatTaken(String row, int number) throws SeatNotFoundException {

@@ -1,6 +1,7 @@
 package cinemaclub.guiMain.StaffGui;
 
 import cinemaclub.cinema.Film;
+import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import exceptions.FilmExistsException;
 import exceptions.ImageDoesNotExistException;
@@ -12,11 +13,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+<<<<<<< HEAD
+=======
+import javafx.scene.control.cell.PropertyValueFactory;
+>>>>>>> Claudia
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+<<<<<<< HEAD
+=======
+
+>>>>>>> Claudia
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -45,6 +54,11 @@ public class StaffFilmController extends StaffMainController implements Initiali
     @FXML ListView<String> filmList;
     @FXML AnchorPane editPane;
     @FXML AnchorPane infoPane;
+    @FXML TableView<Showing> filmTable;
+    @FXML TableColumn<Showing, String> dateCol;
+    @FXML TableColumn<Showing, String> timeCol;
+    @FXML TableColumn<Showing, String> screenCol;
+    @FXML TableColumn<Showing, String> seatsCol;
 
     private String filmTitle;
     private String filmDescription;
@@ -61,7 +75,7 @@ public class StaffFilmController extends StaffMainController implements Initiali
         populateFilmList();
     }
 
-    public void populateFilmList(){
+    private void populateFilmList(){
         ArrayList<Film> films = cinema.displayAllFilms();
         ArrayList<String> filmTitles = new ArrayList<>();
         for (Film film : films) {
@@ -70,6 +84,7 @@ public class StaffFilmController extends StaffMainController implements Initiali
         ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
         filmList.setItems(data);
     }
+
     public void chooseFilm(MouseEvent actionEvent) {
         try {
             chosenFilm = cinema.getFilmByTitle(filmList.getSelectionModel().getSelectedItem());
@@ -231,6 +246,16 @@ public class StaffFilmController extends StaffMainController implements Initiali
             return null;
         }
 
+    private void fillShowingsTable() {
+        ObservableList <Showing> data = FXCollections.observableArrayList();
+        ArrayList<Showing> showings = cinema.getAllShowingsByFilm(chosenFilm);
+        data.addAll(showings);
+
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("Date"));
+        timeCol.setCellValueFactory(new PropertyValueFactory<>("Time"));
+        screenCol.setCellValueFactory(new PropertyValueFactory<>("ScreenNumber"));
+        seatsCol.setCellValueFactory(new PropertyValueFactory<>("NumberOfAvailableSeats"));
+        filmTable.setItems(data);
     }
 
 }

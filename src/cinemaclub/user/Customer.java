@@ -1,5 +1,7 @@
 package cinemaclub.user;
 
+import cinemaclub.cinema.Showing;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -20,6 +22,10 @@ public class Customer extends User {
         return bookings;
     }
 
+    public String getSeat(Booking booking) {
+        return booking.getSeat();
+    }
+
     public void setBookings(ArrayList<Booking> bookings) {
         this.bookings = bookings;
     }
@@ -28,10 +34,29 @@ public class Customer extends User {
         bookings.add(booking);
     }
 
-    public Booking getBookingByTitle(String title) {
-        //TODO WONT WORK FOR MULTIPLE BOOKINGS OF SAME TITLE.
+    public ArrayList<Booking> getBookingsByTitle(String title) {
+        ArrayList<Booking> titleBookings = new ArrayList<>();
         for (Booking booking : bookings) {
             if (booking.getFilm().getTitle().equals(title)) {
+                titleBookings.add(booking);
+            }
+        }
+        return titleBookings;
+    }
+
+    public Booking getBookingsByTitleDateTime(String title, String date, String time) {
+        for (Booking booking : bookings) {
+            if (booking.getFilm().getTitle().equals(title) && booking.getDate().equals(date) &&
+                booking.getTime().equals(time)) {
+                return booking;
+            }
+        }
+        return null;
+    }
+
+    public Booking getBookingByShowing(Showing showing) {
+        for (Booking booking : bookings) {
+            if (booking.getShowing() == showing) {
                 return booking;
             }
         }

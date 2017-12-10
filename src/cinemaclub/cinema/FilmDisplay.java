@@ -9,7 +9,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 class FilmDisplay {
-    //TODO add method that checks across all screens for a given date
     private ScreenRepository screenRepository;
 
     FilmDisplay() {
@@ -24,6 +23,15 @@ class FilmDisplay {
     ArrayList<Showing> getShowingsByDate(String date, Screen screen) throws PastDateException {
         validateDate(date);
         return screenRepository.getShowingsByDate(screen, date);
+    }
+
+    ArrayList<Showing> getAllShowingsByDate(String date) throws PastDateException {
+        validateDate(date);
+        return screenRepository.getAllShowingsByDate(date);
+    }
+
+    ArrayList<Showing> getAllShowings() {
+        return screenRepository.getAllShowings();
     }
 
     ArrayList<String> getTimesByFilm(Screen screen, Film film) {
@@ -47,7 +55,6 @@ class FilmDisplay {
     }
 
     private void validateDate(String date) throws PastDateException {
-        //TODO MAKE SURE DATE WITHOUT TIME WORKS HERE
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String timeNow = LocalDateTime.now().format(formatter);
 

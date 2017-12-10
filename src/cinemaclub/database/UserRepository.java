@@ -41,7 +41,7 @@ public class UserRepository implements Serializable {
         return staffIDs.containsValue(username);
     }
 
-    public void writeToUserDetails(String username, User user) {
+    public void addUser(String username, User user) {
         userDetails.put(username, user);
 
         dataBase.updateExternalDB();
