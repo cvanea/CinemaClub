@@ -5,6 +5,7 @@ import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.FilmExistsException;
+import exceptions.ImageDoesNotExistException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -85,15 +86,19 @@ public class StaffFilmController extends StaffMainController implements Initiali
     }
 
     public void updateFilmInfo(ActionEvent event){
+        filmTitle = titleField.getText();
+        filmDescription = descriptionArea.getText();
+        filmRuntime = runtimeField.getText();
+        filmImage = imageField.getText();
         try {
-            if(!titleField.getText().equals(chosenFilm.getTitle())) {
-                cinema.setFilmTitle(chosenFilm, titleField.getText());
+            if(!filmTitle.equals(chosenFilm.getTitle())) {
+                cinema.setFilmTitle(chosenFilm, filmTitle);
             }
-            cinema.setFilmDescription(chosenFilm, descriptionArea.getText());
-            cinema.setFilmImagePath(chosenFilm, imageField.getText());
-            cinema.setFilmRunTime(chosenFilm, runtimeField.getText());
+            cinema.setFilmDescription(chosenFilm, filmDescription);
+            cinema.setFilmImagePath(chosenFilm, filmImage);
+            cinema.setFilmRunTime(chosenFilm, filmRuntime);
             editPane.setOpacity(0);
-            setUpdateFilmInfo();
+            setFilmInfo();
         } catch (FilmExistsException e) {
             System.out.println(e.getMessage());
         }
@@ -163,10 +168,9 @@ public class StaffFilmController extends StaffMainController implements Initiali
     }
 
     private void setFilmInfo(){
-        if (!filmImage.equals("") ) {
-            Image img = new Image(filmImage);
-            imageBox.setImage(img);
-        }
+        File f = new File("Images/" + filmImage);
+        Image img = checkImageInDirectory(f);
+        imageBox.setImage(img);
         titleText.setText(filmTitle);
         descriptionText.setText(filmDescription);
         runtimeText.setText(filmRuntime);
@@ -180,7 +184,8 @@ public class StaffFilmController extends StaffMainController implements Initiali
     }
 
     private void setUpdateFilmInfo() {
-        Image img = new Image(filmImage);
+        File f = new File("Images/" + filmImage);
+        Image img = checkImageInDirectory(f);
         imageBoxEdit.setImage(img);
         titleField.setText(filmTitle);
         descriptionArea.setText(filmDescription);
@@ -193,6 +198,19 @@ public class StaffFilmController extends StaffMainController implements Initiali
         imageBoxEdit.setImage(null);
         imageField.setText("");
         runtimeField.setText("");
+    }
+
+    public Image checkImageInDirectory(File f){
+        try{
+        if(f.exists()) {
+               return new Image(filmImage);
+            }else
+                throw new ImageDoesNotExistException();
+        } catch (ImageDoesNotExistException e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+
     }
 
 }
