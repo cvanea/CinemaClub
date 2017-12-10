@@ -1,5 +1,7 @@
 package cinemaclub.user;
 
+import cinemaclub.cinema.Showing;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,6 +20,10 @@ public class Customer extends User {
 
     public ArrayList<Booking> getBookings() {
         return bookings;
+    }
+
+    public String getSeat(Booking booking) {
+        return booking.getSeat();
     }
 
     public void setBookings(ArrayList<Booking> bookings) {
@@ -42,6 +48,15 @@ public class Customer extends User {
         for (Booking booking : bookings) {
             if (booking.getFilm().getTitle().equals(title) && booking.getDate().equals(date) &&
                 booking.getTime().equals(time)) {
+                return booking;
+            }
+        }
+        return null;
+    }
+
+    public Booking getBookingByShowing(Showing showing) {
+        for (Booking booking : bookings) {
+            if (booking.getShowing() == showing) {
                 return booking;
             }
         }

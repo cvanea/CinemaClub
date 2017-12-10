@@ -54,9 +54,6 @@ public class Booking implements Serializable {
 
     @Override
     public String toString() {
-        return "Booking{" +
-            "showing=" + showing +
-            ", seat='" + seat + '\'' +
-            '}';
+        return "Booking{" + "showing=" + showing + ", seat='" + seat + '\'' + '}';
     }
 }
