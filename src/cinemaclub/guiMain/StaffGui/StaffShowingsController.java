@@ -47,6 +47,7 @@ public class StaffShowingsController extends StaffMainController implements Init
         for (Film film : films) {
             filmTitles.add(film.getTitle());
         }
+
         ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
         //TODO: Get all screens populate screenBox
         ObservableList<Integer> dataScreen = FXCollections.observableArrayList();

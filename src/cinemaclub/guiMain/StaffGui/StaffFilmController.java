@@ -1,6 +1,7 @@
 package cinemaclub.guiMain.StaffGui;
 
 import cinemaclub.cinema.Film;
+import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import exceptions.FilmExistsException;
 import javafx.collections.FXCollections;
@@ -9,10 +10,8 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -42,6 +41,11 @@ public class StaffFilmController extends StaffMainController implements Initiali
     @FXML ListView<String> datesList;
     @FXML ListView<String> timesList;
     @FXML AnchorPane editPane;
+    @FXML TableView<Showing> filmTable;
+    @FXML TableColumn<Showing, String> dateCol;
+    @FXML TableColumn<Showing, String> timeCol;
+    @FXML TableColumn<Showing, String> screenCol;
+    @FXML TableColumn<Showing, String> seatsCol;
 
     private String filmTitle;
     private String filmDescription;
@@ -75,8 +79,8 @@ public class StaffFilmController extends StaffMainController implements Initiali
         //TODO: Add validator for film image path
         filmImage = chosenFilm.getImagePath();
         setFilmInfo();
+        fillShowingsTable();
         GuiData.setFilm(chosenFilm);
-        //TODO: Add dates and times to table
     }
 
     public void updateFilmInfo(ActionEvent event){
@@ -188,6 +192,18 @@ public class StaffFilmController extends StaffMainController implements Initiali
         imageBoxEdit.setImage(null);
         imageField.setText("");
         runtimeField.setText("");
+    }
+
+    private void fillShowingsTable() {
+        ObservableList <Showing> data = FXCollections.observableArrayList();
+        ArrayList<Showing> showings = cinema.getAllShowingsByFilm(chosenFilm);
+        data.addAll(showings);
+
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("Date"));
+        timeCol.setCellValueFactory(new PropertyValueFactory<>("Time"));
+        screenCol.setCellValueFactory(new PropertyValueFactory<>("ScreenNumber"));
+        seatsCol.setCellValueFactory(new PropertyValueFactory<>("NumberOfAvailableSeats"));
+        filmTable.setItems(data);
     }
 
 }
