@@ -80,7 +80,6 @@ public class CustomerHomeController extends CustomerMainController implements In
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Image img = new Image("/walle.jpg");
         runtimeText.setOpacity(0);
         timesList.setOpacity(0);
         filmList.setOpacity(0);

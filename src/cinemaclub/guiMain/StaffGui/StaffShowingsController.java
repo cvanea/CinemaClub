@@ -63,10 +63,12 @@ public class StaffShowingsController extends StaffMainController implements Init
     }
 
     public void pressViewShowing(ActionEvent event) {
+        GuiData.setShowing(chosenShowing);
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREEN_EDIT);
     }
 
     public void pressAddShowing(ActionEvent event) {
+        //TODO: ADD TIME VALIDATOR
         selecTime = timeField.getText();
         if (selecFilm != null & selecDate != null & selecTime != null & selecScreen != null) {
             try {
