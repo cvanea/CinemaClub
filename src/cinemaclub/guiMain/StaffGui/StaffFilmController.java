@@ -183,7 +183,6 @@ public class StaffFilmController extends StaffMainController implements Initiali
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private void setFilmInfo(){
