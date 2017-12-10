@@ -1,0 +1,98 @@
+/**
+ * vista.css
+ *   Place in the same source directory as Main.java
+ *   Ensure that your build system copies this file to your build output directory.
+ */
+.root{
+    -fx-font-size: 11pt;
+    -fx-font-family: "Helvetica";
+}
+
+.button {
+    -fx-base: #003459;
+    -fx-background-color: #003459;
+    -fx-background-radius: 0;
+}
+
+#loginBackground{
+    -fx-background-color: #00171F;
+}
+
+.loginField {
+    -fx-text-fill: #ffffff;
+    -fx-highlight-fill: #ffffff;
+    -fx-highlight-text-fill: #ffffff;
+    -fx-prompt-text-fill: #ffffff;
+    -fx-background-color: transparent ;
+    -fx-color: #ffffff;
+    -fx-font-size: 16pt;
+    -fx-border-color: #003459;
+}
+
+.loginField:focused {
+    -fx-border: solid white;
+    -fx-border-color: #F77F00;
+    -fx-color: #ffffff;
+}
+
+.registerField {
+    -fx-background-color: transparent ;
+    -fx-text-fill: #ffffff;
+    -fx-highlight-fill: #ffffff;
+    -fx-highlight-text-fill: #ffffff;
+    -fx-prompt-text-fill: #ffffff;
+    -fx-font-size: 12pt;
+    -fx-border-color: #003459;
+}
+.idField {
+    -fx-font-size: 10pt;
+}
+
+.registerField:focused {
+    -fx-color: #ffffff;
+    -fx-border: solid white;
+    -fx-border-color: #F77F00;
+}
+
+.signInLabel{
+    -fx-font-size: 14pt;
+    -fx-color: #ffffff;
+}
+
+#loginLabel{
+    -fx-font-size: 10pt;
+    -fx-color: #ffffff;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color:transparent;
+    -fx-border-radius:3px;
+    -fx-font-size: 8pt;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #F77F00;
+    -fx-border-radius:3px;
+}
+
+.registerButtons{
+    -fx-font-size: 10pt;
+}
+
+.menuButton{
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: 400;
+    -fx-background-color: #E63946;
+}
+
+.filmTitle{
+    -fx-text-fill: #F77F00;
+    -fx-font-size: 20pt;
+    -fx-font-weight: bold;
+}
+

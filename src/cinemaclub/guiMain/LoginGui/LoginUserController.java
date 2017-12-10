@@ -7,19 +7,23 @@ import exceptions.UserDetailsDoNotExistException;
 import exceptions.UserDetailsIncorrectException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginUserController extends LoginMainController {
+public class LoginUserController extends LoginMainController implements Initializable {
 
     @FXML private TextField username;
     @FXML private TextField password;
     @FXML private Label errorLabel;
 
-    @FXML private void initialize() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         errorLabel.setText(GuiData.getSuccessMessage());
     }
 
@@ -28,8 +32,10 @@ public class LoginUserController extends LoginMainController {
             cinema.loginUser(username.getText(), password.getText());
             errorLabel.setText(cinema.getCurrentUser().IExist());
             if(cinema.getCurrentUser() instanceof Customer){
+                GuiData.setViewTitle("Showings");
                 StageSceneNavigator.customerStage(cinema);
             } else {
+                GuiData.setViewTitle("Films");
                 StageSceneNavigator.staffStage(cinema);
             }
             ((Node)(event.getSource())).getScene().getWindow().hide();
@@ -41,11 +47,6 @@ public class LoginUserController extends LoginMainController {
 
     public void pressRegister(ActionEvent event) {
         StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_REGISTER);
-    }
-
-    public void newStage(ActionEvent event) throws IOException {
-        StageSceneNavigator.customerStage(cinema);
-        ((Node)(event.getSource())).getScene().getWindow().hide();
     }
 
 }

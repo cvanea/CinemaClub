@@ -4,6 +4,7 @@ import cinemaclub.cinema.Film;
 import cinemaclub.guiMain.GuiData;
 import exceptions.FilmExistsException;
 import exceptions.ImageDoesNotExistException;
+import exceptions.NoSelectionMadeException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -40,6 +41,7 @@ public class StaffFilmController extends StaffMainController implements Initiali
     @FXML ImageView imageBox;
     @FXML Label runtimeText;
     @FXML Label errorLabel;
+    @FXML Label errorLabelFilmList;
     @FXML ListView<String> filmList;
     @FXML AnchorPane editPane;
     @FXML AnchorPane infoPane;
@@ -50,7 +52,7 @@ public class StaffFilmController extends StaffMainController implements Initiali
     private String filmImage;
     private Image img;
 
-    private Film chosenFilm;
+    private Film chosenFilm = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -69,15 +71,24 @@ public class StaffFilmController extends StaffMainController implements Initiali
         filmList.setItems(data);
     }
     public void chooseFilm(MouseEvent actionEvent) {
-        chosenFilm = cinema.getFilmByTitle(filmList.getSelectionModel().getSelectedItem());
-        filmTitle = chosenFilm.getTitle();
-        filmDescription = chosenFilm.getDescription();
-        filmRuntime = chosenFilm.getRunTime();
-        //TODO: Add validator for film image path
-        filmImage = chosenFilm.getImagePath();
-        setFilmInfo();
-        infoPane.setOpacity(1);
-        GuiData.setFilm(chosenFilm);
+        try {
+            chosenFilm = cinema.getFilmByTitle(filmList.getSelectionModel().getSelectedItem());
+            if(chosenFilm != null) {
+                filmTitle = chosenFilm.getTitle();
+                filmDescription = chosenFilm.getDescription();
+                filmRuntime = chosenFilm.getRunTime();
+                filmImage = chosenFilm.getImagePath();
+                setFilmInfo();
+                infoPane.setOpacity(1);
+                GuiData.setFilm(chosenFilm);
+                errorLabelFilmList.setText("");
+            }else {
+                throw new NoSelectionMadeException();
+            }
+        } catch (NoSelectionMadeException e) {
+            errorLabelFilmList.setText(e.getMessage());
+        }
+
         //TODO: Add dates and times to table
     }
 
@@ -154,12 +165,10 @@ public class StaffFilmController extends StaffMainController implements Initiali
 
     public void pressUploadImage(ActionEvent event){
         FileChooser fileChooser = new FileChooser();
-        //Set extension filter
         FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
         FileChooser.ExtensionFilter extFilterJPEG = new FileChooser.ExtensionFilter("JPEG files (*.jpeg)", "*.JPEG");
         FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
         fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG, extFilterJPEG);
-        //Show open file dialog
         File file = fileChooser.showOpenDialog(null);
         try {
             BufferedImage bufferedImage = ImageIO.read(file);
@@ -180,7 +189,6 @@ public class StaffFilmController extends StaffMainController implements Initiali
 
     private void setFilmInfo(){
         File f = new File("Images/" + filmImage);
-//        System.out.println(f.getName());
         Image img = checkImageInDirectory(f);
         imageBox.setImage(img);
         titleText.setText(filmTitle);
@@ -219,7 +227,6 @@ public class StaffFilmController extends StaffMainController implements Initiali
             }else
                 throw new ImageDoesNotExistException();
         } catch (ImageDoesNotExistException e){
-            System.out.println(e.getMessage());
             errorLabel.setText(e.getMessage());
             return null;
         }

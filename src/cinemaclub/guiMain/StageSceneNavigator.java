@@ -192,7 +192,7 @@ public class StageSceneNavigator {
 
     public static Scene createScene(Pane stageMainPane) {
         Scene scene = new Scene(stageMainPane);
-//        scene.getStylesheets().setAll(getClass().getResource("vista.css").toExternalForm());
+        scene.getStylesheets().setAll(StageSceneNavigator.class.getResource("style.css").toExternalForm());
         return scene;
     }
 

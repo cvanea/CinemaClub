@@ -15,6 +15,7 @@ import javafx.scene.layout.RowConstraints;
 public class GuiData {
 
     private static String successMessage;
+    private static String viewTitle;
     private static Film film;
     private static String date;
     private static String time;
@@ -159,5 +160,12 @@ public class GuiData {
 
     public static void setShowing(Showing showing) {
         GuiData.showing = showing;
+    }
+
+    public static String getViewTitle() {
+        return viewTitle;
+    }
+    public static void setViewTitle(String viewTitle) {
+        GuiData.viewTitle = viewTitle;
     }
 }
