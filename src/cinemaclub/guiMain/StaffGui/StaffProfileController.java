@@ -33,7 +33,7 @@ public class StaffProfileController extends StaffMainController {
     }
 
     public void setProfileText(ActionEvent event) {
-        StageSceneNavigator.loadCustomerView(StageSceneNavigator.STAFF_PROFILE_EDIT);
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_PROFILE_EDIT);
     }
 
 

@@ -32,18 +32,18 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <ListView fx:id="filmList" layoutX="25.0" layoutY="37.0" onMouseClicked="#chooseFilm" prefHeight="464.0" prefWidth="255.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="20.0" />
+                  <ListView fx:id="filmList" layoutX="25.0" layoutY="37.0" onKeyPressed="#chooseFilm" onMouseClicked="#chooseFilm" prefHeight="464.0" prefWidth="255.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="20.0" />
                   <Label layoutX="25.0" layoutY="-8.0" text="Film List">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
-                  <Button fx:id="addFilm" layoutX="155.0" layoutY="505.0" mnemonicParsing="false" text="Add New Film">
+                  <Button fx:id="addFilm" layoutX="153.0" layoutY="505.0" mnemonicParsing="false" onAction="#addFilmPane" text="Add New Film">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="removeFim" layoutX="27.0" layoutY="506.0" mnemonicParsing="false" text="Delete Film">
+                  <Button fx:id="removeFim" layoutX="27.0" layoutY="506.0" mnemonicParsing="false" onAction="#deleteFilm" text="Delete Film">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -52,8 +52,8 @@
             </AnchorPane>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="506.6636962890625" minWidth="10.0" prefWidth="504.80108642578125" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="417.54974365234375" minWidth="10.0" prefWidth="395.19891357421875" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="528.7122192382812" minWidth="10.0" prefWidth="528.7122192382812" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="417.54974365234375" minWidth="10.0" prefWidth="372.28778076171875" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -66,14 +66,10 @@
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <ImageView fx:id="imageBox" fitHeight="341.0" fitWidth="291.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../Images/UP.jpg" />
-                           </image>
-                        </ImageView>
-                        <Label fx:id="descriptionText" layoutX="234.0" layoutY="143.0" prefHeight="170.0" prefWidth="272.0">
+                        <ImageView fx:id="imageBox" fitHeight="341.0" fitWidth="232.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="descriptionText" alignment="TOP_LEFT" layoutX="234.0" layoutY="143.0" prefHeight="170.0" prefWidth="272.0" textAlignment="RIGHT" wrapText="true">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="18.0" />
                            </font>
                         </Label>
                         <Label fx:id="descriptionLabel" layoutX="241.0" layoutY="110.0" text="Description:">
@@ -91,12 +87,12 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="runtimeText" layoutX="323.0" layoutY="73.0" prefHeight="37.0" prefWidth="183.0">
+                        <Label fx:id="runtimeText" layoutX="331.0" layoutY="67.0" prefHeight="37.0" prefWidth="183.0">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="titleText" layoutX="327.0" layoutY="29.0" prefHeight="41.0" prefWidth="183.0">
+                        <Label fx:id="titleText" layoutX="332.0" layoutY="28.0" prefHeight="41.0" prefWidth="173.0">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -109,7 +105,7 @@
                               <TableColumn fx:id="seatsCol" prefWidth="117.8245849609375" text="# Available Seats" />
                           </columns>
                         </TableView>
-                        <Label layoutX="4.0" layoutY="-9.0" text="Film Information">
+                        <Label layoutX="4.0" layoutY="-5.0" text="Film Information">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -140,7 +136,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="updateButton12" layoutX="200.0" layoutY="482.0" mnemonicParsing="false" onAction="#updateFilmInfo" text="Upload Image">
+                              <Button fx:id="updateButton12" layoutX="200.0" layoutY="482.0" mnemonicParsing="false" onAction="#pressUploadImage" text="Upload Image">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
