@@ -2,20 +2,17 @@ package cinemaclub.guiMain.CustomerGui;
 
 import cinemaclub.guiMain.StageSceneNavigator;
 import cinemaclub.user.Booking;
-import cinemaclub.user.User;
 import exceptions.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 
 public class CustomerProfileController extends CustomerMainController {
@@ -36,7 +33,7 @@ public class CustomerProfileController extends CustomerMainController {
     @FXML TableColumn <Booking, String> timeTableP;
     @FXML TableColumn <Booking, String> seatTableP;
 
-    Booking chosenBooking;
+    private Booking chosenBooking;
 
     @FXML private void initialize() {
         nameBox.setText(cinema.getProfileDetails().getUsername());
@@ -52,11 +49,9 @@ public class CustomerProfileController extends CustomerMainController {
         try {
             cinema.deleteFutureBooking(chosenBooking);
             fillFutureBookings();
-
         } catch(NoBookingsException | NotAFutureBookingException | NoFutureBookingsException | SeatNotFoundException e){
             System.out.println(e.getMessage());
         }
-
     }
 
     public void futureMouseClick(MouseEvent event){
@@ -67,8 +62,9 @@ public class CustomerProfileController extends CustomerMainController {
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE_EDIT);
     }
 
-    public void fillFutureBookings() {
+    private void fillFutureBookings() {
         try {
+            futureTable.getItems().clear();
             ArrayList<Booking> bookings = cinema.getFutureBookingsHistory();
             ObservableList<Booking> bookingObservableList = FXCollections.observableArrayList(bookings);
             filmTable.setCellValueFactory(new PropertyValueFactory<>("Title"));
@@ -82,7 +78,7 @@ public class CustomerProfileController extends CustomerMainController {
         }
     }
 
-    public void fillPastBookings() {
+    private void fillPastBookings() {
         try {
             ArrayList<Booking> bookings = cinema.getPastBookingsHistory();
             ObservableList<Booking> bookingObservableList = FXCollections.observableArrayList(bookings);
@@ -96,7 +92,4 @@ public class CustomerProfileController extends CustomerMainController {
             System.out.println(e.getMessage());
         }
     }
-
-
-
 }
