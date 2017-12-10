@@ -41,12 +41,6 @@ public class StaffScreenController extends StaffMainController implements Initia
     @FXML TableColumn <BookedUser, String> firstName;
     @FXML TableColumn <BookedUser, String> lastName;
     @FXML TableColumn <BookedUser, String> seatName;
-//    @FXML TableView<Customer> userTable;
-//    @FXML TableColumn<Customer, String> userName;
-//    @FXML TableColumn <Customer, String> firstName;
-//    @FXML TableColumn <Customer, String> lastName;
-//    @FXML TableColumn <Customer, String> seatName;
-
 
     private Showing showing;
 

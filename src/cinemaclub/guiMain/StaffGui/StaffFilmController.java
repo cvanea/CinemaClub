@@ -1,9 +1,7 @@
 package cinemaclub.guiMain.StaffGui;
 
 import cinemaclub.cinema.Film;
-import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
-import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.FilmExistsException;
 import exceptions.ImageDoesNotExistException;
 import javafx.collections.FXCollections;
@@ -12,27 +10,19 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
-
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class StaffFilmController extends StaffMainController implements Initializable {
 
@@ -43,12 +33,16 @@ public class StaffFilmController extends StaffMainController implements Initiali
     @FXML ImageView imageBoxEdit;
     @FXML Label titleText;
     @FXML Label descriptionText;
+    @FXML Label addTitle;
+    @FXML Label updateTitle;
+    @FXML Button addFilm;
+    @FXML Button updateFilm;
     @FXML ImageView imageBox;
     @FXML Label runtimeText;
+    @FXML Label errorLabel;
     @FXML ListView<String> filmList;
-    @FXML ListView<String> datesList;
-    @FXML ListView<String> timesList;
     @FXML AnchorPane editPane;
+    @FXML AnchorPane infoPane;
 
     private String filmTitle;
     private String filmDescription;
@@ -61,6 +55,7 @@ public class StaffFilmController extends StaffMainController implements Initiali
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         editPane.setOpacity(0);
+        infoPane.setOpacity(0);
         populateFilmList();
     }
 
@@ -81,6 +76,7 @@ public class StaffFilmController extends StaffMainController implements Initiali
         //TODO: Add validator for film image path
         filmImage = chosenFilm.getImagePath();
         setFilmInfo();
+        infoPane.setOpacity(1);
         GuiData.setFilm(chosenFilm);
         //TODO: Add dates and times to table
     }
@@ -119,7 +115,6 @@ public class StaffFilmController extends StaffMainController implements Initiali
                 cinema.setFilmImagePath(updatedFilm, filmImage);
                 cinema.setFilmRunTime(updatedFilm, filmRuntime);
             }
-//            Image img = new Image(filmImage);
             imageBox.setImage(img);
             titleText.setText(filmTitle);
             descriptionText.setText(filmDescription);
@@ -127,17 +122,27 @@ public class StaffFilmController extends StaffMainController implements Initiali
             populateFilmList();
             editPane.setOpacity(0);
         } else{
-            System.out.println("All fields not complete");
+            String errorMessage = "All fields not complete";
+            errorLabel.setText(errorMessage);
+            System.out.println(errorMessage);
         }
     }
 
     public void updateFilmPane(ActionEvent event) {
         editPane.setOpacity(1);
+        updateTitle.setOpacity(1);
+        addTitle.setOpacity(0);
+        addFilm.setOpacity(0);
+        updateFilm.setOpacity(1);
         setUpdateFilmInfo();
     }
 
     public void addFilmPane(ActionEvent event) {
         editPane.setOpacity(1);
+        updateTitle.setOpacity(0);
+        addTitle.setOpacity(1);
+        addFilm.setOpacity(1);
+        updateFilm.setOpacity(0);
         clearUpdate();
     }
 
@@ -151,16 +156,22 @@ public class StaffFilmController extends StaffMainController implements Initiali
         FileChooser fileChooser = new FileChooser();
         //Set extension filter
         FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
+        FileChooser.ExtensionFilter extFilterJPEG = new FileChooser.ExtensionFilter("JPEG files (*.jpeg)", "*.JPEG");
         FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
-        fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
+        fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG, extFilterJPEG);
         //Show open file dialog
         File file = fileChooser.showOpenDialog(null);
         try {
             BufferedImage bufferedImage = ImageIO.read(file);
             img = SwingFXUtils.toFXImage(bufferedImage, null);
             imageBoxEdit.setImage(img);
-            ImageIO.write(bufferedImage, "jpg",new File("Images/" + file.getName()));
-            imageField.setText("/" + file.getName());
+            File fSearch = new File("Images/" + file.getName());
+            String fileName = file.getName();
+                if(fSearch.exists()){
+                    fileName = "1" + file.getName();
+                }
+            ImageIO.write(bufferedImage, "jpg",new File("Images/" + fileName));
+            imageField.setText("/" + fileName);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -169,6 +180,7 @@ public class StaffFilmController extends StaffMainController implements Initiali
 
     private void setFilmInfo(){
         File f = new File("Images/" + filmImage);
+//        System.out.println(f.getName());
         Image img = checkImageInDirectory(f);
         imageBox.setImage(img);
         titleText.setText(filmTitle);
@@ -208,6 +220,7 @@ public class StaffFilmController extends StaffMainController implements Initiali
                 throw new ImageDoesNotExistException();
         } catch (ImageDoesNotExistException e){
             System.out.println(e.getMessage());
+            errorLabel.setText(e.getMessage());
             return null;
         }
 
