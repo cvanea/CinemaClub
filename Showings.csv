@@ -1,5 +1,5 @@
 Film, Date, Time, Screen, Number of Booked Seats, Number of Available Seats, Booked Seats, Username
-UP, 2017-12-15, 13:00, Screen 1, Taken seats: 1, Free seats: 49, {A3=a}
-Walle, 2017-12-15, 12:00, Screen 1, Taken seats: 1, Free seats: 49, {C5=a}
-UP, 2017-12-22, 13:00, Screen 1, Taken seats: 1, Free seats: 49, {D2=a}
-UP, 2017-12-16, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2017-12-15, 13:00, Screen 1, Taken seats: 2, Free seats: 48, {A1=a, A5=a}
+Walle, 2017-12-15, 12:00, Screen 1, Taken seats: 1, Free seats: 49, {A1=a}
+Toy Story 3, 2017-12-05, 01:30, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story 2, 2017-12-09, 02:00, Screen 1, Taken seats: 0, Free seats: 50, {}

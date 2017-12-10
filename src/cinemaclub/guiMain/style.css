@@ -105,3 +105,12 @@
     -fx-text-fill: #F77F00;
     -fx-font-weight: bold;
 }
+
+.cinemaPane{
+    /*-fx-background-color: #00171F;*/
+}
+
+.bookingTitle{
+    -fx-font-weight: bold;
+    -fx-font-size: 14pt;
+}

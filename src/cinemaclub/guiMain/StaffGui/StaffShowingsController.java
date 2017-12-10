@@ -1,5 +1,6 @@
 package cinemaclub.guiMain.StaffGui;
 
+import cinemaclub.cinema.Cinema;
 import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
@@ -41,29 +42,26 @@ public class StaffShowingsController extends StaffMainController implements Init
     private Showing chosenShowing;
 
     public void initialize(URL location, ResourceBundle resources) {
-        ArrayList<Film> films = cinema.displayAllFilms();
-        ArrayList<String> filmTitles = new ArrayList<>();
-
-        for (Film film : films) {
-            filmTitles.add(film.getTitle());
-        }
-
-        ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
+        fillFilmBox();
         //TODO: Get all screens populate screenBox
         ObservableList<Integer> dataScreen = FXCollections.observableArrayList();
         dataScreen.add(1);
-        filmBox.setItems(data);
         screenBox.setItems(dataScreen);
         fillShowingsTable();
     }
 
+    public void fillFilmBox(){
+        filmBox.setItems(GuiData.getFilmList(cinema));
+    }
+
     public void pressDelete(ActionEvent event) {
         cinema.deleteShowing(chosenShowing.getDate(), chosenShowing.getTime());
+        fillShowingsTable();
     }
 
     public void pressViewShowing(ActionEvent event) {
         GuiData.setShowing(chosenShowing);
-        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREEN_EDIT);
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREEN);
     }
 
     public void pressAddShowing(ActionEvent event) {
@@ -107,7 +105,6 @@ public class StaffShowingsController extends StaffMainController implements Init
         ObservableList <Showing> data = FXCollections.observableArrayList();
         ArrayList<Showing> showings = cinema.getAllShowings();
         data.addAll(showings);
-
         filmCol.setCellValueFactory(new PropertyValueFactory<>("FilmTitle"));
         dateCol.setCellValueFactory(new PropertyValueFactory<>("Date"));
         timeCol.setCellValueFactory(new PropertyValueFactory<>("Time"));

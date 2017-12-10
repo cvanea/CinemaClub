@@ -50,7 +50,7 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
         dateText.setText(showing.getDate());
         Image img = new Image(showing.getFilm().getImagePath());
         imageBox.setImage(img);
-        GuiData.setupSeatButtons(gridSeats, 780, 500, "customer");
+        GuiData.setupSeatButtons(gridSeats, 820, 450, "customer");
     }
 
     public void pressReserveSeat(ActionEvent actionEvent) throws IOException {
@@ -62,7 +62,7 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
                 Stage stage = new Stage();
                 Parent root = FXMLLoader.load(CustomerBookSeatsController.class.getResource("ModalBooked.fxml"));
                 stage.setScene(new Scene(root));
-                stage.setTitle("Booked");
+                stage.setTitle("Seats Booked");
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(
                         ((Node) actionEvent.getSource()).getScene().getWindow());

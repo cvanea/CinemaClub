@@ -13,19 +13,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-<<<<<<< HEAD
-=======
 import javafx.scene.control.cell.PropertyValueFactory;
->>>>>>> Claudia
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
-<<<<<<< HEAD
-=======
-
->>>>>>> Claudia
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -74,15 +67,9 @@ public class StaffFilmController extends StaffMainController implements Initiali
         infoPane.setOpacity(0);
         populateFilmList();
     }
-
+    
     private void populateFilmList(){
-        ArrayList<Film> films = cinema.displayAllFilms();
-        ArrayList<String> filmTitles = new ArrayList<>();
-        for (Film film : films) {
-            filmTitles.add(film.getTitle());
-        }
-        ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
-        filmList.setItems(data);
+        filmList.setItems(GuiData.getFilmList(cinema));
     }
 
     public void chooseFilm(MouseEvent actionEvent) {
@@ -97,14 +84,13 @@ public class StaffFilmController extends StaffMainController implements Initiali
                 infoPane.setOpacity(1);
                 GuiData.setFilm(chosenFilm);
                 errorLabelFilmList.setText("");
+                fillShowingsTable();
             }else {
                 throw new NoSelectionMadeException();
             }
         } catch (NoSelectionMadeException e) {
             errorLabelFilmList.setText(e.getMessage());
         }
-
-        //TODO: Add dates and times to table
     }
 
     public void updateFilmInfo(ActionEvent event){
@@ -141,10 +127,8 @@ public class StaffFilmController extends StaffMainController implements Initiali
                 cinema.setFilmImagePath(updatedFilm, filmImage);
                 cinema.setFilmRunTime(updatedFilm, filmRuntime);
             }
-            imageBox.setImage(img);
-            titleText.setText(filmTitle);
-            descriptionText.setText(filmDescription);
-            runtimeText.setText(filmRuntime);
+
+            setFilmInfo();
             populateFilmList();
             editPane.setOpacity(0);
         } else{
@@ -227,6 +211,7 @@ public class StaffFilmController extends StaffMainController implements Initiali
         imageField.setText(filmImage);
         runtimeField.setText(filmRuntime);
     }
+
     private void clearUpdate(){
         titleField.setText("");
         descriptionArea.setText("");
@@ -235,27 +220,26 @@ public class StaffFilmController extends StaffMainController implements Initiali
         runtimeField.setText("");
     }
 
-    public Image checkImageInDirectory(File f){
-        try{
-        if(f.exists()) {
-               return new Image(filmImage);
-            }else
+    public Image checkImageInDirectory(File f) {
+        try {
+            if (f.exists()) {
+                return new Image(filmImage);
+            } else
                 throw new ImageDoesNotExistException();
-        } catch (ImageDoesNotExistException e){
+        } catch (ImageDoesNotExistException e) {
             errorLabel.setText(e.getMessage());
             return null;
         }
+    }
 
     private void fillShowingsTable() {
         ObservableList <Showing> data = FXCollections.observableArrayList();
         ArrayList<Showing> showings = cinema.getAllShowingsByFilm(chosenFilm);
         data.addAll(showings);
-
         dateCol.setCellValueFactory(new PropertyValueFactory<>("Date"));
         timeCol.setCellValueFactory(new PropertyValueFactory<>("Time"));
         screenCol.setCellValueFactory(new PropertyValueFactory<>("ScreenNumber"));
         seatsCol.setCellValueFactory(new PropertyValueFactory<>("NumberOfAvailableSeats"));
         filmTable.setItems(data);
     }
-
 }

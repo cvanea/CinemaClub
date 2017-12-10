@@ -64,7 +64,7 @@ public class StaffScreenController extends StaffMainController implements Initia
             if (user instanceof Customer) {
                 Customer customer = (Customer) user;
                 Booking booking = customer.getBookingByShowing(showing);
-
+                //TODO: FIX BOOKING to get all seats (Not just A1)
                 data.add(new BookingUserInfo(customer, booking));
             }
         }
@@ -80,7 +80,7 @@ public class StaffScreenController extends StaffMainController implements Initia
     public void initialize(URL location, ResourceBundle resources) {
         showing = GuiData.getShowing();
         setFilmInfo();
-        GuiData.setupSeatButtons(gridSeats, 780,500, "staff");
+        GuiData.setupSeatButtons(gridSeats, 780,450, "staff");
         fillUserTable();
     }
 

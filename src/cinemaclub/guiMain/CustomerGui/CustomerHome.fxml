@@ -19,8 +19,8 @@
          <children>
             <GridPane layoutX="261.0" layoutY="113.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="590.5879516601562" minWidth="10.0" prefWidth="482.349853515625" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.650146484375" minWidth="10.0" prefWidth="717.650146484375" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="590.5879516601562" minWidth="10.0" prefWidth="435.57611083984375" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="764.4238891601562" minWidth="10.0" prefWidth="764.4238891601562" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="38.89710235595703" vgrow="SOMETIMES" />
@@ -36,7 +36,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <AnchorPane prefHeight="680.0" prefWidth="482.0" GridPane.rowIndex="1">
+                  <AnchorPane prefHeight="565.0" prefWidth="430.0" GridPane.rowIndex="1">
                      <children>
                         <DatePicker fx:id="datePicker" layoutX="100.0" layoutY="45.0" onAction="#selectDate" prefHeight="27.0" prefWidth="267.0" />
                         <ListView fx:id="filmList" layoutX="101.0" layoutY="134.0" onMouseClicked="#chooseFilm" prefHeight="375.0" prefWidth="267.0" AnchorPane.bottomAnchor="50.0" />
@@ -45,7 +45,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="104.0" layoutY="104.0" text="Pick a Film:">
+                        <Label fx:id="pickFilm" layoutX="104.0" layoutY="104.0" text="Pick a Film:">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -54,52 +54,52 @@
                   </AnchorPane>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="390.92803955078125" minWidth="10.0" prefWidth="390.92803955078125" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.6490478515625" minWidth="10.0" prefWidth="371.47003173828125" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="390.92803955078125" minWidth="10.0" prefWidth="319.52996826171875" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <AnchorPane minWidth="300.0" prefHeight="565.0" prefWidth="300.0">
+                        <AnchorPane fx:id="filmDisplayPane" minWidth="300.0" prefHeight="565.0" prefWidth="352.0">
                            <children>
-                              <Label fx:id="titleText" layoutX="-6.0" layoutY="23.0" prefHeight="39.0" prefWidth="417.0">
+                              <Label fx:id="titleText" layoutX="-1.0" layoutY="25.0" prefHeight="39.0" prefWidth="381.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                  <font>
-                                    <Font name="System Bold" size="32.0" />
+                                    <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="descriptionText" alignment="TOP_LEFT" layoutY="101.0" prefHeight="109.0" prefWidth="405.0" wrapText="true">
+                              <Label fx:id="descriptionText" alignment="TOP_LEFT" layoutY="101.0" prefHeight="120.0" prefWidth="377.0" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <ListView fx:id="timesList" layoutX="54.0" layoutY="328.0" onMouseClicked="#chooseTime" prefHeight="142.0" prefWidth="179.0" />
-                              <Button fx:id="pickSeatButton" layoutX="71.0" layoutY="452.0" mnemonicParsing="false" onAction="#pressPickTime" text="Book Showing" AnchorPane.bottomAnchor="50.0">
+                              <ListView fx:id="timesList" layoutX="93.0" layoutY="328.0" onMouseClicked="#chooseTime" prefHeight="142.0" prefWidth="179.0" />
+                              <Button fx:id="pickSeatButton" layoutX="113.0" layoutY="479.0" mnemonicParsing="false" onAction="#pressPickTime" text="Book Showing" AnchorPane.bottomAnchor="51.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Button>
-                              <Label fx:id="runtimeText" layoutY="225.0" text="Runtime:" AnchorPane.leftAnchor="0.0">
+                              <Label fx:id="runtimeText" layoutY="225.0" styleClass="custFilmTitle" text="Runtime:" AnchorPane.leftAnchor="0.0">
                                  <font>
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="runTime" layoutX="3.0" layoutY="248.0" prefHeight="38.0" prefWidth="179.0">
+                              <Label fx:id="runTime" layoutX="3.0" layoutY="248.0" prefHeight="38.0" prefWidth="233.0" AnchorPane.leftAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="runtimeText1" layoutY="73.0" styleClass="custFilmTitle" text="Description:" AnchorPane.leftAnchor="0.0">
                                  <font>
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="runtimeText1" layoutY="73.0" text="Description:" AnchorPane.leftAnchor="0.0">
+                              <Label fx:id="runtimeText11" layoutY="-2.0" styleClass="custFilmTitle" text="Film Title:" AnchorPane.leftAnchor="0.0">
                                  <font>
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="runtimeText11" layoutY="-2.0" text="Film Title:" AnchorPane.leftAnchor="0.0">
-                                 <font>
-                                    <Font name="System Bold" size="19.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="runtimeText2" layoutX="1.0" layoutY="287.0" text="Showing Times:">
+                              <Label fx:id="runtimeText2" layoutX="1.0" layoutY="287.0" styleClass="custFilmTitle" text="Showing Times:">
                                  <font>
                                     <Font name="System Bold" size="19.0" />
                                  </font>
