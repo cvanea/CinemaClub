@@ -38,7 +38,7 @@
                   </Label>
                   <AnchorPane prefHeight="565.0" prefWidth="430.0" GridPane.rowIndex="1">
                      <children>
-                        <DatePicker fx:id="datePicker" layoutX="100.0" layoutY="45.0" onAction="#selectDate" prefHeight="27.0" prefWidth="267.0" />
+                        <DatePicker fx:id="datePicker" layoutX="100.0" layoutY="45.0" onAction="#selectDate" prefHeight="27.0" prefWidth="267.0" styleClass=".date-picker" stylesheets="@../style.css" />
                         <ListView fx:id="filmList" layoutX="101.0" layoutY="134.0" onMouseClicked="#chooseFilm" prefHeight="375.0" prefWidth="267.0" AnchorPane.bottomAnchor="50.0" />
                         <Label layoutX="101.0" layoutY="-2.0" text="Pick a Date:">
                            <font>

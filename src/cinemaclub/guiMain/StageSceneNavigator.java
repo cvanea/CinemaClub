@@ -34,6 +34,7 @@ public class StageSceneNavigator {
     public static final String CUSTOMER_BOOK_SEATS = "CustomerGui/CustomerBookSeats.fxml";
     public static final String CUSTOMER_PROFILE = "CustomerGui/CustomerProfile.fxml";
     public static final String CUSTOMER_PROFILE_EDIT = "CustomerGui/CustomerProfileEdit.fxml";
+    public static final String CUSTOMER_FILM_VIEW = "CustomerGui/CustomerFilmView.fxml";
 
     //Staff
     public static final String STAFF_MAIN = "StaffGui/StaffMain.fxml";
@@ -42,6 +43,8 @@ public class StageSceneNavigator {
     public static final String STAFF_SCREEN = "StaffGui/StaffScreen.fxml";
     public static final String STAFF_PROFILE_EDIT = "StaffGui/StaffProfileEdit.fxml";
     public static final String STAFF_PROFILE = "StaffGui/StaffProfile.fxml";
+    public static final String STAFF_PROFILEv2 = "StaffGui/StaffProfilev2.fxml";
+    public static final String STAFF_USER_PROFILE = "StaffGui/StaffUserProfileEdit.fxml";
     public static final String STAFF_SHOWINGS = "StaffGui/StaffShowings.fxml";
 
 

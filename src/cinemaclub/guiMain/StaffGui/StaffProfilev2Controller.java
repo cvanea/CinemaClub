@@ -1,6 +1,6 @@
-package cinemaclub.guiMain.CustomerGui;
+package cinemaclub.guiMain.StaffGui;
 
-import cinemaclub.guiMain.StageSceneNavigator;
+import cinemaclub.guiMain.CustomerGui.CustomerMainController;
 import cinemaclub.user.Booking;
 import exceptions.*;
 import javafx.collections.FXCollections;
@@ -14,11 +14,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class CustomerProfileController extends CustomerMainController implements Initializable {
+public class StaffProfilev2Controller extends StaffMainController implements Initializable {
 
     @FXML TextField username;
     @FXML TextField password;
@@ -46,21 +47,6 @@ public class CustomerProfileController extends CustomerMainController implements
         password.setText(cinema.getCurrentUser().getPassword());
         firstName.setText(cinema.getProfileDetails().getFirstName());
         surname.setText(cinema.getProfileDetails().getSurname());
-        fillFutureBookings();
-        fillPastBookings();
-    }
-
-    public void cancelBooking(ActionEvent event){
-        try {
-            cinema.deleteFutureBooking(chosenBooking);
-            fillFutureBookings();
-        } catch(NoBookingsException | NotAFutureBookingException | NoFutureBookingsException | SeatNotFoundException e){
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void futureMouseClick(MouseEvent event){
-        chosenBooking = futureTable.getSelectionModel().getSelectedItem();
     }
 
     public void setProfileText(ActionEvent event) {
@@ -77,37 +63,6 @@ public class CustomerProfileController extends CustomerMainController implements
         } catch (UsernameTakenException e) {
             errorLabel.setText(e.getMessage());
             errorLabel.setStyle("-fx-text-fill: red");
-        }
-    }
-
-    private void fillFutureBookings() {
-        try {
-            futureTable.getItems().clear();
-            ArrayList<Booking> bookings = cinema.getFutureBookingsHistory();
-            ObservableList<Booking> bookingObservableList = FXCollections.observableArrayList(bookings);
-            filmTable.setCellValueFactory(new PropertyValueFactory<>("Title"));
-            dateTable.setCellValueFactory(new PropertyValueFactory<>("Date"));
-            timeTable.setCellValueFactory(new PropertyValueFactory<>("Time"));
-            seatTable.setCellValueFactory(new PropertyValueFactory<>("Seat"));
-            futureTable.setItems(bookingObservableList);
-
-        } catch (NoBookingsException | NoFutureBookingsException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    private void fillPastBookings() {
-        try {
-            ArrayList<Booking> bookings = cinema.getPastBookingsHistory();
-            ObservableList<Booking> bookingObservableList = FXCollections.observableArrayList(bookings);
-            filmTableP.setCellValueFactory(new PropertyValueFactory<>("Title"));
-            dateTableP.setCellValueFactory(new PropertyValueFactory<>("Date"));
-            timeTableP.setCellValueFactory(new PropertyValueFactory<>("Time"));
-            seatTableP.setCellValueFactory(new PropertyValueFactory<>("Seat"));
-            pastTable.setItems(bookingObservableList);
-            System.out.println("empty bookings");
-        } catch (NoBookingsException | NoPastBookingsException e) {
-            System.out.println(e.getMessage());
         }
     }
 }

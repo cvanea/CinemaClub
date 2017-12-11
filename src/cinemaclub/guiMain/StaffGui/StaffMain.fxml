@@ -15,15 +15,16 @@
     <children>
         <AnchorPane prefHeight="75.0" prefWidth="1200.0" style="-fx-background-color: #00171F;">
             <children>
-                <Button fx:id="filmsBut" layoutX="888.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressHome" styleClass="menuButton" text="Films" />
-            <Button fx:id="showBut" layoutX="952.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressShowings" styleClass="menuButton" text="Showings" />
-            <Button fx:id="profileBut" layoutX="1045.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressProfile" styleClass="menuButton" text="Profile" />
-                <Button fx:id="logBut" layoutX="1115.0" layoutY="23.0" mnemonicParsing="false" onAction="#pressLogOut" styleClass="menuButton" text="Log Out" />
-            <Label fx:id="headerLabelEdit" alignment="CENTER" layoutX="364.0" layoutY="5.0" maxWidth="1.7976931348623157E308" prefHeight="71.0" prefWidth="500.0" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0">
+            <Label fx:id="headerLabelEdit" alignment="CENTER" layoutX="364.0" layoutY="5.0" maxWidth="1.7976931348623157E308" prefHeight="71.0" prefWidth="500.0" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="450.0">
                <font>
                   <Font name="System Bold" size="32.0" />
                </font>
             </Label>
+                <Button fx:id="filmsBut" layoutX="760.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressHome" styleClass="menuButton" text="Films" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="385.0" AnchorPane.topAnchor="24.0" />
+            <Button fx:id="showBut" layoutX="826.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressShowings" styleClass="menuButton" text="Showings" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="290.0" AnchorPane.topAnchor="24.0" />
+            <Button fx:id="profileBut" layoutX="920.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressProfile" styleClass="menuButton" text="Staff Profile" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="24.0" />
+                <Button fx:id="logBut" layoutX="1115.0" layoutY="23.0" mnemonicParsing="false" onAction="#pressLogOut" styleClass="menuButton" text="Log Out" AnchorPane.bottomAnchor="24.0" AnchorPane.topAnchor="24.0" />
+            <Button fx:id="userEdit" layoutX="1024.0" layoutY="23.0" mnemonicParsing="false" onAction="#pressUserEdit" styleClass="menuButton" text="User Edit" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="24.0" />
             <ImageView fitHeight="61.0" fitWidth="200.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="/CinemaClubWh.png" />

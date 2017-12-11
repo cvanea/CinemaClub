@@ -106,6 +106,7 @@ public class StaffScreenController extends StaffMainController implements Initia
             this.firstName = customer.getFirstName();
             this.surname = customer.getSurname();
             this.seat = customer.getSeat(booking);
+            System.out.println(booking);
         }
 
         public String getUsername() {

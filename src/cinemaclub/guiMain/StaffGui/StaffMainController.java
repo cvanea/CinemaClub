@@ -48,9 +48,9 @@ public class StaffMainController {
     }
 
     public void pressProfile(ActionEvent event) throws IOException {
-        GuiData.setViewTitle("Profile");
+        GuiData.setViewTitle("User Profile");
         headerLabelEdit.setText(GuiData.getViewTitle());
-        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_PROFILE);
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_PROFILEv2);
     }
 
     public void pressShowings(ActionEvent event) throws IOException {
@@ -58,6 +58,13 @@ public class StaffMainController {
         headerLabelEdit.setText(GuiData.getViewTitle());
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SHOWINGS);
     }
+
+    public void pressUserEdit(ActionEvent event) throws IOException {
+        GuiData.setViewTitle("Edit Profiles");
+        headerLabelEdit.setText(GuiData.getViewTitle());
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_USER_PROFILE);
+    }
+
 
     /**
      * Replaces the vista displayed in the vista holder with a new vista.

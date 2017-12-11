@@ -43,6 +43,7 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showing = GuiData.getShowing();
+        GuiData.setFilm(GuiData.getShowing().getFilm());
         titleText.setText(showing.getFilm().getTitle());
         descriptionText.setText(showing.getFilm().getDescription());
         runtimeText.setText(showing.getFilm().getRunTime());
@@ -55,10 +56,9 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
 
     public void pressReserveSeat(ActionEvent actionEvent) throws IOException {
         try {
-            if (GuiData.isSeatTaken()) {
-                errorLabel.setText("Seat taken!");
-            } else {
-                cinema.bookFilm(showing, GuiData.getSeatRow(), GuiData.getSeatNumber());
+                String seatRow = GuiData.getSeatRow();
+                int seatNumber = GuiData.getSeatNumber();
+                cinema.bookFilm(showing, seatRow, seatNumber);
                 Stage stage = new Stage();
                 Parent root = FXMLLoader.load(CustomerBookSeatsController.class.getResource("ModalBooked.fxml"));
                 stage.setScene(new Scene(root));
@@ -68,103 +68,9 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
                         ((Node) actionEvent.getSource()).getScene().getWindow());
                 stage.show();
                 StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
-            }
         } catch (SeatAlreadyTakenException | SeatNotFoundException e) {
-            System.out.println(e.getMessage());
+            errorLabel.setText(e.getMessage());
         }
 
     }
-
-//    public void splitSeat(Button button) {
-//        String seat = button.getText();
-//        String[] splitSeat = seat.split("(?!^)", 2);
-//        seatRow = splitSeat[0];
-//        seatNumber = Integer.parseInt(splitSeat[1]);
-//}
-//
-//    public Boolean isSeatTaken() {
-//        //TODO: Get the correct screen for each movie
-//        try {
-//            if (showing.isSeatTaken(seatRow, seatNumber)) {
-////                errorLabel.setText("Seat taken!");
-//                return true;
-//            } else{
-//                return false;
-//            }
-//        } catch (SeatNotFoundException e) {
-//            System.out.println(e.getMessage());
-//            return null;
-//        }
-//    }
-//
-//    public Button seatSelect(Button button) {
-//        Image imgSeatWhite = new Image("/seatW32.png");
-//        Image imgSeatYellow = new Image("/seatY32.png");
-//        if(selectedSeat == null){
-//            button.setGraphic(new ImageView(imgSeatYellow));
-//            selectedSeat = button;
-//        } else if (selectedSeat == button){
-//            selectedSeat.setGraphic(new ImageView(imgSeatWhite));
-//            selectedSeat = null;
-//        } else {
-//            button.setGraphic(new ImageView(imgSeatYellow));
-//            selectedSeat.setGraphic(new ImageView(imgSeatWhite));
-//            selectedSeat = button;
-//        }
-//
-//        return selectedSeat;
-//    }
-//
-//    public void setupSeatButtons() {
-//        int numRows = showing.getScreen().getNumberRow();
-//        int numCols = showing.getScreen().getSeatsPerRow();
-//        int rowHeight = 500 / numRows;
-//        int columnWidth = 780 / numCols;
-//        Image imgSeat;
-//
-//        for (int r = 1; r < numRows + 1; r++) {
-//            RowConstraints row = new RowConstraints(rowHeight);
-//            gridSeats.getRowConstraints().add(row);
-//
-//            for (int c = 1; c < numCols + 1; c++) {
-//                String letter = getCharForNumber(r);
-//                String seatName = letter + c;
-//                ColumnConstraints column = new ColumnConstraints(columnWidth);
-//                gridSeats.getColumnConstraints().add(column);
-//                Button button = new Button(String.valueOf(seatName));
-//                splitSeat(button);
-//
-//                if (isSeatTaken()) {
-//                    imgSeat = new Image("/seatR32.png");
-//                } else {
-//                    imgSeat = new Image("/seatW32.png");
-//                }
-//
-//                button.setGraphic(new ImageView(imgSeat));
-//
-//                button.setOnAction((ActionEvent e) -> {
-//                    Object object = e.getSource();
-//                    Button b = null;
-//
-//                    if (object instanceof Button) {
-//                        b = (Button) object;
-//                    }
-//
-//                    splitSeat(b);
-//
-//                    if (!isSeatTaken()) {
-//                        seatSelect(b);
-//                    }
-//                });
-//
-//                GridPane.setHalignment(button, HPos.CENTER);
-//                gridSeats.add(button, c - 1, r - 1);
-//            }
-//        }
-//        //        gridSeats.gridLinesVisibleProperty().set(true);
-//    }
-
-//    private String getCharForNumber(int i) {
-//        return i > 0 && i < 27 ? String.valueOf((char) (i + 64)) : null;
-//    }
 }
