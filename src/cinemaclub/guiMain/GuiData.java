@@ -188,7 +188,7 @@ public class GuiData {
                 }
             }
         }
-                gridSeats.gridLinesVisibleProperty().set(true);
+//                gridSeats.gridLinesVisibleProperty().set(true);
     }
 
     public static ObservableList<String> getFilmList(Cinema cinema){
