@@ -1,10 +1,7 @@
 package cinemaclub.guiMain.StaffGui;
 
-import cinemaclub.guiMain.CustomerGui.CustomerMainController;
 import cinemaclub.user.Booking;
-import exceptions.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import exceptions.UsernameTakenException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,14 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class StaffProfilev2Controller extends StaffMainController implements Initializable {
+public class EditUserProfileController extends MainController implements Initializable {
 
     @FXML TextField username;
     @FXML TextField password;
@@ -42,11 +36,11 @@ public class StaffProfilev2Controller extends StaffMainController implements Ini
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        username.setText(cinema.getProfileDetails().getUsername());
-        email.setText(cinema.getCurrentUser().getEmail());
-        password.setText(cinema.getCurrentUser().getPassword());
-        firstName.setText(cinema.getProfileDetails().getFirstName());
-        surname.setText(cinema.getProfileDetails().getSurname());
+//        username.setText(cinema.getProfileDetails().getUsername());
+//        email.setText(cinema.getCurrentUser().getEmail());
+//        password.setText(cinema.getCurrentUser().getPassword());
+//        firstName.setText(cinema.getProfileDetails().getFirstName());
+//        surname.setText(cinema.getProfileDetails().getSurname());
     }
 
     public void setProfileText(ActionEvent event) {

@@ -1,7 +1,5 @@
 package cinemaclub.guiMain.StaffGui;
 
-import cinemaclub.cinema.Cinema;
-import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
@@ -20,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class StaffShowingsController extends StaffMainController implements Initializable {
+public class ShowingsController extends MainController implements Initializable {
 
     @FXML TableView<Showing> showingTable;
     @FXML TableColumn<Showing, String> filmCol;
@@ -61,7 +59,7 @@ public class StaffShowingsController extends StaffMainController implements Init
 
     public void pressViewShowing(ActionEvent event) {
         GuiData.setShowing(chosenShowing);
-        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREEN);
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_IND_SHOWING);
     }
 
     public void pressAddShowing(ActionEvent event) {

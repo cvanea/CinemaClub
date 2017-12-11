@@ -6,7 +6,6 @@ import cinemaclub.guiMain.LoginGui.LoginMainController;
 import cinemaclub.guiMain.StageSceneNavigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -16,12 +15,12 @@ import java.io.IOException;
 /**
  * Main controller class for the entire layout.
  */
-public class StaffMainController {
+public class MainController {
 
     static Cinema cinema = LoginMainController.getCinema();
 
     public void setCinema(Cinema cinema) { // Setting the cinema-object
-        StaffMainController.cinema = cinema;
+        MainController.cinema = cinema;
     }
 
     /** Holder of a switchable vista. */
@@ -50,7 +49,7 @@ public class StaffMainController {
     public void pressProfile(ActionEvent event) throws IOException {
         GuiData.setViewTitle("User Profile");
         headerLabelEdit.setText(GuiData.getViewTitle());
-        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_PROFILEv2);
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_PROFILE);
     }
 
     public void pressShowings(ActionEvent event) throws IOException {
@@ -62,13 +61,13 @@ public class StaffMainController {
     public void pressEditUserProfiles(ActionEvent event) throws IOException {
         GuiData.setViewTitle("Edit Profiles");
         headerLabelEdit.setText(GuiData.getViewTitle());
-        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_USER_PROFILE);
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_EDIT_USER_PROFILE);
     }
 
     public void pressScreens(ActionEvent event) throws IOException {
-        GuiData.setViewTitle("Edit Profiles");
+        GuiData.setViewTitle("Screens");
         headerLabelEdit.setText(GuiData.getViewTitle());
-//        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREENS);
+        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREENS);
     }
 
 

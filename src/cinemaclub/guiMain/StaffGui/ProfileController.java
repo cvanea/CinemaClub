@@ -1,7 +1,7 @@
 package cinemaclub.guiMain.StaffGui;
 
 import cinemaclub.user.Booking;
-import exceptions.UsernameTakenException;
+import exceptions.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StaffUserProfileEditController extends StaffMainController implements Initializable {
+public class ProfileController extends MainController implements Initializable {
 
     @FXML TextField username;
     @FXML TextField password;
@@ -36,11 +36,11 @@ public class StaffUserProfileEditController extends StaffMainController implemen
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        username.setText(cinema.getProfileDetails().getUsername());
-//        email.setText(cinema.getCurrentUser().getEmail());
-//        password.setText(cinema.getCurrentUser().getPassword());
-//        firstName.setText(cinema.getProfileDetails().getFirstName());
-//        surname.setText(cinema.getProfileDetails().getSurname());
+        username.setText(cinema.getProfileDetails().getUsername());
+        email.setText(cinema.getCurrentUser().getEmail());
+        password.setText(cinema.getCurrentUser().getPassword());
+        firstName.setText(cinema.getProfileDetails().getFirstName());
+        surname.setText(cinema.getProfileDetails().getSurname());
     }
 
     public void setProfileText(ActionEvent event) {

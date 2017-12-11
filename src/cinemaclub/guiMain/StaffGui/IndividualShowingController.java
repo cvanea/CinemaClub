@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class StaffScreenController extends StaffMainController implements Initializable {
+public class IndividualShowingController extends MainController implements Initializable {
 
     @FXML ImageView imageBox;
     @FXML Label titleText;
@@ -40,14 +40,10 @@ public class StaffScreenController extends StaffMainController implements Initia
 
     private Showing showing;
 
-    public void pressExport(ActionEvent actionEvent) {
-        cinema.exportShowingsToCsv();
-    }
 
     public void userMouseClick(MouseEvent event) {
         BookingUserInfo chosenUser = userTable.getSelectionModel().getSelectedItem();
     }
-
     public void pressDelete(ActionEvent actionEvent) {
 //        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
     }
@@ -106,7 +102,6 @@ public class StaffScreenController extends StaffMainController implements Initia
             this.firstName = customer.getFirstName();
             this.surname = customer.getSurname();
             this.seat = customer.getSeat(booking);
-            System.out.println(booking);
         }
 
         public String getUsername() {
