@@ -28,7 +28,23 @@ public class ScreenRepository implements Serializable {
         return showings.get(screen);
     }
 
-    public ArrayList<Film> getFilmsByDate(Screen screen, String date) {
+    public ArrayList<Film> getAllFilmsByDate(String date) {
+        ArrayList<Showing> allShowings = new ArrayList<>();
+        ArrayList<Film> films = new ArrayList<>();
+
+        for (Screen screen : showings.keySet()) {
+            allShowings.addAll(showings.get(screen));
+        }
+
+        for (Showing showing : allShowings) {
+            if (showing.getDate().equals(date)) {
+                films.add(showing.getFilm());
+            }
+        }
+        return films;
+    }
+
+    public ArrayList<Film> getFilmsByDateScreen(Screen screen, String date) {
         ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
         ArrayList<Film> films = new ArrayList<>();
 
@@ -61,9 +77,11 @@ public class ScreenRepository implements Serializable {
         return showingsByDate;
     }
 
-    public Showing getShowingByDateTime(Screen screen, String date, String time) {
+    public Showing getShowingByDateTimeScreen(Screen screen, String date, String time) {
+        ArrayList<Showing> showingsByScreen = new ArrayList<>();
+        showingsByScreen.addAll(showings.get(screen));
 
-        for (Showing showing : showingsWithoutScreen) {
+        for (Showing showing : showingsByScreen) {
             if (showing.getDate().equals(date) && showing.getTime().equals(time)) {
                 return showing;
             }
@@ -71,7 +89,22 @@ public class ScreenRepository implements Serializable {
         return null;
     }
 
-    public ArrayList<String> getTimesByFilm(Screen screen, Film film) {
+    public Showing getShowingByDateTime(String date, String time) {
+        ArrayList<Showing> allShowings = new ArrayList<>();
+
+        for (Screen screen : showings.keySet()) {
+            allShowings.addAll(showings.get(screen));
+        }
+
+        for (Showing showing : allShowings) {
+            if (showing.getDate().equals(date) && showing.getTime().equals(time)) {
+                return showing;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<String> getTimesByFilmScreen(Screen screen, Film film) {
         ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
         ArrayList<String> times = new ArrayList<>();
 
@@ -81,6 +114,22 @@ public class ScreenRepository implements Serializable {
             }
         }
         return times;
+    }
+
+    public ArrayList<String> getAllTimesByFilm(Film film) {
+        ArrayList<Showing> allShowings = new ArrayList<>();
+        ArrayList<String> timesByFilm = new ArrayList<>();
+
+        for (Screen screen : showings.keySet()) {
+            allShowings.addAll(showings.get(screen));
+        }
+
+        for (Showing showing : allShowings) {
+            if (showing.getFilm() == film) {
+                timesByFilm.add(showing.getTime());
+            }
+        }
+        return timesByFilm;
     }
 
     public ArrayList<String> getDatesByFilm(Screen screen, Film film) {
@@ -95,11 +144,15 @@ public class ScreenRepository implements Serializable {
         return dates;
     }
 
-    public ArrayList<Showing> getAllShowingsByFilm(Screen screen, Film film) {
-        ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
+    public ArrayList<Showing> getAllShowingsByFilm(Film film) {
+        ArrayList<Showing> allShowings = new ArrayList<>();
         ArrayList<Showing> showingsByFilm = new ArrayList<>();
 
-        for (Showing showing : showingsByScreen) {
+        for (Screen screen : showings.keySet()) {
+            allShowings.addAll(showings.get(screen));
+        }
+
+        for (Showing showing : allShowings) {
             if (showing.getFilm() == film) {
                 showingsByFilm.add(showing);
             }
@@ -120,7 +173,7 @@ public class ScreenRepository implements Serializable {
 
     public void deleteShowing(Screen screen, String date, String time) {
         ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
-        Showing showing = getShowingByDateTime(screen, date, time);
+        Showing showing = getShowingByDateTimeScreen(screen, date, time);
         showingsByScreen.remove(showing);
         showings.put(screen, showingsByScreen);
 

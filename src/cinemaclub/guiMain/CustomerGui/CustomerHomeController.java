@@ -67,7 +67,7 @@ public class CustomerHomeController extends CustomerMainController implements In
     public void chooseFilm(MouseEvent actionEvent) {
         try {
             String chosenFilm = filmList.getSelectionModel().getSelectedItem();
-            ArrayList<String> times = cinema.getTimesByFilm(cinema.getFilmByTitle(chosenFilm));
+            ArrayList<String> times = cinema.getAllTimesByFilm(cinema.getFilmByTitle(chosenFilm));
 
             ObservableList<String> data = FXCollections.observableArrayList(times);
             timesList.setItems(data);

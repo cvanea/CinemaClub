@@ -1,7 +1,5 @@
 package cinemaclub.guiMain.StaffGui;
 
-import cinemaclub.cinema.Cinema;
-import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
@@ -55,7 +53,7 @@ public class StaffShowingsController extends StaffMainController implements Init
     }
 
     public void pressDelete(ActionEvent event) {
-        cinema.deleteShowing(chosenShowing.getDate(), chosenShowing.getTime());
+        cinema.deleteShowing(chosenShowing.getScreen(), chosenShowing.getDate(), chosenShowing.getTime());
         fillShowingsTable();
     }
 
@@ -69,7 +67,7 @@ public class StaffShowingsController extends StaffMainController implements Init
         selectedTime = timeField.getText();
         if (selectedFilm != null & selectedDate != null & selectedTime != null & selectedScreen != null) {
             try {
-                cinema.addShowing(selectedDate, selectedTime, cinema.getFilmByTitle(selectedFilm));
+                cinema.addShowing(cinema.getScreen(selectedScreen), selectedDate, selectedTime, cinema.getFilmByTitle(selectedFilm));
                 errorLabel.setText("New Showing of "+ selectedFilm + " Added" );
                 fillShowingsTable();
             } catch (ShowingAlreadyExistsException e) {
