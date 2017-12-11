@@ -55,12 +55,12 @@ public class Cinema {
     }
 
     public void loginUser(String username, String password)
-        throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
+            throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
         currentUser = login.loginUser(username, password);
     }
 
     public void registerUser(String username, String email, String password, String firstName, String surname, String userType, String staffID)
-        throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException, EmptyUserInputException {
+            throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException, EmptyUserInputException {
         register.registerUser(username, email, password, firstName, surname, userType, staffID);
     }
 
@@ -83,6 +83,7 @@ public class Cinema {
     public void setUserFirstName(String firstName) {
         profile.setFirstName(currentUser, firstName);
     }
+
     public void setUserSurname(String surname) {
         profile.setSurname(currentUser, surname);
     }
@@ -112,12 +113,12 @@ public class Cinema {
     }
 
     public void deleteFutureBooking(Booking booking)
-        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
+            throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
         profile.deleteFutureBooking(currentUser, booking);
     }
 
     public void deleteFutureBooking(Customer customer, Booking booking)
-        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
+            throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
         profile.deleteFutureBooking(customer, booking);
     }
 
@@ -136,7 +137,7 @@ public class Cinema {
     }
 
     public void bookFilm(Showing showing, String seatRow, int seatNumber)
-        throws SeatAlreadyTakenException, SeatNotFoundException {
+            throws SeatAlreadyTakenException, SeatNotFoundException {
         bookingSystem.bookFilm(currentUser, showing, seatRow, seatNumber);
     }
 
