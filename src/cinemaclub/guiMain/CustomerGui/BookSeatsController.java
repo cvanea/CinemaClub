@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BookSeatsController extends CustomerMainController implements Initializable {
@@ -54,7 +56,15 @@ public class BookSeatsController extends CustomerMainController implements Initi
 
     public void pressReserveSeat(ActionEvent actionEvent) throws IOException {
         try {
-            cinema.bookFilm(showing, GuiData.getSeatRow(), GuiData.getSeatNumber());
+            ArrayList<Button> selectedSeats = GuiData.getSelectedSeatMulti();
+            for(Button seat : selectedSeats){
+                String seatText = seat.getAccessibleText();
+                String[] splitSeat = seatText.split("(?!^)", 2);
+                String seatRow = splitSeat[0];
+                int seatNumber = Integer.parseInt(splitSeat[1]);
+                cinema.bookFilm(showing, seatRow, seatNumber);
+            }
+//            cinema.bookFilm(showing, GuiData.getSeatRow(), seatNumber);
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(BookSeatsController.class.getResource("ModalBooked.fxml"));
             stage.setScene(new Scene(root));
