@@ -76,7 +76,6 @@ public class GuiData {
      Methods For Creating Cinema
      */
 
-
     private static void splitSeat(Button button) {
         String seat = button.getAccessibleText();
         String[] splitSeat = seat.split("(?!^)", 2);
