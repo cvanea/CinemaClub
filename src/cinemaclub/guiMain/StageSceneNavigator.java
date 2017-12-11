@@ -3,7 +3,7 @@ package cinemaclub.guiMain;
 import cinemaclub.cinema.Cinema;
 import cinemaclub.guiMain.CustomerGui.CustomerMainController;
 import cinemaclub.guiMain.LoginGui.LoginMainController;
-import cinemaclub.guiMain.StaffGui.StaffMainController;
+import cinemaclub.guiMain.StaffGui.MainController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -37,21 +37,19 @@ public class StageSceneNavigator {
     public static final String CUSTOMER_FILM_VIEW = "CustomerGui/CustomerFilmView.fxml";
 
     //Staff
-    public static final String STAFF_MAIN = "StaffGui/StaffMain.fxml";
-    public static final String STAFF_FILM = "StaffGui/StaffFilm.fxml";
-//    public static final String STAFF_SCREEN = "StaffGui/StaffScreenEdit.fxml";
-    public static final String STAFF_SCREEN = "StaffGui/StaffScreen.fxml";
-    public static final String STAFF_PROFILE_EDIT = "StaffGui/StaffProfileEdit.fxml";
-    public static final String STAFF_PROFILE = "StaffGui/StaffProfile.fxml";
-    public static final String STAFF_PROFILEv2 = "StaffGui/StaffProfilev2.fxml";
-    public static final String STAFF_USER_PROFILE = "StaffGui/StaffUserProfileEdit.fxml";
-    public static final String STAFF_SHOWINGS = "StaffGui/StaffShowings.fxml";
+    public static final String STAFF_MAIN = "StaffGui/Main.fxml";
+    public static final String STAFF_FILM = "StaffGui/Film.fxml";
+    public static final String STAFF_IND_SHOWING = "StaffGui/IndividualShowing.fxml";
+    public static final String STAFF_PROFILE = "StaffGui/Profile.fxml";
+    public static final String STAFF_EDIT_USER_PROFILE = "StaffGui/EditUserProfile.fxml";
+    public static final String STAFF_SCREENS = "StaffGui/Screens.fxml";
+    public static final String STAFF_SHOWINGS = "StaffGui/Showings.fxml";
 
 
     /** The main application layout controller. */
     private static LoginMainController loginMainController;
     private static CustomerMainController customerMainController;
-    private static StaffMainController staffMainController;
+    private static MainController mainController;
 
     /**
      * Stores the main controller for later use in navigation tasks.
@@ -72,10 +70,10 @@ public class StageSceneNavigator {
     /**
      * Stores the main controller for later use in navigation tasks.
      *
-     * @param staffMainController the main application layout controller.
+     * @param mainController the main application layout controller.
      */
-    public static void setStaffMainController(StaffMainController staffMainController) {
-        StageSceneNavigator.staffMainController = staffMainController;
+    public static void setMainController(MainController mainController) {
+        StageSceneNavigator.mainController = mainController;
     }
 
     /**
@@ -114,7 +112,7 @@ public class StageSceneNavigator {
 
     public static void loadStaffView(String fxml) {
         try {
-            staffMainController.setView(FXMLLoader.load(StageSceneNavigator.class.getResource(fxml)));
+            mainController.setView(FXMLLoader.load(StageSceneNavigator.class.getResource(fxml)));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -151,9 +149,9 @@ public class StageSceneNavigator {
     private static Pane loadStaffPane(Cinema cinema) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         Pane staffPane = (Pane) loader.load(StageSceneNavigator.class.getResourceAsStream(StageSceneNavigator.STAFF_MAIN));
-        StaffMainController staffMainController = loader.getController();
-        staffMainController.setCinema(cinema);
-        StageSceneNavigator.setStaffMainController(staffMainController);
+        MainController mainController = loader.getController();
+        mainController.setCinema(cinema);
+        StageSceneNavigator.setMainController(mainController);
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_FILM);
 
         return staffPane;
