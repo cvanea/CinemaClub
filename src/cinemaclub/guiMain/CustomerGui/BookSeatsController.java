@@ -47,6 +47,8 @@ public class BookSeatsController extends CustomerMainController implements Initi
         dateText.setText(showing.getDate());
         Image img = new Image(showing.getFilm().getImagePath());
         imageBox.setImage(img);
+        GuiData.setNumberOfRows(showing.getScreen().getNumberRow());
+        GuiData.setSeatsPerRow(showing.getScreen().getSeatsPerRow());
         GuiData.setupSeatButtons(gridSeats, 820, 450, "customer");
     }
 
