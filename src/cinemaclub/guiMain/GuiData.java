@@ -60,7 +60,7 @@ public class GuiData {
      Methods For Creating Cinema
      */
 
-    public static void splitSeat(Button button) {
+    private static void splitSeat(Button button) {
         String seat = button.getText();
         String[] splitSeat = seat.split("(?!^)", 2);
         seatRow = splitSeat[0];
@@ -76,10 +76,10 @@ public class GuiData {
         }
     }
 
-    public static void seatSelect(Button button) {
+    private static void seatSelect(Button button) {
         Image imgSeatWhite = new Image("/seatW32.png");
         Image imgSeatYellow = new Image("/seatY32.png");
-        if(selectedSeat == null){
+        if (selectedSeat == null){
             button.setGraphic(new ImageView(imgSeatYellow));
             selectedSeat = button;
         } else if (selectedSeat == button){
@@ -92,7 +92,7 @@ public class GuiData {
         }
     }
 
-    public static void setupSeatButtons(GridPane gridSeats, int gridWidth, int gridHeight, String method ) {
+    public static void setupSeatButtons(GridPane gridSeats, int gridWidth, int gridHeight, String method) {
         int numRows = showing.getScreen().getNumberRow();
         int numCols = showing.getScreen().getSeatsPerRow();
         int rowHeight = gridHeight / numRows;

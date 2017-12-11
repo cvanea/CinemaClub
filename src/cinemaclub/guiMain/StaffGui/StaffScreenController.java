@@ -63,8 +63,8 @@ public class StaffScreenController extends StaffMainController implements Initia
 
             if (user instanceof Customer) {
                 Customer customer = (Customer) user;
-                Booking booking = customer.getBookingByShowing(showing);
-
+                String seat = entry.getKey();
+                Booking booking = customer.getBooking(showing, seat);
                 data.add(new BookingUserInfo(customer, booking));
             }
         }

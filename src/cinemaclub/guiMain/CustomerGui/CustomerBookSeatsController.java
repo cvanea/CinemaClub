@@ -55,24 +55,19 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
 
     public void pressReserveSeat(ActionEvent actionEvent) throws IOException {
         try {
-            if (GuiData.isSeatTaken()) {
-                errorLabel.setText("Seat taken!");
-            } else {
-                cinema.bookFilm(showing, GuiData.getSeatRow(), GuiData.getSeatNumber());
-                Stage stage = new Stage();
-                Parent root = FXMLLoader.load(CustomerBookSeatsController.class.getResource("ModalBooked.fxml"));
-                stage.setScene(new Scene(root));
-                stage.setTitle("Booked");
-                stage.initModality(Modality.WINDOW_MODAL);
-                stage.initOwner(
-                        ((Node) actionEvent.getSource()).getScene().getWindow());
-                stage.show();
-                StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
-            }
+            cinema.bookFilm(showing, GuiData.getSeatRow(), GuiData.getSeatNumber());
+            Stage stage = new Stage();
+            Parent root = FXMLLoader.load(CustomerBookSeatsController.class.getResource("ModalBooked.fxml"));
+            stage.setScene(new Scene(root));
+            stage.setTitle("Booked");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(
+                    ((Node) actionEvent.getSource()).getScene().getWindow());
+            stage.show();
+            StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
         } catch (SeatAlreadyTakenException | SeatNotFoundException e) {
-            System.out.println(e.getMessage());
+            errorLabel.setText(e.getMessage());
         }
-
     }
 
 //    public void splitSeat(Button button) {
