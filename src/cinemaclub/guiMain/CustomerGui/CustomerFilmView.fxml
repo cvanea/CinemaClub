@@ -52,7 +52,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <ComboBox fx:id="datesBox1" layoutX="40.0" layoutY="32.0" onMouseClicked="#displayTimesList1" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+                        <ComboBox fx:id="datesBox1" layoutX="40.0" layoutY="32.0" onAction="#displayTimesList1" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
                         <ComboBox fx:id="timesBox1" layoutX="42.0" layoutY="103.0" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
                         <Label layoutX="26.0" layoutY="-6.0" prefHeight="40.0" text="Showing Dates:" AnchorPane.leftAnchor="0.0">
                            <font>
@@ -71,7 +71,7 @@
                   <Button fx:id="moreButton1" mnemonicParsing="false" onAction="#pressMoreFilms" text="More" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
-                        <ComboBox fx:id="datesBox2" layoutX="40.0" layoutY="32.0" onMouseClicked="#displayTimesList2" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+                        <ComboBox fx:id="datesBox2" layoutX="40.0" layoutY="32.0" onAction="#displayTimesList2" onMouseClicked="#displayTimesList2" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
                         <ComboBox fx:id="timesBox2" layoutX="42.0" layoutY="103.0" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
                         <Label layoutX="26.0" layoutY="-6.0" prefHeight="40.0" text="Showing Dates:" AnchorPane.leftAnchor="0.0">
                            <font>
@@ -88,7 +88,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <children>
-                        <ComboBox fx:id="datesBox3" layoutX="40.0" layoutY="32.0" onMouseClicked="#displayTimesList3" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+                        <ComboBox fx:id="datesBox3" layoutX="40.0" layoutY="32.0" onAction="#displayTimesList3" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
                         <ComboBox fx:id="timesBox3" layoutX="42.0" layoutY="103.0" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
                         <Label layoutX="26.0" layoutY="-6.0" prefHeight="40.0" text="Showing Dates:" AnchorPane.leftAnchor="0.0">
                            <font>

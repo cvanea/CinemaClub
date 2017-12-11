@@ -154,21 +154,21 @@ public class CustomerFilmViewController extends CustomerMainController implement
         }
     }
 
-    public void displayTimesList1(MouseEvent event) {
+    public void displayTimesList1(ActionEvent event) {
         String dateSelected = datesBox1.getSelectionModel().getSelectedItem();
         ObservableList<String> timesComboList = timesList(dateSelected, film1);
         timesBox1.setItems(timesComboList);
         timesBox1.getSelectionModel().select(0);
     }
 
-    public void displayTimesList2(MouseEvent event) {
+    public void displayTimesList2(ActionEvent event) {
         String dateSelected = datesBox2.getSelectionModel().getSelectedItem();
         ObservableList<String> timesComboList = timesList(dateSelected, film2);
         timesBox2.setItems(timesComboList);
         timesBox2.getSelectionModel().select(0);
     }
 
-    public void displayTimesList3(MouseEvent event) {
+    public void displayTimesList3(ActionEvent event) {
         String dateSelected = datesBox3.getSelectionModel().getSelectedItem();
         ObservableList<String> timesComboList = timesList(dateSelected, film3);
         timesBox3.setItems(timesComboList);

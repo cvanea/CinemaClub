@@ -43,6 +43,7 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showing = GuiData.getShowing();
+        GuiData.setFilm(GuiData.getShowing().getFilm());
         titleText.setText(showing.getFilm().getTitle());
         descriptionText.setText(showing.getFilm().getDescription());
         runtimeText.setText(showing.getFilm().getRunTime());
