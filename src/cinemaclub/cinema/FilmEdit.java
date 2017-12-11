@@ -3,10 +3,7 @@ package cinemaclub.cinema;
 import cinemaclub.database.DataBase;
 import cinemaclub.database.FilmRepository;
 import cinemaclub.database.ScreenRepository;
-import exceptions.FilmExistsException;
-import exceptions.OverlappingRuntimeException;
-import exceptions.ShowingAlreadyExistsException;
-import exceptions.ShowingOnOtherScreenException;
+import exceptions.*;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -75,7 +72,8 @@ class FilmEdit {
         screenRepository.deleteShowing(screen, date, time);
     }
 
-    void addScreen(Screen screen) {
+    void addScreen(Screen screen) throws ScreenNumberAlreadyExistsException {
+        validateNewScreen(screen.getScreenNumber());
         screenRepository.addScreen(screen);
     }
 
@@ -104,6 +102,14 @@ class FilmEdit {
     private void validateNewFilm(String title) throws FilmExistsException {
         if (filmRepository.checkForFilm(title)) {
             throw new FilmExistsException();
+        }
+    }
+
+    private void validateNewScreen(Integer screenNumber) throws ScreenNumberAlreadyExistsException {
+        for (Screen screen : screenRepository.getAllScreens()) {
+            if (screen.getScreenNumber().equals(screenNumber)) {
+                throw new ScreenNumberAlreadyExistsException();
+            }
         }
     }
 

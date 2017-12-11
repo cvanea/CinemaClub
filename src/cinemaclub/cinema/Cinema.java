@@ -212,7 +212,7 @@ public class Cinema {
         filmEdit.setFilmRunTime(film, newRunTime);
     }
 
-    public void addScreen(Screen screen) {
+    public void addScreen(Screen screen) throws ScreenNumberAlreadyExistsException {
         screens.put(screen.getScreenNumber(), screen);
         filmEdit.addScreen(screen);
     }
