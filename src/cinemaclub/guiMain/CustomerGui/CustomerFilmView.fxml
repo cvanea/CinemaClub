@@ -32,7 +32,7 @@
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
                         <ImageView fx:id="imageBox1" fitHeight="320.0" fitWidth="253.0" layoutX="20.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="0.0" />
-                        <Label fx:id="titleText1" layoutX="133.0" layoutY="304.0" prefHeight="40.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                        <Label fx:id="titleText1" layoutX="133.0" layoutY="304.0" prefHeight="40.0" styleClass="filmViewerTitle" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -106,7 +106,7 @@
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <ImageView fx:id="imageBox2" fitHeight="320.0" fitWidth="253.0" layoutX="20.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="0.0" />
-                        <Label fx:id="titleText2" layoutX="133.0" layoutY="304.0" prefHeight="40.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                        <Label fx:id="titleText2" layoutX="133.0" layoutY="304.0" prefHeight="40.0" styleClass="filmViewerTitle" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -127,7 +127,7 @@
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <children>
                         <ImageView fx:id="imageBox3" fitHeight="320.0" fitWidth="253.0" layoutX="20.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="0.0" />
-                        <Label fx:id="titleText3" layoutX="133.0" layoutY="304.0" prefHeight="40.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                        <Label fx:id="titleText3" layoutX="133.0" layoutY="304.0" prefHeight="40.0" styleClass="filmViewerTitle" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

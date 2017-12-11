@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -13,10 +12,11 @@
 
 <StackPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.CustomerGui.CustomerProfileController">
    <children>
-      <GridPane>
+      <GridPane style="-fx-background-color: #ffffff;">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="601.1372680664062" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.650146484375" minWidth="10.0" prefWidth="598.8627319335938" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="546.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="829.0" minWidth="10.0" prefWidth="741.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.650146484375" minWidth="10.0" prefWidth="131.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="86.2937240600586" vgrow="SOMETIMES" />
@@ -95,7 +95,7 @@
                   </Label>
                </children>
             </GridPane>
-            <Label text="Profile Details" GridPane.halignment="CENTER">
+            <Label styleClass="filmTitle" text="Profile Details" GridPane.halignment="CENTER">
                <font>
                   <Font size="32.0" />
                </font>
@@ -105,53 +105,47 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="339.913818359375" minHeight="10.0" prefHeight="246.09707641601562" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="179.06692504882812" minHeight="10.0" prefHeight="56.2828369140625" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="268.583251953125" minHeight="10.0" prefHeight="254.7171630859375" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="339.913818359375" minHeight="10.0" prefHeight="40.114654541015625" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="230.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="179.06692504882812" minHeight="10.0" prefHeight="53.99359130859375" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="268.583251953125" minHeight="5.675201416015625" prefHeight="41.33758544921875" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="230.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <AnchorPane prefHeight="534.0" prefWidth="1040.0" GridPane.rowIndex="2">
-                     <children>
-                        <Label layoutX="229.0" layoutY="20.0" prefHeight="26.0" prefWidth="139.0" text="Past Bookings">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <TableView fx:id="pastTable" layoutX="11.0" layoutY="55.0" prefHeight="200.0" prefWidth="575.0">
-                           <columns>
-                              <TableColumn fx:id="filmTableP" prefWidth="204.0" text="Film" />
-                              <TableColumn fx:id="dateTableP" prefWidth="134.0" text="Date" />
-                              <TableColumn fx:id="timeTableP" prefWidth="135.0" text="Time" />
-                              <TableColumn fx:id="seatTableP" prefWidth="99.0" text="Seat" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="534.0" prefWidth="1040.0">
-                     <children>
-                        <Label layoutX="221.0" layoutY="12.0" prefHeight="26.0" prefWidth="164.0" text="Future Bookings" textAlignment="CENTER">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <TableView fx:id="futureTable" layoutX="12.0" layoutY="38.0" onMouseClicked="#futureMouseClick" prefHeight="200.0" prefWidth="575.0">
-                          <columns>
-                            <TableColumn fx:id="filmTable" prefWidth="204.0" text="Film" />
-                            <TableColumn fx:id="dateTable" prefWidth="134.0" text="Date" />
-                              <TableColumn fx:id="timeTable" prefWidth="135.0" text="Time" />
-                              <TableColumn fx:id="seatTable" prefWidth="99.0" text="Seat" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-                  <Button fx:id="cancelBook" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel Booking" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <TableView fx:id="futureTable" onMouseClicked="#futureMouseClick" prefHeight="200.0" prefWidth="575.0" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn fx:id="filmTable" prefWidth="204.0" text="Film" />
+                      <TableColumn fx:id="dateTable" prefWidth="134.0" text="Date" />
+                        <TableColumn fx:id="timeTable" prefWidth="135.0" text="Time" />
+                        <TableColumn fx:id="seatTable" prefWidth="99.0" text="Seat" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="pastTable" prefHeight="200.0" prefWidth="575.0" GridPane.rowIndex="4">
+                     <columns>
+                        <TableColumn fx:id="filmTableP" prefWidth="204.0" text="Film" />
+                        <TableColumn fx:id="dateTableP" prefWidth="134.0" text="Date" />
+                        <TableColumn fx:id="timeTableP" prefWidth="135.0" text="Time" />
+                        <TableColumn fx:id="seatTableP" prefWidth="99.0" text="Seat" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="cancelBook" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel Booking" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
+                  <Label prefHeight="26.0" prefWidth="164.0" text="Future Bookings" textAlignment="CENTER" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="139.0" text="Past Bookings" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
-            <Label text="Bookings" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+            <Label styleClass="filmTitle" text="Bookings" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                <font>
                   <Font size="32.0" />
                </font>

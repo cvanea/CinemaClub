@@ -154,3 +154,9 @@
     -fx-pref-width: 35px;
 }
 
+.filmViewerTitle{
+    -fx-font-size: 18pt;
+    -fx-text-fill: #F77F00;
+    -fx-font-weight: bold;
+}
+
