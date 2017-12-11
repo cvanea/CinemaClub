@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.StaffFilmController">
+<StackPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.FilmController">
    <children>
       <AnchorPane prefHeight="534.0" prefWidth="1040.0" GridPane.rowIndex="1">
       </AnchorPane>
@@ -174,7 +174,7 @@
                                     <Font name="Arial Bold" size="30.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="errorLabel" alignment="TOP_LEFT" layoutX="19.0" layoutY="517.0" prefHeight="76.0" prefWidth="187.0" textFill="RED" wrapText="true">
+                              <Label fx:id="errorLabel" alignment="TOP_LEFT" layoutX="11.0" layoutY="517.0" prefHeight="76.0" prefWidth="187.0" textFill="RED" wrapText="true">
                                  <font>
                                     <Font name="Arial" size="16.0" />
                                  </font>
