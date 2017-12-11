@@ -1,5 +1,6 @@
 package cinemaclub.guiMain.StaffGui;
 
+import cinemaclub.cinema.Screen;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
@@ -46,6 +47,7 @@ public class ShowingsController extends MainController implements Initializable 
         dataScreen.add(1);
         screenBox.setItems(dataScreen);
         fillShowingsTable();
+        popScreensList();
     }
 
     public void fillFilmBox(){
@@ -109,5 +111,15 @@ public class ShowingsController extends MainController implements Initializable 
         screenCol.setCellValueFactory(new PropertyValueFactory<>("ScreenNumber"));
         seatsCol.setCellValueFactory(new PropertyValueFactory<>("NumberOfAvailableSeats"));
         showingTable.setItems(data);
+    }
+
+    private void popScreensList() {
+        ArrayList<Screen> screensArray = cinema.getScreens();
+        ArrayList<Integer> allScreenInts = new ArrayList<>();
+        for (Screen screen : screensArray) {
+            allScreenInts.add(screen.getScreenNumber());
+        }
+        ObservableList<Integer> allScreens = FXCollections.observableArrayList(allScreenInts);
+        screenBox.setItems(allScreens);
     }
 }

@@ -178,3 +178,7 @@
 #custProfile{
     -fx-font-size: 16pt;
 }
+
+.newScreenButton{
+    -fx-background-color: #E63946;
+}
