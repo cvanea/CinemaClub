@@ -166,6 +166,10 @@ public class Cinema {
         filmEdit.addShowing(this.getScreen(1), date, time, film);
     }
 
+    public void addShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException {
+        filmEdit.addShowing(screen, date, time, film);
+    }
+
     public void deleteShowing(String date, String time) {
         filmEdit.deleteShowing(this.getScreen(1), date, time);
     }
@@ -196,6 +200,11 @@ public class Cinema {
 
     public void setFilmRunTime(Film film, String newRunTime) {
         filmEdit.setFilmRunTime(film, newRunTime);
+    }
+
+    public void addScreen(Screen screen) {
+        screens.put(screen.getScreenNumber(), screen);
+        filmEdit.addScreen(screen);
     }
 
     public void deleteFilm(String title) {

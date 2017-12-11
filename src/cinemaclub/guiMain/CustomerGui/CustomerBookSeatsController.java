@@ -12,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -35,9 +34,6 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
     @FXML Label errorLabel;
     @FXML GridPane gridSeats;
 
-    private String seatRow;
-    private int seatNumber;
-    public static Button selectedSeat = null;
     public Showing showing;
 
     @Override

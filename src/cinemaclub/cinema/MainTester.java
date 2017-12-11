@@ -17,7 +17,8 @@ public class MainTester {
 //        filmEditTester();
 //        showingsTester();
 //        seatsTester();
-        exportTester();
+//        exportTester();
+        screenTester();
 
     }
 
@@ -280,4 +281,36 @@ public class MainTester {
 
         cinema.exportShowingsToCsv();
     }
+
+    private static void screenTester() {
+        Cinema cinema = new Cinema();
+
+        Screen screenTest = new Screen(2, 4, 5);
+        cinema.addScreen(screenTest);
+
+        System.out.println(cinema.getScreen(1));
+        System.out.println(cinema.getScreen(2));
+
+        try {
+            cinema.addFilm("Tester", "testpath", "testing showings", "01:00");
+        } catch (FilmExistsException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println(cinema.getFilmByTitle("Tester"));
+
+        try {
+            cinema.addShowing(screenTest, "2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
+        } catch (ShowingAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            System.out.println(cinema.getShowingsByDate("2018-02-20"));
+        } catch (PastDateException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
 }
