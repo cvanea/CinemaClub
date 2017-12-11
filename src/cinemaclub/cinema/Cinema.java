@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO Checking when adding showings for overlapping films.
 public class Cinema {
 
     private Login login;
@@ -29,7 +28,15 @@ public class Cinema {
         filmEdit = new FilmEdit();
         profile = new Profile();
         bookingSystem = new BookingSystem();
-        screens.put(1, filmDisplay.getScreenByNumber(1));
+        setupScreensFromDB();
+    }
+
+    private void setupScreensFromDB() {
+        ArrayList<Screen> allScreens = filmEdit.getScreens();
+
+        for (Screen screen : allScreens) {
+            screens.put(screen.getScreenNumber(), screen);
+        }
     }
 
     public Screen getScreen(Integer screenNumber) {
@@ -37,6 +44,7 @@ public class Cinema {
     }
 
     public ArrayList<Screen> getScreens() {
+        System.out.println(screens);
         ArrayList<Screen> allScreens = new ArrayList<>();
         allScreens.addAll(screens.values());
         return allScreens;
@@ -214,8 +222,8 @@ public class Cinema {
     }
 
     public void addScreen(Screen screen) throws ScreenNumberAlreadyExistsException {
-        screens.put(screen.getScreenNumber(), screen);
         filmEdit.addScreen(screen);
+        setupScreensFromDB();
     }
 
     public void deleteFilm(String title) {

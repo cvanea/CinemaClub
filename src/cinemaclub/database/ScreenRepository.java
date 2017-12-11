@@ -21,6 +21,8 @@ public class ScreenRepository implements Serializable {
 
     public void addScreen(Screen screen) {
         showings.put(screen, new ArrayList<>());
+
+        dataBase.updateExternalDB();
     }
 
     public ArrayList<Screen> getAllScreens() {
@@ -192,9 +194,6 @@ public class ScreenRepository implements Serializable {
     }
 
     public void addShowing(Screen screen, Showing showing) {
-
-
-
         ArrayList<Showing> showingsPerScreen = showings.get(screen);
         showingsPerScreen.add(showing);
         showings.put(screen, showingsPerScreen);

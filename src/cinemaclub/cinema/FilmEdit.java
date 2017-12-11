@@ -77,6 +77,10 @@ class FilmEdit {
         screenRepository.addScreen(screen);
     }
 
+    ArrayList<Screen> getScreens() {
+        return screenRepository.getAllScreens();
+    }
+
     void exportShowingsToCsv() {
         try {
             FileWriter writer = new FileWriter("Showings.csv");
@@ -91,7 +95,6 @@ class FilmEdit {
 
             for (Showing showing : allShowings) {
                 writer.write(showing.toCsv());
-                System.out.print(showing.toCsv());
             }
             writer.close();
         } catch (IOException e) {
