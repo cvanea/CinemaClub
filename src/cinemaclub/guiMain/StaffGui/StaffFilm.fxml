@@ -174,7 +174,7 @@
                                     <Font name="Arial Bold" size="30.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="errorLabel" alignment="TOP_LEFT" layoutX="19.0" layoutY="517.0" prefHeight="76.0" prefWidth="187.0" textFill="RED" wrapText="true">
+                              <Label fx:id="errorLabel" alignment="TOP_LEFT" layoutX="11.0" layoutY="517.0" prefHeight="76.0" prefWidth="187.0" textFill="RED" wrapText="true">
                                  <font>
                                     <Font name="Arial" size="16.0" />
                                  </font>

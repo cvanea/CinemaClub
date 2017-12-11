@@ -59,10 +59,16 @@ public class StaffMainController {
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SHOWINGS);
     }
 
-    public void pressUserEdit(ActionEvent event) throws IOException {
+    public void pressEditUserProfiles(ActionEvent event) throws IOException {
         GuiData.setViewTitle("Edit Profiles");
         headerLabelEdit.setText(GuiData.getViewTitle());
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_USER_PROFILE);
+    }
+
+    public void pressScreens(ActionEvent event) throws IOException {
+        GuiData.setViewTitle("Edit Profiles");
+        headerLabelEdit.setText(GuiData.getViewTitle());
+//        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREENS);
     }
 
 
