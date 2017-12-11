@@ -24,6 +24,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class BookSeatsController extends CustomerMainController implements Initializable {
+    //TODO ERROR LABEL TO DISPLAY NO PAST OR/AND FUTURE BOOKINGS.
 
     @FXML ImageView imageBox;
     @FXML Label titleText;

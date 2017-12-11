@@ -49,7 +49,7 @@ public class FilmByDateController extends CustomerMainController implements Init
     }
 
     public void selectDate(ActionEvent actionEvent) {
-        //TODO HANDLE ERROR WHEN YOU SELECT A DATE WITH NO FILMS. HANDLE ERROR WHEN YOU SELECT A DATE IN THE PAST.
+        //TODO ADD TO ERROR LABEL WHEN YOU SELECT A DATE WITH NO FILMS. ADD TO ERROR LABEL WHEN YOU SELECT A DATE IN THE PAST.
         try {
             datePicked = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             ArrayList<Film> films = cinema.getFilmsByDate(datePicked);
@@ -95,7 +95,7 @@ public class FilmByDateController extends CustomerMainController implements Init
     }
 
     public void pressPickTime(ActionEvent actionEvent) {
-        //TODO MAKE CUSTOM EXCEPTION IF THEY DON'T PICK A TIME
+        //TODO ADD TEXT TO TELL THEM TO PICK A TIME.
         GuiData.setShowing(cinema.getShowingByDateTimeFilm(GuiData.getDate(), GuiData.getTime(), GuiData.getFilm()));
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
     }

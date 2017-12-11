@@ -44,7 +44,6 @@ public class ShowingsController extends MainController implements Initializable 
 
     public void initialize(URL location, ResourceBundle resources) {
         fillFilmBox();
-        //TODO: Get all screens populate screenBox
         ObservableList<Integer> dataScreen = FXCollections.observableArrayList();
         dataScreen.add(1);
         screenBox.setItems(dataScreen);
