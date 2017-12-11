@@ -4,7 +4,9 @@ import cinemaclub.cinema.Screen;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
+import exceptions.OverlappingRuntimeException;
 import exceptions.ShowingAlreadyExistsException;
+import exceptions.ShowingOnOtherScreenException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -65,14 +67,14 @@ public class ShowingsController extends MainController implements Initializable 
     }
 
     public void pressAddShowing(ActionEvent event) {
-        //TODO: ADD TIME VALIDATOR
+        //TODO: ADD TIME VALIDATOR. Change if statement into exception.
         selectedTime = timeField.getText();
         if (selectedFilm != null & selectedDate != null & selectedTime != null & selectedScreen != null) {
             try {
                 cinema.addShowing(cinema.getScreen(selectedScreen), selectedDate, selectedTime, cinema.getFilmByTitle(selectedFilm));
                 errorLabel.setText("New Showing of "+ selectedFilm + " Added" );
                 fillShowingsTable();
-            } catch (ShowingAlreadyExistsException e) {
+            } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException | OverlappingRuntimeException e) {
                 System.out.println(e.getMessage());
                 errorLabel.setText(e.getMessage());
             }

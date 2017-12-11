@@ -13,7 +13,6 @@ public class ScreenRepository implements Serializable {
 
     private DataBase dataBase;
 
-    private ArrayList<Showing> showingsWithoutScreen = new ArrayList<>();
     private Map<Screen, ArrayList<Showing>> showings = new HashMap<>();
 
     ScreenRepository(DataBase dataBase) {
@@ -21,7 +20,15 @@ public class ScreenRepository implements Serializable {
     }
 
     public void addScreen(Screen screen) {
-        showings.put(screen, showingsWithoutScreen);
+        showings.put(screen, new ArrayList<>());
+
+        dataBase.updateExternalDB();
+    }
+
+    public ArrayList<Screen> getAllScreens() {
+        ArrayList<Screen> screens = new ArrayList<>();
+        screens.addAll(showings.keySet());
+        return screens;
     }
 
     public ArrayList<Showing> getScreenShowings(Screen screen) {
@@ -65,7 +72,7 @@ public class ScreenRepository implements Serializable {
         return allShowingsByDate;
     }
 
-    public ArrayList<Showing> getShowingsByDate(Screen screen, String date) {
+    public ArrayList<Showing> getShowingsByDateScreen(Screen screen, String date) {
         ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
         ArrayList<Showing> showingsByDate = new ArrayList<>();
 
@@ -79,6 +86,7 @@ public class ScreenRepository implements Serializable {
 
     public Showing getShowingByDateTimeScreen(Screen screen, String date, String time) {
         ArrayList<Showing> showingsByScreen = new ArrayList<>();
+
         showingsByScreen.addAll(showings.get(screen));
 
         for (Showing showing : showingsByScreen) {
@@ -98,6 +106,21 @@ public class ScreenRepository implements Serializable {
 
         for (Showing showing : allShowings) {
             if (showing.getDate().equals(date) && showing.getTime().equals(time)) {
+                return showing;
+            }
+        }
+        return null;
+    }
+
+    public Showing getShowingByDateTimeFilm(String date, String time, Film film) {
+        ArrayList<Showing> allShowings = new ArrayList<>();
+
+        for (Screen screen : showings.keySet()) {
+            allShowings.addAll(showings.get(screen));
+        }
+
+        for (Showing showing : allShowings) {
+            if (showing.getDate().equals(date) && showing.getTime().equals(time) && showing.getFilm() == film) {
                 return showing;
             }
         }
@@ -161,12 +184,19 @@ public class ScreenRepository implements Serializable {
     }
 
     public ArrayList<Showing> getAllShowings() {
-        return showingsWithoutScreen;
+        ArrayList<Showing> allShowings = new ArrayList<>();
+
+        for (Screen screen : showings.keySet()) {
+            allShowings.addAll(showings.get(screen));
+        }
+
+        return allShowings;
     }
 
     public void addShowing(Screen screen, Showing showing) {
-        showingsWithoutScreen.add(showing);
-        showings.put(screen, showingsWithoutScreen);
+        ArrayList<Showing> showingsPerScreen = showings.get(screen);
+        showingsPerScreen.add(showing);
+        showings.put(screen, showingsPerScreen);
 
         dataBase.updateExternalDB();
     }

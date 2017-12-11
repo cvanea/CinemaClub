@@ -2,6 +2,7 @@ package cinemaclub.guiMain.StaffGui;
 
 import cinemaclub.cinema.Screen;
 import cinemaclub.guiMain.GuiData;
+import exceptions.ScreenNumberAlreadyExistsException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -49,7 +50,11 @@ public class ScreensController extends MainController implements Initializable {
     int newColNum = newCols.getSelectionModel().getSelectedItem();
         if (newColNum != 0 &&  newRowNum != 0) {
             //TODO: ADD Exceptions
+            try {
             cinema.addScreen(new Screen(newScreenNum, newRowNum, newColNum));
+            } catch (ScreenNumberAlreadyExistsException e) {
+                System.out.println(e.getMessage());
+            }
             popScreenList();
             selectedScreen = cinema.getScreen(getLastScreen);
             screenList.getSelectionModel().select(newScreenNum);
@@ -71,7 +76,6 @@ public class ScreensController extends MainController implements Initializable {
 
 
     public void setRowCol(){
-        System.out.println(selectedScreen);
         deleteGrid();
 //        Integer screenNum = screenList.getSelectionModel().getSelectedItem();
 //        numRows.setText(Integer.toString(selectedScreen.getNumberRow()));

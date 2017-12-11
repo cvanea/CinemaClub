@@ -3,8 +3,7 @@ package cinemaclub.cinema;
 import cinemaclub.database.DataBase;
 import cinemaclub.database.FilmRepository;
 import cinemaclub.database.ScreenRepository;
-import exceptions.FilmExistsException;
-import exceptions.ShowingAlreadyExistsException;
+import exceptions.*;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -62,8 +61,10 @@ class FilmEdit {
         return filmRepository.getFilmByTitle(title);
     }
 
-    void addShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException {
-        validateShowing(screen, date, time);
+    void addShowing(Screen screen, String date, String time, Film film)
+        throws ShowingAlreadyExistsException, ShowingOnOtherScreenException, OverlappingRuntimeException {
+        validateShowing(screen, date, time, film);
+        validateShowingOverlap(screen, date, time, film);
         screenRepository.addShowing(screen, new Showing(screen, date, time, film, new HashMap<>()));
     }
 
@@ -71,8 +72,13 @@ class FilmEdit {
         screenRepository.deleteShowing(screen, date, time);
     }
 
-    void addScreen(Screen screen) {
+    void addScreen(Screen screen) throws ScreenNumberAlreadyExistsException {
+        validateNewScreen(screen.getScreenNumber());
         screenRepository.addScreen(screen);
+    }
+
+    ArrayList<Screen> getScreens() {
+        return screenRepository.getAllScreens();
     }
 
     void exportShowingsToCsv() {
@@ -89,7 +95,6 @@ class FilmEdit {
 
             for (Showing showing : allShowings) {
                 writer.write(showing.toCsv());
-                System.out.print(showing.toCsv());
             }
             writer.close();
         } catch (IOException e) {
@@ -103,11 +108,64 @@ class FilmEdit {
         }
     }
 
-    private void validateShowing(Screen screen, String date, String time) throws ShowingAlreadyExistsException {
-        //TODO check that added showing doesn't overlap a future one. Check that previous showing doesn't overlap the new one. Check that showing doesn't exist at that date and time on another screen.
+    private void validateNewScreen(Integer screenNumber) throws ScreenNumberAlreadyExistsException {
+        for (Screen screen : screenRepository.getAllScreens()) {
+            if (screen.getScreenNumber().equals(screenNumber)) {
+                throw new ScreenNumberAlreadyExistsException();
+            }
+        }
+    }
+
+    private void validateShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException, ShowingOnOtherScreenException {
         if (screenRepository.getShowingByDateTimeScreen(screen, date, time) != null) {
             throw new ShowingAlreadyExistsException();
+        } else if (screenRepository.getShowingByDateTimeFilm(date, time, film) != null) {
+            throw new ShowingOnOtherScreenException();
         }
-//        else if (screenRepository.getShowingByDateTime(screen, date, ))
+    }
+
+    private void validateShowingOverlap(Screen screen, String date, String time, Film film) throws OverlappingRuntimeException {
+        ArrayList<Showing> showingsByDateScreen = screenRepository.getShowingsByDateScreen(screen, date);
+
+        for (Showing showing : showingsByDateScreen) {
+            String existingTime = showing.getTime();
+            String runtime = showing.getFilm().getRunTime();
+
+            String[] splitExistingTime = existingTime.split(":");
+            String[] splitRuntime = runtime.split(":");
+
+            String existingTimeNumberString = splitExistingTime[0];
+            String runtimeNumberString = splitRuntime[0];
+
+            Integer existingTimeNumber = Integer.parseInt(existingTimeNumberString);
+            Integer runtimeNumber = Integer.parseInt(runtimeNumberString);
+
+            Integer timePlusRuntime = existingTimeNumber + runtimeNumber;
+
+            String timePlusRuntimeString = Integer.toString(timePlusRuntime);
+
+            if ((time.compareTo(existingTime) > 0) && (timePlusRuntimeString.compareTo(time)) > 0) {
+                throw new OverlappingRuntimeException();
+            }
+
+            String newRuntime = film.getRunTime();
+
+            String[] splitNewRuntime = newRuntime.split(":");
+            String[] splitTime = time.split(":");
+
+            String newRuntimeNumberString = splitNewRuntime[0];
+            String timeNumberString = splitTime[0];
+
+            Integer newRuntimeNumber = Integer.parseInt(newRuntimeNumberString);
+            Integer timeNumber = Integer.parseInt(timeNumberString);
+
+            Integer newRuntimePlusNewTime = newRuntimeNumber + timeNumber;
+
+            String newRunTimePlusNewTimeString = Integer.toString(newRuntimePlusNewTime);
+
+            if ((time.compareTo(existingTime) < 0) && (existingTime.compareTo(newRunTimePlusNewTimeString) < 0)) {
+                throw new OverlappingRuntimeException();
+            }
+        }
     }
 }

@@ -173,7 +173,7 @@ public class MainTester {
         try {
             cinema.addShowing(cinema.getScreen(1),"2018-11-09", "15:00", filmTest);
             cinema.addShowing(cinema.getScreen(1),"2018-11-09", "12:00", filmTest2);
-        } catch (ShowingAlreadyExistsException e) {
+        } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException | OverlappingRuntimeException e) {
             System.out.println(e.getMessage());
         }
 
@@ -257,7 +257,7 @@ public class MainTester {
 
         try {
             cinema.addShowing(cinema.getScreen(1), "2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
-        } catch (ShowingAlreadyExistsException e) {
+        } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException | OverlappingRuntimeException e) {
             System.out.println(e.getMessage());
         }
 
@@ -286,7 +286,12 @@ public class MainTester {
         Cinema cinema = new Cinema();
 
         Screen screenTest = new Screen(2, 4, 5);
-        cinema.addScreen(screenTest);
+
+        try {
+            cinema.addScreen(screenTest);
+        } catch (ScreenNumberAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
 
         System.out.println(cinema.getScreen(1));
         System.out.println(cinema.getScreen(2));
@@ -300,8 +305,14 @@ public class MainTester {
         System.out.println(cinema.getFilmByTitle("Tester"));
 
         try {
-            cinema.addShowing(screenTest, "2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
-        } catch (ShowingAlreadyExistsException e) {
+            cinema.addShowing(cinema.getScreen(2), "2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
+        } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException | OverlappingRuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            System.out.println(cinema.getShowingsByDate("2018-02-20", cinema.getScreen(2)));
+        } catch (PastDateException e) {
             System.out.println(e.getMessage());
         }
 
