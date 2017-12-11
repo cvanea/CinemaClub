@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import java.net.URL;
@@ -19,11 +20,12 @@ import java.util.ResourceBundle;
 
 public class CustomerProfileController extends CustomerMainController implements Initializable {
 
-    @FXML Label nameBox;
-    @FXML Label emailBox;
-    @FXML Label passwordBox;
-    @FXML Label firstNameBox;
-    @FXML Label lastNameBox;
+    @FXML TextField username;
+    @FXML TextField password;
+    @FXML TextField email;
+    @FXML TextField firstName;
+    @FXML TextField surname;
+    @FXML Label errorLabel;
     @FXML TableView<Booking> futureTable;
     @FXML TableColumn <Booking, String> filmTable;
     @FXML TableColumn <Booking, String> dateTable;
@@ -39,11 +41,11 @@ public class CustomerProfileController extends CustomerMainController implements
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        nameBox.setText(cinema.getProfileDetails().getUsername());
-        emailBox.setText(cinema.getCurrentUser().getEmail());
-        passwordBox.setText(cinema.getCurrentUser().getPassword());
-        firstNameBox.setText(cinema.getProfileDetails().getFirstName());
-        lastNameBox.setText(cinema.getProfileDetails().getSurname());
+        username.setText(cinema.getProfileDetails().getUsername());
+        email.setText(cinema.getCurrentUser().getEmail());
+        password.setText(cinema.getCurrentUser().getPassword());
+        firstName.setText(cinema.getProfileDetails().getFirstName());
+        surname.setText(cinema.getProfileDetails().getSurname());
         fillFutureBookings();
         fillPastBookings();
     }
@@ -62,7 +64,20 @@ public class CustomerProfileController extends CustomerMainController implements
     }
 
     public void setProfileText(ActionEvent event) {
-        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE_EDIT);
+        try {
+            if(!username.getText().equals(cinema.getProfileDetails().getUsername())) {
+                cinema.setUsername(username.getText());
+            }
+            cinema.setUserEmail(email.getText());
+            cinema.setUserPassword(password.getText());
+            cinema.setUserFirstName(firstName.getText());
+            cinema.setUserSurname(surname.getText());
+            errorLabel.setText("Profile Updated");
+            errorLabel.setStyle("-fx-text-fill: darkgreen");
+        } catch (UsernameTakenException e) {
+            errorLabel.setText(e.getMessage());
+            errorLabel.setStyle("-fx-text-fill: red");
+        }
     }
 
     private void fillFutureBookings() {

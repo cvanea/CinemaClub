@@ -37,16 +37,19 @@ public class CustomerMainController {
     }
     public void pressProfile(ActionEvent event) throws IOException {
         GuiData.setViewTitle("Profile");
+        headerLabelEdit.setText(GuiData.getViewTitle());
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE);
 
     }
     public void pressHome(ActionEvent event) throws IOException {
-        GuiData.setViewTitle("Book Film");
+        GuiData.setViewTitle("Book Film By Date");
+        headerLabelEdit.setText(GuiData.getViewTitle());
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
     }
 
     public void pressFilm(ActionEvent event) throws IOException {
-//        GuiData.setViewTitle("Book Film");
+        GuiData.setViewTitle("Film Browser");
+        headerLabelEdit.setText(GuiData.getViewTitle());
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_FILM_VIEW);
     }
 

@@ -160,3 +160,21 @@
     -fx-font-weight: bold;
 }
 
+.profileLabel{
+    -fx-font-size: 12pt;
+    -fx-color: #ffffff;
+}
+
+#profileBackground{
+    -fx-background-color: #40a9ef;
+
+}
+
+.updateProfile {
+    -fx-font-size: 16pt;
+}
+
+
+#custProfile{
+    -fx-font-size: 16pt;
+}

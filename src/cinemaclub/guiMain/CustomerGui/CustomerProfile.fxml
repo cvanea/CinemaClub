@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -14,93 +16,24 @@
    <children>
       <GridPane style="-fx-background-color: #ffffff;">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="546.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="829.0" minWidth="10.0" prefWidth="741.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.650146484375" minWidth="10.0" prefWidth="131.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="515.986328125" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="43.64874267578125" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="829.0" minWidth="10.0" prefWidth="616.3512573242188" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.650146484375" minWidth="10.0" prefWidth="43.0771484375" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="86.2937240600586" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="556.7062759399414" minHeight="10.0" prefHeight="556.7062759399414" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="79.38607025146484" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="564.6139297485352" minHeight="10.0" prefHeight="564.6139297485352" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="119.45355224609375" minHeight="10.0" prefHeight="35.68035888671875" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1">
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="185.8819580078125" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.1180419921875" minWidth="10.0" prefWidth="345.1180419921875" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label fx:id="userName" text="User Name:" GridPane.halignment="RIGHT">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="email" text="Email:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="password" prefHeight="29.0" prefWidth="118.0" text="Password:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="firstName" text="First Name:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lastName" text="Last Name:" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="pressMe" mnemonicParsing="false" onAction="#setProfileText" prefHeight="36.0" prefWidth="68.0" text="Edit" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Button>
-                  <Label fx:id="nameBox" layoutX="170.0" layoutY="67.0" maxHeight="50.0" maxWidth="300.0" prefHeight="30.0" GridPane.columnIndex="1">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="passwordBox" maxHeight="50.0" maxWidth="300.0" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="emailBox" maxHeight="50.0" maxWidth="300.0" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="firstNameBox" maxHeight="50.0" maxWidth="300.0" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lastNameBox" maxHeight="50.0" maxWidth="300.0" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </GridPane>
-            <Label styleClass="filmTitle" text="Profile Details" GridPane.halignment="CENTER">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #40a9ef;" />
+            <Label text="Profile Details" textFill="WHITE" underline="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
-            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -108,24 +41,24 @@
                   <RowConstraints maxHeight="339.913818359375" minHeight="10.0" prefHeight="40.114654541015625" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="230.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="179.06692504882812" minHeight="10.0" prefHeight="53.99359130859375" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="268.583251953125" minHeight="5.675201416015625" prefHeight="41.33758544921875" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="230.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="268.583251953125" minHeight="5.675201416015625" prefHeight="55.0347900390625" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="204.9652099609375" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <TableView fx:id="futureTable" onMouseClicked="#futureMouseClick" prefHeight="200.0" prefWidth="575.0" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="filmTable" prefWidth="204.0" text="Film" />
-                      <TableColumn fx:id="dateTable" prefWidth="134.0" text="Date" />
-                        <TableColumn fx:id="timeTable" prefWidth="135.0" text="Time" />
-                        <TableColumn fx:id="seatTable" prefWidth="99.0" text="Seat" />
+                      <TableColumn fx:id="filmTable" prefWidth="218.0616455078125" text="Film" />
+                      <TableColumn fx:id="dateTable" prefWidth="162.93829345703125" text="Date" />
+                        <TableColumn fx:id="timeTable" prefWidth="118.517578125" text="Time" />
+                        <TableColumn fx:id="seatTable" prefWidth="107.1929931640625" text="Seat" />
                     </columns>
                   </TableView>
                   <TableView fx:id="pastTable" prefHeight="200.0" prefWidth="575.0" GridPane.rowIndex="4">
                      <columns>
-                        <TableColumn fx:id="filmTableP" prefWidth="204.0" text="Film" />
-                        <TableColumn fx:id="dateTableP" prefWidth="134.0" text="Date" />
-                        <TableColumn fx:id="timeTableP" prefWidth="135.0" text="Time" />
-                        <TableColumn fx:id="seatTableP" prefWidth="99.0" text="Seat" />
+                        <TableColumn fx:id="filmTableP" prefWidth="244.67559814453125" text="Film" />
+                        <TableColumn fx:id="dateTableP" prefWidth="144.32427978515625" text="Date" />
+                        <TableColumn fx:id="timeTableP" prefWidth="106.25469970703125" text="Time" />
+                        <TableColumn fx:id="seatTableP" prefWidth="118.9652099609375" text="Seat" />
                      </columns>
                   </TableView>
                   <Button fx:id="cancelBook" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel Booking" GridPane.halignment="CENTER" GridPane.rowIndex="2">
@@ -133,23 +66,84 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Label prefHeight="26.0" prefWidth="164.0" text="Future Bookings" textAlignment="CENTER" GridPane.halignment="CENTER">
+                  <Label prefHeight="26.0" prefWidth="164.0" text="Future Bookings" textAlignment="CENTER" textFill="#003459" GridPane.halignment="CENTER">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="26.0" prefWidth="139.0" text="Past Bookings" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                  <Label prefHeight="26.0" prefWidth="139.0" text="Past Bookings" textFill="#003459" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                </children>
             </GridPane>
-            <Label styleClass="filmTitle" text="Bookings" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+            <Label text="Bookings" textFill="#003459" underline="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
+            <AnchorPane id="profileBackground" stylesheets="@../style.css" GridPane.rowIndex="1">
+               <children>
+                  <TextField id="custProfile" fx:id="username" layoutX="70.0" layoutY="74.0" prefHeight="50.0" prefWidth="256.0" styleClass="registerField" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="40.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="custProfile" fx:id="password" layoutX="70.0" layoutY="152.0" prefHeight="50.0" prefWidth="256.0" styleClass="registerField" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="120.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="custProfile" fx:id="email" layoutX="70.0" layoutY="229.0" prefHeight="50.0" prefWidth="256.0" styleClass="registerField" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="210.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="custProfile" fx:id="firstName" layoutX="70.0" layoutY="312.0" prefHeight="50.0" prefWidth="250.0" styleClass="registerField" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="300.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField id="custProfile" fx:id="surname" layoutX="72.0" layoutY="397.0" prefHeight="50.0" prefWidth="250.0" styleClass="registerField" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="390.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="register" alignment="CENTER" layoutX="142.0" layoutY="498.0" mnemonicParsing="false" onAction="#setProfileText" prefHeight="43.0" prefWidth="201.0" styleClass="updateProfile" text="Update Profile" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="131.0" />
+                  <Label layoutX="70.0" layoutY="52.0" styleClass="profileLabel" text="Username" textFill="WHITE" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="70.0" layoutY="134.0" styleClass="profileLabel" text="Password" textFill="WHITE" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="100.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="71.0" layoutY="211.0" styleClass="profileLabel" text="Email" textFill="WHITE" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="190.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="72.0" layoutY="291.0" styleClass="profileLabel" text="First Name" textFill="WHITE" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="280.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="73.0" layoutY="377.0" styleClass="profileLabel" text="Surname" textFill="WHITE" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="370.0">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="errorLabel" alignment="CENTER" layoutX="95.0" layoutY="453.0" prefHeight="34.0" prefWidth="326.0" textAlignment="CENTER" textFill="#ff0101" wrapText="true" AnchorPane.leftAnchor="95.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #40a9ef;" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>
