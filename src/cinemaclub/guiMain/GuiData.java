@@ -64,16 +64,24 @@ public class GuiData {
         GuiData.time = time;
     }
 
+    public static void setSeatRow(String seatRow) {
+        GuiData.seatRow = seatRow;
+    }
+
+    public static void setSeatNumber(int seatNumber) {
+        GuiData.seatNumber = seatNumber;
+    }
+
     /*
      Methods For Creating Cinema
      */
 
     public static void splitSeat(Button button) {
-//        String seat = button.getText();
         String seat = button.getAccessibleText();
         String[] splitSeat = seat.split("(?!^)", 2);
         seatRow = splitSeat[0];
         seatNumber = Integer.parseInt(splitSeat[1]);
+
     }
 
     public static Boolean isSeatTaken() {
