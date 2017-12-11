@@ -68,7 +68,7 @@ public class DataBase implements Serializable {
             dataBase.userRepository.addStaffID("4", "noStaff");
             dataBase.userRepository.addStaffID("5", "noStaff");
 
-            Film up = new Film("UP", "/UP.jpg", "A great film", "01:00");
+            Film up = new Film("UP", "/UP.jpg", "A great film", "02:00");
             Film walle = new Film("Walle", "/walle.jpg", "A another great film", "02:00");
 
             dataBase.filmRepository.addFilm("UP", up);
