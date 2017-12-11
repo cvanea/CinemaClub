@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class CustomerFilmViewController extends CustomerMainController implements Initializable {
+public class FilmBrowserController extends CustomerMainController implements Initializable {
 
     @FXML ImageView imageBox1;
     @FXML Label titleText1;
