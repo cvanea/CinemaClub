@@ -39,7 +39,6 @@ public class RegisterController extends LoginMainController {
     }
 
     public void registerButton(ActionEvent event) {
-
         try {
             if (staffCheck.isSelected()) {
                 cinema.registerUser(username.getText(), email.getText(), password.getText(), firstName.getText(), surname.getText(), "staff", staffID.getText());
