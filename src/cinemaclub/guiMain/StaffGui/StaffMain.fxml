@@ -13,24 +13,25 @@
 
 <VBox fillWidth="false" prefHeight="750.0" prefWidth="1200.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.StaffMainController">
     <children>
-        <AnchorPane prefHeight="75.0" prefWidth="1200.0" style="-fx-background-color: #00171F;">
+        <AnchorPane maxHeight="70.0" prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: #00171F;">
             <children>
-            <Label fx:id="headerLabelEdit" alignment="CENTER" layoutX="364.0" layoutY="5.0" maxWidth="1.7976931348623157E308" prefHeight="71.0" prefWidth="500.0" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="450.0">
+            <Label fx:id="headerLabelEdit" alignment="CENTER" layoutX="223.0" layoutY="22.0" maxWidth="1.7976931348623157E308" prefHeight="71.0" prefWidth="346.0" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="570.0" AnchorPane.topAnchor="20.0">
                <font>
                   <Font name="System Bold" size="32.0" />
                </font>
             </Label>
-                <Button fx:id="filmsBut" layoutX="760.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressHome" styleClass="menuButton" text="Films" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="385.0" AnchorPane.topAnchor="24.0" />
-            <Button fx:id="showBut" layoutX="826.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressShowings" styleClass="menuButton" text="Showings" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="290.0" AnchorPane.topAnchor="24.0" />
-            <Button fx:id="profileBut" layoutX="920.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressProfile" styleClass="menuButton" text="Staff Profile" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="24.0" />
-                <Button fx:id="logBut" layoutX="1115.0" layoutY="23.0" mnemonicParsing="false" onAction="#pressLogOut" styleClass="menuButton" text="Log Out" AnchorPane.bottomAnchor="24.0" AnchorPane.topAnchor="24.0" />
-            <Button fx:id="userEdit" layoutX="1024.0" layoutY="23.0" mnemonicParsing="false" onAction="#pressUserEdit" styleClass="menuButton" text="User Edit" AnchorPane.bottomAnchor="24.0" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="24.0" />
+                <Button fx:id="filmsBut" layoutX="658.0" layoutY="22.0" mnemonicParsing="false" onAction="#pressHome" styleClass="menuButton" text="Films" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0" />
+            <Button fx:id="showBut" layoutX="723.0" layoutY="22.0" mnemonicParsing="false" onAction="#pressShowings" styleClass="menuButton" text="Showings" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0" />
+            <Button fx:id="profileBut" layoutX="898.0" layoutY="22.0" mnemonicParsing="false" onAction="#pressProfile" prefWidth="68.0" styleClass="menuButton" text="Profile" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0" />
+                <Button fx:id="logBut" layoutX="1115.0" layoutY="23.0" mnemonicParsing="false" onAction="#pressLogOut" styleClass="menuButton" text="Log Out" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0" />
             <ImageView fitHeight="61.0" fitWidth="200.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="/CinemaClubWh.png" />
                 </image>
             </ImageView>
             <Label layoutX="151.0" layoutY="47.0" text="Staff" textFill="WHITE" />
+            <Button fx:id="profileBut1" layoutX="974.0" layoutY="22.0" mnemonicParsing="false" onAction="#pressEditUserProfiles" styleClass="menuButton" text="Edit User Profiles" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0" />
+            <Button fx:id="profileBut11" layoutX="816.0" layoutY="22.0" mnemonicParsing="false" onAction="#pressScreens" styleClass="menuButton" text="Screens" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="25.0" />
             </children>
         </AnchorPane>
         <StackPane fx:id="viewHolder" VBox.vgrow="ALWAYS">

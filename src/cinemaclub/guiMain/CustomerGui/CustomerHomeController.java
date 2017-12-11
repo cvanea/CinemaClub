@@ -1,6 +1,7 @@
 package cinemaclub.guiMain.CustomerGui;
 
 import cinemaclub.cinema.Film;
+import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.PastDateException;
@@ -37,6 +38,8 @@ public class CustomerHomeController extends CustomerMainController implements In
     @FXML ListView<String> filmList;
     @FXML ListView<String> timesList;
 
+    String datePicked;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pickFilm.setOpacity(0);
@@ -48,7 +51,7 @@ public class CustomerHomeController extends CustomerMainController implements In
     public void selectDate(ActionEvent actionEvent) {
         //TODO HANDLE ERROR WHEN YOU SELECT A DATE WITH NO FILMS. HANDLE ERROR WHEN YOU SELECT A DATE IN THE PAST.
         try {
-            String datePicked = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            datePicked = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             ArrayList<Film> films = cinema.getFilmsByDate(datePicked);
             ArrayList<String> filmTitles = new ArrayList<>();
             for (Film film : films) {
@@ -67,10 +70,15 @@ public class CustomerHomeController extends CustomerMainController implements In
     public void chooseFilm(MouseEvent actionEvent) {
         try {
             String chosenFilm = filmList.getSelectionModel().getSelectedItem();
-            ArrayList<String> times = cinema.getTimesByFilm(cinema.getFilmByTitle(chosenFilm));
-
-            ObservableList<String> data = FXCollections.observableArrayList(times);
-            timesList.setItems(data);
+            ArrayList<Showing> showingsTime = cinema.getAllShowingsByFilm(cinema.getFilmByTitle(chosenFilm));
+            ArrayList<String> timesArrayList = new ArrayList<>();
+            for (Showing showing: showingsTime) {
+                if (showing.getDate().equals(datePicked)){
+                    timesArrayList.add(showing.getTime());
+                }
+            }
+            ObservableList<String> times = FXCollections.observableArrayList(timesArrayList);
+            timesList.setItems(times);
             setFilmInfo(cinema.getFilmByTitle(chosenFilm));
             filmDisplayPane.setOpacity(1);
         } catch (NullPointerException e) {
