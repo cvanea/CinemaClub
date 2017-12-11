@@ -16,6 +16,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
@@ -29,10 +30,20 @@ public class CustomerHomeController extends CustomerMainController implements In
     @FXML Label descriptionText;
     @FXML Label runtimeText;
     @FXML Label runTime;
+    @FXML Label pickFilm;
     @FXML Button pickSeatButton;
     @FXML DatePicker datePicker;
+    @FXML AnchorPane filmDisplayPane;
     @FXML ListView<String> filmList;
     @FXML ListView<String> timesList;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        pickFilm.setOpacity(0);
+        filmDisplayPane.setOpacity(0);
+        filmList.setOpacity(0);
+        pickSeatButton.setOpacity(0);
+    }
 
     public void selectDate(ActionEvent actionEvent) {
         //TODO HANDLE ERROR WHEN YOU SELECT A DATE WITH NO FILMS. HANDLE ERROR WHEN YOU SELECT A DATE IN THE PAST.
@@ -45,6 +56,7 @@ public class CustomerHomeController extends CustomerMainController implements In
             }
             ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
             filmList.setItems(data);
+            pickFilm.setOpacity(1);
             filmList.setOpacity(1);
             GuiData.setDate(datePicked);
         } catch (PastDateException e) {
@@ -60,8 +72,7 @@ public class CustomerHomeController extends CustomerMainController implements In
             ObservableList<String> data = FXCollections.observableArrayList(times);
             timesList.setItems(data);
             setFilmInfo(cinema.getFilmByTitle(chosenFilm));
-            runtimeText.setOpacity(1);
-            timesList.setOpacity(1);
+            filmDisplayPane.setOpacity(1);
         } catch (NullPointerException e) {
             System.out.println("There are no showings on there!");
         }
@@ -76,14 +87,6 @@ public class CustomerHomeController extends CustomerMainController implements In
         //TODO MAKE CUSTOM EXCEPTION IF THEY DON'T PICK A TIME
         GuiData.setShowing(cinema.getShowingByDateTime(GuiData.getDate(), GuiData.getTime()));
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        runtimeText.setOpacity(0);
-        timesList.setOpacity(0);
-        filmList.setOpacity(0);
-        pickSeatButton.setOpacity(0);
     }
 
     private void setFilmInfo(Film film) throws NullPointerException {

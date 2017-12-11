@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.CustomerGui.CustomerProfileController">
+<StackPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.StaffProfilev2Controller">
    <children>
       <GridPane style="-fx-background-color: #ffffff;">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="515.986328125" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="43.64874267578125" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="829.0" minWidth="10.0" prefWidth="616.3512573242188" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="108.52104187011719" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="465.33197021484375" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="829.0" minWidth="10.0" prefWidth="582.6680297851562" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.650146484375" minWidth="10.0" prefWidth="43.0771484375" />
         </columnConstraints>
         <rowConstraints>
@@ -27,63 +27,40 @@
           <RowConstraints maxHeight="119.45355224609375" minHeight="10.0" prefHeight="35.68035888671875" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #40a9ef;" />
-            <Label text="Profile Details" textFill="WHITE" underline="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #40a9ef;" GridPane.columnIndex="1" />
+            <Label text="Your Profile Details" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
             <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.9495849609375" minWidth="10.0" prefWidth="82.26470947265625" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="434.35296630859375" minWidth="10.0" prefWidth="392.73529052734375" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.9495849609375" minWidth="10.0" prefWidth="86.64703369140625" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="339.913818359375" minHeight="10.0" prefHeight="40.114654541015625" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="230.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="179.06692504882812" minHeight="10.0" prefHeight="53.99359130859375" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="268.583251953125" minHeight="5.675201416015625" prefHeight="55.0347900390625" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="204.9652099609375" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="339.913818359375" minHeight="10.0" prefHeight="68.100830078125" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="382.5979919433594" minHeight="10.0" prefHeight="340.899169921875" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="145.22686767578125" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="futureTable" onMouseClicked="#futureMouseClick" prefHeight="200.0" prefWidth="575.0" GridPane.rowIndex="1">
+                  <Label text="Staff IDs" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <TableView prefHeight="365.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="filmTable" prefWidth="218.0616455078125" text="Film" />
-                      <TableColumn fx:id="dateTable" prefWidth="162.93829345703125" text="Date" />
-                        <TableColumn fx:id="timeTable" prefWidth="118.517578125" text="Time" />
-                        <TableColumn fx:id="seatTable" prefWidth="107.1929931640625" text="Seat" />
+                      <TableColumn prefWidth="85.06298828125" text="Username" />
+                      <TableColumn prefWidth="89.93701171875" text="First Name" />
+                        <TableColumn prefWidth="97.8487548828125" text="Surname" />
+                        <TableColumn prefWidth="128.71014404296875" text="Staff ID Number" />
                     </columns>
                   </TableView>
-                  <TableView fx:id="pastTable" prefHeight="200.0" prefWidth="575.0" GridPane.rowIndex="4">
-                     <columns>
-                        <TableColumn fx:id="filmTableP" prefWidth="244.67559814453125" text="Film" />
-                        <TableColumn fx:id="dateTableP" prefWidth="144.32427978515625" text="Date" />
-                        <TableColumn fx:id="timeTableP" prefWidth="106.25469970703125" text="Time" />
-                        <TableColumn fx:id="seatTableP" prefWidth="118.9652099609375" text="Seat" />
-                     </columns>
-                  </TableView>
-                  <Button fx:id="cancelBook" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel Booking" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Label prefHeight="26.0" prefWidth="164.0" text="Future Bookings" textAlignment="CENTER" textFill="#003459" GridPane.halignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="26.0" prefWidth="139.0" text="Past Bookings" textFill="#003459" GridPane.halignment="CENTER" GridPane.rowIndex="3">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Label>
                </children>
             </GridPane>
-            <Label text="Bookings" textFill="#003459" underline="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </Label>
-            <AnchorPane id="profileBackground" stylesheets="@../style.css" GridPane.rowIndex="1">
+            <AnchorPane id="profileBackground" stylesheets="@../style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <TextField id="custProfile" fx:id="username" layoutX="70.0" layoutY="74.0" prefHeight="50.0" prefWidth="256.0" styleClass="registerField" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="40.0">
                      <font>
@@ -143,7 +120,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #40a9ef;" GridPane.rowIndex="2" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #40a9ef;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>

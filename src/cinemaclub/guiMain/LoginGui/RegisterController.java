@@ -40,15 +40,19 @@ public class RegisterController extends LoginMainController {
                 cinema.registerUser(username.getText(), email.getText(), password.getText(), firstName.getText(),surname.getText(), "customer", null);
             }
             errorLabel.setText("Registered");
-            GuiData.setSuccessMessage("success");
+            GuiData.setSuccessMessage("Successfully Registered: " + username.getText() );
             StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_USER);
         } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
             errorLabel.setText(e.getMessage());
-            System.out.println(e.getMessage());
+//            System.out.println(e.getMessage());
         }
     }
 
-    public void loginButton(ActionEvent event) throws IOException{
+    public void loginButton(ActionEvent event) {
+        StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_USER);
+    }
+
+    public void loadRegisterModal(ActionEvent event) throws IOException{
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(RegisterController.class.getResource("ModalRegister.fxml"));
         stage.setScene(new Scene(root));
@@ -57,8 +61,6 @@ public class RegisterController extends LoginMainController {
         stage.initOwner(
                 ((Node)event.getSource()).getScene().getWindow() );
         stage.show();
-        GuiData.setSuccessMessage("success");
-        StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_USER);
     }
 
 }

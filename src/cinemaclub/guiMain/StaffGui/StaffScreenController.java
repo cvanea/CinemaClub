@@ -63,6 +63,7 @@ public class StaffScreenController extends StaffMainController implements Initia
 
             if (user instanceof Customer) {
                 Customer customer = (Customer) user;
+
                 String seat = entry.getKey();
                 Booking booking = customer.getBooking(showing, seat);
                 data.add(new BookingUserInfo(customer, booking));
@@ -80,7 +81,7 @@ public class StaffScreenController extends StaffMainController implements Initia
     public void initialize(URL location, ResourceBundle resources) {
         showing = GuiData.getShowing();
         setFilmInfo();
-        GuiData.setupSeatButtons(gridSeats, 780,500, "staff");
+        GuiData.setupSeatButtons(gridSeats, 780,450, "staff");
         fillUserTable();
     }
 
@@ -106,6 +107,7 @@ public class StaffScreenController extends StaffMainController implements Initia
             this.firstName = customer.getFirstName();
             this.surname = customer.getSurname();
             this.seat = customer.getSeat(booking);
+            System.out.println(booking);
         }
 
         public String getUsername() {
