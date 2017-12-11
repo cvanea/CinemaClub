@@ -134,40 +134,76 @@ public class Cinema {
         bookingSystem.bookFilm(currentUser, showing, seatRow, seatNumber);
     }
 
+//    public ArrayList<Film> getAllFilmsByDate(String date) throws PastDateException {
+//        return filmDisplay.getAllFilmsByDate(date, this.getScreen(1));
+//    }
+
     public ArrayList<Film> getFilmsByDate(String date) throws PastDateException {
-        return filmDisplay.getFilmsByDateScreen(date, this.getScreen(1));
+        return filmDisplay.getFilmsByDate(date);
     }
 
-    public ArrayList<Showing> getShowingsByDate(String date) throws PastDateException {
-        return filmDisplay.getShowingsByDate(date, this.getScreen(1));
+//    public ArrayList<Showing> getShowingsByDate(String date) throws PastDateException {
+//        return filmDisplay.getShowingsByDate(date, this.getScreen(1));
+//    }
+
+    public ArrayList<Showing> getShowingsByDate(String date, Screen screen) throws PastDateException {
+        return filmDisplay.getShowingsByDate(date, screen);
     }
+
+//    public Showing getShowingByDateTime(String date, String time) {
+//        return filmDisplay.getShowingByDateTime(this.getScreen(1), date, time);
+//    }
 
     public Showing getShowingByDateTime(String date, String time) {
-        return filmDisplay.getShowingByDateTime(this.getScreen(1), date, time);
+        return filmDisplay.getShowingByDateTime(date, time);
     }
 
-    public ArrayList<String> getTimesByFilm(Film film) {
-        return filmDisplay.getTimesByFilm(this.getScreen(1), film);
+    public Showing getShowingByDateTimeScreen(Screen screen, String date, String time) {
+        return filmDisplay.getShowingByDateTimeScreen(screen, date, time);
     }
 
-    public ArrayList<String> getDatesByFilm(Film film) {
-        return filmDisplay.getDatesByFilm(this.getScreen(1), film);
+//    public ArrayList<String> getTimesByFilmScreen(Film film) {
+//        return filmDisplay.getTimesByFilmScreen(this.getScreen(1), film);
+//    }
+
+    public ArrayList<String> getAllTimesByFilm(Film film) {
+        return filmDisplay.getAllTimesByFilm(film);
     }
+
+//    public ArrayList<String> getDatesByFilm(Film film) {
+//        return filmDisplay.getDatesByFilm(this.getScreen(1), film);
+//    }
+
+    public ArrayList<String> getDatesByFilm(Screen screen, Film film) {
+        return filmDisplay.getDatesByFilm(screen, film);
+    }
+
+//    public ArrayList<Showing> getAllShowingsByFilm(Film film) {
+//        return filmDisplay.getAllShowingsByFilm(this.getScreen(1), film);
+//    }
 
     public ArrayList<Showing> getAllShowingsByFilm(Film film) {
-        return filmDisplay.getAllShowingsByFilm(this.getScreen(1), film);
+        return filmDisplay.getAllShowingsByFilm(film);
     }
 
     public ArrayList<Showing> getAllShowings() {
         return filmDisplay.getAllShowings();
     }
 
-    public void addShowing(String date, String time, Film film) throws ShowingAlreadyExistsException {
-        filmEdit.addShowing(this.getScreen(1), date, time, film);
+//    public void addShowing(String date, String time, Film film) throws ShowingAlreadyExistsException {
+//        filmEdit.addShowing(this.getScreen(1), date, time, film);
+//    }
+
+    public void addShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException {
+        filmEdit.addShowing(screen, date, time, film);
     }
 
-    public void deleteShowing(String date, String time) {
-        filmEdit.deleteShowing(this.getScreen(1), date, time);
+//    public void deleteShowing(String date, String time) {
+//        filmEdit.deleteShowing(this.getScreen(1), date, time);
+//    }
+
+    public void deleteShowing(Screen screen, String date, String time) {
+        filmEdit.deleteShowing(screen, date, time);
     }
 
     public void exportShowingsToCsv() {
@@ -196,6 +232,11 @@ public class Cinema {
 
     public void setFilmRunTime(Film film, String newRunTime) {
         filmEdit.setFilmRunTime(film, newRunTime);
+    }
+
+    public void addScreen(Screen screen) {
+        screens.put(screen.getScreenNumber(), screen);
+        filmEdit.addScreen(screen);
     }
 
     public void deleteFilm(String title) {

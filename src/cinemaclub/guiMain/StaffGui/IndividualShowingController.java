@@ -59,8 +59,9 @@ public class IndividualShowingController extends MainController implements Initi
 
             if (user instanceof Customer) {
                 Customer customer = (Customer) user;
-                Booking booking = customer.getBookingByShowing(showing);
-                //TODO: FIX BOOKING to get all seats (Not just A1)
+
+                String seat = entry.getKey();
+                Booking booking = customer.getBooking(showing, seat);
                 data.add(new BookingUserInfo(customer, booking));
             }
         }

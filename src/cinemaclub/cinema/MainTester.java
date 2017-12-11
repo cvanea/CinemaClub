@@ -17,7 +17,8 @@ public class MainTester {
 //        filmEditTester();
 //        showingsTester();
 //        seatsTester();
-        exportTester();
+//        exportTester();
+        screenTester();
 
     }
 
@@ -170,14 +171,14 @@ public class MainTester {
         Film filmTest2 = new Film("FilmTest2", "Path2", "A tester film2", "01:00");
 
         try {
-            cinema.addShowing("2018-11-09", "15:00", filmTest);
-            cinema.addShowing("2018-11-09", "12:00", filmTest2);
+            cinema.addShowing(cinema.getScreen(1),"2018-11-09", "15:00", filmTest);
+            cinema.addShowing(cinema.getScreen(1),"2018-11-09", "12:00", filmTest2);
         } catch (ShowingAlreadyExistsException e) {
             System.out.println(e.getMessage());
         }
 
-        Showing testShowing = cinema.getShowingByDateTime("2018-11-09", "15:00");
-        Showing testShowing2 = cinema.getShowingByDateTime("2018-11-09", "12:00");
+        Showing testShowing = cinema.getShowingByDateTimeScreen(cinema.getScreen(1),"2018-11-09", "15:00");
+        Showing testShowing2 = cinema.getShowingByDateTimeScreen(cinema.getScreen(1),"2018-11-09", "12:00");
 
         try {
             cinema.bookFilm(testShowing, "A", 5);
@@ -255,13 +256,13 @@ public class MainTester {
         System.out.println(cinema.getFilmByTitle("Tester"));
 
         try {
-            cinema.addShowing("2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
+            cinema.addShowing(cinema.getScreen(1), "2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
         } catch (ShowingAlreadyExistsException e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            System.out.println(cinema.getShowingsByDate("2018-02-20"));
+            System.out.println(cinema.getShowingsByDate("2018-02-20", cinema.getScreen(1)));
         } catch (PastDateException e) {
             System.out.println(e.getMessage());
         }
@@ -280,4 +281,36 @@ public class MainTester {
 
         cinema.exportShowingsToCsv();
     }
+
+    private static void screenTester() {
+        Cinema cinema = new Cinema();
+
+        Screen screenTest = new Screen(2, 4, 5);
+        cinema.addScreen(screenTest);
+
+        System.out.println(cinema.getScreen(1));
+        System.out.println(cinema.getScreen(2));
+
+        try {
+            cinema.addFilm("Tester", "testpath", "testing showings", "01:00");
+        } catch (FilmExistsException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println(cinema.getFilmByTitle("Tester"));
+
+        try {
+            cinema.addShowing(screenTest, "2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
+        } catch (ShowingAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            System.out.println(cinema.getShowingsByDate("2018-02-20", cinema.getScreen(1)));
+        } catch (PastDateException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
 }

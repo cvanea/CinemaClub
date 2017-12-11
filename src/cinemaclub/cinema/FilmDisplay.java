@@ -15,9 +15,9 @@ class FilmDisplay {
         this.screenRepository = DataBase.getScreenRepository();
     }
 
-    ArrayList<Film> getFilmsByDateScreen(String date, Screen screen) throws PastDateException {
+    ArrayList<Film> getFilmsByDate(String date) throws PastDateException {
         validateDate(date);
-        return screenRepository.getFilmsByDate(screen, date);
+        return screenRepository.getAllFilmsByDate(date);
     }
 
     ArrayList<Showing> getShowingsByDate(String date, Screen screen) throws PastDateException {
@@ -34,20 +34,24 @@ class FilmDisplay {
         return screenRepository.getAllShowings();
     }
 
-    ArrayList<String> getTimesByFilm(Screen screen, Film film) {
-        return screenRepository.getTimesByFilm(screen, film);
+    ArrayList<String> getAllTimesByFilm(Film film) {
+        return screenRepository.getAllTimesByFilm(film);
     }
 
     ArrayList<String> getDatesByFilm(Screen screen, Film film) {
         return screenRepository.getDatesByFilm(screen, film);
     }
 
-    ArrayList<Showing> getAllShowingsByFilm(Screen screen, Film film) {
-        return screenRepository.getAllShowingsByFilm(screen, film);
+    ArrayList<Showing> getAllShowingsByFilm(Film film) {
+        return screenRepository.getAllShowingsByFilm(film);
     }
 
-    Showing getShowingByDateTime(Screen screen, String date, String time) {
-        return screenRepository.getShowingByDateTime(screen, date, time);
+    Showing getShowingByDateTime(String date, String time) {
+        return screenRepository.getShowingByDateTime(date, time);
+    }
+
+    Showing getShowingByDateTimeScreen(Screen screen, String date, String time) {
+        return screenRepository.getShowingByDateTimeScreen(screen, date, time);
     }
 
     Screen getScreenByNumber(Integer number) {

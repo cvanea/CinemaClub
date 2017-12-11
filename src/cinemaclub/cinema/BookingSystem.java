@@ -23,9 +23,13 @@ class BookingSystem {
         throws SeatAlreadyTakenException, SeatNotFoundException {
         if (user instanceof Customer) {
             Customer customer = (Customer) user;
+
             validateSeatAvailability(showing, seatRow, seatNumber);
+
             customer.addBooking(new Booking(showing, seatRow + seatNumber));
+
             showing.bookSeat(customer.getUsername(), seatRow, seatNumber);
+
             userRepository.updateDB();
             screenRepository.updateDB();
         }

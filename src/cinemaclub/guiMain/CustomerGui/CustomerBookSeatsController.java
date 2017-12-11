@@ -12,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -35,9 +34,6 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
     @FXML Label errorLabel;
     @FXML GridPane gridSeats;
 
-    private String seatRow;
-    private int seatNumber;
-    public static Button selectedSeat = null;
     public Showing showing;
 
     @Override
@@ -56,21 +52,18 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
 
     public void pressReserveSeat(ActionEvent actionEvent) throws IOException {
         try {
-                String seatRow = GuiData.getSeatRow();
-                int seatNumber = GuiData.getSeatNumber();
-                cinema.bookFilm(showing, seatRow, seatNumber);
-                Stage stage = new Stage();
-                Parent root = FXMLLoader.load(CustomerBookSeatsController.class.getResource("ModalBooked.fxml"));
-                stage.setScene(new Scene(root));
-                stage.setTitle("Seats Booked");
-                stage.initModality(Modality.WINDOW_MODAL);
-                stage.initOwner(
-                        ((Node) actionEvent.getSource()).getScene().getWindow());
-                stage.show();
-                StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
+            cinema.bookFilm(showing, GuiData.getSeatRow(), GuiData.getSeatNumber());
+            Stage stage = new Stage();
+            Parent root = FXMLLoader.load(CustomerBookSeatsController.class.getResource("ModalBooked.fxml"));
+            stage.setScene(new Scene(root));
+            stage.setTitle("Seats Booked");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(
+                    ((Node) actionEvent.getSource()).getScene().getWindow());
+            stage.show();
+            StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
         } catch (SeatAlreadyTakenException | SeatNotFoundException e) {
             errorLabel.setText(e.getMessage());
         }
-
     }
 }

@@ -63,6 +63,15 @@ public class Customer extends User {
         return null;
     }
 
+    public Booking getBooking(Showing showing, String seat) {
+        for (Booking booking : bookings) {
+            if (booking.getShowing() == showing && booking.getSeat().equals(seat)) {
+                return booking;
+            }
+        }
+        return null;
+    }
+
     public Boolean containsBooking(Booking booking) {
         return bookings.contains(booking);
     }

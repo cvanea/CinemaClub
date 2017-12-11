@@ -70,6 +70,7 @@ public class CustomerHomeController extends CustomerMainController implements In
     public void chooseFilm(MouseEvent actionEvent) {
         try {
             String chosenFilm = filmList.getSelectionModel().getSelectedItem();
+
             ArrayList<Showing> showingsTime = cinema.getAllShowingsByFilm(cinema.getFilmByTitle(chosenFilm));
             ArrayList<String> timesArrayList = new ArrayList<>();
             for (Showing showing: showingsTime) {

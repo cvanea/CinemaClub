@@ -78,7 +78,6 @@ class FilmEdit {
     void exportShowingsToCsv() {
         try {
             FileWriter writer = new FileWriter("Showings.csv");
-
             writer.write("Film, Date, Time, Screen, Number of Booked Seats, Number of Available Seats, Booked Seats, Username\n");
 
             Map<Screen, ArrayList<Showing>> showings = screenRepository.getShowings();
@@ -92,7 +91,6 @@ class FilmEdit {
                 writer.write(showing.toCsv());
                 System.out.print(showing.toCsv());
             }
-
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -106,7 +104,8 @@ class FilmEdit {
     }
 
     private void validateShowing(Screen screen, String date, String time) throws ShowingAlreadyExistsException {
-        if (screenRepository.getShowingByDateTime(screen, date, time) != null) {
+        //TODO check that added showing doesn't overlap a future one. Check that previous showing doesn't overlap the new one. Check that showing doesn't exist at that date and time on another screen.
+        if (screenRepository.getShowingByDateTimeScreen(screen, date, time) != null) {
             throw new ShowingAlreadyExistsException();
         }
 //        else if (screenRepository.getShowingByDateTime(screen, date, ))

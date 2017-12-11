@@ -59,6 +59,11 @@ public class Screen implements Serializable {
 
     @Override
     public String toString() {
-        return "Screen{" + "seats=" + seats + '}';
+        return "Screen{" +
+            "screenNumber=" + screenNumber +
+            ", numberRow=" + numberRow +
+            ", seatsPerRow=" + seatsPerRow +
+            ", seats=" + seats +
+            '}';
     }
 }

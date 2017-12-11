@@ -4,21 +4,18 @@ import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
-import exceptions.PastDateException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 
-import java.io.IOException;
 import java.net.URL;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -127,7 +124,6 @@ public class CustomerFilmViewController extends CustomerMainController implement
         String date = datesBox1.getSelectionModel().getSelectedItem();
         String time = timesBox1.getSelectionModel().getSelectedItem();
         goToShowing(date, time);
-
     }
 
     public void pressBook2(ActionEvent event) {
@@ -143,7 +139,7 @@ public class CustomerFilmViewController extends CustomerMainController implement
     }
 
     public void goToShowing(String date, String time){
-        if(!date.equals(null) && !time.equals(null)){
+        if (!date.equals(null) && !time.equals(null)) {
             GuiData.setDate(date);
             GuiData.setTime(time);
             GuiData.setShowing(cinema.getShowingByDateTime(date, time));
