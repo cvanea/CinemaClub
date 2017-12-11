@@ -36,6 +36,12 @@ public class Cinema {
         return screens.get(screenNumber);
     }
 
+    public ArrayList<Screen> getScreens() {
+        ArrayList<Screen> allScreens = new ArrayList<>();
+        allScreens.addAll(screens.values());
+        return allScreens;
+    }
+
     public User getCurrentUser() {
         return currentUser;
     }
@@ -142,8 +148,8 @@ public class Cinema {
         return filmDisplay.getFilmsByDate(date);
     }
 
-//    public ArrayList<Showing> getShowingsByDate(String date) throws PastDateException {
-//        return filmDisplay.getShowingsByDate(date, this.getScreen(1));
+//    public ArrayList<Showing> getShowingsByDateScreen(String date) throws PastDateException {
+//        return filmDisplay.getShowingsByDateScreen(date, this.getScreen(1));
 //    }
 
     public ArrayList<Showing> getShowingsByDate(String date, Screen screen) throws PastDateException {
@@ -156,6 +162,10 @@ public class Cinema {
 
     public Showing getShowingByDateTime(String date, String time) {
         return filmDisplay.getShowingByDateTime(date, time);
+    }
+
+    public Showing getShowingByDateTimeFilm(String date, String time, Film film) {
+        return filmDisplay.getShowingByDateTimeFilm(date, time, film);
     }
 
     public Showing getShowingByDateTimeScreen(Screen screen, String date, String time) {
@@ -194,7 +204,7 @@ public class Cinema {
 //        filmEdit.addShowing(this.getScreen(1), date, time, film);
 //    }
 
-    public void addShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException {
+    public void addShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException, ShowingOnOtherScreenException, OverlappingRuntimeException {
         filmEdit.addShowing(screen, date, time, film);
     }
 

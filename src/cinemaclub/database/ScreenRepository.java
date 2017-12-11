@@ -65,7 +65,7 @@ public class ScreenRepository implements Serializable {
         return allShowingsByDate;
     }
 
-    public ArrayList<Showing> getShowingsByDate(Screen screen, String date) {
+    public ArrayList<Showing> getShowingsByDateScreen(Screen screen, String date) {
         ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
         ArrayList<Showing> showingsByDate = new ArrayList<>();
 
@@ -98,6 +98,21 @@ public class ScreenRepository implements Serializable {
 
         for (Showing showing : allShowings) {
             if (showing.getDate().equals(date) && showing.getTime().equals(time)) {
+                return showing;
+            }
+        }
+        return null;
+    }
+
+    public Showing getShowingByDateTimeFilm(String date, String time, Film film) {
+        ArrayList<Showing> allShowings = new ArrayList<>();
+
+        for (Screen screen : showings.keySet()) {
+            allShowings.addAll(showings.get(screen));
+        }
+
+        for (Showing showing : allShowings) {
+            if (showing.getDate().equals(date) && showing.getTime().equals(time) && showing.getFilm() == film) {
                 return showing;
             }
         }

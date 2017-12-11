@@ -3,7 +3,9 @@ package cinemaclub.guiMain.StaffGui;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
+import exceptions.OverlappingRuntimeException;
 import exceptions.ShowingAlreadyExistsException;
+import exceptions.ShowingOnOtherScreenException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -70,7 +72,7 @@ public class ShowingsController extends MainController implements Initializable 
                 cinema.addShowing(cinema.getScreen(selectedScreen), selectedDate, selectedTime, cinema.getFilmByTitle(selectedFilm));
                 errorLabel.setText("New Showing of "+ selectedFilm + " Added" );
                 fillShowingsTable();
-            } catch (ShowingAlreadyExistsException e) {
+            } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException | OverlappingRuntimeException e) {
                 System.out.println(e.getMessage());
                 errorLabel.setText(e.getMessage());
             }

@@ -4,7 +4,9 @@ import cinemaclub.database.DataBase;
 import cinemaclub.database.FilmRepository;
 import cinemaclub.database.ScreenRepository;
 import exceptions.FilmExistsException;
+import exceptions.OverlappingRuntimeException;
 import exceptions.ShowingAlreadyExistsException;
+import exceptions.ShowingOnOtherScreenException;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -62,8 +64,10 @@ class FilmEdit {
         return filmRepository.getFilmByTitle(title);
     }
 
-    void addShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException {
-        validateShowing(screen, date, time);
+    void addShowing(Screen screen, String date, String time, Film film)
+        throws ShowingAlreadyExistsException, ShowingOnOtherScreenException, OverlappingRuntimeException {
+        validateShowing(screen, date, time, film);
+        validateShowingOverlap(screen, date, time);
         screenRepository.addShowing(screen, new Showing(screen, date, time, film, new HashMap<>()));
     }
 
@@ -103,11 +107,28 @@ class FilmEdit {
         }
     }
 
-    private void validateShowing(Screen screen, String date, String time) throws ShowingAlreadyExistsException {
-        //TODO check that added showing doesn't overlap a future one. Check that previous showing doesn't overlap the new one. Check that showing doesn't exist at that date and time on another screen.
+    private void validateShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException, ShowingOnOtherScreenException {
         if (screenRepository.getShowingByDateTimeScreen(screen, date, time) != null) {
             throw new ShowingAlreadyExistsException();
+        } else if (screenRepository.getShowingByDateTimeFilm(date, time, film) != null) {
+            throw new ShowingOnOtherScreenException();
         }
-//        else if (screenRepository.getShowingByDateTime(screen, date, ))
+    }
+
+    private void validateShowingOverlap(Screen screen, String date, String time) throws OverlappingRuntimeException {
+    //TODO check that added showing doesn't overlap a future one. Check that previous showing doesn't overlap the new one.
+
+        ArrayList<Showing> showingsByDateScreen = screenRepository.getShowingsByDateScreen(screen, date);
+
+        for (Showing showing : showingsByDateScreen) {
+            String existingTime = showing.getTime();
+
+            if ((time.compareTo(existingTime) > 0) && ((existingTime + showing.getFilm().getRunTime()).compareTo(time)) > 0) {
+                throw new OverlappingRuntimeException();
+            }
+
+
+
+        }
     }
 }

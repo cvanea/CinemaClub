@@ -22,7 +22,7 @@ class FilmDisplay {
 
     ArrayList<Showing> getShowingsByDate(String date, Screen screen) throws PastDateException {
         validateDate(date);
-        return screenRepository.getShowingsByDate(screen, date);
+        return screenRepository.getShowingsByDateScreen(screen, date);
     }
 
     ArrayList<Showing> getAllShowingsByDate(String date) throws PastDateException {
@@ -48,6 +48,10 @@ class FilmDisplay {
 
     Showing getShowingByDateTime(String date, String time) {
         return screenRepository.getShowingByDateTime(date, time);
+    }
+
+    Showing getShowingByDateTimeFilm(String date, String time, Film film) {
+        return screenRepository.getShowingByDateTimeFilm(date, time, film);
     }
 
     Showing getShowingByDateTimeScreen(Screen screen, String date, String time) {

@@ -96,7 +96,7 @@ public class FilmByDateController extends CustomerMainController implements Init
 
     public void pressPickTime(ActionEvent actionEvent) {
         //TODO MAKE CUSTOM EXCEPTION IF THEY DON'T PICK A TIME
-        GuiData.setShowing(cinema.getShowingByDateTime(GuiData.getDate(), GuiData.getTime()));
+        GuiData.setShowing(cinema.getShowingByDateTimeFilm(GuiData.getDate(), GuiData.getTime(), GuiData.getFilm()));
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
     }
 

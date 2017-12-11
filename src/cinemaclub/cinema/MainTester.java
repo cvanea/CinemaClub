@@ -173,7 +173,7 @@ public class MainTester {
         try {
             cinema.addShowing(cinema.getScreen(1),"2018-11-09", "15:00", filmTest);
             cinema.addShowing(cinema.getScreen(1),"2018-11-09", "12:00", filmTest2);
-        } catch (ShowingAlreadyExistsException e) {
+        } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException | OverlappingRuntimeException e) {
             System.out.println(e.getMessage());
         }
 
@@ -257,7 +257,7 @@ public class MainTester {
 
         try {
             cinema.addShowing(cinema.getScreen(1), "2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
-        } catch (ShowingAlreadyExistsException e) {
+        } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException | OverlappingRuntimeException e) {
             System.out.println(e.getMessage());
         }
 
@@ -301,7 +301,7 @@ public class MainTester {
 
         try {
             cinema.addShowing(screenTest, "2018-02-20", "12:00", cinema.getFilmByTitle("Tester"));
-        } catch (ShowingAlreadyExistsException e) {
+        } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException | OverlappingRuntimeException e) {
             System.out.println(e.getMessage());
         }
 
