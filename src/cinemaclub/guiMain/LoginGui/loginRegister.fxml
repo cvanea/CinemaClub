@@ -51,7 +51,7 @@
                            <Font size="14.0" />
                         </font>
                      </TextField>
-                  <CheckBox fx:id="staffCheck" layoutX="196.0" layoutY="327.0" mnemonicParsing="false" textFill="WHITE">
+                  <CheckBox fx:id="staffCheck" layoutX="196.0" layoutY="327.0" mnemonicParsing="false" onAction="#tickCheckBox" textFill="WHITE">
                         <font>
                            <Font size="10.0" />
                         </font></CheckBox>

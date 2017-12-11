@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CustomerBookSeatsController extends CustomerMainController implements Initializable {
+public class BookSeatsController extends CustomerMainController implements Initializable {
 
     @FXML ImageView imageBox;
     @FXML Label titleText;
@@ -54,7 +54,7 @@ public class CustomerBookSeatsController extends CustomerMainController implemen
         try {
             cinema.bookFilm(showing, GuiData.getSeatRow(), GuiData.getSeatNumber());
             Stage stage = new Stage();
-            Parent root = FXMLLoader.load(CustomerBookSeatsController.class.getResource("ModalBooked.fxml"));
+            Parent root = FXMLLoader.load(BookSeatsController.class.getResource("ModalBooked.fxml"));
             stage.setScene(new Scene(root));
             stage.setTitle("Seats Booked");
             stage.initModality(Modality.WINDOW_MODAL);
