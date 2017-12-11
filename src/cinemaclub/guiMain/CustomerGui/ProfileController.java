@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class CustomerProfileController extends CustomerMainController implements Initializable {
+public class ProfileController extends CustomerMainController implements Initializable {
 
     @FXML TextField username;
     @FXML TextField password;

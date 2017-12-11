@@ -29,8 +29,8 @@
                      <children>
                         <TextField fx:id="username" layoutX="40.0" layoutY="87.0" prefHeight="38.0" prefWidth="200.0" styleClass="loginField" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="87.0" />
                         <TextField fx:id="password" layoutX="40.0" layoutY="180.0" prefWidth="200.0" styleClass="loginField" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="180.0" />
-                        <Button fx:id="login" alignment="CENTER" layoutX="129.0" layoutY="235.0" mnemonicParsing="false" onAction="#pressButton" text="Login" />
-                        <Label layoutX="116.0" layoutY="14.0" text="Sign In " textFill="WHITE" underline="true">
+                        <Button fx:id="login" alignment="CENTER" layoutX="129.0" layoutY="235.0" mnemonicParsing="false" onAction="#pressButton" text="Login" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" />
+                        <Label layoutX="116.0" layoutY="14.0" text="Sign In " textFill="WHITE" underline="true" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="115.0">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -38,8 +38,8 @@
                               <Insets left="5.0" />
                            </padding>
                         </Label>
-                        <Label fx:id="errorLabel" alignment="TOP_LEFT" layoutX="43.0" layoutY="287.0" prefHeight="62.0" prefWidth="240.0" textFill="RED" wrapText="true" />
-                        <Button fx:id="register" alignment="CENTER" layoutX="82.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressRegister" text="Register New User">
+                        <Label fx:id="errorLabel" alignment="TOP_LEFT" layoutX="43.0" layoutY="279.0" prefHeight="62.0" prefWidth="240.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
+                        <Button fx:id="register" alignment="CENTER" layoutX="91.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressRegister" text="Register New User" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="82.0">
                            <font>
                               <Font name="System Font" size="13.0" />
                            </font>

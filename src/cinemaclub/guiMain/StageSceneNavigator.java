@@ -29,12 +29,11 @@ public class StageSceneNavigator {
     public static final String LOGIN_REGISTER = "LoginGui/loginRegister.fxml";
 
     //Customer
-    public static final String CUSTOMER_MAIN = "CustomerGui/CustomerMain.fxml";
-    public static final String CUSTOMER_HOME = "CustomerGui/CustomerHome.fxml";
-    public static final String CUSTOMER_BOOK_SEATS = "CustomerGui/CustomerBookSeats.fxml";
-    public static final String CUSTOMER_PROFILE = "CustomerGui/CustomerProfile.fxml";
-    public static final String CUSTOMER_PROFILE_EDIT = "CustomerGui/CustomerProfileEdit.fxml";
-    public static final String CUSTOMER_FILM_VIEW = "CustomerGui/CustomerFilmView.fxml";
+    public static final String CUSTOMER_MAIN = "CustomerGui/Main.fxml";
+    public static final String CUSTOMER_HOME = "CustomerGui/FilmByDate.fxml";
+    public static final String CUSTOMER_BOOK_SEATS = "CustomerGui/BookSeats.fxml";
+    public static final String CUSTOMER_PROFILE = "CustomerGui/Profile.fxml";
+    public static final String CUSTOMER_FILM_VIEW = "CustomerGui/FilmBrowser.fxml";
 
     //Staff
     public static final String STAFF_MAIN = "StaffGui/Main.fxml";
@@ -141,7 +140,7 @@ public class StageSceneNavigator {
         CustomerMainController customerMainController = loader.getController();
         customerMainController.setCinema(cinema);
         StageSceneNavigator.setCustomerMainController(customerMainController);
-        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
+        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_FILM_VIEW);
 
         return customerPane;
     }

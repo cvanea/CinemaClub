@@ -24,7 +24,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class CustomerHomeController extends CustomerMainController implements Initializable {
+public class FilmByDateController extends CustomerMainController implements Initializable {
 
     @FXML ImageView imageBox;
     @FXML Label titleText;
