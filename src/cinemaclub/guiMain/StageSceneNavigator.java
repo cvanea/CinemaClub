@@ -34,6 +34,7 @@ public class StageSceneNavigator {
     public static final String CUSTOMER_BOOK_SEATS = "CustomerGui/CustomerBookSeats.fxml";
     public static final String CUSTOMER_PROFILE = "CustomerGui/CustomerProfile.fxml";
     public static final String CUSTOMER_PROFILE_EDIT = "CustomerGui/CustomerProfileEdit.fxml";
+    public static final String CUSTOMER_FILM_VIEW = "CustomerGui/CustomerFilmView.fxml";
 
     //Staff
     public static final String STAFF_MAIN = "StaffGui/StaffMain.fxml";

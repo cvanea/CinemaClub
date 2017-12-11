@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.CustomerGui.CustomerFilmViewController">
+   <children>
+      <AnchorPane prefHeight="680.0" prefWidth="1200.0" GridPane.rowIndex="1">
+         <children>
+            <GridPane layoutY="-8.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-8.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="22.24291229248047" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="564.102897644043" minHeight="10.0" prefHeight="474.75708770751953" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="189.74343872070312" minHeight="10.0" prefHeight="182.97308349609375" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fx:id="imageBox1" fitHeight="320.0" fitWidth="253.0" layoutX="20.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="0.0" />
+                        <Label fx:id="titleText1" layoutX="133.0" layoutY="304.0" prefHeight="40.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="descriptionText1" alignment="TOP_LEFT" layoutX="143.0" layoutY="314.0" prefHeight="80.0" wrapText="true" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="runtimeText1" layoutX="153.0" layoutY="324.0" prefHeight="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" />
+                        <Label fx:id="runtimeLabel1" layoutX="163.0" layoutY="334.0" prefHeight="40.0" text="Runtime:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <ComboBox fx:id="datesBox1" layoutX="40.0" layoutY="32.0" onMouseClicked="#displayTimesList1" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+                        <ComboBox fx:id="timesBox1" layoutX="42.0" layoutY="103.0" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+                        <Label layoutX="26.0" layoutY="-6.0" prefHeight="40.0" text="Showing Dates:" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="26.0" layoutY="65.0" prefHeight="40.0" text="Showing Times:" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="bookSeatButton1" layoutX="108.0" layoutY="147.0" mnemonicParsing="false" onAction="#pressBook1" text="Book Seat" />
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#pressPreviousFilms" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Button fx:id="moreButton1" mnemonicParsing="false" onAction="#pressMoreFilms" text="More" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <ComboBox fx:id="datesBox2" layoutX="40.0" layoutY="32.0" onMouseClicked="#displayTimesList2" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+                        <ComboBox fx:id="timesBox2" layoutX="42.0" layoutY="103.0" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+                        <Label layoutX="26.0" layoutY="-6.0" prefHeight="40.0" text="Showing Dates:" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="26.0" layoutY="65.0" prefHeight="40.0" text="Showing Times:" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="bookSeatButton2" layoutX="108.0" layoutY="147.0" mnemonicParsing="false" onAction="#pressBook2" text="Book Seat" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <children>
+                        <ComboBox fx:id="datesBox3" layoutX="40.0" layoutY="32.0" onMouseClicked="#displayTimesList3" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+                        <ComboBox fx:id="timesBox3" layoutX="42.0" layoutY="103.0" prefHeight="35.0" prefWidth="150.0" visibleRowCount="100" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+                        <Label layoutX="26.0" layoutY="-6.0" prefHeight="40.0" text="Showing Dates:" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="26.0" layoutY="65.0" prefHeight="40.0" text="Showing Times:" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="bookSeatButton3" layoutX="108.0" layoutY="147.0" mnemonicParsing="false" onAction="#pressBook3" text="Book Seat" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fx:id="imageBox2" fitHeight="320.0" fitWidth="253.0" layoutX="20.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="0.0" />
+                        <Label fx:id="titleText2" layoutX="133.0" layoutY="304.0" prefHeight="40.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="descriptionText2" alignment="TOP_LEFT" layoutX="143.0" layoutY="314.0" prefHeight="80.0" wrapText="true" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="runtimeText2" layoutX="153.0" layoutY="324.0" prefHeight="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" />
+                        <Label fx:id="runtimeLabel2" layoutX="163.0" layoutY="334.0" prefHeight="40.0" text="Runtime:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fx:id="imageBox3" fitHeight="320.0" fitWidth="253.0" layoutX="20.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="0.0" />
+                        <Label fx:id="titleText3" layoutX="133.0" layoutY="304.0" prefHeight="40.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="descriptionText3" alignment="TOP_LEFT" layoutX="143.0" layoutY="314.0" prefHeight="80.0" wrapText="true" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="runtimeText3" layoutX="153.0" layoutY="324.0" prefHeight="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" />
+                        <Label fx:id="runtimeLabel3" layoutX="163.0" layoutY="334.0" prefHeight="40.0" text="Runtime:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children></AnchorPane>
+   </children>
+</StackPane>

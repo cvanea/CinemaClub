@@ -114,3 +114,43 @@
     -fx-font-weight: bold;
     -fx-font-size: 14pt;
 }
+
+.date-picker > button {
+    -fx-base: transparent;
+    -fx-background-color: transparent;
+}
+
+.date-picker .arrow-button{
+    -fx-background-radius:0px ;
+    -fx-background-color: #232323;
+}
+
+.date-picker .arrow-button .arrow{
+    -fx-background-radius:0px ;
+    -fx-background-color: #1783CC;
+}
+
+.date-picker .arrow-button:hover .arrow{
+    -fx-background-radius:0px ;
+    -fx-background-color: #40a9ef;
+}
+
+.date-picker .button {
+    -fx-background-color: transparent;
+    -fx-border-color:transparent;
+    -fx-pref-height: 35px;
+    -fx-pref-width: 35px;
+}
+
+.date-picker .button:hover {
+    -fx-border-color:transparent;
+    -fx-pref-height: 35px;
+    -fx-pref-width: 35px;
+}
+
+.date-picker .button .arrow:pressed {
+    -fx-border-color:transparent;
+    -fx-pref-height: 35px;
+    -fx-pref-width: 35px;
+}
+

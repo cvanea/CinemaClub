@@ -45,6 +45,11 @@ public class CustomerMainController {
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
     }
 
+    public void pressFilm(ActionEvent event) throws IOException {
+//        GuiData.setViewTitle("Book Film");
+        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_FILM_VIEW);
+    }
+
     /**
      * Replaces the vista displayed in the vista holder with a new vista.
      *
