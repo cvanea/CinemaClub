@@ -29,6 +29,8 @@ public class GuiData {
     public static Showing showing;
     private static String seatRow;
     private static int seatNumber;
+    private static int numberOfRows;
+    private static int seatsPerRow;
     private static String seatBooked;
 
 
@@ -64,12 +66,12 @@ public class GuiData {
         GuiData.time = time;
     }
 
-    public static void setSeatRow(String seatRow) {
-        GuiData.seatRow = seatRow;
+    public static void setNumberOfRows(int numberOfRows) {
+        GuiData.numberOfRows = numberOfRows;
     }
 
-    public static void setSeatNumber(int seatNumber) {
-        GuiData.seatNumber = seatNumber;
+    public static void setSeatsPerRow(int seatsPerRow) {
+        GuiData.seatsPerRow = seatsPerRow;
     }
 
     /*
@@ -83,7 +85,7 @@ public class GuiData {
         seatNumber = Integer.parseInt(splitSeat[1]);
     }
 
-    public static Boolean isSeatTaken() {
+    private static Boolean isSeatTaken() {
         try {
             return showing.isSeatTaken(seatRow, seatNumber);
         } catch (SeatNotFoundException e) {
@@ -109,13 +111,12 @@ public class GuiData {
     }
 
     public static void setupSeatButtons(GridPane gridSeats, int gridWidth, int gridHeight, String method) {
-        int numRows = showing.getScreen().getNumberRow();
-        int numCols = showing.getScreen().getSeatsPerRow();
-        int rowHeight = gridHeight / (numRows);
-        int columnWidth = gridWidth / (numCols);
+        //TODO rename 'method'.
+        int rowHeight = gridHeight / (numberOfRows);
+        int columnWidth = gridWidth / (seatsPerRow);
         Image imgSeat;
 
-        for (int r = 0; r < numRows+1; r++) {
+        for (int r = 0; r < numberOfRows+1; r++) {
             RowConstraints row;
                 if (r == 0) {
                      row = new RowConstraints(12);
@@ -123,63 +124,71 @@ public class GuiData {
                     row = new RowConstraints(rowHeight);
                 }
                 gridSeats.getRowConstraints().add(row);
-            for (int c = 0; c < numCols+1; c++) {
+
+            for (int c = 0; c < seatsPerRow+1; c++) {
                 ColumnConstraints column;
+
                 if (c == 0) {
                     column = new ColumnConstraints(15);
                 } else{
                     column = new ColumnConstraints(columnWidth);
                 }
-                gridSeats.getColumnConstraints().add(column);
-                if (r == 0 && c == 0){
 
-                } else if(r == 0 && c > 0) {
+                gridSeats.getColumnConstraints().add(column);
+
+                if (r == 0 && c == 0) {
+
+                } else if (r == 0) {
                     Label seatLabel = new Label(String.valueOf(c));
                     GridPane.setHalignment(seatLabel, HPos.CENTER);
                     gridSeats.add(seatLabel, c, r);
-                } else if (c == 0 && r > 0) {
+                } else if (c == 0) {
                     String letter = getCharForNumber(r);
                     Label seatLabel = new Label(String.valueOf(letter));
                     GridPane.setHalignment(seatLabel, HPos.RIGHT);
-                    gridSeats.add(seatLabel, c, r );
+                    gridSeats.add(seatLabel, c, r);
                 } else {
                     String letter = getCharForNumber(r);
                     String seatName = letter + c;
                     Button button = new Button();
                     button.setAccessibleText(String.valueOf(seatName));
                     splitSeat(button);
-                    if (isSeatTaken()) {
-                        imgSeat = new Image("/seatR32.png");
-                    } else {
-                        imgSeat = new Image("/seatW32.png");
+
+                    imgSeat = new Image("/seatW32.png");
+
+                    if (!method.equals("ScreenView")) {
+
+                        if (isSeatTaken()) {
+                            imgSeat = new Image("/seatR32.png");
+                        }
+
+                        button.setOnAction((ActionEvent e) -> {
+                            Object object = e.getSource();
+                            Button b = null;
+
+                            if (object instanceof Button) {
+                                b = (Button) object;
+                            }
+
+                            if (!method.equals("staff")) {
+                                splitSeat(b);
+
+                                if (isSeatTaken().equals(false)) {
+                                    seatSelect(b);
+                                }
+                            }
+                        });
                     }
 
                     button.setGraphic(new ImageView(imgSeat));
                     button.setStyle("-fx-background-color: white");
 
-                    button.setOnAction((ActionEvent e) -> {
-                        Object object = e.getSource();
-                        Button b = null;
-
-                        if (object instanceof Button) {
-                            b = (Button) object;
-                        }
-
-                        if (!method.equals("staff")) {
-                            splitSeat(b);
-
-                            if (isSeatTaken().equals(false)) {
-                                seatSelect(b);
-                            }
-                        }
-
-                    });
                     GridPane.setHalignment(button, HPos.CENTER);
                     gridSeats.add(button, c, r);
                 }
             }
         }
-//                gridSeats.gridLinesVisibleProperty().set(true);
+                gridSeats.gridLinesVisibleProperty().set(true);
     }
 
     public static ObservableList<String> getFilmList(Cinema cinema){

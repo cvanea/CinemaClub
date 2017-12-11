@@ -73,11 +73,13 @@ public class CustomerHomeController extends CustomerMainController implements In
 
             ArrayList<Showing> showingsTime = cinema.getAllShowingsByFilm(cinema.getFilmByTitle(chosenFilm));
             ArrayList<String> timesArrayList = new ArrayList<>();
+
             for (Showing showing: showingsTime) {
                 if (showing.getDate().equals(datePicked)){
                     timesArrayList.add(showing.getTime());
                 }
             }
+
             ObservableList<String> times = FXCollections.observableArrayList(timesArrayList);
             timesList.setItems(times);
             setFilmInfo(cinema.getFilmByTitle(chosenFilm));

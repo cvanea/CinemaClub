@@ -77,6 +77,8 @@ public class IndividualShowingController extends MainController implements Initi
     public void initialize(URL location, ResourceBundle resources) {
         showing = GuiData.getShowing();
         setFilmInfo();
+        GuiData.setNumberOfRows(showing.getScreen().getNumberRow());
+        GuiData.setSeatsPerRow(showing.getScreen().getSeatsPerRow());
         GuiData.setupSeatButtons(gridSeats, 780,450, "staff");
         fillUserTable();
     }

@@ -1,6 +1,5 @@
 package cinemaclub.guiMain.CustomerGui;
 
-import cinemaclub.gui.ProfileController;
 import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.UsernameTakenException;
 import javafx.event.ActionEvent;
@@ -19,12 +18,6 @@ public class CustomerProfileEditController extends CustomerMainController implem
     @FXML TextField passwordBoxEdit;
     @FXML TextField firstNameBoxEdit;
     @FXML TextField lastNameBoxEdit;
-
-    private ProfileController profileController;
-
-    public void setProfileController(ProfileController profileController) {
-        this.profileController = profileController;
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
