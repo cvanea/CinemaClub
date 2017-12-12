@@ -5,6 +5,7 @@ import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import exceptions.FilmExistsException;
 import exceptions.ImageDoesNotExistException;
+import exceptions.MissingFilmInputsException;
 import exceptions.NoSelectionMadeException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -117,24 +118,19 @@ public class FilmController extends MainController implements Initializable {
         filmDescription = descriptionArea.getText();
         filmRuntime = runtimeField.getText();
         filmImage = imageField.getText();
-        //TODO: Fields not complete exception
-        if (filmTitle != null & filmDescription != null & filmRuntime != null & filmImage != null) {
-            try {
-                cinema.addFilm(filmTitle,filmImage , filmDescription, filmRuntime);
-            } catch (FilmExistsException e) {
-                System.out.println(e.getMessage());
-                Film updatedFilm = cinema.getFilmByTitle(filmTitle);
-                cinema.setFilmDescription(updatedFilm, filmDescription);
-                cinema.setFilmImagePath(updatedFilm, filmImage);
-                cinema.setFilmRunTime(updatedFilm, filmRuntime);
-            }
 
+        try {
+            validateFilmInputs(filmTitle, filmDescription, filmRuntime, filmImage);
+            cinema.addFilm(filmTitle,filmImage , filmDescription, filmRuntime);
             setFilmInfo();
             populateFilmList();
             editPane.setOpacity(0);
-        } else{
-            String errorMessage = "All fields not complete";
-            errorLabel.setText(errorMessage);
+        } catch (FilmExistsException | MissingFilmInputsException e) {
+            errorLabel.setText(e.getMessage());
+            Film updatedFilm = cinema.getFilmByTitle(filmTitle);
+            cinema.setFilmDescription(updatedFilm, filmDescription);
+            cinema.setFilmImagePath(updatedFilm, filmImage);
+            cinema.setFilmRunTime(updatedFilm, filmRuntime);
         }
     }
 
@@ -240,5 +236,11 @@ public class FilmController extends MainController implements Initializable {
         screenCol.setCellValueFactory(new PropertyValueFactory<>("ScreenNumber"));
         seatsCol.setCellValueFactory(new PropertyValueFactory<>("NumberOfAvailableSeats"));
         filmTable.setItems(data);
+    }
+
+    private void validateFilmInputs(String filmTitle, String filmDescription, String filmRuntime, String filmImage) throws MissingFilmInputsException {
+        if (filmTitle.equals("") || filmDescription.equals("") || filmRuntime.equals("") || filmImage.equals("")) {
+            throw new MissingFilmInputsException();
+        }
     }
 }
