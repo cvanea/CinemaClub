@@ -66,6 +66,10 @@ class Profile {
         return userRepository.getAllUsers();
     }
 
+    String getStaffIdByUsername(String username) {
+        return userRepository.getStaffIdByUsername(username);
+    }
+
     void addStaffID(String id, String username) {
         userRepository.addStaffID(id, username);
     }

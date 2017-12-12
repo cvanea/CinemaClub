@@ -35,6 +35,9 @@ class Register {
             validateInput(staffID);
 
             User user = new Staff(new UserCredentials(username, email, password, firstName, surname));
+            Staff staff = (Staff) user;
+            staff.setStaffId(staffID);
+
             userRepository.assignStaffID(staffID, username);
             userRepository.addUser(user.getUsername(), user);
         } else {

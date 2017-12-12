@@ -1,5 +1,6 @@
 package cinemaclub.guiMain.StaffGui;
 
+import cinemaclub.user.Staff;
 import cinemaclub.user.User;
 import exceptions.UsernameTakenException;
 import javafx.collections.FXCollections;
@@ -26,18 +27,17 @@ public class EditUserProfileController extends MainController implements Initial
     @FXML TextField firstName;
     @FXML TextField surname;
     @FXML Label errorLabel;
-    @FXML TableView<User> userTable;
-    @FXML TableColumn <User, String> usernameCol;
-    @FXML TableColumn <User, String> emailCol;
-    @FXML TableColumn <User, String> firstNameCol;
-    @FXML TableColumn <User, String> surnameCol;
-
-    private User chosenUser;
+    @FXML TableView<UserRow> userTable;
+    @FXML TableColumn <UserRow, String> usernameCol;
+    @FXML TableColumn <UserRow, String> emailCol;
+    @FXML TableColumn <UserRow, String> firstNameCol;
+    @FXML TableColumn <UserRow, String> surnameCol;
+    @FXML TableColumn <UserRow, String> staffIdCol;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fillUserTable();
-        errorLabel.setText("Please choose a User to edit.");
+        errorLabel.setText("Please choose a user to edit.");
     }
 
     public void setProfileText(ActionEvent event) {
@@ -58,22 +58,76 @@ public class EditUserProfileController extends MainController implements Initial
     }
 
     public void selectUser(MouseEvent event) {
-        chosenUser = userTable.getSelectionModel().getSelectedItem();
+        UserRow chosenUser = userTable.getSelectionModel().getSelectedItem();
         username.setText(chosenUser.getUsername());
         password.setText(chosenUser.getPassword());
         email.setText(chosenUser.getEmail());
         firstName.setText(chosenUser.getFirstName());
         surname.setText(chosenUser.getSurname());
+
+        errorLabel.setOpacity(0);
     }
 
     private void fillUserTable() {
-        ObservableList<User> data = FXCollections.observableArrayList();
+        ObservableList<UserRow> data = FXCollections.observableArrayList();
         ArrayList<User> allUsers = cinema.getAllUsers();
-        data.addAll(allUsers);
-        usernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
-        emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
-        firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));
+
+        for (User user : allUsers) {
+            data.add(new UserRow(user));
+        }
+
+        usernameCol.setCellValueFactory(new PropertyValueFactory<>("Username"));
+        emailCol.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        firstNameCol.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        surnameCol.setCellValueFactory(new PropertyValueFactory<>("Surname"));
+        staffIdCol.setCellValueFactory(new PropertyValueFactory<>("StaffId"));
         userTable.setItems(data);
+    }
+
+    public class UserRow {
+        private String username;
+        private String password;
+        private String email;
+        private String firstName;
+        private String surname;
+        private String staffId;
+
+        private UserRow(User user) {
+            this.username = user.getUsername();
+            this.password = user.getPassword();
+            this.email = user.getEmail();
+            this.firstName = user.getFirstName();
+            this.surname = user.getSurname();
+
+            if (user instanceof Staff) {
+                this.staffId = cinema.getStaffIdByUsername(username);
+            } else {
+                this.staffId = "";
+            }
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public String getSurname() {
+            return surname;
+        }
+
+        public String getStaffId() {
+            return staffId;
+        }
     }
 }

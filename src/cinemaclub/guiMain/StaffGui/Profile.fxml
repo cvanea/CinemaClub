@@ -50,14 +50,16 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <TableView prefHeight="365.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TableView fx:id="staffIdTable" prefHeight="365.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn prefWidth="85.06298828125" text="Username" />
-                      <TableColumn prefWidth="89.93701171875" text="First Name" />
-                        <TableColumn prefWidth="97.8487548828125" text="Surname" />
-                        <TableColumn prefWidth="128.71014404296875" text="Staff ID Number" />
+                      <TableColumn fx:id="usernameCol" prefWidth="85.06298828125" text="Username" />
+                      <TableColumn fx:id="FirstNameCol" prefWidth="89.93701171875" text="First Name" />
+                        <TableColumn fx:id="SurnameCol" prefWidth="97.8487548828125" text="Surname" />
+                        <TableColumn fx:id="StaffIdCol" prefWidth="128.71014404296875" text="Staff ID Number" />
                     </columns>
                   </TableView>
+                  <Button mnemonicParsing="false" text="Add Staff ID" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Remove Staff ID" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <AnchorPane id="profileBackground" stylesheets="@../style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">

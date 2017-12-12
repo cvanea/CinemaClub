@@ -12,7 +12,7 @@ public abstract class User implements Serializable {
         this.userCredentials = userCredentials;
     }
 
-    abstract public String IExist();
+    public abstract String IExist();
 
     public String getUsername() {
         return userCredentials.getUsername();

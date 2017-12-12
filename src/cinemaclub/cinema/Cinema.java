@@ -33,7 +33,6 @@ public class Cinema {
 
     private void setupScreensFromDB() {
         ArrayList<Screen> allScreens = filmEdit.getScreens();
-
         for (Screen screen : allScreens) {
             screens.put(screen.getScreenNumber(), screen);
         }
@@ -48,6 +47,10 @@ public class Cinema {
         ArrayList<Screen> allScreens = new ArrayList<>();
         allScreens.addAll(screens.values());
         return allScreens;
+    }
+
+    public String getStaffIdByUsername(String username) {
+        return profile.getStaffIdByUsername(username);
     }
 
     public User getCurrentUser() {

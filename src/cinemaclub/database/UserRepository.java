@@ -17,6 +17,16 @@ public class UserRepository implements Serializable {
         this.dataBase = dataBase;
     }
 
+    public String getStaffIdByUsername(String username) {
+
+        for (Map.Entry<String, String> entry : staffIDs.entrySet()) {
+            if (entry.getValue().equals(username)) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
     public void addStaffID(String staffId, String username) {
         staffIDs.put(staffId, username);
 
