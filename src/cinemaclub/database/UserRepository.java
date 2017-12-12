@@ -17,6 +17,10 @@ public class UserRepository implements Serializable {
         this.dataBase = dataBase;
     }
 
+    public Map<String, String> getStaffIDs() {
+        return staffIDs;
+    }
+
     public String getStaffIdByUsername(String username) {
 
         for (Map.Entry<String, String> entry : staffIDs.entrySet()) {

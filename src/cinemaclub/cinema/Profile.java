@@ -12,6 +12,7 @@ import exceptions.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Map;
 
 class Profile {
 
@@ -64,6 +65,10 @@ class Profile {
 
     ArrayList<User> getAllUsers() {
         return userRepository.getAllUsers();
+    }
+
+    public Map<String, String> getStaffIDs() {
+        return userRepository.getStaffIDs();
     }
 
     String getStaffIdByUsername(String username) {
