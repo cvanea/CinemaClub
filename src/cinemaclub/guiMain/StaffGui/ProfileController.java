@@ -71,13 +71,20 @@ public class ProfileController extends MainController implements Initializable {
     }
 
     public void pressAddStaffId(ActionEvent event) {
-//TODO: Add staff ID method - errorLabel2
-        errorLabel2.setText("Make Me!");
+        int numberOfStaffIds = staffIdTable.getItems().size();
+        int newStaffId = numberOfStaffIds + 1;
+        String newStaffIdString = Integer.toString(newStaffId);
+        cinema.addStaffID(newStaffIdString, "noStaff");
+
+        staffIdTable.getItems().clear();
+        fillStaffIdTable();
+
+        errorLabel2.setText("Added new Staff ID");
         errorLabel2.setStyle("-fx-text-fill: darkgreen");
     }
 
     public void pressRemoveStaffId(ActionEvent event) {
-// TODO: Remove StaffID Method - errorLabel2
+    // TODO: Remove StaffID Method - errorLabel2
     }
 
     private void fillStaffTable() {

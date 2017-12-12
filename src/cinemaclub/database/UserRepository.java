@@ -43,6 +43,12 @@ public class UserRepository implements Serializable {
         dataBase.updateExternalDB();
     }
 
+    public void deleteStaffId(String staffId) {
+        staffIDs.remove(staffId);
+
+        dataBase.updateExternalDB();
+    }
+
     public String getStaffIDValue(String staffId) {
         return staffIDs.get(staffId);
     }

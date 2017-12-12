@@ -81,6 +81,10 @@ class Profile {
         userRepository.addStaffID(id, username);
     }
 
+    void deleteStaffId(String staffId) {
+        userRepository.deleteStaffId(staffId);
+    }
+
     ArrayList<Booking> getPastBookingsHistory(User user) throws NoBookingsException, NoPastBookingsException {
         ArrayList<Booking> allBookings = getBookingsHistory(user);
         ArrayList<Booking> pastBookings = new ArrayList<>();
