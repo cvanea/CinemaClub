@@ -69,8 +69,8 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Button fx:id="deleteButton" layoutX="7.0" layoutY="96.0" mnemonicParsing="false" onAction="#pressDelete" prefHeight="52.0" prefWidth="85.0" text="Delete Screen" textAlignment="CENTER" wrapText="true" />
-                        <Button fx:id="addButton" layoutX="461.0" layoutY="94.0" mnemonicParsing="false" onAction="#pressAdd" prefHeight="56.0" prefWidth="90.0" text=" Add Screen" textAlignment="CENTER" wrapText="true" />
+                        <Button fx:id="deleteButton" layoutX="7.0" layoutY="94.0" mnemonicParsing="false" onAction="#pressDelete" prefHeight="52.0" prefWidth="85.0" text="Delete Screen" textAlignment="CENTER" wrapText="true" />
+                        <Button fx:id="addButton" layoutX="461.0" layoutY="94.0" mnemonicParsing="false" onAction="#pressAdd" prefHeight="52.0" prefWidth="90.0" text=" Add Screen" textAlignment="CENTER" wrapText="true" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #003459;" GridPane.columnIndex="1">
@@ -84,12 +84,12 @@
                               </Button>
                               <ComboBox fx:id="newRows" layoutX="240.0" layoutY="26.0" prefHeight="27.0" prefWidth="71.0" AnchorPane.topAnchor="26.0" />
                               <ComboBox fx:id="newCols" layoutX="240.0" layoutY="80.0" prefHeight="27.0" prefWidth="71.0" AnchorPane.topAnchor="80.0" />
-                              <Label layoutX="123.0" layoutY="27.0" text="Seat Rows:" textFill="WHITE">
+                              <Label layoutX="72.0" layoutY="27.0" text="Number of Rows:" textFill="WHITE">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="91.0" layoutY="80.0" text="Seat Columns:" textFill="WHITE">
+                              <Label layoutX="91.0" layoutY="80.0" text="Seats Per Row:" textFill="WHITE">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
