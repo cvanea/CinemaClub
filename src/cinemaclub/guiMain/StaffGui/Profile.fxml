@@ -60,8 +60,8 @@
                         <TableColumn fx:id="staffIdCol" prefWidth="155.0" text="Staff ID Number" />
                     </columns>
                   </TableView>
-                  <Button fx:id="addStaffId" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressAddStaffId" prefHeight="27.0" prefWidth="120.0" text="Add Staff ID" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#pressRemoveStaffId" prefWidth="120.0" text="Remove Staff ID" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
+                  <Button fx:id="addStaffId" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressAddStaffId" prefHeight="27.0" prefWidth="137.0" text="Add Staff ID" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#pressRemoveStaffId" prefHeight="27.0" prefWidth="146.0" text="Remove Staff ID" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
                   <Label text="Staff IDs" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font size="22.0" />
