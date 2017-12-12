@@ -26,6 +26,7 @@ public class ProfileController extends CustomerMainController implements Initial
     @FXML TextField firstName;
     @FXML TextField surname;
     @FXML Label errorLabel;
+    @FXML Label errorLabel2;
     @FXML TableView<Booking> futureTable;
     @FXML TableColumn <Booking, String> filmTable;
     @FXML TableColumn <Booking, String> dateTable;
@@ -54,8 +55,11 @@ public class ProfileController extends CustomerMainController implements Initial
         try {
             cinema.deleteFutureBooking(chosenBooking);
             fillFutureBookings();
+            errorLabel2.setText("Booking deleted");
+            errorLabel2.setStyle("-fx-text-fill: darkgreen");
         } catch(NoBookingsException | NotAFutureBookingException | NoFutureBookingsException | SeatNotFoundException e){
-            System.out.println(e.getMessage());
+            errorLabel2.setText(e.getMessage());
+            errorLabel2.setStyle("-fx-text-fill: red");
         }
     }
 
@@ -92,7 +96,8 @@ public class ProfileController extends CustomerMainController implements Initial
             futureTable.setItems(bookingObservableList);
 
         } catch (NoBookingsException | NoFutureBookingsException e) {
-            System.out.println(e.getMessage());
+            errorLabel2.setText(e.getMessage());
+            errorLabel2.setStyle("-fx-text-fill: red");
         }
     }
 
@@ -105,9 +110,9 @@ public class ProfileController extends CustomerMainController implements Initial
             timeTableP.setCellValueFactory(new PropertyValueFactory<>("Time"));
             seatTableP.setCellValueFactory(new PropertyValueFactory<>("Seat"));
             pastTable.setItems(bookingObservableList);
-            System.out.println("empty bookings");
         } catch (NoBookingsException | NoPastBookingsException e) {
-            System.out.println(e.getMessage());
+            errorLabel2.setText(e.getMessage());
+            errorLabel2.setStyle("-fx-text-fill: red");
         }
     }
 }

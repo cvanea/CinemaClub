@@ -13,7 +13,7 @@ import javafx.scene.layout.StackPane;
 import java.io.IOException;
 
 /**
- * Main controller class for the entire layout.
+ * Main controller class for the Customer Root layout.
  */
 public class CustomerMainController {
 
@@ -23,24 +23,26 @@ public class CustomerMainController {
         CustomerMainController.cinema = cinema;
     }
 
-    /** Holder of a switchable vista. */
-    @FXML
-    private StackPane viewHolder;
+    /** Stackpane holder for the switchable views */
+    @FXML private StackPane viewHolder;
     @FXML public Label headerLabelEdit;
 
     public void initialize() {
         headerLabelEdit.setText(GuiData.getViewTitle());
     }
+
     public void pressLogOut(ActionEvent event) throws IOException {
         StageSceneNavigator.loginStage();
         ((Node)(event.getSource())).getScene().getWindow().hide();
     }
+
     public void pressProfile(ActionEvent event) throws IOException {
         GuiData.setViewTitle("Profile");
         headerLabelEdit.setText(GuiData.getViewTitle());
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_PROFILE);
 
     }
+
     public void pressHome(ActionEvent event) throws IOException {
         GuiData.setViewTitle("Book Film By Date");
         headerLabelEdit.setText(GuiData.getViewTitle());

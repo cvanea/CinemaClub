@@ -54,7 +54,18 @@ public class BookSeatsController extends CustomerMainController implements Initi
         GuiData.setupSeatButtons(gridSeats, 820, 450, "customer");
     }
 
-    public void pressReserveSeat(ActionEvent actionEvent) throws IOException {
+    /**
+    * Creates a booking for each individual seat selected.
+     * Gets an Array list of all the buttons of the selected seats from GUI Data
+     * grabs the accessible text from each button collected splits the accessible
+     * text into a seat row letter and seat number.
+     * For each button then passes row and number parameters into the bookFilm
+     * class to book eat seat.
+     * Then loads the receipt modal view and changes the view back to the film
+     * browser.
+     */
+
+    public void pressReserveSeat(ActionEvent actionEvent){
         try {
             ArrayList<Button> selectedSeats = GuiData.getSelectedSeatMulti();
             for(Button seat : selectedSeats){
@@ -64,16 +75,19 @@ public class BookSeatsController extends CustomerMainController implements Initi
                 int seatNumber = Integer.parseInt(splitSeat[1]);
                 cinema.bookFilm(showing, seatRow, seatNumber);
             }
-//            cinema.bookFilm(showing, GuiData.getSeatRow(), seatNumber);
-            Stage stage = new Stage();
-            Parent root = FXMLLoader.load(BookSeatsController.class.getResource("ModalBooked.fxml"));
-            stage.setScene(new Scene(root));
-            stage.setTitle("Seats Booked");
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(
-                    ((Node) actionEvent.getSource()).getScene().getWindow());
-            stage.show();
-            StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
+            try {
+                Stage stage = new Stage();
+                Parent root = FXMLLoader.load(BookSeatsController.class.getResource("ModalBooked.fxml"));
+                stage.setScene(new Scene(root));
+                stage.setTitle("Seats Booked");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(
+                        ((Node) actionEvent.getSource()).getScene().getWindow());
+                stage.show();
+                StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_FILM_VIEW);
+            } catch (IOException e){
+                errorLabel.setText(e.getMessage());
+            }
         } catch (SeatAlreadyTakenException | SeatNotFoundException e) {
             errorLabel.setText(e.getMessage());
         }

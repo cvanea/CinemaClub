@@ -10,13 +10,13 @@
 
 <!--<?scenebuilder-stylesheet style.css?>-->
 
-<HBox prefHeight="500.0" prefWidth="800.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.LoginGui.LoginMainController">
+<HBox prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.LoginGui.LoginMainController">
     <children>
       <AnchorPane prefHeight="500.0" prefWidth="295.0" style="-fx-background-color: #003459;" HBox.hgrow="ALWAYS">
          <children>
               <Label fx:id="headerLabel" layoutX="43.0" layoutY="421.0" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="211.0" text="Created by Alex Charles and Claudia Vanea" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="System Font" size="17.0" />
+                  <Font name="System Italic" size="17.0" />
                </font>
             </Label>
             <ImageView id="logoImageLogin" fx:id="imageView" fitHeight="113.0" fitWidth="256.0" layoutX="19.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
