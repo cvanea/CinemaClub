@@ -26,11 +26,14 @@ public class ScreensController extends MainController implements Initializable {
     @FXML ComboBox<Integer> newCols;
     @FXML AnchorPane addNewScreenPane;
 
-    Screen selectedScreen;
-    int getLastScreen;
+    private Screen selectedScreen;
+    private int getLastScreen;
 
     public void pressDelete(ActionEvent actionEvent) {
-    //TODO REMOVE SCREEN
+        cinema.deleteScreen(selectedScreen);
+
+        screenList.getItems().clear();
+        popScreenList();
     }
 
     public void pressAdd(ActionEvent actionEvent) {
@@ -77,27 +80,27 @@ public class ScreensController extends MainController implements Initializable {
     private void setRowCol(){
         deleteGrid();
 //        Integer screenNum = screenList.getSelectionModel().getSelectedItem();
-//        numRows.setText(Integer.toString(selectedScreen.getNumberRow()));
-//        numCols.setText(Integer.toString(selectedScreen.getSeatsPerRow()));
-        int selcRow = selectedScreen.getNumberRow();
-        int selcCol = selectedScreen.getSeatsPerRow();
-        GuiData.setNumberOfRows(selcRow);
-        GuiData.setSeatsPerRow(selcCol);
+        numRows.setText(Integer.toString(selectedScreen.getNumberRow()));
+        numCols.setText(Integer.toString(selectedScreen.getSeatsPerRow()));
+        int selectedRow = selectedScreen.getNumberRow();
+        int selectedCol = selectedScreen.getSeatsPerRow();
+        GuiData.setNumberOfRows(selectedRow);
+        GuiData.setSeatsPerRow(selectedCol);
         GuiData.setupSeatButtons(gridSeats, 1120,500, "ScreenView");
     }
 
     private void popScreenList(){
         ArrayList<Screen> screensArray = cinema.getScreens();
+        System.out.println(screensArray);
         ArrayList<Integer> allScreenInts = new ArrayList<>();
+
         for(Screen screen: screensArray){
             allScreenInts.add(screen.getScreenNumber());
         }
+
         ObservableList<Integer> allScreens = FXCollections.observableArrayList(allScreenInts);
-        try {
-            screenList.setItems(allScreens);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        screenList.setItems(allScreens);
+
         getLastScreen = allScreenInts.get(allScreenInts.size() - 1);
     }
 

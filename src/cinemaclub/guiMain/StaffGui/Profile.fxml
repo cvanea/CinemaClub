@@ -128,7 +128,7 @@
                         <Font size="12.0" />
                      </font>
                   </Label>
-                  <Label fx:id="errorLabel" alignment="CENTER" layoutX="95.0" layoutY="453.0" prefHeight="34.0" prefWidth="326.0" textAlignment="CENTER" textFill="#ff0101" wrapText="true" AnchorPane.leftAnchor="95.0">
+                  <Label fx:id="errorLabel" alignment="CENTER" layoutX="72.0" layoutY="453.0" prefHeight="34.0" prefWidth="326.0" textAlignment="CENTER" textFill="#ff0101" wrapText="true" AnchorPane.leftAnchor="72.0">
                      <font>
                         <Font size="16.0" />
                      </font>
