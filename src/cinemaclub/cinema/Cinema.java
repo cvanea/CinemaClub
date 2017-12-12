@@ -60,7 +60,7 @@ public class Cinema {
         profile.addStaffID(id, username);
     }
 
-    public void deleteStaffId(String staffId) {
+    public void deleteStaffId(String staffId) throws StaffIdNotEmptyException {
         profile.deleteStaffId(staffId);
     }
 
