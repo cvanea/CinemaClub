@@ -1,7 +1,4 @@
 Film, Date, Time, Screen, Number of Booked Seats, Number of Available Seats, Booked Seats, Username
-UP, 2017-12-15, 13:00, Screen 1, Taken seats: 1, Free seats: 49, {A7=c}
-Walle, 2017-12-15, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
-UP, 2017-12-13, 01:00, Screen 2, Taken seats: 1, Free seats: 24, {E5=c}
-UP, 2017-12-15, 13:00, Screen 1, Taken seats: 1, Free seats: 49, {A7=c}
-Walle, 2017-12-15, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
-UP, 2017-12-13, 01:00, Screen 2, Taken seats: 1, Free seats: 24, {E5=c}
+UP, 2017-12-15, 13:00, Screen 1, Taken seats: 24, Free seats: 26, {C1=c, C2=c, C3=c, A2=c, C4=c, A3=c, E7=c, C5=c, C6=c, A5=c, A6=c, D1=c, D2=c, B1=c, D3=c, B2=c, D4=c, B3=c, D5=c, B4=c, D6=c, B5=c, D7=c, B6=c}
+Walle, 2017-12-15, 12:00, Screen 1, Taken seats: 13, Free seats: 37, {E1=c, D1=c, E3=c, D2=c, E4=c, D3=c, E5=c, D4=c, E6=c, D5=c, E7=c, D6=c, D7=c}
+UP, 2017-12-16, 12:00, Screen 1, Taken seats: 2, Free seats: 48, {A1=c, A2=c}

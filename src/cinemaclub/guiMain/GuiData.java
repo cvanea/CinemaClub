@@ -122,13 +122,14 @@ public class GuiData {
         Image imgSeatWhite = new Image("/seatW32.png");
         Image imgSeatYellow = new Image("/seatY32.png");
         button.setGraphic(new ImageView(imgSeatYellow));
-
-         if (selectedSeatMulti.contains(button)){
-            button.setGraphic(new ImageView(imgSeatWhite));
-            int index = selectedSeatMulti.indexOf(button);
-            selectedSeatMulti.remove(index);
-        } else {
-            selectedSeatMulti.add(button);
+        if(!isSeatTaken()) {
+            if (selectedSeatMulti.contains(button)) {
+                button.setGraphic(new ImageView(imgSeatWhite));
+                int index = selectedSeatMulti.indexOf(button);
+                selectedSeatMulti.remove(index);
+            } else {
+                selectedSeatMulti.add(button);
+            }
         }
     }
 

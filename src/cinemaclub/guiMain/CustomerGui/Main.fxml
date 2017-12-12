@@ -21,7 +21,7 @@
              <image>
                  <Image url="/CinemaClubWh.png" />
              </image> </ImageView>
-            <Label fx:id="headerLabelEdit" alignment="CENTER" layoutX="583.0" layoutY="30.0" styleClass="mainTitle" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="10.0" />
+            <Label fx:id="headerLabelEdit" alignment="CENTER" layoutX="583.0" layoutY="30.0" styleClass="mainTitle" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="420.0" AnchorPane.topAnchor="10.0" />
             <Button layoutX="928.0" layoutY="24.0" mnemonicParsing="false" onAction="#pressFilm" styleClass="menuButton" text="Film Browser" />
          </children>
       </AnchorPane>
