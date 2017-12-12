@@ -200,10 +200,8 @@ public class GuiData {
                             }
                         });
                     }
-
                     button.setGraphic(new ImageView(imgSeat));
                     button.setStyle("-fx-background-color: white");
-
                     GridPane.setHalignment(button, HPos.CENTER);
                     gridSeats.add(button, c, r);
                 }
