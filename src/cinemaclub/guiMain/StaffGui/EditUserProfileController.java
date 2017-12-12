@@ -1,7 +1,9 @@
 package cinemaclub.guiMain.StaffGui;
 
-import cinemaclub.user.Booking;
+import cinemaclub.user.User;
 import exceptions.UsernameTakenException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,8 +11,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class EditUserProfileController extends MainController implements Initializable {
@@ -21,26 +26,18 @@ public class EditUserProfileController extends MainController implements Initial
     @FXML TextField firstName;
     @FXML TextField surname;
     @FXML Label errorLabel;
-    @FXML TableView<Booking> futureTable;
-    @FXML TableColumn <Booking, String> filmTable;
-    @FXML TableColumn <Booking, String> dateTable;
-    @FXML TableColumn <Booking, String> timeTable;
-    @FXML TableColumn <Booking, String> seatTable;
-    @FXML TableView<Booking> pastTable;
-    @FXML TableColumn <Booking, String> filmTableP;
-    @FXML TableColumn <Booking, String> dateTableP;
-    @FXML TableColumn <Booking, String> timeTableP;
-    @FXML TableColumn <Booking, String> seatTableP;
+    @FXML TableView<User> userTable;
+    @FXML TableColumn <User, String> usernameCol;
+    @FXML TableColumn <User, String> emailCol;
+    @FXML TableColumn <User, String> firstNameCol;
+    @FXML TableColumn <User, String> surnameCol;
 
-    private Booking chosenBooking;
+    private User chosenUser;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        username.setText(cinema.getProfileDetails().getUsername());
-//        email.setText(cinema.getCurrentUser().getEmail());
-//        password.setText(cinema.getCurrentUser().getPassword());
-//        firstName.setText(cinema.getProfileDetails().getFirstName());
-//        surname.setText(cinema.getProfileDetails().getSurname());
+        fillUserTable();
+        errorLabel.setText("Please choose a User to edit.");
     }
 
     public void setProfileText(ActionEvent event) {
@@ -58,5 +55,25 @@ public class EditUserProfileController extends MainController implements Initial
             errorLabel.setText(e.getMessage());
             errorLabel.setStyle("-fx-text-fill: red");
         }
+    }
+
+    public void selectUser(MouseEvent event) {
+        chosenUser = userTable.getSelectionModel().getSelectedItem();
+        username.setText(chosenUser.getUsername());
+        password.setText(chosenUser.getPassword());
+        email.setText(chosenUser.getEmail());
+        firstName.setText(chosenUser.getFirstName());
+        surname.setText(chosenUser.getSurname());
+    }
+
+    private void fillUserTable() {
+        ObservableList<User> data = FXCollections.observableArrayList();
+        ArrayList<User> allUsers = cinema.getAllUsers();
+        data.addAll(allUsers);
+        usernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
+        emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
+        firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));
+        userTable.setItems(data);
     }
 }

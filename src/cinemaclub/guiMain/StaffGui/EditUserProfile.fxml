@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.ProfileController">
+<StackPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.EditUserProfileController">
    <children>
       <GridPane style="-fx-background-color: #ffffff;">
         <columnConstraints>
@@ -48,12 +48,12 @@
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <TableView prefHeight="365.0" prefWidth="400.0" GridPane.rowIndex="1">
+                  <TableView fx:id="userTable" onMouseClicked="#selectUser" prefHeight="365.0" prefWidth="400.0" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn prefWidth="157.70455932617188" text="Username" />
-                        <TableColumn prefWidth="156.29544067382812" text="Email" />
-                      <TableColumn prefWidth="175.08273315429688" text="First Name" />
-                        <TableColumn prefWidth="128.09567260742188" text="Surname" />
+                      <TableColumn fx:id="usernameCol" prefWidth="157.70455932617188" text="Username" />
+                        <TableColumn fx:id="emailCol" prefWidth="156.29544067382812" text="Email" />
+                      <TableColumn fx:id="firstNameCol" prefWidth="175.08273315429688" text="First Name" />
+                        <TableColumn fx:id="surnameCol" prefWidth="128.09567260742188" text="Surname" />
                     </columns>
                   </TableView>
                   <Button fx:id="register1" alignment="CENTER" mnemonicParsing="false" onAction="#setProfileText" prefHeight="43.0" prefWidth="201.0" styleClass="updateProfile" text="Edit User Profile" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />

@@ -62,6 +62,10 @@ public class Cinema {
         return profile.getUser(username);
     }
 
+    public ArrayList<User> getAllUsers() {
+        return profile.getAllUsers();
+    }
+
     public void loginUser(String username, String password)
             throws UserDetailsDoNotExistException, UserDetailsIncorrectException {
         currentUser = login.loginUser(username, password);

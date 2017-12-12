@@ -55,6 +55,13 @@ public class UserRepository implements Serializable {
         return userDetails.get(userName);
     }
 
+    public ArrayList<User> getAllUsers() {
+        ArrayList<User> allUsers = new ArrayList<>();
+        allUsers.addAll(userDetails.values());
+
+        return allUsers;
+    }
+
     public void setUsername(String oldUsername, String newUsername, User user) {
         userDetails.remove(oldUsername);
         userDetails.put(newUsername, user);

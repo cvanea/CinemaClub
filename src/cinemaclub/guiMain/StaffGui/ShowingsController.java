@@ -88,8 +88,8 @@ public class ShowingsController extends MainController implements Initializable 
 
     public void selectShowing(MouseEvent event) {
         chosenShowing = showingTable.getSelectionModel().getSelectedItem();
-
     }
+
     public void selectFilm(ActionEvent event) {
         selectedFilm = filmBox.getSelectionModel().getSelectedItem();
     }

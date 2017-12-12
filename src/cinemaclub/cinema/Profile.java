@@ -62,6 +62,10 @@ class Profile {
         userRepository.updateDB();
     }
 
+    ArrayList<User> getAllUsers() {
+        return userRepository.getAllUsers();
+    }
+
     void addStaffID(String id, String username) {
         userRepository.addStaffID(id, username);
     }
