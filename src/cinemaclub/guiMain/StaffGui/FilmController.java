@@ -117,6 +117,7 @@ public class FilmController extends MainController implements Initializable {
         filmDescription = descriptionArea.getText();
         filmRuntime = runtimeField.getText();
         filmImage = imageField.getText();
+        //TODO: Fields not complete exception
         if (filmTitle != null & filmDescription != null & filmRuntime != null & filmImage != null) {
             try {
                 cinema.addFilm(filmTitle,filmImage , filmDescription, filmRuntime);
@@ -134,7 +135,6 @@ public class FilmController extends MainController implements Initializable {
         } else{
             String errorMessage = "All fields not complete";
             errorLabel.setText(errorMessage);
-            System.out.println(errorMessage);
         }
     }
 

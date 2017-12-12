@@ -61,11 +61,6 @@
                         <TableColumn fx:id="seatTableP" prefWidth="118.9652099609375" text="Seat" />
                      </columns>
                   </TableView>
-                  <Button fx:id="cancelBook" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel Booking" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
                   <Label prefHeight="26.0" prefWidth="164.0" text="Future Bookings" textAlignment="CENTER" textFill="#003459" GridPane.halignment="CENTER">
                      <font>
                         <Font name="System Bold" size="20.0" />
@@ -76,6 +71,20 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <Button fx:id="cancelBook" alignment="CENTER_RIGHT" layoutX="455.0" layoutY="8.0" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel Booking">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="errorLabel2" alignment="CENTER" layoutY="8.0" prefHeight="34.0" prefWidth="435.0" textAlignment="CENTER" textFill="#ff0101" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
             </GridPane>
             <Label text="Bookings" textFill="#003459" underline="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
