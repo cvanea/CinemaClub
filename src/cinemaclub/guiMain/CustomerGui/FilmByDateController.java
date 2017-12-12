@@ -4,7 +4,10 @@ import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
+import exceptions.NoFilmsToDisplayException;
+import exceptions.NoTimeSelectedException;
 import exceptions.PastDateException;
+import exceptions.SeatIsEmptyException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -71,7 +74,9 @@ public class FilmByDateController extends CustomerMainController implements Init
     public void chooseFilm(MouseEvent actionEvent) {
         try {
             String chosenFilm = filmList.getSelectionModel().getSelectedItem();
-
+            if(chosenFilm == null){
+                throw new NoFilmsToDisplayException();
+            }
             ArrayList<Showing> showingsTime = cinema.getAllShowingsByFilm(cinema.getFilmByTitle(chosenFilm));
             ArrayList<String> timesArrayList = new ArrayList<>();
 
@@ -85,32 +90,51 @@ public class FilmByDateController extends CustomerMainController implements Init
             timesList.setItems(times);
             setFilmInfo(cinema.getFilmByTitle(chosenFilm));
             filmDisplayPane.setOpacity(1);
-        } catch (NullPointerException e) {
+        } catch (NoFilmsToDisplayException e) {
             errorLabel.setText("No film selected.");
         }
     }
 
     public void chooseTime(MouseEvent actionEvent) {
-        GuiData.setTime(timesList.getSelectionModel().getSelectedItem());
-        pickSeatButton.setOpacity(1);
+        try {
+            String chosenTime = timesList.getSelectionModel().getSelectedItem();
+            if (chosenTime == null) {
+                throw new NoTimeSelectedException();
+            }
+            GuiData.setTime(chosenTime);
+            pickSeatButton.setOpacity(1);
+        } catch (NoTimeSelectedException e){
+            errorLabel.setText(e.getMessage());
+        }
     }
 
     public void pressPickTime(ActionEvent actionEvent) {
         //TODO ADD TEXT TO TELL THEM TO PICK A TIME.
-        GuiData.setShowing(cinema.getShowingByDateTimeFilm(GuiData.getDate(), GuiData.getTime(), GuiData.getFilm()));
-        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
+        try {
+            if(GuiData.getTime().isEmpty()){
+                throw new NoTimeSelectedException();
+            }
+            GuiData.setShowing(cinema.getShowingByDateTimeFilm(GuiData.getDate(), GuiData.getTime(), GuiData.getFilm()));
+            StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
+            throw new NoTimeSelectedException();
+        } catch (NoTimeSelectedException e){
+            errorLabel.setText(e.getMessage());
+        }
     }
 
     private void setFilmInfo(Film film) {
         try {
+            if(film.getTitle().isEmpty()){
+                throw new NoFilmsToDisplayException();
+            }
             titleText.setText(film.getTitle());
             descriptionText.setText(film.getDescription());
             runTime.setText(film.getRunTime());
             Image img = new Image(film.getImagePath());
             imageBox.setImage(img);
             GuiData.setFilm(film);
-        } catch (NullPointerException e){
-            errorLabel.setText("There is no film information to display");
+        } catch (NoFilmsToDisplayException e){
+            errorLabel.setText(e.getMessage());
         }
 
 

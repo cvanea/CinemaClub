@@ -57,12 +57,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="seatText" layoutX="62.0" layoutY="388.0" prefHeight="40.0" prefWidth="148.0" textFill="WHITE">
+            <Label fx:id="seatText" layoutX="62.0" layoutY="388.0" prefHeight="40.0" prefWidth="241.0" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="successText" alignment="TOP_LEFT" layoutX="9.0" layoutY="19.0" maxWidth="250.0" minWidth="207.0" prefHeight="114.0" prefWidth="235.0" text="Seat Booked! We look forward to seeing you at the Cinema Club. Heres your booking info:" textFill="WHITE" wrapText="true">
+            <Label fx:id="successText" alignment="TOP_LEFT" layoutX="9.0" layoutY="19.0" maxWidth="250.0" minWidth="207.0" prefHeight="114.0" prefWidth="235.0" text="Seat Booked! We look forward to seeing you at the Cinema Club. Here's your booking info:" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
