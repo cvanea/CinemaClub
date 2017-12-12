@@ -73,7 +73,7 @@
                         <TableColumn fx:id="usernameCol2" prefWidth="351.0" text="Username" />
                      </columns>
                   </TableView>
-                  <Label fx:id="errorLabel" maxWidth="280.0" prefHeight="50.0" prefWidth="280.0" textAlignment="CENTER" textFill="RED" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                  <Label fx:id="errorLabel2" maxWidth="280.0" prefHeight="50.0" prefWidth="280.0" textAlignment="CENTER" textFill="RED" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
