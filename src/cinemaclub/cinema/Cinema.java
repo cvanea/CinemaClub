@@ -56,6 +56,14 @@ public class Cinema {
         return profile.getStaffIdByUsername(username);
     }
 
+    public void addStaffID(String id, String username) {
+        profile.addStaffID(id, username);
+    }
+
+    public void deleteStaffId(String staffId) throws StaffIdNotEmptyException {
+        profile.deleteStaffId(staffId);
+    }
+
     public User getCurrentUser() {
         return currentUser;
     }

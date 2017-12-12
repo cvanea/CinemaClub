@@ -2,6 +2,7 @@ package cinemaclub.guiMain.StaffGui;
 
 import cinemaclub.user.Staff;
 import cinemaclub.user.User;
+import exceptions.StaffIdNotEmptyException;
 import exceptions.UsernameTakenException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -71,13 +72,29 @@ public class ProfileController extends MainController implements Initializable {
     }
 
     public void pressAddStaffId(ActionEvent event) {
-//TODO: Add staff ID method - errorLabel2
-        errorLabel2.setText("Make Me!");
+        int numberOfStaffIds = staffIdTable.getItems().size();
+        int newStaffId = numberOfStaffIds + 1;
+        String newStaffIdString = Integer.toString(newStaffId);
+        cinema.addStaffID(newStaffIdString, "noStaff");
+
+        staffIdTable.getItems().clear();
+        fillStaffIdTable();
+
+        errorLabel2.setText("Added new Staff ID");
         errorLabel2.setStyle("-fx-text-fill: darkgreen");
     }
 
     public void pressRemoveStaffId(ActionEvent event) {
-// TODO: Remove StaffID Method - errorLabel2
+        String selectedStaffId = staffIdTable.getSelectionModel().getSelectedItem().getStaffId();
+
+        try {
+            cinema.deleteStaffId(selectedStaffId);
+
+            staffIdTable.getItems().clear();
+            fillStaffIdTable();
+        } catch (StaffIdNotEmptyException e) {
+            errorLabel2.setText(e.getMessage());
+        }
     }
 
     private void fillStaffTable() {

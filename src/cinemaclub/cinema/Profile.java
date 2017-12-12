@@ -81,6 +81,11 @@ class Profile {
         userRepository.addStaffID(id, username);
     }
 
+    void deleteStaffId(String staffId) throws StaffIdNotEmptyException {
+        validateStaffIdIsEmpty(staffId);
+        userRepository.deleteStaffId(staffId);
+    }
+
     ArrayList<Booking> getPastBookingsHistory(User user) throws NoBookingsException, NoPastBookingsException {
         ArrayList<Booking> allBookings = getBookingsHistory(user);
         ArrayList<Booking> pastBookings = new ArrayList<>();
@@ -144,6 +149,12 @@ class Profile {
             showing.unbookSeat(splitSeat[0], Integer.parseInt(splitSeat[1]));
             userRepository.updateDB();
             screenRepository.updateDB();
+        }
+    }
+
+    private void validateStaffIdIsEmpty(String staffId) throws StaffIdNotEmptyException {
+        if (!userRepository.getStaffIDValue(staffId).equals("noStaff")) {
+            throw new StaffIdNotEmptyException();
         }
     }
 
