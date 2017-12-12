@@ -37,8 +37,8 @@ public class ProfileController extends MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         username.setText(cinema.getProfileDetails().getUsername());
-        email.setText(cinema.getCurrentUser().getEmail());
-        password.setText(cinema.getCurrentUser().getPassword());
+        email.setText(cinema.getProfileDetails().getEmail());
+        password.setText(cinema.getProfileDetails().getPassword());
         firstName.setText(cinema.getProfileDetails().getFirstName());
         surname.setText(cinema.getProfileDetails().getSurname());
 
@@ -57,6 +57,10 @@ public class ProfileController extends MainController implements Initializable {
             cinema.setUserSurname(surname.getText());
             errorLabel.setText("Profile Updated");
             errorLabel.setStyle("-fx-text-fill: darkgreen");
+
+            staffTable.getItems().clear();
+            fillStaffTable();
+
             staffIdTable.getItems().clear();
             fillStaffIdTable();
         } catch (UsernameTakenException e) {
