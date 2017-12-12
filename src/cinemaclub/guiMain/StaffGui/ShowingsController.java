@@ -63,7 +63,6 @@ public class ShowingsController extends MainController implements Initializable 
     }
 
     public void pressAddShowing(ActionEvent event) {
-        //TODO: ADD TIME VALIDATOR.
         String selectedTime = timeField.getText();
         try {
             validateTimeInput(selectedTime);
