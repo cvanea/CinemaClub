@@ -49,6 +49,10 @@ public class Cinema {
         return allScreens;
     }
 
+    public Map<String, String> getStaffIDs() {
+        return profile.getStaffIDs();
+    }
+
     public String getStaffIdByUsername(String username) {
         return profile.getStaffIdByUsername(username);
     }

@@ -52,7 +52,7 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="staffIdTable" prefHeight="365.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TableView fx:id="staffTable" prefHeight="365.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="usernameCol" prefWidth="85.06298828125" text="Username" />
                       <TableColumn fx:id="firstNameCol" prefWidth="102.0" text="First Name" />
@@ -60,17 +60,17 @@
                         <TableColumn fx:id="staffIdCol" prefWidth="122.0" text="Staff ID Number" />
                     </columns>
                   </TableView>
-                  <Button mnemonicParsing="false" text="Add Staff ID" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <Button fx:id="addStaffId" mnemonicParsing="false" text="Add Staff ID" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
                   <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Remove Staff ID" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
                   <Label text="Staff IDs" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="staffIdTable1" prefHeight="365.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TableView fx:id="staffIdTable" prefHeight="365.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <columns>
-                        <TableColumn fx:id="usernameCol1" prefWidth="209.0" text="Staff ID" />
-                        <TableColumn fx:id="firstNameCol1" prefWidth="204.0" text="Username" />
+                        <TableColumn fx:id="staffIdCol2" prefWidth="209.0" text="Staff ID" />
+                        <TableColumn fx:id="usernameCol2" prefWidth="202.0" text="Username" />
                      </columns>
                   </TableView>
                </children>
