@@ -2,6 +2,7 @@ package cinemaclub.guiMain.StaffGui;
 
 import cinemaclub.cinema.Screen;
 import cinemaclub.guiMain.GuiData;
+import exceptions.MissingRowColException;
 import exceptions.ScreenNumberAlreadyExistsException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,23 +49,21 @@ public class ScreensController extends MainController implements Initializable {
     }
 
     public void pressConfirmScreen(ActionEvent actionEvent) {
-    Integer newScreenNum = getLastScreen+1;
-    int newRowNum = newRows.getSelectionModel().getSelectedItem();
-    int newColNum = newCols.getSelectionModel().getSelectedItem();
-        if (newColNum != 0 &&  newRowNum != 0) {
-            //TODO: ADD Exceptions
-            try {
+        Integer newScreenNum = getLastScreen + 1;
+        int newRowNum = newRows.getSelectionModel().getSelectedItem();
+        int newColNum = newCols.getSelectionModel().getSelectedItem();
+
+        try {
+            validateRolColSelection(newRowNum, newColNum);
             cinema.addScreen(new Screen(newScreenNum, newRowNum, newColNum));
-            } catch (ScreenNumberAlreadyExistsException e) {
-                System.out.println(e.getMessage());
-            }
-            popScreenList();
-            selectedScreen = cinema.getScreen(getLastScreen);
-            screenList.getSelectionModel().select(newScreenNum);
-            addNewScreenPane.setOpacity(0);
-        } else {
-            System.out.println("Please select both the number of rows and seats per row");
+        } catch (ScreenNumberAlreadyExistsException | MissingRowColException e) {
+            System.out.println(e.getMessage());
         }
+
+        popScreenList();
+        selectedScreen = cinema.getScreen(getLastScreen);
+        screenList.getSelectionModel().select(newScreenNum);
+        addNewScreenPane.setOpacity(0);
     }
 
     @Override
@@ -130,5 +129,12 @@ public class ScreensController extends MainController implements Initializable {
         }
         gridSeats.getChildren().clear();
     }
+
+    private void validateRolColSelection(int RowNum, int ColNum) throws MissingRowColException {
+        if (RowNum == 0 || ColNum == 0) {
+            throw new MissingRowColException();
+        }
+    }
+
 }
 
