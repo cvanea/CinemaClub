@@ -24,6 +24,7 @@ public class ProfileController extends MainController implements Initializable {
     @FXML TextField firstName;
     @FXML TextField surname;
     @FXML Label errorLabel;
+    @FXML Label errorLabel2;
     @FXML Button addStaffId;
     @FXML TableView<Staff> staffTable;
     @FXML TableColumn <Staff, String> usernameCol;
@@ -63,6 +64,16 @@ public class ProfileController extends MainController implements Initializable {
             errorLabel.setText(e.getMessage());
             errorLabel.setStyle("-fx-text-fill: red");
         }
+    }
+
+    public void pressAddStaffId(ActionEvent event) {
+//TODO: Add staff ID method - errorLabel2
+        errorLabel2.setText("Make Me!");
+        errorLabel2.setStyle("-fx-text-fill: darkgreen");
+    }
+
+    public void pressRemoveStaffId(ActionEvent event) {
+// TODO: Remove StaffID Method - errorLabel2
     }
 
     private void fillStaffTable() {
@@ -113,4 +124,6 @@ public class ProfileController extends MainController implements Initializable {
             return username;
         }
     }
+
+
 }
