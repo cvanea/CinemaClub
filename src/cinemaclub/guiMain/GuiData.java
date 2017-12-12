@@ -118,6 +118,7 @@ public class GuiData {
         }
     }
 
+<<<<<<< HEAD
     private static void seatSelectorMulti(Button button) {
         Image imgSeatWhite = new Image("/seatW32.png");
         Image imgSeatYellow = new Image("/seatY32.png");
@@ -134,6 +135,9 @@ public class GuiData {
 
     public static void setupSeatButtons(GridPane gridSeats, int gridWidth, int gridHeight, String method) {
         //TODO rename 'method'.
+=======
+    public static void setupSeatButtons(GridPane gridSeats, int gridWidth, int gridHeight, String useCase) {
+>>>>>>> Claudia
         int rowHeight = gridHeight / (numberOfRows);
         int columnWidth = gridWidth / (seatsPerRow);
         Image imgSeat;
@@ -177,7 +181,7 @@ public class GuiData {
 
                     imgSeat = new Image("/seatW32.png");
 
-                    if (!method.equals("ScreenView")) {
+                    if (!useCase.equals("ScreenView")) {
 
                         if (isSeatTaken()) {
                             imgSeat = new Image("/seatR32.png");
@@ -191,7 +195,7 @@ public class GuiData {
                                 b = (Button) object;
                             }
 
-                            if (!method.equals("staff")) {
+                            if (!useCase.equals("staff")) {
                                 splitSeat(b);
 
                                 if (isSeatTaken().equals(false)) {

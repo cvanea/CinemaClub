@@ -43,7 +43,6 @@ public class Cinema {
     }
 
     public ArrayList<Screen> getScreens() {
-        System.out.println(screens);
         ArrayList<Screen> allScreens = new ArrayList<>();
         allScreens.addAll(screens.values());
         return allScreens;
@@ -235,6 +234,11 @@ public class Cinema {
     public void addScreen(Screen screen) throws ScreenNumberAlreadyExistsException {
         filmEdit.addScreen(screen);
         setupScreensFromDB();
+    }
+
+    public void deleteScreen(Screen screen) {
+        filmEdit.deleteScreen(screen);
+        screens.remove(screen.getScreenNumber());
     }
 
     public void deleteFilm(String title) {

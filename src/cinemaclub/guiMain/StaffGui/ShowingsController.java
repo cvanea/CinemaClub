@@ -4,6 +4,7 @@ import cinemaclub.cinema.Screen;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
+import exceptions.MissingShowingInputsException;
 import exceptions.OverlappingRuntimeException;
 import exceptions.ShowingAlreadyExistsException;
 import exceptions.ShowingOnOtherScreenException;
@@ -35,10 +36,9 @@ public class ShowingsController extends MainController implements Initializable 
     @FXML TextField timeField;
     @FXML Label errorLabel;
 
-    private String selectedFilm = null;
-    private String selectedDate = null;
-    private String selectedTime = null;
-    private Integer selectedScreen = 1;
+    private String selectedFilm = "";
+    private String selectedDate = "";
+    private Integer selectedScreen = 0;
 
     private Showing chosenShowing;
 
@@ -51,7 +51,7 @@ public class ShowingsController extends MainController implements Initializable 
         popScreensList();
     }
 
-    public void fillFilmBox(){
+    private void fillFilmBox(){
         filmBox.setItems(GuiData.getFilmList(cinema));
     }
 
@@ -66,19 +66,17 @@ public class ShowingsController extends MainController implements Initializable 
     }
 
     public void pressAddShowing(ActionEvent event) {
-        //TODO: ADD TIME VALIDATOR. Change if statement into exception.
-        selectedTime = timeField.getText();
-        if (selectedFilm != null & selectedDate != null & selectedTime != null & selectedScreen != null) {
-            try {
-                cinema.addShowing(cinema.getScreen(selectedScreen), selectedDate, selectedTime, cinema.getFilmByTitle(selectedFilm));
-                errorLabel.setText("New Showing of "+ selectedFilm + " Added" );
-                fillShowingsTable();
-            } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException | OverlappingRuntimeException e) {
-                System.out.println(e.getMessage());
-                errorLabel.setText(e.getMessage());
-            }
-        } else {
-            errorLabel.setText("Please make sure all fields are chosen before adding a new showing!");
+        //TODO: ADD TIME VALIDATOR.
+        String selectedTime = timeField.getText();
+
+        try {
+            validateAddShowing(selectedFilm, selectedDate, selectedTime, selectedScreen);
+            cinema.addShowing(cinema.getScreen(selectedScreen), selectedDate, selectedTime, cinema.getFilmByTitle(selectedFilm));
+            errorLabel.setText("New Showing of " + selectedFilm + " Added" );
+            fillShowingsTable();
+        } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException |
+            OverlappingRuntimeException | MissingShowingInputsException e) {
+            errorLabel.setText(e.getMessage());
         }
     }
 
@@ -122,5 +120,11 @@ public class ShowingsController extends MainController implements Initializable 
         }
         ObservableList<Integer> allScreens = FXCollections.observableArrayList(allScreenInts);
         screenBox.setItems(allScreens);
+    }
+
+    private void validateAddShowing(String selectedFilm, String selectedDate, String selectedTime, Integer selectedScreen) throws MissingShowingInputsException {
+        if (selectedFilm.equals("") || selectedDate.equals("") || selectedTime.equals("") || selectedScreen == 0) {
+            throw new MissingShowingInputsException();
+        }
     }
 }

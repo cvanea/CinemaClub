@@ -25,6 +25,12 @@ public class ScreenRepository implements Serializable {
         dataBase.updateExternalDB();
     }
 
+    public void deleteScreen(Screen screen) {
+        showings.remove(screen);
+
+        dataBase.updateExternalDB();
+    }
+
     public ArrayList<Screen> getAllScreens() {
         ArrayList<Screen> screens = new ArrayList<>();
         screens.addAll(showings.keySet());
