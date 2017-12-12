@@ -54,6 +54,8 @@ public class ProfileController extends MainController implements Initializable {
             cinema.setUserSurname(surname.getText());
             errorLabel.setText("Profile Updated");
             errorLabel.setStyle("-fx-text-fill: darkgreen");
+            staffIdTable.getItems().clear();
+            fillStaffIdTable();
         } catch (UsernameTakenException e) {
             errorLabel.setText(e.getMessage());
             errorLabel.setStyle("-fx-text-fill: red");

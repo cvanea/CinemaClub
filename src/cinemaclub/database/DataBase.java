@@ -86,9 +86,9 @@ public class DataBase implements Serializable {
 
             Staff staff = new Staff(new UserCredentials("s", "s@s.com", "s", "Staff", "Tester"));
 
-            dataBase.userRepository.addUser("s", staff);
-            dataBase.userRepository.assignStaffID("1", "s");
             staff.setStaffId("1");
+            dataBase.userRepository.assignStaffID("1", "s");
+            dataBase.userRepository.addUser("s", staff);
         }
         return dataBase;
     }

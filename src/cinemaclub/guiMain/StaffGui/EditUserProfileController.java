@@ -85,6 +85,7 @@ public class EditUserProfileController extends MainController implements Initial
     }
 
     public class UserRow {
+
         private String username;
         private String password;
         private String email;
