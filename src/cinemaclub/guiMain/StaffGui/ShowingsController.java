@@ -4,10 +4,7 @@ import cinemaclub.cinema.Screen;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
-import exceptions.MissingShowingInputsException;
-import exceptions.OverlappingRuntimeException;
-import exceptions.ShowingAlreadyExistsException;
-import exceptions.ShowingOnOtherScreenException;
+import exceptions.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -68,14 +65,14 @@ public class ShowingsController extends MainController implements Initializable 
     public void pressAddShowing(ActionEvent event) {
         //TODO: ADD TIME VALIDATOR.
         String selectedTime = timeField.getText();
-
         try {
+            validateTimeInput(selectedTime);
             validateAddShowing(selectedFilm, selectedDate, selectedTime, selectedScreen);
             cinema.addShowing(cinema.getScreen(selectedScreen), selectedDate, selectedTime, cinema.getFilmByTitle(selectedFilm));
             errorLabel.setText("New Showing of " + selectedFilm + " Added" );
             fillShowingsTable();
         } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException |
-            OverlappingRuntimeException | MissingShowingInputsException e) {
+            OverlappingRuntimeException | MissingShowingInputsException | IncorrectTimeFormatException e) {
             errorLabel.setText(e.getMessage());
         }
     }
@@ -125,6 +122,36 @@ public class ShowingsController extends MainController implements Initializable 
     private void validateAddShowing(String selectedFilm, String selectedDate, String selectedTime, Integer selectedScreen) throws MissingShowingInputsException {
         if (selectedFilm.equals("") || selectedDate.equals("") || selectedTime.equals("") || selectedScreen == 0) {
             throw new MissingShowingInputsException();
+        }
+    }
+
+    private void validateTimeInput(String time) throws IncorrectTimeFormatException {
+        String[] splitTime = time.split("(?!^)");
+
+        if (splitTime.length != 5) {
+            throw new IncorrectTimeFormatException();
+        }
+
+        try {
+            Integer.parseInt(splitTime[0]);
+            Integer.parseInt(splitTime[1]);
+            Integer.parseInt(splitTime[3]);
+            Integer.parseInt(splitTime[4]);
+        } catch (NumberFormatException e) {
+            throw new IncorrectTimeFormatException();
+        }
+
+        if (!splitTime[2].equals(":")) {
+            throw new IncorrectTimeFormatException();
+        }
+
+        if (Integer.parseInt(splitTime[0] + splitTime[1]) > 24) {
+            throw new IncorrectTimeFormatException();
+        }
+
+        if (Integer.parseInt(splitTime[0] + splitTime[1]) == 24 &&
+            (Integer.parseInt(splitTime[3]) != 0 || Integer.parseInt(splitTime[4]) != 0)) {
+            throw new IncorrectTimeFormatException();
         }
     }
 }
