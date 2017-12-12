@@ -25,7 +25,7 @@ public class GuiData {
     private static Film film;
     private static String date;
     private static String time;
-    public static Button selectedSeat = null;
+    public static Button selectedSeat;
     public static Showing showing;
     private static String seatRow;
     private static int seatNumber;
@@ -110,8 +110,7 @@ public class GuiData {
         }
     }
 
-    public static void setupSeatButtons(GridPane gridSeats, int gridWidth, int gridHeight, String method) {
-        //TODO rename 'method'.
+    public static void setupSeatButtons(GridPane gridSeats, int gridWidth, int gridHeight, String useCase) {
         int rowHeight = gridHeight / (numberOfRows);
         int columnWidth = gridWidth / (seatsPerRow);
         Image imgSeat;
@@ -156,7 +155,7 @@ public class GuiData {
 
                     imgSeat = new Image("/seatW32.png");
 
-                    if (!method.equals("ScreenView")) {
+                    if (!useCase.equals("ScreenView")) {
 
                         if (isSeatTaken()) {
                             imgSeat = new Image("/seatR32.png");
@@ -170,7 +169,7 @@ public class GuiData {
                                 b = (Button) object;
                             }
 
-                            if (!method.equals("staff")) {
+                            if (!useCase.equals("staff")) {
                                 splitSeat(b);
 
                                 if (isSeatTaken().equals(false)) {
