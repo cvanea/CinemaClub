@@ -2,6 +2,7 @@ package cinemaclub.guiMain.StaffGui;
 
 import cinemaclub.cinema.Screen;
 import cinemaclub.guiMain.GuiData;
+import exceptions.MissingRowColException;
 import exceptions.ScreenNumberAlreadyExistsException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,11 +27,14 @@ public class ScreensController extends MainController implements Initializable {
     @FXML ComboBox<Integer> newCols;
     @FXML AnchorPane addNewScreenPane;
 
-    Screen selectedScreen;
-    int getLastScreen;
+    private Screen selectedScreen;
+    private int getLastScreen;
 
     public void pressDelete(ActionEvent actionEvent) {
-    //TODO REMOVE SCREEN
+        cinema.deleteScreen(selectedScreen);
+
+        screenList.getItems().clear();
+        popScreenList();
     }
 
     public void pressAdd(ActionEvent actionEvent) {
@@ -45,23 +49,21 @@ public class ScreensController extends MainController implements Initializable {
     }
 
     public void pressConfirmScreen(ActionEvent actionEvent) {
-    Integer newScreenNum = getLastScreen+1;
-    int newRowNum = newRows.getSelectionModel().getSelectedItem();
-    int newColNum = newCols.getSelectionModel().getSelectedItem();
-        if (newColNum != 0 &&  newRowNum != 0) {
-            //TODO: ADD Exceptions
-            try {
+        Integer newScreenNum = getLastScreen + 1;
+        int newRowNum = newRows.getSelectionModel().getSelectedItem();
+        int newColNum = newCols.getSelectionModel().getSelectedItem();
+
+        try {
+            validateRolColSelection(newRowNum, newColNum);
             cinema.addScreen(new Screen(newScreenNum, newRowNum, newColNum));
-            } catch (ScreenNumberAlreadyExistsException e) {
-                System.out.println(e.getMessage());
-            }
-            popScreenList();
-            selectedScreen = cinema.getScreen(getLastScreen);
-            screenList.getSelectionModel().select(newScreenNum);
-            addNewScreenPane.setOpacity(0);
-        } else {
-            System.out.println("Both row and col not selected");
+        } catch (ScreenNumberAlreadyExistsException | MissingRowColException e) {
+            System.out.println(e.getMessage());
         }
+
+        popScreenList();
+        selectedScreen = cinema.getScreen(getLastScreen);
+        screenList.getSelectionModel().select(newScreenNum);
+        addNewScreenPane.setOpacity(0);
     }
 
     @Override
@@ -77,27 +79,27 @@ public class ScreensController extends MainController implements Initializable {
     private void setRowCol(){
         deleteGrid();
 //        Integer screenNum = screenList.getSelectionModel().getSelectedItem();
-//        numRows.setText(Integer.toString(selectedScreen.getNumberRow()));
-//        numCols.setText(Integer.toString(selectedScreen.getSeatsPerRow()));
-        int selcRow = selectedScreen.getNumberRow();
-        int selcCol = selectedScreen.getSeatsPerRow();
-        GuiData.setNumberOfRows(selcRow);
-        GuiData.setSeatsPerRow(selcCol);
+        numRows.setText(Integer.toString(selectedScreen.getNumberRow()));
+        numCols.setText(Integer.toString(selectedScreen.getSeatsPerRow()));
+        int selectedRow = selectedScreen.getNumberRow();
+        int selectedCol = selectedScreen.getSeatsPerRow();
+        GuiData.setNumberOfRows(selectedRow);
+        GuiData.setSeatsPerRow(selectedCol);
         GuiData.setupSeatButtons(gridSeats, 1120,500, "ScreenView");
     }
 
     private void popScreenList(){
         ArrayList<Screen> screensArray = cinema.getScreens();
         ArrayList<Integer> allScreenInts = new ArrayList<>();
+
         for(Screen screen: screensArray){
             allScreenInts.add(screen.getScreenNumber());
         }
+
         ObservableList<Integer> allScreens = FXCollections.observableArrayList(allScreenInts);
-        try {
-            screenList.setItems(allScreens);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        screenList.setItems(allScreens);
+
+        screenList.getSelectionModel().selectFirst();
         getLastScreen = allScreenInts.get(allScreenInts.size() - 1);
     }
 
@@ -127,5 +129,12 @@ public class ScreensController extends MainController implements Initializable {
         }
         gridSeats.getChildren().clear();
     }
+
+    private void validateRolColSelection(int RowNum, int ColNum) throws MissingRowColException {
+        if (RowNum == 0 || ColNum == 0) {
+            throw new MissingRowColException();
+        }
+    }
+
 }
 

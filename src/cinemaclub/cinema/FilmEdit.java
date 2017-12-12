@@ -77,6 +77,10 @@ class FilmEdit {
         screenRepository.addScreen(screen);
     }
 
+    void deleteScreen(Screen screen) {
+        screenRepository.deleteScreen(screen);
+    }
+
     ArrayList<Screen> getScreens() {
         return screenRepository.getAllScreens();
     }

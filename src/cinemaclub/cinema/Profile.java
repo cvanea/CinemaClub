@@ -3,10 +3,7 @@ package cinemaclub.cinema;
 import cinemaclub.database.DataBase;
 import cinemaclub.database.ScreenRepository;
 import cinemaclub.database.UserRepository;
-import cinemaclub.user.Booking;
-import cinemaclub.user.Customer;
-import cinemaclub.user.User;
-import cinemaclub.user.UserCredentials;
+import cinemaclub.user.*;
 import exceptions.*;
 
 import java.time.LocalDateTime;
@@ -37,6 +34,11 @@ class Profile {
         String oldUsername = user.getUsername();
         user.setUsername(newUsername);
         userRepository.setUsername(oldUsername, newUsername, user);
+
+        if (user instanceof Staff) {
+            String staffId = userRepository.getStaffIdByUsername(oldUsername);
+            userRepository.assignStaffID(staffId, newUsername);
+        }
     }
 
     ArrayList<String> getAllStaffByID() {
