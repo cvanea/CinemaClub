@@ -117,7 +117,7 @@ public class GuiData {
             selectedSeat = button;
         }
     }
-    
+
     private static void seatSelectorMulti(Button button) {
         Image imgSeatWhite = new Image("/seatW32.png");
         Image imgSeatYellow = new Image("/seatY32.png");
@@ -156,18 +156,16 @@ public class GuiData {
 
                 gridSeats.getColumnConstraints().add(column);
 
-                if (r == 0 && c == 0) {
-
-                } else if (r == 0) {
+                if (r == 0 && c != 0) {
                     Label seatLabel = new Label(String.valueOf(c));
                     GridPane.setHalignment(seatLabel, HPos.CENTER);
                     gridSeats.add(seatLabel, c, r);
-                } else if (c == 0) {
+                } else if (c == 0 && r != 0) {
                     String letter = getCharForNumber(r);
                     Label seatLabel = new Label(String.valueOf(letter));
                     GridPane.setHalignment(seatLabel, HPos.RIGHT);
                     gridSeats.add(seatLabel, c, r);
-                } else {
+                } else if (c > 0 && r > 0){
                     String letter = getCharForNumber(r);
                     String seatName = letter + c;
                     Button button = new Button();
