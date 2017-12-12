@@ -32,6 +32,7 @@ public class FilmByDateController extends CustomerMainController implements Init
     @FXML Label runtimeText;
     @FXML Label runTime;
     @FXML Label pickFilm;
+    @FXML Label errorLabel;
     @FXML Button pickSeatButton;
     @FXML DatePicker datePicker;
     @FXML AnchorPane filmDisplayPane;
@@ -63,7 +64,7 @@ public class FilmByDateController extends CustomerMainController implements Init
             filmList.setOpacity(1);
             GuiData.setDate(datePicked);
         } catch (PastDateException e) {
-            System.out.println(e.getMessage());
+            errorLabel.setText(e.getMessage());
         }
     }
 
@@ -85,7 +86,7 @@ public class FilmByDateController extends CustomerMainController implements Init
             setFilmInfo(cinema.getFilmByTitle(chosenFilm));
             filmDisplayPane.setOpacity(1);
         } catch (NullPointerException e) {
-            System.out.println("There are no showings on there!");
+            errorLabel.setText("No film selected.");
         }
     }
 
@@ -100,12 +101,18 @@ public class FilmByDateController extends CustomerMainController implements Init
         StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
     }
 
-    private void setFilmInfo(Film film) throws NullPointerException {
-        titleText.setText(film.getTitle());
-        descriptionText.setText(film.getDescription());
-        runTime.setText(film.getRunTime());
-        Image img = new Image(film.getImagePath());
-        imageBox.setImage(img);
-        GuiData.setFilm(film);
+    private void setFilmInfo(Film film) {
+        try {
+            titleText.setText(film.getTitle());
+            descriptionText.setText(film.getDescription());
+            runTime.setText(film.getRunTime());
+            Image img = new Image(film.getImagePath());
+            imageBox.setImage(img);
+            GuiData.setFilm(film);
+        } catch (NullPointerException e){
+            errorLabel.setText("There is no film information to display");
+        }
+
+
     }
 }

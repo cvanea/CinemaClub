@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_cinemaclub" default="compile.module.cinemaclub">
+  <dirname property="module.cinemaclub.basedir" file="${ant.file.module_cinemaclub}"/>
+  
+  <property name="module.jdk.home.cinemaclub" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.cinemaclub" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.cinemaclub" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.cinemaclub" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="cinemaclub.output.dir" value="${module.cinemaclub.basedir}/out/production/CinemaClub"/>
+  <property name="cinemaclub.testoutput.dir" value="${module.cinemaclub.basedir}/out/test/CinemaClub"/>
+  
+  <path id="cinemaclub.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="cinemaclub.module.production.classpath">
+    <path refid="${module.jdk.classpath.cinemaclub}"/>
+  </path>
+  
+  <path id="cinemaclub.runtime.production.module.classpath">
+    <pathelement location="${cinemaclub.output.dir}"/>
+  </path>
+  
+  <path id="cinemaclub.module.classpath">
+    <path refid="${module.jdk.classpath.cinemaclub}"/>
+    <pathelement location="${cinemaclub.output.dir}"/>
+  </path>
+  
+  <path id="cinemaclub.runtime.module.classpath">
+    <pathelement location="${cinemaclub.testoutput.dir}"/>
+    <pathelement location="${cinemaclub.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.cinemaclub">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.cinemaclub">
+    <patternset refid="excluded.from.module.cinemaclub"/>
+  </patternset>
+  
+  <path id="cinemaclub.module.sourcepath">
+    <dirset dir="${module.cinemaclub.basedir}">
+      <include name="src"/>
+      <include name="Images"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.cinemaclub" depends="compile.module.cinemaclub.production,compile.module.cinemaclub.tests" description="Compile module CinemaClub"/>
+  
+  <target name="compile.module.cinemaclub.production" depends="register.custom.compilers" description="Compile module CinemaClub; production classes">
+    <mkdir dir="${cinemaclub.output.dir}"/>
+    <javac2 destdir="${cinemaclub.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.cinemaclub}/javac">
+      <compilerarg line="${compiler.args.cinemaclub}"/>
+      <bootclasspath refid="cinemaclub.module.bootclasspath"/>
+      <classpath refid="cinemaclub.module.production.classpath"/>
+      <src refid="cinemaclub.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cinemaclub"/>
+    </javac2>
+    
+    <copy todir="${cinemaclub.output.dir}">
+      <fileset dir="${module.cinemaclub.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.cinemaclub.basedir}/Images">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.cinemaclub.tests" depends="register.custom.compilers,compile.module.cinemaclub.production" description="compile module CinemaClub; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.cinemaclub" description="cleanup module">
+    <delete dir="${cinemaclub.output.dir}"/>
+    <delete dir="${cinemaclub.testoutput.dir}"/>
+  </target>
+</project>

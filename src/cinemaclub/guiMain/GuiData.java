@@ -26,6 +26,7 @@ public class GuiData {
     private static String date;
     private static String time;
     public static Button selectedSeat = null;
+    public static ArrayList<Button> selectedSeatMulti = new ArrayList<>();
     public static Showing showing;
     private static String seatRow;
     private static int seatNumber;
@@ -33,6 +34,13 @@ public class GuiData {
     private static int seatsPerRow;
     private static String seatBooked;
 
+    public static ArrayList<Button> getSelectedSeatMulti() {
+        return selectedSeatMulti;
+    }
+
+    public static void setSelectedSeatMulti(ArrayList<Button> selectedSeatMulti) {
+        GuiData.selectedSeatMulti = selectedSeatMulti;
+    }
 
     public static String getSuccessMessage() {
         return successMessage;
@@ -94,7 +102,7 @@ public class GuiData {
         }
     }
 
-    private static void seatSelect(Button button) {
+    private static void seatSelectSingle(Button button) {
         Image imgSeatWhite = new Image("/seatW32.png");
         Image imgSeatYellow = new Image("/seatY32.png");
         if (selectedSeat == null){
@@ -110,12 +118,25 @@ public class GuiData {
         }
     }
 
+    private static void seatSelectorMulti(Button button) {
+        Image imgSeatWhite = new Image("/seatW32.png");
+        Image imgSeatYellow = new Image("/seatY32.png");
+        button.setGraphic(new ImageView(imgSeatYellow));
+
+         if (selectedSeatMulti.contains(button)){
+            button.setGraphic(new ImageView(imgSeatWhite));
+            int index = selectedSeatMulti.indexOf(button);
+            selectedSeatMulti.remove(index);
+        } else {
+            selectedSeatMulti.add(button);
+        }
+    }
+
     public static void setupSeatButtons(GridPane gridSeats, int gridWidth, int gridHeight, String method) {
         //TODO rename 'method'.
         int rowHeight = gridHeight / (numberOfRows);
         int columnWidth = gridWidth / (seatsPerRow);
         Image imgSeat;
-
         for (int r = 0; r < numberOfRows+1; r++) {
             RowConstraints row;
                 if (r == 0) {
@@ -174,7 +195,10 @@ public class GuiData {
                                 splitSeat(b);
 
                                 if (isSeatTaken().equals(false)) {
-                                    seatSelect(b);
+//                                    seatSelectSingle(b);
+//                                    selectedSeatMulti.add(button);
+//                                    System.out.println(selectedSeatMulti.toString());
+                                    seatSelectorMulti(b);
                                 }
                             }
                         });

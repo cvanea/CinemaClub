@@ -4,9 +4,12 @@ import cinemaclub.guiMain.GuiData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import java.util.ArrayList;
 
 
 public class ModalBookedController {
@@ -27,10 +30,22 @@ public class ModalBookedController {
         runtimeText.setText(GuiData.getFilm().getRunTime());
         dateText.setText(GuiData.getShowing().getDate());
         timeText.setText(GuiData.getShowing().getTime());
+        ArrayList<Button> purchasedButtons = GuiData.getSelectedSeatMulti();
+        StringBuilder stringBuilder = new StringBuilder();
+        int purchasedButtonsSize = purchasedButtons.size();
+        int c = 0;
+        for(Button button : purchasedButtons){
+            String buttonText = button.getAccessibleText();
+            stringBuilder.append(buttonText);
+            c++;
+            if(c != purchasedButtonsSize){
+                stringBuilder.append(", ");
+            }
+        }
         String seat = Integer.toString(GuiData.getSeatNumber());
         String seatName = GuiData.getSeatRow() + seat;
-        System.out.println(seatName);
-        seatText.setText(seatName);
+//        System.out.println(seatName);
+        seatText.setText(stringBuilder.toString());
     }
 
     public void pressClose(ActionEvent actionEvent) {

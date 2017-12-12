@@ -4,6 +4,7 @@ import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
+import exceptions.DateTimeNullException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -44,6 +45,8 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     @FXML ComboBox<String> datesBox3;
     @FXML ComboBox<String> timesBox3;
     @FXML Button bookSeatButton3;
+
+    @FXML Label errorLabel;
 
     int numberofFilmsWShowings;
     int showingView;
@@ -138,14 +141,18 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     public void goToShowing(String date, String time){
-        if (!date.equals(null) && !time.equals(null)) {
-            GuiData.setDate(date);
-            GuiData.setTime(time);
-            GuiData.setShowing(cinema.getShowingByDateTime(date, time));
-            StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
-        }
-        else{
-            System.out.println("no time/ date selected");
+        try {
+            if (!date.equals(null) && !time.equals(null)) {
+                GuiData.setDate(date);
+                GuiData.setTime(time);
+                GuiData.setShowing(cinema.getShowingByDateTime(date, time));
+                StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
+            }
+            else{
+                throw new DateTimeNullException();
+            }
+        } catch (DateTimeNullException e){
+            errorLabel.setText(e.getMessage());
         }
     }
 
@@ -182,15 +189,15 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         return  timesComboList;
     }
 
-    private void setFilmInfo1(Film film){
+    private void setFilmInfo1(Film film) {
         titleText1.setText(film.getTitle());
         descriptionText1.setText(film.getDescription());
         runtimeText1.setText(film.getRunTime());
         Image img = new Image(film.getImagePath());
         imageBox1.setImage(img);
-        ArrayList<String> datesList = getDatesList(film);
-        ObservableList<String> datesComboList = FXCollections.observableArrayList(datesList);
-        datesBox1.setItems(datesComboList);
+        ArrayList<String> datesList1 = getDatesList(film);
+        ObservableList<String> datesComboList1 = FXCollections.observableArrayList(datesList1);
+        datesBox1.setItems(datesComboList1);
         film1 = film;
     }
 
