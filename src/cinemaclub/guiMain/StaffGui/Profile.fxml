@@ -53,9 +53,9 @@
                   <TableView fx:id="staffIdTable" prefHeight="365.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="usernameCol" prefWidth="85.06298828125" text="Username" />
-                      <TableColumn fx:id="FirstNameCol" prefWidth="89.93701171875" text="First Name" />
-                        <TableColumn fx:id="SurnameCol" prefWidth="97.8487548828125" text="Surname" />
-                        <TableColumn fx:id="StaffIdCol" prefWidth="128.71014404296875" text="Staff ID Number" />
+                      <TableColumn fx:id="firstNameCol" prefWidth="89.93701171875" text="First Name" />
+                        <TableColumn fx:id="surnameCol" prefWidth="97.8487548828125" text="Surname" />
+                        <TableColumn fx:id="staffIdCol" prefWidth="128.71014404296875" text="Staff ID Number" />
                     </columns>
                   </TableView>
                   <Button mnemonicParsing="false" text="Add Staff ID" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
