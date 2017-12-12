@@ -18,7 +18,8 @@ public class MainTester {
 //        showingsTester();
 //        seatsTester();
 //        exportTester();
-        screenTester();
+//        screenTester();
+        timeTester();
 
     }
 
@@ -320,6 +321,41 @@ public class MainTester {
             System.out.println(cinema.getShowingsByDate("2018-02-20", cinema.getScreen(1)));
         } catch (PastDateException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    private static void timeTester() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter time: ");
+
+        String time = scanner.next();
+
+        String[] splitTime = time.split("(?!^)");
+
+        if (splitTime.length != 5) {
+            System.out.println("error1");
+        }
+
+        try {
+            Integer.parseInt(splitTime[0]);
+            Integer.parseInt(splitTime[1]);
+            Integer.parseInt(splitTime[3]);
+            Integer.parseInt(splitTime[4]);
+        } catch (NumberFormatException e) {
+            System.out.println("error2");
+        }
+
+        if (!splitTime[2].equals(":")) {
+            System.out.println("error3");
+        }
+
+        if (Integer.parseInt(splitTime[0] + splitTime[1]) > 24) {
+            System.out.println("error4");
+        }
+
+        if (Integer.parseInt(splitTime[0] + splitTime[1]) == 24 && (Integer.parseInt(splitTime[3]) != 0 || Integer.parseInt(splitTime[4]) != 0)) {
+            System.out.println("error5");
         }
 
     }
