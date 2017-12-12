@@ -63,7 +63,7 @@ public class ScreensController extends MainController implements Initializable {
             screenList.getSelectionModel().select(newScreenNum);
             addNewScreenPane.setOpacity(0);
         } else {
-            System.out.println("Both row and col not selected");
+            System.out.println("Please select both the number of rows and seats per row");
         }
     }
 
@@ -91,7 +91,6 @@ public class ScreensController extends MainController implements Initializable {
 
     private void popScreenList(){
         ArrayList<Screen> screensArray = cinema.getScreens();
-        System.out.println(screensArray);
         ArrayList<Integer> allScreenInts = new ArrayList<>();
 
         for(Screen screen: screensArray){
@@ -101,6 +100,7 @@ public class ScreensController extends MainController implements Initializable {
         ObservableList<Integer> allScreens = FXCollections.observableArrayList(allScreenInts);
         screenList.setItems(allScreens);
 
+        screenList.getSelectionModel().selectFirst();
         getLastScreen = allScreenInts.get(allScreenInts.size() - 1);
     }
 
