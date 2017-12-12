@@ -30,7 +30,7 @@ public class ScreensController extends MainController implements Initializable {
     int getLastScreen;
 
     public void pressDelete(ActionEvent actionEvent) {
-
+    //TODO REMOVE SCREEN
     }
 
     public void pressAdd(ActionEvent actionEvent) {
@@ -74,8 +74,7 @@ public class ScreensController extends MainController implements Initializable {
         populateRCBoxes();
     }
 
-
-    public void setRowCol(){
+    private void setRowCol(){
         deleteGrid();
 //        Integer screenNum = screenList.getSelectionModel().getSelectedItem();
 //        numRows.setText(Integer.toString(selectedScreen.getNumberRow()));
@@ -87,7 +86,7 @@ public class ScreensController extends MainController implements Initializable {
         GuiData.setupSeatButtons(gridSeats, 1120,500, "ScreenView");
     }
 
-    public void popScreenList(){
+    private void popScreenList(){
         ArrayList<Screen> screensArray = cinema.getScreens();
         ArrayList<Integer> allScreenInts = new ArrayList<>();
         for(Screen screen: screensArray){
@@ -102,7 +101,7 @@ public class ScreensController extends MainController implements Initializable {
         getLastScreen = allScreenInts.get(allScreenInts.size() - 1);
     }
 
-    public void populateRCBoxes() {
+    private void populateRCBoxes() {
         ArrayList<Integer> newRowsArray = new ArrayList<>();
 
         for (Integer i = 1; i < 13; i++) {
@@ -119,7 +118,7 @@ public class ScreensController extends MainController implements Initializable {
         newCols.setItems(newColsObs);
     }
 
-    public void deleteGrid(){
+    private void deleteGrid(){
         while(gridSeats.getRowConstraints().size() > 0){
             gridSeats.getRowConstraints().remove(0);
         }

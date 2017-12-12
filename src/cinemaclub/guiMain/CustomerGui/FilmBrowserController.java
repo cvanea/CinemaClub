@@ -64,7 +64,6 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     public void getFilms(){
-        //TODO: Add get all films with showings
         ArrayList<Showing> showings = cinema.getAllShowings();
         for (Showing showing: showings){
             Film showingFilm = showing.getFilm();

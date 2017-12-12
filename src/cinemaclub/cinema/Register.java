@@ -23,27 +23,24 @@ class Register {
 
     void registerUser(String username, String email, String password, String firstName, String surname, String userType, String staffID)
         throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException, EmptyUserInputException  {
+            validateUsername(username);
+            validateInput(username);
+            validateInput(email);
+            validateInput(password);
+            validateInput(firstName);
+            validateInput(surname);
 
         if (userType.equals("staff")) {
             validateID(staffID);
-            validateUsername(username);
-            validateInput(username);
-            validateInput(email);
-            validateInput(password);
-            validateInput(firstName);
-            validateInput(surname);
             validateInput(staffID);
 
             User user = new Staff(new UserCredentials(username, email, password, firstName, surname));
+            Staff staff = (Staff) user;
+            staff.setStaffId(staffID);
+
             userRepository.assignStaffID(staffID, username);
             userRepository.addUser(user.getUsername(), user);
         } else {
-            validateUsername(username);
-            validateInput(username);
-            validateInput(email);
-            validateInput(password);
-            validateInput(firstName);
-            validateInput(surname);
 
             User user = new Customer(new UserCredentials(username, email, password, firstName, surname), new ArrayList<>());
             userRepository.addUser(user.getUsername(), user);
@@ -60,7 +57,6 @@ class Register {
     }
 
     private void validateUsername(String username) throws UsernameTakenException {
-
         if (userRepository.checkForUsername(username)) {
             throw new UsernameTakenException();
         }

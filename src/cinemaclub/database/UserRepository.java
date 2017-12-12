@@ -17,6 +17,20 @@ public class UserRepository implements Serializable {
         this.dataBase = dataBase;
     }
 
+    public Map<String, String> getStaffIDs() {
+        return staffIDs;
+    }
+
+    public String getStaffIdByUsername(String username) {
+
+        for (Map.Entry<String, String> entry : staffIDs.entrySet()) {
+            if (entry.getValue().equals(username)) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
     public void addStaffID(String staffId, String username) {
         staffIDs.put(staffId, username);
 
@@ -55,6 +69,13 @@ public class UserRepository implements Serializable {
         return userDetails.get(userName);
     }
 
+    public ArrayList<User> getAllUsers() {
+        ArrayList<User> allUsers = new ArrayList<>();
+        allUsers.addAll(userDetails.values());
+
+        return allUsers;
+    }
+
     public void setUsername(String oldUsername, String newUsername, User user) {
         userDetails.remove(oldUsername);
         userDetails.put(newUsername, user);
@@ -72,9 +93,4 @@ public class UserRepository implements Serializable {
         dataBase.updateExternalDB();
     }
 
-    public void printUserDatabase() {
-        for (Map.Entry entry : userDetails.entrySet()) {
-            System.out.print(entry.toString() + "\n");
-        }
-    }
 }

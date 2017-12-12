@@ -18,17 +18,17 @@
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="108.52104187011719" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="465.33197021484375" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="829.0" minWidth="10.0" prefWidth="582.6680297851562" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.650146484375" minWidth="10.0" prefWidth="43.0771484375" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="829.0" minWidth="10.0" prefWidth="627.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="717.650146484375" minWidth="0.0" prefWidth="0.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="79.38607025146484" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="564.6139297485352" minHeight="10.0" prefHeight="564.6139297485352" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="604.0" minHeight="10.0" prefHeight="594.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="119.45355224609375" minHeight="10.0" prefHeight="35.68035888671875" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #40a9ef;" GridPane.columnIndex="1" />
-            <Label text="Your Profile Details" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <AnchorPane prefHeight="66.0" prefWidth="465.0" style="-fx-background-color: #40a9ef;" GridPane.columnIndex="1" />
+            <Label text="Your Profile Details" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="32.0" />
                </font>
@@ -40,23 +40,38 @@
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.9495849609375" minWidth="10.0" prefWidth="86.64703369140625" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="339.913818359375" minHeight="10.0" prefHeight="68.100830078125" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="382.5979919433594" minHeight="10.0" prefHeight="340.899169921875" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="145.22686767578125" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="339.913818359375" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="382.5979919433594" minHeight="10.0" prefHeight="232.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="369.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="369.0" minHeight="10.0" prefHeight="196.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="369.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Staff IDs" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Label text="Staff" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <TableView prefHeight="365.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TableView fx:id="staffTable" prefHeight="365.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn prefWidth="85.06298828125" text="Username" />
-                      <TableColumn prefWidth="89.93701171875" text="First Name" />
-                        <TableColumn prefWidth="97.8487548828125" text="Surname" />
-                        <TableColumn prefWidth="128.71014404296875" text="Staff ID Number" />
+                      <TableColumn fx:id="usernameCol" prefWidth="85.06298828125" text="Username" />
+                      <TableColumn fx:id="firstNameCol" prefWidth="102.0" text="First Name" />
+                        <TableColumn fx:id="surnameCol" prefWidth="102.0" text="Surname" />
+                        <TableColumn fx:id="staffIdCol" prefWidth="122.0" text="Staff ID Number" />
                     </columns>
+                  </TableView>
+                  <Button fx:id="addStaffId" mnemonicParsing="false" text="Add Staff ID" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Remove Staff ID" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                  <Label text="Staff IDs" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="staffIdTable" prefHeight="365.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <columns>
+                        <TableColumn fx:id="staffIdCol2" prefWidth="209.0" text="Staff ID" />
+                        <TableColumn fx:id="usernameCol2" prefWidth="202.0" text="Username" />
+                     </columns>
                   </TableView>
                </children>
             </GridPane>
@@ -87,7 +102,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="register" alignment="CENTER" layoutX="142.0" layoutY="498.0" mnemonicParsing="false" onAction="#setProfileText" prefHeight="43.0" prefWidth="201.0" styleClass="updateProfile" text="Update Profile" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="131.0" />
+                  <Button fx:id="updateProfile" alignment="CENTER" layoutX="142.0" layoutY="498.0" mnemonicParsing="false" onAction="#setProfileText" prefHeight="43.0" prefWidth="201.0" styleClass="updateProfile" text="Update Profile" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="131.0" />
                   <Label layoutX="70.0" layoutY="52.0" styleClass="profileLabel" text="Username" textFill="WHITE" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font size="12.0" />
