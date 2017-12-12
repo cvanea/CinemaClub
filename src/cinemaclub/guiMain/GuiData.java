@@ -117,8 +117,7 @@ public class GuiData {
             selectedSeat = button;
         }
     }
-
-<<<<<<< HEAD
+    
     private static void seatSelectorMulti(Button button) {
         Image imgSeatWhite = new Image("/seatW32.png");
         Image imgSeatYellow = new Image("/seatY32.png");
@@ -133,11 +132,7 @@ public class GuiData {
         }
     }
 
-    public static void setupSeatButtons(GridPane gridSeats, int gridWidth, int gridHeight, String method) {
-        //TODO rename 'method'.
-=======
     public static void setupSeatButtons(GridPane gridSeats, int gridWidth, int gridHeight, String useCase) {
->>>>>>> Claudia
         int rowHeight = gridHeight / (numberOfRows);
         int columnWidth = gridWidth / (seatsPerRow);
         Image imgSeat;
