@@ -80,7 +80,7 @@ public class FilmController extends MainController implements Initializable {
 
             filmTitle = chosenFilm.getTitle();
             filmDescription = chosenFilm.getDescription();
-            filmRuntime = chosenFilm.getRunTime();
+            filmRuntime = chosenFilm.getRuntime();
             imagePath = chosenFilm.getImagePath();
             image = new Image(new FileInputStream("Images" + imagePath));
             setFilmInfo();

@@ -47,7 +47,7 @@ public class BookSeatsController extends CustomerMainController implements Initi
         GuiData.setFilm(GuiData.getShowing().getFilm());
         titleText.setText(showing.getFilm().getTitle());
         descriptionText.setText(showing.getFilm().getDescription());
-        runtimeText.setText(showing.getFilm().getRunTime());
+        runtimeText.setText(showing.getFilm().getRuntime());
         timeText.setText(showing.getTime());
         dateText.setText(showing.getDate());
         screenText.setText(showing.getScreenNumber().toString());

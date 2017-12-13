@@ -182,7 +182,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     private void setFilmInfo1(Film film) {
         titleText1.setText(film.getTitle());
         descriptionText1.setText(film.getDescription());
-        runtimeText1.setText(film.getRunTime());
+        runtimeText1.setText(film.getRuntime());
         Image img = new Image(film.getImagePath());
         imageBox1.setImage(img);
         ArrayList<String> datesList1 = getDatesList(film);
@@ -194,7 +194,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     private void setFilmInfo2(Film film){
         titleText2.setText(film.getTitle());
         descriptionText2.setText(film.getDescription());
-        runtimeText2.setText(film.getRunTime());
+        runtimeText2.setText(film.getRuntime());
         Image img = new Image(film.getImagePath());
         imageBox2.setImage(img);
         ArrayList<String> datesList = getDatesList(film);
@@ -206,7 +206,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     private void setFilmInfo3(Film film){
         titleText3.setText(film.getTitle());
         descriptionText3.setText(film.getDescription());
-        runtimeText3.setText(film.getRunTime());
+        runtimeText3.setText(film.getRuntime());
         Image img = new Image(film.getImagePath());
         imageBox3.setImage(img);
         ArrayList<String> datesList = getDatesList(film);

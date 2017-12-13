@@ -130,7 +130,7 @@ public class FilmByDateController extends CustomerMainController implements Init
             validateFilmSelected(film);
             titleText.setText(film.getTitle());
             descriptionText.setText(film.getDescription());
-            runTime.setText(film.getRunTime());
+            runTime.setText(film.getRuntime());
             Image img = new Image(film.getImagePath());
             imageBox.setImage(img);
             chosenFilm = film;

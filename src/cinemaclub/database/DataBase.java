@@ -127,16 +127,16 @@ public class DataBase implements Serializable {
             dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-19", "12:00", walle, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-19", "15:00", walle, new HashMap<>()));
 
-            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-01-05", "10:00", findingNemo, new HashMap<>()));
-            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-01-05", "09:00", findingNemo, new HashMap<>()));
-            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2017-01-05", "18:00", findingNemo, new HashMap<>()));
-            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-01-06", "10:00", findingNemo, new HashMap<>()));
-            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-01-06", "09:00", findingNemo, new HashMap<>()));
-            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2017-01-06", "18:00", findingNemo, new HashMap<>()));
-            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-01-07", "10:00", findingNemo, new HashMap<>()));
-            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2017-01-07", "18:00", findingNemo, new HashMap<>()));
-            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-01-08", "10:00", findingNemo, new HashMap<>()));
-            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2017-01-08", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-05", "10:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-05", "09:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-05", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-06", "10:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-06", "09:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-06", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "10:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-08", "10:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-08", "18:00", findingNemo, new HashMap<>()));
 
             dataBase.userRepository.addUser("claudia", new Customer(new UserCredentials("claudia", "claudia@hotmail.co.uk", "claudia", "Claudia", "Vanea"), new ArrayList<>()));
             dataBase.userRepository.addUser("alex", new Customer(new UserCredentials("alex", "alex@hotmail.co.uk", "alex", "Alex", "Charles"), new ArrayList<>()));
