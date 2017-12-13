@@ -110,7 +110,7 @@ public class FilmController extends MainController implements Initializable {
 
             filmList.getItems().clear();
             populateFilmList();
-        } catch (FilmExistsException e) {
+        } catch (FilmExistsException | MissingFilmInputsException | IncorrectTimeFormatException | ImageDoesNotExistException | FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -126,7 +126,7 @@ public class FilmController extends MainController implements Initializable {
             filmList.getItems().clear();
             populateFilmList();
 
-        } catch (FilmExistsException e) {
+        } catch (FilmExistsException | MissingFilmInputsException | IncorrectTimeFormatException | ImageDoesNotExistException | FileNotFoundException e) {
             errorLabel.setText(e.getMessage());
         }
     }
@@ -179,20 +179,16 @@ public class FilmController extends MainController implements Initializable {
         }
     }
 
-    private void getFilmInputs() {
+    private void getFilmInputs() throws MissingFilmInputsException, IncorrectTimeFormatException, ImageDoesNotExistException, FileNotFoundException {
         filmTitle = titleField.getText();
         filmDescription = descriptionArea.getText();
         filmRuntime = runtimeField.getText();
         imagePath = imageField.getText();
-        try {
-            validateRuntimeInput(filmRuntime);
-            validateFilmInputs(filmTitle, filmDescription, filmRuntime, imagePath);
-            File f = new File("Images/" + imagePath);
-            validateImageFile(f);
-            image = new Image(new FileInputStream("Images" + imagePath));
-        } catch (MissingFilmInputsException | IncorrectTimeFormatException | ImageDoesNotExistException | FileNotFoundException e) {
-            errorLabel.setText(e.getMessage());
-        }
+        validateRuntimeInput(filmRuntime);
+        validateFilmInputs(filmTitle, filmDescription, filmRuntime, imagePath);
+        File f = new File("Images/" + imagePath);
+        validateImageFile(f);
+        image = new Image(new FileInputStream("Images" + imagePath));
     }
 
     private void setFilmInfo() {
