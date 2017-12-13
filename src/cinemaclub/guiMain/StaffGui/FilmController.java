@@ -17,9 +17,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -56,8 +59,7 @@ public class FilmController extends MainController implements Initializable {
     private String filmRuntime;
     private String imagePath;
     private Image image;
-
-
+    
     private Film chosenFilm = null;
 
     @Override
@@ -66,8 +68,8 @@ public class FilmController extends MainController implements Initializable {
         infoPane.setOpacity(0);
         populateFilmList();
     }
-    
-    private void populateFilmList(){
+
+    private void populateFilmList() {
         filmList.setItems(GuiData.getFilmList(cinema));
     }
 
@@ -80,19 +82,18 @@ public class FilmController extends MainController implements Initializable {
             filmDescription = chosenFilm.getDescription();
             filmRuntime = chosenFilm.getRunTime();
             imagePath = chosenFilm.getImagePath();
-            validateImage(imagePath); //TODO remove once adding nulling images bug is fixed/
+            image = new Image(new FileInputStream("Images" + imagePath));
             setFilmInfo();
             infoPane.setOpacity(1);
             GuiData.setFilm(chosenFilm);
             errorLabelFilmList.setText("");
             fillShowingsTable();
-
-        } catch (NoSelectionMadeException | ImageDoesNotExistException e) {
+        } catch (NoSelectionMadeException | FileNotFoundException e) {
             errorLabelFilmList.setText(e.getMessage());
         }
     }
 
-    public void updateFilmInfo(ActionEvent event){
+    public void pressUpdateFilmInfo(ActionEvent event) {
         try {
             getFilmInputs();
 
@@ -103,6 +104,12 @@ public class FilmController extends MainController implements Initializable {
             cinema.setFilmDescription(chosenFilm, filmDescription);
             cinema.setFilmImagePath(chosenFilm, imagePath);
             cinema.setFilmRunTime(chosenFilm, filmRuntime);
+
+            setFilmInfo();
+            editPane.setOpacity(0);
+
+            filmList.getItems().clear();
+            populateFilmList();
         } catch (FilmExistsException e) {
             System.out.println(e.getMessage());
         }
@@ -161,14 +168,13 @@ public class FilmController extends MainController implements Initializable {
             imageBoxEdit.setImage(img);
             File fSearch = new File("Images/" + file.getName());
             String fileName = file.getName();
-                if (fSearch.exists()) {
-                    fileName = "1" + file.getName();
-                }
+            if (fSearch.exists()) {
+                fileName = "1" + file.getName();
+            }
             ImageIO.write(bufferedImage, "jpg", new File("Images/" + fileName));
             imageField.setText("/" + fileName);
         } catch (IllegalArgumentException e) {
-
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -181,26 +187,15 @@ public class FilmController extends MainController implements Initializable {
         try {
             validateRuntimeInput(filmRuntime);
             validateFilmInputs(filmTitle, filmDescription, filmRuntime, imagePath);
-            validateImage(imagePath);
-//            setFilmInfo();
-//            editPane.setOpacity(0);
-//
-//            filmList.getItems().clear();
-//            populateFilmList();
-
-        } catch (MissingFilmInputsException | IncorrectTimeFormatException | ImageDoesNotExistException e) {
+            File f = new File("Images/" + imagePath);
+            validateImageFile(f);
+            image = new Image(new FileInputStream("Images" + imagePath));
+        } catch (MissingFilmInputsException | IncorrectTimeFormatException | ImageDoesNotExistException | FileNotFoundException e) {
             errorLabel.setText(e.getMessage());
         }
     }
 
-    private void validateImage(String filmPath) throws ImageDoesNotExistException {
-        //TODO can be removed.
-            File f = new File("Images/" + filmPath);
-            validateImageFile(f);
-    }
-
-    private void setFilmInfo(){
-        image = new Image(imagePath);
+    private void setFilmInfo() {
         imageBox.setImage(image);
         titleText.setText(filmTitle);
         descriptionText.setText(filmDescription);
@@ -215,7 +210,6 @@ public class FilmController extends MainController implements Initializable {
     }
 
     private void setUpdateFilmInfo() {
-        image = new Image(imagePath);
         imageBoxEdit.setImage(image);
         titleField.setText(filmTitle);
         descriptionArea.setText(filmDescription);
@@ -233,7 +227,7 @@ public class FilmController extends MainController implements Initializable {
     }
 
     private void fillShowingsTable() {
-        ObservableList <Showing> data = FXCollections.observableArrayList();
+        ObservableList<Showing> data = FXCollections.observableArrayList();
         ArrayList<Showing> showings = cinema.getAllShowingsByFilm(chosenFilm);
         data.addAll(showings);
         dateCol.setCellValueFactory(new PropertyValueFactory<>("Date"));
@@ -252,12 +246,6 @@ public class FilmController extends MainController implements Initializable {
     private void validateFilmSelection(Film film) throws NoSelectionMadeException {
         if (film == null) {
             throw new NoSelectionMadeException();
-        }
-    }
-
-    private void validateImage(File file) throws ImageDoesNotExistException {
-        if (!file.isFile()) {
-            throw new ImageDoesNotExistException();
         }
     }
 
@@ -282,24 +270,9 @@ public class FilmController extends MainController implements Initializable {
         }
     }
 
-    private void validateImageFile(File f) throws ImageDoesNotExistException{
+    private void validateImageFile(File f) throws ImageDoesNotExistException {
         if (!f.isFile()) {
             throw new ImageDoesNotExistException();
         }
     }
-
-//    private void checkImageInDirectory(File f) {
-//        try {
-//            validateImageFile(f);
-//        } catch (ImageDoesNotExistException e) {
-//            errorLabel.setText(e.getMessage());
-//        }
-//    }
-//    private void invalidURL(String filmImage){
-//        try {
-//            Image img = new Image(filmImage);
-//        } catch (IllegalArgumentException e){
-//            errorLabel.setText("Invalid URL");
-//        }
-//    }
 }

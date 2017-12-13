@@ -130,7 +130,7 @@
                                     <Font name="Arial Bold" size="30.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="updateFilm" layoutX="22.0" layoutY="600.0" mnemonicParsing="false" onAction="#updateFilmInfo" text="Update" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="10.0">
+                              <Button fx:id="updateFilm" layoutX="22.0" layoutY="600.0" mnemonicParsing="false" onAction="#pressUpdateFilmInfo" text="Update" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
