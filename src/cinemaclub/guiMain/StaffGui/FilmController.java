@@ -3,10 +3,7 @@ package cinemaclub.guiMain.StaffGui;
 import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
-import exceptions.FilmExistsException;
-import exceptions.ImageDoesNotExistException;
-import exceptions.MissingFilmInputsException;
-import exceptions.NoSelectionMadeException;
+import exceptions.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -58,7 +55,6 @@ public class FilmController extends MainController implements Initializable {
     private String filmDescription;
     private String filmRuntime;
     private String filmImage;
-    private Image img;
 
     private Film chosenFilm = null;
 
@@ -76,7 +72,7 @@ public class FilmController extends MainController implements Initializable {
     public void chooseFilm(MouseEvent actionEvent) {
         try {
             chosenFilm = cinema.getFilmByTitle(filmList.getSelectionModel().getSelectedItem());
-            if(chosenFilm != null) {
+            if (chosenFilm != null) {
                 filmTitle = chosenFilm.getTitle();
                 filmDescription = chosenFilm.getDescription();
                 filmRuntime = chosenFilm.getRunTime();
@@ -86,7 +82,7 @@ public class FilmController extends MainController implements Initializable {
                 GuiData.setFilm(chosenFilm);
                 errorLabelFilmList.setText("");
                 fillShowingsTable();
-            }else {
+            } else {
                 throw new NoSelectionMadeException();
             }
         } catch (NoSelectionMadeException e) {
@@ -99,8 +95,9 @@ public class FilmController extends MainController implements Initializable {
         filmDescription = descriptionArea.getText();
         filmRuntime = runtimeField.getText();
         filmImage = imageField.getText();
+
         try {
-            if(!filmTitle.equals(chosenFilm.getTitle())) {
+            if (!filmTitle.equals(chosenFilm.getTitle())) {
                 cinema.setFilmTitle(chosenFilm, filmTitle);
             }
             cinema.setFilmDescription(chosenFilm, filmDescription);
@@ -120,12 +117,18 @@ public class FilmController extends MainController implements Initializable {
         filmImage = imageField.getText();
 
         try {
+            validateRuntimeInput(filmRuntime);
             validateFilmInputs(filmTitle, filmDescription, filmRuntime, filmImage);
             cinema.addFilm(filmTitle,filmImage , filmDescription, filmRuntime);
-            setFilmInfo();
-            populateFilmList();
+
             editPane.setOpacity(0);
-        } catch (FilmExistsException | MissingFilmInputsException e) {
+            setFilmInfo();
+
+            filmList.getItems().clear();
+            populateFilmList();
+        } catch (MissingFilmInputsException | IncorrectTimeFormatException e) {
+            errorLabel.setText(e.getMessage());
+        } catch (FilmExistsException e) {
             errorLabel.setText(e.getMessage());
             Film updatedFilm = cinema.getFilmByTitle(filmTitle);
             cinema.setFilmDescription(updatedFilm, filmDescription);
@@ -167,7 +170,7 @@ public class FilmController extends MainController implements Initializable {
         File file = fileChooser.showOpenDialog(null);
         try {
             BufferedImage bufferedImage = ImageIO.read(file);
-            img = SwingFXUtils.toFXImage(bufferedImage, null);
+            Image img = SwingFXUtils.toFXImage(bufferedImage, null);
             imageBoxEdit.setImage(img);
             File fSearch = new File("Images/" + file.getName());
             String fileName = file.getName();
@@ -215,7 +218,7 @@ public class FilmController extends MainController implements Initializable {
         runtimeField.setText("");
     }
 
-    public Image checkImageInDirectory(File f) {
+    private Image checkImageInDirectory(File f) {
         try {
             if (f.exists()) {
                 return new Image(filmImage);
@@ -241,6 +244,27 @@ public class FilmController extends MainController implements Initializable {
     private void validateFilmInputs(String filmTitle, String filmDescription, String filmRuntime, String filmImage) throws MissingFilmInputsException {
         if (filmTitle.equals("") || filmDescription.equals("") || filmRuntime.equals("") || filmImage.equals("")) {
             throw new MissingFilmInputsException();
+        }
+    }
+
+    private void validateRuntimeInput(String runTime) throws IncorrectTimeFormatException {
+        String[] splitTime = runTime.split("(?!^)");
+
+        if (splitTime.length != 5) {
+            throw new IncorrectTimeFormatException();
+        }
+
+        try {
+            Integer.parseInt(splitTime[0]);
+            Integer.parseInt(splitTime[1]);
+            Integer.parseInt(splitTime[3]);
+            Integer.parseInt(splitTime[4]);
+        } catch (NumberFormatException e) {
+            throw new IncorrectTimeFormatException();
+        }
+
+        if (!splitTime[2].equals(":")) {
+            throw new IncorrectTimeFormatException();
         }
     }
 }
