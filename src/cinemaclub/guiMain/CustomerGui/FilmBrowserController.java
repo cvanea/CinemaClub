@@ -4,7 +4,7 @@ import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
-import exceptions.DateTimeNullException;
+import exceptions.EmptyDateTimeException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -137,15 +137,12 @@ public class FilmBrowserController extends CustomerMainController implements Ini
 
     private void goToShowing(String date, String time){
         try {
-            if (!date.equals("") && !time.equals("")) {
-                GuiData.setDate(date);
-                GuiData.setTime(time);
-                GuiData.setShowing(cinema.getShowingByDateTime(date, time));
-                StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
-            } else {
-                throw new DateTimeNullException();
-            }
-        } catch (DateTimeNullException e){
+            validateDateTimeSelected(date, time);
+            GuiData.setDate(date);
+            GuiData.setTime(time);
+            GuiData.setShowing(cinema.getShowingByDateTime(date, time));
+            StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
+        } catch (EmptyDateTimeException e) {
             errorLabel.setText(e.getMessage());
         }
     }
@@ -223,11 +220,17 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         ArrayList<String> datesList = new ArrayList<>();
         for (Showing showing: filmShowing) {
             String date = showing.getDate();
-            if (!datesList.contains(date)){
+            if (!datesList.contains(date)) {
                 datesList.add(date);
             }
         }
         return datesList;
+    }
+
+    private void validateDateTimeSelected(String date, String time) throws EmptyDateTimeException {
+        if (date == null || time == null) {
+            throw new EmptyDateTimeException();
+        }
     }
 
 }
