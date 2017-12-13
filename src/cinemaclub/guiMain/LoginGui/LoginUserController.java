@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -19,12 +20,16 @@ import java.util.ResourceBundle;
 public class LoginUserController extends LoginMainController implements Initializable {
 
     @FXML private TextField username;
-    @FXML private TextField password;
+    @FXML private PasswordField password;
     @FXML private Label errorLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        errorLabel.setText(GuiData.getSuccessMessage());
+        String message = GuiData.getSuccessMessage();
+        errorLabel.setText(message);
+        if(message != null){
+            errorLabel.setStyle("-fx-text-fill: green");
+        }
     }
 
     public void pressButton(ActionEvent event) throws IOException {
