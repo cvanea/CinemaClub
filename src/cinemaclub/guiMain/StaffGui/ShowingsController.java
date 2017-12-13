@@ -177,5 +177,9 @@ public class ShowingsController extends MainController implements Initializable 
             (Integer.parseInt(splitTime[3]) != 0 || Integer.parseInt(splitTime[4]) != 0)) {
             throw new IncorrectTimeFormatException();
         }
+
+        if (Integer.parseInt(splitTime[3] + splitTime[4]) > 60) {
+            throw new IncorrectTimeFormatException();
+        }
     }
 }

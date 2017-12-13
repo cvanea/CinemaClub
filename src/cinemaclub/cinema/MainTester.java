@@ -358,6 +358,10 @@ public class MainTester {
         if (Integer.parseInt(splitTime[0] + splitTime[1]) == 24 && (Integer.parseInt(splitTime[3]) != 0 || Integer.parseInt(splitTime[4]) != 0)) {
             System.out.println("error5");
         }
+
+        if (Integer.parseInt(splitTime[3] + splitTime[4]) > 60) {
+            System.out.println("error6");
+        }
     }
 
     private static void runTimeTester() {

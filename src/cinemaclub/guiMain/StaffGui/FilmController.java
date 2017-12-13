@@ -263,6 +263,10 @@ public class FilmController extends MainController implements Initializable {
         if (!splitTime[2].equals(":")) {
             throw new IncorrectTimeFormatException();
         }
+
+        if (Integer.parseInt(splitTime[3] + splitTime[4]) > 60) {
+            throw new IncorrectTimeFormatException();
+        }
     }
 
     private void validateImageFile(File f) throws ImageDoesNotExistException {
