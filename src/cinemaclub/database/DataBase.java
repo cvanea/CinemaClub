@@ -75,20 +75,35 @@ public class DataBase implements Serializable {
             dataBase.filmRepository.addFilm("Walle", walle);
 
             Screen screen1 = new Screen(1, 5, 10);
+            Screen screen2 = new Screen(2, 8, 10);
+            Screen screen3 = new Screen(3, 5, 5);
+            Screen screen4 = new Screen(4, 12, 14);
+            Screen screen5 = new Screen(5, 12, 1);
 
             dataBase.screenRepository.addScreen(screen1);
+            dataBase.screenRepository.addScreen(screen2);
+            dataBase.screenRepository.addScreen(screen3);
+            dataBase.screenRepository.addScreen(screen4);
+            dataBase.screenRepository.addScreen(screen5);
 
             dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "13:00", up, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "12:00", walle, new HashMap<>()));
 
-            dataBase.userRepository.addUser("c", new Customer(
-                new UserCredentials("c", "c@c.com", "c", "Customer", "Tester"), new ArrayList<>()));
+            dataBase.userRepository.addUser("c", new Customer(new UserCredentials("c", "c@c.com", "c", "Customer", "Tester"), new ArrayList<>()));
 
-            Staff staff = new Staff(new UserCredentials("s", "s@s.com", "s", "Staff", "Tester"));
+            Staff staff = new Staff(new UserCredentials("sally", "sally@cinemaclub.com", "s", "Sally", "Table"));
+            Staff staff2 = new Staff(new UserCredentials("sam", "sam@cinemaclub.com", "samrocks", "Sam", "Tarly"));
+            Staff staff3 = new Staff(new UserCredentials("ghita", "ghita@cinemaclub.com", "ghitarocks", "Ghita", "Mostefaoui"));
 
             staff.setStaffId("1");
-            dataBase.userRepository.assignStaffID("1", "s");
-            dataBase.userRepository.addUser("s", staff);
+            staff2.setStaffId("2");
+            staff3.setStaffId("3");
+            dataBase.userRepository.assignStaffID("1", "sally");
+            dataBase.userRepository.assignStaffID("2", "sam");
+            dataBase.userRepository.assignStaffID("3", "ghita");
+            dataBase.userRepository.addUser("sally", staff);
+            dataBase.userRepository.addUser("sam", staff2);
+            dataBase.userRepository.addUser("ghita", staff3);
         }
         return dataBase;
     }
