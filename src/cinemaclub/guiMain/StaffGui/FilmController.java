@@ -72,19 +72,18 @@ public class FilmController extends MainController implements Initializable {
     public void chooseFilm(MouseEvent actionEvent) {
         try {
             chosenFilm = cinema.getFilmByTitle(filmList.getSelectionModel().getSelectedItem());
-            if (chosenFilm != null) {
-                filmTitle = chosenFilm.getTitle();
-                filmDescription = chosenFilm.getDescription();
-                filmRuntime = chosenFilm.getRunTime();
-                filmImage = chosenFilm.getImagePath();
-                setFilmInfo();
-                infoPane.setOpacity(1);
-                GuiData.setFilm(chosenFilm);
-                errorLabelFilmList.setText("");
-                fillShowingsTable();
-            } else {
-                throw new NoSelectionMadeException();
-            }
+            validateFilmSelection(chosenFilm);
+
+            filmTitle = chosenFilm.getTitle();
+            filmDescription = chosenFilm.getDescription();
+            filmRuntime = chosenFilm.getRunTime();
+            filmImage = chosenFilm.getImagePath();
+            setFilmInfo();
+            infoPane.setOpacity(1);
+            GuiData.setFilm(chosenFilm);
+            errorLabelFilmList.setText("");
+            fillShowingsTable();
+
         } catch (NoSelectionMadeException e) {
             errorLabelFilmList.setText(e.getMessage());
         }
@@ -220,10 +219,8 @@ public class FilmController extends MainController implements Initializable {
 
     private Image checkImageInDirectory(File f) {
         try {
-            if (f.exists()) {
-                return new Image(filmImage);
-            } else
-                throw new ImageDoesNotExistException();
+            validateImage(f);
+            return new Image(filmImage);
         } catch (ImageDoesNotExistException e) {
             errorLabel.setText(e.getMessage());
             return null;
@@ -244,6 +241,18 @@ public class FilmController extends MainController implements Initializable {
     private void validateFilmInputs(String filmTitle, String filmDescription, String filmRuntime, String filmImage) throws MissingFilmInputsException {
         if (filmTitle.equals("") || filmDescription.equals("") || filmRuntime.equals("") || filmImage.equals("")) {
             throw new MissingFilmInputsException();
+        }
+    }
+
+    private void validateFilmSelection(Film film) throws NoSelectionMadeException {
+        if (film == null) {
+            throw new NoSelectionMadeException();
+        }
+    }
+
+    private void validateImage(File file) throws ImageDoesNotExistException {
+        if (!file.exists()) {
+            throw new ImageDoesNotExistException();
         }
     }
 
