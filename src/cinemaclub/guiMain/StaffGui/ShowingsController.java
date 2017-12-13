@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -67,11 +68,12 @@ public class ShowingsController extends MainController implements Initializable 
         try {
             validateTimeInput(selectedTime);
             validateAddShowing(selectedFilm, selectedDate, selectedTime, selectedScreen);
+            validateDate(selectedDate);
             cinema.addShowing(cinema.getScreen(selectedScreen), selectedDate, selectedTime, cinema.getFilmByTitle(selectedFilm));
-            errorLabel.setText("New Showing of " + selectedFilm + " Added" );
+            errorLabel.setText("New Showing of " + selectedFilm + " Added");
             fillShowingsTable();
-        } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException |
-            OverlappingRuntimeException | MissingShowingInputsException | IncorrectTimeFormatException e) {
+        } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException | OverlappingRuntimeException |
+            MissingShowingInputsException | IncorrectTimeFormatException | PastDateException e) {
             errorLabel.setText(e.getMessage());
         }
     }
@@ -93,7 +95,12 @@ public class ShowingsController extends MainController implements Initializable 
     }
 
     public void selectDate(ActionEvent event) {
-        selectedDate = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        try {
+            selectedDate = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            validateDate(selectedDate);
+        } catch (PastDateException e) {
+            errorLabel.setText(e.getMessage());
+        }
     }
 
     private void fillShowingsTable() {
@@ -121,6 +128,15 @@ public class ShowingsController extends MainController implements Initializable 
     private void validateAddShowing(String selectedFilm, String selectedDate, String selectedTime, Integer selectedScreen) throws MissingShowingInputsException {
         if (selectedFilm.equals("") || selectedDate.equals("") || selectedTime.equals("") || selectedScreen == 0) {
             throw new MissingShowingInputsException();
+        }
+    }
+
+    private void validateDate(String date) throws PastDateException {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String timeNow = LocalDateTime.now().format(formatter);
+
+        if (date.compareTo(timeNow) < 0) {
+            throw new PastDateException();
         }
     }
 
