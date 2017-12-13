@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.CustomerGui.ModalBookedController">
+<AnchorPane prefHeight="480.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.CustomerGui.ModalBookedController">
    <children>
-      <AnchorPane maxWidth="376.0" minWidth="205.0" prefHeight="434.0" prefWidth="376.0" style="-fx-background-color: #007EA7;">
+      <AnchorPane maxWidth="376.0" minWidth="205.0" prefHeight="434.0" prefWidth="376.0" style="-fx-background-color: #007EA7;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fx:id="imageBox" fitHeight="141.0" fitWidth="117.0" layoutX="251.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="11.0" />
             <Label fx:id="titleText" alignment="TOP_LEFT" layoutX="10.0" layoutY="153.0" maxWidth="356.0" minWidth="207.0" prefHeight="40.0" prefWidth="356.0" text="Film Title" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
@@ -51,13 +51,13 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button fx:id="closeButton" layoutX="310.0" layoutY="398.0" mnemonicParsing="false" onAction="#pressClose" text="Close" />
-            <Label layoutX="9.0" layoutY="388.0" prefHeight="40.0" styleClass="bookingTitle" text="Seat:">
+            <Button fx:id="closeButton" layoutX="310.0" layoutY="439.0" mnemonicParsing="false" onAction="#pressClose" text="Close" />
+            <Label layoutX="9.0" layoutY="386.0" prefHeight="40.0" styleClass="bookingTitle" text="Seat:">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="seatText" layoutX="62.0" layoutY="388.0" prefHeight="40.0" prefWidth="241.0" textFill="WHITE">
+            <Label fx:id="seatText" alignment="TOP_LEFT" layoutX="62.0" layoutY="394.0" prefHeight="84.0" prefWidth="241.0" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>

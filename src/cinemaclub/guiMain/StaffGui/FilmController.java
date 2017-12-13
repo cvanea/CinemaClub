@@ -107,7 +107,7 @@ public class FilmController extends MainController implements Initializable {
 
             setFilmInfo();
             editPane.setOpacity(0);
-
+            errorLabel.setText("");
             filmList.getItems().clear();
             populateFilmList();
         } catch (FilmExistsException | MissingFilmInputsException | IncorrectTimeFormatException | ImageDoesNotExistException | FileNotFoundException e) {
@@ -119,10 +119,9 @@ public class FilmController extends MainController implements Initializable {
         try {
             getFilmInputs();
             cinema.addFilm(filmTitle, imagePath, filmDescription, filmRuntime);
-
             setFilmInfo();
             editPane.setOpacity(0);
-
+            errorLabel.setText("");
             filmList.getItems().clear();
             populateFilmList();
 

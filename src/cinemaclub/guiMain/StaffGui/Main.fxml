@@ -11,7 +11,7 @@
 
 <!--<?scenebuilder-stylesheet style.css?>-->
 
-<VBox fillWidth="false" prefHeight="750.0" prefWidth="1200.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.MainController">
+<VBox fillWidth="false" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.MainController">
     <children>
         <AnchorPane maxHeight="70.0" prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: #00171F;">
             <children>
