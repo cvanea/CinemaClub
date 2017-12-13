@@ -112,7 +112,6 @@ public class DataBase implements Serializable {
             dataBase.screenRepository.addScreen(screen4);
             dataBase.screenRepository.addScreen(screen5);
 
-<<<<<<< Updated upstream
             dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "13:00", up, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-16", "13:00", up, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2017-12-17", "13:00", up, new HashMap<>()));
@@ -123,16 +122,13 @@ public class DataBase implements Serializable {
             dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2017-12-22", "13:00", up, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2017-12-23", "13:00", up, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-03", "13:00", up, new HashMap<>()));
-=======
             dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "10:00", up, new HashMap<>()));
-            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "12:00", walle, new HashMap<>()));
-            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "15:00", findingNemo, new HashMap<>()));
+
             dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "18:00", toyStory, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "20:00", princessMononoke, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "11:00", spiritedAway, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "13:00", kungFuPanda, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "15:00", walle, new HashMap<>()));
->>>>>>> Stashed changes
 
             dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "12:00", walle, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "15:00", walle, new HashMap<>()));
