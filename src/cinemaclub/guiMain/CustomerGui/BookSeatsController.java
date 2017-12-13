@@ -35,6 +35,7 @@ public class BookSeatsController extends CustomerMainController implements Initi
     @FXML Label runtimeText;
     @FXML Label dateText;
     @FXML Label errorLabel;
+    @FXML Label screenText;
     @FXML GridPane gridSeats;
 
     public Showing showing;
@@ -49,6 +50,7 @@ public class BookSeatsController extends CustomerMainController implements Initi
         runtimeText.setText(showing.getFilm().getRunTime());
         timeText.setText(showing.getTime());
         dateText.setText(showing.getDate());
+        screenText.setText(showing.getScreenNumber().toString());
         Image img = new Image(showing.getFilm().getImagePath());
         imageBox.setImage(img);
         GuiData.setNumberOfRows(showing.getScreen().getNumberRow());

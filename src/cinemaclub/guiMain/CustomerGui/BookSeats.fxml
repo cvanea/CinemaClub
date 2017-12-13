@@ -33,37 +33,47 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="descriptionText" alignment="TOP_LEFT" layoutX="7.0" layoutY="308.0" minWidth="207.0" prefHeight="124.0" prefWidth="207.0" text="Film Description" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                  <Label fx:id="descriptionText" alignment="TOP_LEFT" layoutX="7.0" layoutY="304.0" minWidth="207.0" prefHeight="135.0" prefWidth="208.0" text="Film Description" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="304.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="484.0" prefHeight="40.0" styleClass="bookingTitle" text="Film Date:" AnchorPane.leftAnchor="10.0">
+                  <Label layoutX="10.0" layoutY="484.0" prefHeight="40.0" styleClass="bookingTitle" text="Film Date:" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="543.0" prefHeight="40.0" styleClass="bookingTitle" text="Film Time:" AnchorPane.leftAnchor="10.0">
+                  <Label layoutX="10.0" layoutY="543.0" prefHeight="40.0" styleClass="bookingTitle" text="Film Time:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="424.0" prefHeight="40.0" styleClass="bookingTitle" text="Runtime:" AnchorPane.leftAnchor="10.0">
+                  <Label layoutX="10.0" layoutY="424.0" prefHeight="40.0" styleClass="bookingTitle" text="Runtime:" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="runtimeText" layoutX="92.0" layoutY="425.0" prefHeight="40.0" prefWidth="130.0" textFill="WHITE" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="5.0">
+                  <Label fx:id="runtimeText" layoutX="92.0" layoutY="425.0" prefHeight="40.0" prefWidth="130.0" textFill="WHITE" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="5.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dateText" layoutX="103.0" layoutY="483.0" prefHeight="40.0" prefWidth="142.0" textFill="WHITE" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="5.0">
+                  <Label fx:id="dateText" layoutX="103.0" layoutY="483.0" prefHeight="40.0" prefWidth="142.0" textFill="WHITE" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="5.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="timeText" layoutX="108.0" layoutY="543.0" prefHeight="40.0" prefWidth="112.0" textFill="WHITE" AnchorPane.rightAnchor="7.0">
+                  <Label fx:id="timeText" layoutX="108.0" layoutY="543.0" prefHeight="40.0" prefWidth="112.0" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="7.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="503.0" prefHeight="40.0" styleClass="bookingTitle" text="Screen:" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="screenText" layoutX="80.0" layoutY="479.0" prefHeight="40.0" prefWidth="112.0" textFill="WHITE" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="5.0">
                      <font>
                         <Font size="20.0" />
                      </font>

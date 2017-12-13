@@ -13,6 +13,7 @@
 
 <!--<?scenebuilder-stylesheet style.css?>-->
 
+<?import javafx.scene.control.PasswordField?>
 <StackPane fx:id="viewLoginUser" maxHeight="500.0" maxWidth="500.0" minHeight="500.0" minWidth="500.0" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.LoginGui.LoginUserController">
    <children>
       <GridPane prefHeight="500.0" prefWidth="500.0">
@@ -28,7 +29,7 @@
                   <AnchorPane id="loginBackground" layoutX="110.0" layoutY="25.0" prefHeight="350.0" prefWidth="350.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="50.0">
                      <children>
                         <TextField fx:id="username" layoutX="40.0" layoutY="87.0" prefHeight="38.0" prefWidth="200.0" styleClass="loginField" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="87.0" />
-                        <TextField fx:id="password" layoutX="40.0" layoutY="180.0" prefWidth="200.0" styleClass="loginField" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="180.0" />
+                        <PasswordField fx:id="password" layoutX="40.0" layoutY="180.0" prefWidth="200.0" styleClass="loginField" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="180.0" />
                         <Button fx:id="login" alignment="CENTER" layoutX="129.0" layoutY="235.0" mnemonicParsing="false" onAction="#pressButton" text="Login" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="130.0" />
                         <Label layoutX="116.0" layoutY="14.0" text="Sign In " textFill="WHITE" underline="true" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="115.0">
                            <font>
