@@ -98,6 +98,10 @@ public class Cinema {
         profile.setUsername(currentUser, newUsername);
     }
 
+    public void setUsername(User user, String newUsername) throws UsernameTakenException {
+        profile.setUsername(user, newUsername);
+    }
+
     public void setUserEmail(String newUsername) {
         profile.setEmail(currentUser, newUsername);
     }

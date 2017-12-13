@@ -3,10 +3,7 @@ package cinemaclub.guiMain.StaffGui;
 import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
-import exceptions.FilmExistsException;
-import exceptions.ImageDoesNotExistException;
-import exceptions.MissingFilmInputsException;
-import exceptions.NoSelectionMadeException;
+import exceptions.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -120,12 +117,18 @@ public class FilmController extends MainController implements Initializable {
         filmImage = imageField.getText();
 
         try {
+            validateRuntimeInput(filmRuntime);
             validateFilmInputs(filmTitle, filmDescription, filmRuntime, filmImage);
             cinema.addFilm(filmTitle,filmImage , filmDescription, filmRuntime);
-            setFilmInfo();
-            populateFilmList();
+
             editPane.setOpacity(0);
-        } catch (FilmExistsException | MissingFilmInputsException e) {
+            setFilmInfo();
+
+            filmList.getItems().clear();
+            populateFilmList();
+        } catch (MissingFilmInputsException | IncorrectTimeFormatException e) {
+            errorLabel.setText(e.getMessage());
+        } catch (FilmExistsException e) {
             errorLabel.setText(e.getMessage());
             Film updatedFilm = cinema.getFilmByTitle(filmTitle);
             cinema.setFilmDescription(updatedFilm, filmDescription);
@@ -241,6 +244,27 @@ public class FilmController extends MainController implements Initializable {
     private void validateFilmInputs(String filmTitle, String filmDescription, String filmRuntime, String filmImage) throws MissingFilmInputsException {
         if (filmTitle.equals("") || filmDescription.equals("") || filmRuntime.equals("") || filmImage.equals("")) {
             throw new MissingFilmInputsException();
+        }
+    }
+
+    private void validateRuntimeInput(String runTime) throws IncorrectTimeFormatException {
+        String[] splitTime = runTime.split("(?!^)");
+
+        if (splitTime.length != 5) {
+            throw new IncorrectTimeFormatException();
+        }
+
+        try {
+            Integer.parseInt(splitTime[0]);
+            Integer.parseInt(splitTime[1]);
+            Integer.parseInt(splitTime[3]);
+            Integer.parseInt(splitTime[4]);
+        } catch (NumberFormatException e) {
+            throw new IncorrectTimeFormatException();
+        }
+
+        if (!splitTime[2].equals(":")) {
+            throw new IncorrectTimeFormatException();
         }
     }
 }
