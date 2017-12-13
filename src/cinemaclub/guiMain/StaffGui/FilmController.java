@@ -174,7 +174,7 @@ public class FilmController extends MainController implements Initializable {
             imageBoxEdit.setImage(img);
             File fSearch = new File("Images/" + file.getName());
             String fileName = file.getName();
-                if(fSearch.exists()){
+                if (fSearch.exists()) {
                     fileName = "1" + file.getName();
                 }
             ImageIO.write(bufferedImage, "jpg",new File("Images/" + fileName));
