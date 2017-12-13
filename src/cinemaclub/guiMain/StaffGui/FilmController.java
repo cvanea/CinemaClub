@@ -55,7 +55,6 @@ public class FilmController extends MainController implements Initializable {
     private String filmDescription;
     private String filmRuntime;
     private String filmImage;
-    private Image img;
 
     private Film chosenFilm = null;
 
@@ -73,7 +72,7 @@ public class FilmController extends MainController implements Initializable {
     public void chooseFilm(MouseEvent actionEvent) {
         try {
             chosenFilm = cinema.getFilmByTitle(filmList.getSelectionModel().getSelectedItem());
-            if(chosenFilm != null) {
+            if (chosenFilm != null) {
                 filmTitle = chosenFilm.getTitle();
                 filmDescription = chosenFilm.getDescription();
                 filmRuntime = chosenFilm.getRunTime();
@@ -83,7 +82,7 @@ public class FilmController extends MainController implements Initializable {
                 GuiData.setFilm(chosenFilm);
                 errorLabelFilmList.setText("");
                 fillShowingsTable();
-            }else {
+            } else {
                 throw new NoSelectionMadeException();
             }
         } catch (NoSelectionMadeException e) {
@@ -96,8 +95,9 @@ public class FilmController extends MainController implements Initializable {
         filmDescription = descriptionArea.getText();
         filmRuntime = runtimeField.getText();
         filmImage = imageField.getText();
+
         try {
-            if(!filmTitle.equals(chosenFilm.getTitle())) {
+            if (!filmTitle.equals(chosenFilm.getTitle())) {
                 cinema.setFilmTitle(chosenFilm, filmTitle);
             }
             cinema.setFilmDescription(chosenFilm, filmDescription);
@@ -170,7 +170,7 @@ public class FilmController extends MainController implements Initializable {
         File file = fileChooser.showOpenDialog(null);
         try {
             BufferedImage bufferedImage = ImageIO.read(file);
-            img = SwingFXUtils.toFXImage(bufferedImage, null);
+            Image img = SwingFXUtils.toFXImage(bufferedImage, null);
             imageBoxEdit.setImage(img);
             File fSearch = new File("Images/" + file.getName());
             String fileName = file.getName();
@@ -218,7 +218,7 @@ public class FilmController extends MainController implements Initializable {
         runtimeField.setText("");
     }
 
-    public Image checkImageInDirectory(File f) {
+    private Image checkImageInDirectory(File f) {
         try {
             if (f.exists()) {
                 return new Image(filmImage);
