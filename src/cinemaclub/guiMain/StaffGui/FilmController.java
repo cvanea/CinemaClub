@@ -179,6 +179,7 @@ public class FilmController extends MainController implements Initializable {
                 }
             ImageIO.write(bufferedImage, "jpg",new File("Images/" + fileName));
             imageField.setText("/" + fileName);
+        } catch (IllegalArgumentException e) {
         } catch (IOException e) {
             e.printStackTrace();
         }
