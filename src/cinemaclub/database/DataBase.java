@@ -76,14 +76,22 @@ public class DataBase implements Serializable {
             Film princessMononoke = new Film("Princess Mononoke", "/PrincessMononoke.jpg", "On a journey to find the cure for a Tatarigami's curse, Ashitaka finds himself in the middle of a war between the forest gods and Tatara, a mining colony. In this quest he also meets San, the Mononoke Hime.", "02:00");
             Film spiritedAway = new Film("Spirited Away", "/SpiritedAway.jpg", "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.", "02:00");
             Film howlsMovingCastle = new Film("Howl's Moving Castle", "/HowlsMovingCastle.jpg", "When an unconfident young woman is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking castle.", "02:00");
+            Film theIncredibles = new Film("The Incredibles", "/incredibles.jpg", "A family of undercover superheroes, while trying to live the quiet suburban life, are forced into action to save the world.", "01:55");
+            Film monsterInc = new Film("Monsters, Inc", "/monstersinc.jpg", "In order to power the city, monsters have to scare children so that they scream. However, the children are toxic to the monsters, and after a child gets through, 2 monsters realize things may not be what they think.", "01:32");
+            Film monstersUni = new Film("Monsters University", "/monstersuni.jpg", "A look at the relationship between Mike and Sulley during their days at Monsters University -- when they weren't necessarily the best of friends.", "01:44");
+            Film toyStory2 = new Film("Toy Story 2", "/toystory2.jpg", "When Woody is stolen by a toy collector, Buzz and his friends vow to rescue him, but Woody finds the idea of immortality in a museum tempting.", "01:32");
 
             dataBase.filmRepository.addFilm("UP", up);
             dataBase.filmRepository.addFilm("WALL·E", walle);
             dataBase.filmRepository.addFilm("Finding Nemo", findingNemo);
             dataBase.filmRepository.addFilm("Toy Story", toyStory);
+            dataBase.filmRepository.addFilm("Toy Story 2", toyStory2);
             dataBase.filmRepository.addFilm("Princess Mononoke", princessMononoke);
             dataBase.filmRepository.addFilm("Spirited Away", spiritedAway);
             dataBase.filmRepository.addFilm("Howl's Moving Castle", howlsMovingCastle);
+            dataBase.filmRepository.addFilm("The Incredibles", theIncredibles);
+            dataBase.filmRepository.addFilm("Monsters, Inc", monsterInc);
+            dataBase.filmRepository.addFilm("Monsters University", monstersUni);
 
             Screen screen1 = new Screen(1, 5, 10);
             Screen screen2 = new Screen(2, 8, 10);
