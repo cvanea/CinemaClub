@@ -59,8 +59,13 @@ public class ShowingsController extends MainController implements Initializable 
     }
 
     public void pressViewShowing(ActionEvent event) {
-        GuiData.setShowing(chosenShowing);
-        StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_IND_SHOWING);
+        if(chosenShowing != null) {
+            GuiData.setShowing(chosenShowing);
+            StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_IND_SHOWING);
+        } else {
+            errorLabel.setText("Please select a showing to view");
+            errorLabel.setStyle("-fx-text-fill: red");
+        }
     }
 
     public void pressAddShowing(ActionEvent event) {
@@ -71,15 +76,19 @@ public class ShowingsController extends MainController implements Initializable 
             validateDate(selectedDate);
             cinema.addShowing(cinema.getScreen(selectedScreen), selectedDate, selectedTime, cinema.getFilmByTitle(selectedFilm));
             errorLabel.setText("New Showing of " + selectedFilm + " Added");
+            errorLabel.setStyle("-fx-text-fill: darkgreen");
             fillShowingsTable();
         } catch (ShowingAlreadyExistsException | ShowingOnOtherScreenException | OverlappingRuntimeException |
             MissingShowingInputsException | IncorrectTimeFormatException | PastDateException e) {
             errorLabel.setText(e.getMessage());
+            errorLabel.setStyle("-fx-text-fill: red");
         }
     }
 
     public void pressExport(ActionEvent event) {
             cinema.exportShowingsToCsv();
+            errorLabel.setText("Showings succesfully exported to Showings.csv");
+            errorLabel.setStyle("-fx-text-fill: darkgreen");
     }
 
     public void selectShowing(MouseEvent event) {

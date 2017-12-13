@@ -5,6 +5,10 @@ import cinemaclub.guiMain.GuiData;
 import cinemaclub.user.Booking;
 import cinemaclub.user.Customer;
 import cinemaclub.user.User;
+import exceptions.NoBookingsException;
+import exceptions.NoFutureBookingsException;
+import exceptions.NotAFutureBookingException;
+import exceptions.SeatNotFoundException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,6 +35,8 @@ public class IndividualShowingController extends MainController implements Initi
     @FXML Label runtimeText;
     @FXML Label dateText;
     @FXML Label timeText;
+    @FXML Label screensText;
+    @FXML Label errorLabel;
     @FXML GridPane gridSeats;
     @FXML TableView<BookingUserInfo> userTable;
     @FXML TableColumn<BookingUserInfo, String> username;
@@ -39,12 +45,35 @@ public class IndividualShowingController extends MainController implements Initi
     @FXML TableColumn <BookingUserInfo, String> seat;
 
     private Showing showing;
+    private Customer customer;
+    private Booking chosenBooking;
 
 
     public void userMouseClick(MouseEvent event) {
         BookingUserInfo chosenUser = userTable.getSelectionModel().getSelectedItem();
+        if(chosenUser != null) {
+            User user = cinema.getUser(chosenUser.getUsername());
+            if (user instanceof Customer) {
+                customer = (Customer) user;
+                chosenBooking = customer.getBooking(showing, chosenUser.getSeat());
+            }
+        } else {
+//            errorLabel.setText("No booking selcted");
+//            errorLabel.setStyle("-fx-text-fill: red");
+        }
     }
     public void pressDelete(ActionEvent actionEvent) {
+        try {
+            cinema.deleteFutureBooking(customer, chosenBooking);
+            fillUserTable();
+            deleteGrid();
+            GuiData.setupSeatButtons(gridSeats, 780,450, "staff");
+            errorLabel.setText("Booking deleted");
+            errorLabel.setStyle("-fx-text-fill: darkgreen");
+        } catch(NoBookingsException | NotAFutureBookingException | NoFutureBookingsException | SeatNotFoundException e){
+            errorLabel.setText(e.getMessage());
+            errorLabel.setStyle("-fx-text-fill: red");
+        }
 //        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
     }
 
@@ -89,8 +118,19 @@ public class IndividualShowingController extends MainController implements Initi
         runtimeText.setText(showing.getFilm().getRunTime());
         timeText.setText(showing.getTime());
         dateText.setText(showing.getDate());
+        screensText.setText(showing.getScreenNumber().toString());
         Image img = new Image(showing.getFilm().getImagePath());
         imageBox.setImage(img);
+    }
+
+    private void deleteGrid(){
+        while(gridSeats.getRowConstraints().size() > 0){
+            gridSeats.getRowConstraints().remove(0);
+        }
+        while(gridSeats.getColumnConstraints().size() > 0){
+            gridSeats.getColumnConstraints().remove(0);
+        }
+        gridSeats.getChildren().clear();
     }
 
     public class BookingUserInfo {

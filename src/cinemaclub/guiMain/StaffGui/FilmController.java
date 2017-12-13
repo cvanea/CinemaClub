@@ -119,7 +119,6 @@ public class FilmController extends MainController implements Initializable {
         try {
             getFilmInputs();
             cinema.addFilm(filmTitle, imagePath, filmDescription, filmRuntime);
-
             setFilmInfo();
             editPane.setOpacity(0);
             errorLabel.setText("");
