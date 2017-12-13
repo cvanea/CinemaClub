@@ -19,7 +19,8 @@ public class MainTester {
 //        seatsTester();
 //        exportTester();
 //        screenTester();
-        timeTester();
+//        timeTester();
+//        runTimeTester();
 
     }
 
@@ -227,7 +228,7 @@ public class MainTester {
 
         System.out.println(cinema.getFilmByTitle("Test").getTitle());
         System.out.println(cinema.getFilmByTitle("Test").getImagePath());
-        System.out.println(cinema.getFilmByTitle("Test").getRunTime());
+        System.out.println(cinema.getFilmByTitle("Test").getRuntime());
         System.out.println(cinema.getFilmByTitle("Test").getDescription());
 
         try {
@@ -241,7 +242,7 @@ public class MainTester {
 
         System.out.println(cinema.getFilmByTitle("UPTest").getTitle());
         System.out.println(cinema.getFilmByTitle("UPTest").getImagePath());
-        System.out.println(cinema.getFilmByTitle("UPTest").getRunTime());
+        System.out.println(cinema.getFilmByTitle("UPTest").getRuntime());
         System.out.println(cinema.getFilmByTitle("UPTest").getDescription());
     }
 
@@ -357,6 +358,57 @@ public class MainTester {
         if (Integer.parseInt(splitTime[0] + splitTime[1]) == 24 && (Integer.parseInt(splitTime[3]) != 0 || Integer.parseInt(splitTime[4]) != 0)) {
             System.out.println("error5");
         }
+
+        if (Integer.parseInt(splitTime[3] + splitTime[4]) > 60) {
+            System.out.println("error6");
+        }
+    }
+
+    private static void runTimeTester() {
+
+        String newTime = "13:00";
+        String newRuntime = "1:30";
+        String showingTime = "12:00";
+        String showingRuntime = "01:30";
+
+        String existingTime = showingTime;
+        String runtime = showingRuntime;
+        String time = newTime;
+
+        String[] splitExistingTime = existingTime.split(":");
+        String[] splitRuntime = runtime.split(":");
+
+        String existingTimeNumberString = splitExistingTime[0];
+        String runtimeNumberString = splitRuntime[0];
+
+        Integer existingTimeNumber = Integer.parseInt(existingTimeNumberString);
+        Integer runtimeNumber = Integer.parseInt(runtimeNumberString);
+
+        Integer timePlusRuntime = existingTimeNumber + runtimeNumber;
+
+        String timePlusRuntimeString = Integer.toString(timePlusRuntime);
+
+        if ((time.compareTo(existingTime) > 0) && (timePlusRuntimeString.compareTo(time)) > 0) {
+            System.out.println("error1");
+        }
+
+        String[] splitNewRuntime = newRuntime.split(":");
+        String[] splitTime = time.split(":");
+
+        String newRuntimeNumberString = splitNewRuntime[0];
+        String timeNumberString = splitTime[0];
+
+        Integer newRuntimeNumber = Integer.parseInt(newRuntimeNumberString);
+        Integer timeNumber = Integer.parseInt(timeNumberString);
+
+        Integer newRuntimePlusNewTime = newRuntimeNumber + timeNumber;
+
+        String newRunTimePlusNewTimeString = Integer.toString(newRuntimePlusNewTime);
+
+        if ((time.compareTo(existingTime) < 0) && (existingTime.compareTo(newRunTimePlusNewTimeString) < 0)) {
+            System.out.println("error2");
+        }
+
 
     }
 

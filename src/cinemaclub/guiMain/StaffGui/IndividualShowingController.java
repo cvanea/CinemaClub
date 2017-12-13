@@ -115,7 +115,7 @@ public class IndividualShowingController extends MainController implements Initi
     private void setFilmInfo(){
         titleText.setText(showing.getFilm().getTitle());
         descriptionText.setText(showing.getFilm().getDescription());
-        runtimeText.setText(showing.getFilm().getRunTime());
+        runtimeText.setText(showing.getFilm().getRuntime());
         timeText.setText(showing.getTime());
         dateText.setText(showing.getDate());
         screensText.setText(showing.getScreenNumber().toString());

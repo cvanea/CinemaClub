@@ -42,7 +42,7 @@ public class Film implements Serializable {
         this.description = description;
     }
 
-    public String getRunTime() {
+    public String getRuntime() {
         return runTime;
     }
 

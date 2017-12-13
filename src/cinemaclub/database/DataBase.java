@@ -69,13 +69,13 @@ public class DataBase implements Serializable {
             dataBase.userRepository.addStaffID("5", "noStaff");
             dataBase.userRepository.addStaffID("6", "noStaff");
 
-            Film up = new Film("UP", "/UP.jpg", "Seventy-eight year old Carl Fredricksen travels to Paradise Falls in his home equipped with balloons, inadvertently taking a young stowaway.", "02:00");
-            Film walle = new Film("WALL·E", "/walle.jpg", "In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.", "02:00");
-            Film findingNemo = new Film("Finding Nemo", "/FindingNemo.jpg", "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.", "02:00");
-            Film toyStory = new Film("Toy Story", "/ToyStory.jpg", "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.", "02:00");
-            Film princessMononoke = new Film("Princess Mononoke", "/PrincessMononoke.jpg", "On a journey to find the cure for a Tatarigami's curse, Ashitaka finds himself in the middle of a war between the forest gods and Tatara, a mining colony. In this quest he also meets San, the Mononoke Hime.", "02:00");
-            Film spiritedAway = new Film("Spirited Away", "/SpiritedAway.jpg", "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.", "02:00");
-            Film howlsMovingCastle = new Film("Howl's Moving Castle", "/HowlsMovingCastle.jpg", "When an unconfident young woman is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking castle.", "02:00");
+            Film up = new Film("UP", "/UP.jpg", "Seventy-eight year old Carl Fredricksen travels to Paradise Falls in his home equipped with balloons, inadvertently taking a young stowaway.", "01:36");
+            Film walle = new Film("WALL·E", "/walle.jpg", "In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.", "01:28");
+            Film findingNemo = new Film("Finding Nemo", "/FindingNemo.jpg", "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.", "01:40");
+            Film toyStory = new Film("Toy Story", "/ToyStory.jpg", "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.", "01:21");
+            Film princessMononoke = new Film("Princess Mononoke", "/PrincessMononoke.jpg", "On a journey to find the cure for a Tatarigami's curse, Ashitaka finds himself in the middle of a war between the forest gods and Tatara, a mining colony. In this quest he also meets San, the Mononoke Hime.", "02:14");
+            Film spiritedAway = new Film("Spirited Away", "/SpiritedAway.jpg", "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.", "02:05");
+            Film howlsMovingCastle = new Film("Howl's Moving Castle", "/HowlsMovingCastle.jpg", "When an unconfident young woman is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking castle.", "01:59");
             Film theIncredibles = new Film("The Incredibles", "/incredibles.jpg", "A family of undercover superheroes, while trying to live the quiet suburban life, are forced into action to save the world.", "01:55");
             Film monsterInc = new Film("Monsters, Inc", "/monstersinc.jpg", "In order to power the city, monsters have to scare children so that they scream. However, the children are toxic to the monsters, and after a child gets through, 2 monsters realize things may not be what they think.", "01:32");
             Film monstersUni = new Film("Monsters University", "/monstersuni.jpg", "A look at the relationship between Mike and Sulley during their days at Monsters University -- when they weren't necessarily the best of friends.", "01:44");
@@ -883,65 +883,6 @@ public class DataBase implements Serializable {
             dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-14", "18:00", findingNemo, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-14", "20:00", up, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-14", "22:00", iceAge, new HashMap<>()));
-
-
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12315", "13:00", up, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "18:00", toyStory, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "20:00", princessMononoke, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "11:00", spiritedAway, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "13:00", kungFuPanda, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "13:00", theIncredibles, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "13:00", theIncredibles, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "13:00", kungFuPanda, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "13:00", kungFuPanda, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "15:00", walle, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "12:00", walle, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "15:00", walle, new HashMap<>()));
-//
-//
-//
-//
-//            // 2017-12-16
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-16", "13:00", up, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-16", "12:00", walle, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-16", "15:00", walle, new HashMap<>()));
-//
-//            // 2017-12-17
-//            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2017-12-17", "13:00", up, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-17", "12:00", walle, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-17", "15:00", walle, new HashMap<>()));
-//
-//            // 2017-12-18
-//            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2017-12-18", "13:00", up, new HashMap<>()));
-//
-//
-//            // 2017-12-19
-//            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2017-12-19", "13:00", up, new HashMap<>()));
-//
-//            //2017-12-20
-//
-//            //2017-12-21
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-20", "13:00", up, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-21", "13:00", up, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2017-12-22", "13:00", up, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2017-12-23", "13:00", up, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-03", "13:00", up, new HashMap<>()));
-//
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-18", "12:00", walle, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-18", "15:00", walle, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-19", "12:00", walle, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-19", "15:00", walle, new HashMap<>()));
-//
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-01-05", "10:00", findingNemo, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-01-05", "09:00", findingNemo, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2017-01-05", "18:00", findingNemo, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-01-06", "10:00", findingNemo, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-01-06", "09:00", findingNemo, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2017-01-06", "18:00", findingNemo, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-01-07", "10:00", findingNemo, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2017-01-07", "18:00", findingNemo, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-01-08", "10:00", findingNemo, new HashMap<>()));
-//            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2017-01-08", "18:00", findingNemo, new HashMap<>()));
 
             dataBase.userRepository.addUser("claudia", new Customer(new UserCredentials("claudia", "claudia@hotmail.co.uk", "claudia", "Claudia", "Vanea"), new ArrayList<>()));
             dataBase.userRepository.addUser("alex", new Customer(new UserCredentials("alex", "alex@hotmail.co.uk", "alex", "Alex", "Charles"), new ArrayList<>()));
