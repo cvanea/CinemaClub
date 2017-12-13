@@ -106,7 +106,7 @@ public class FilmByDateController extends CustomerMainController implements Init
             chosenTime = timesList.getSelectionModel().getSelectedItem();
             validateTimeSelected(chosenTime);
             GuiData.setTime(chosenTime);
-            screenText.setText(cinema.getShowingByDateTime(datePicked, chosenTime).getScreenNumber().toString());
+            screenText.setText(cinema.getShowingByDateTimeFilm(datePicked, chosenTime,chosenFilm).getScreenNumber().toString());
             screen.setOpacity(1);
             pickSeatButton.setOpacity(1);
         } catch (NoTimeSelectedException e){
