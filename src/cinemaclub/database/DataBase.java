@@ -80,6 +80,10 @@ public class DataBase implements Serializable {
             Film monsterInc = new Film("Monsters, Inc", "/monstersinc.jpg", "In order to power the city, monsters have to scare children so that they scream. However, the children are toxic to the monsters, and after a child gets through, 2 monsters realize things may not be what they think.", "01:32");
             Film monstersUni = new Film("Monsters University", "/monstersuni.jpg", "A look at the relationship between Mike and Sulley during their days at Monsters University -- when they weren't necessarily the best of friends.", "01:44");
             Film toyStory2 = new Film("Toy Story 2", "/toystory2.jpg", "When Woody is stolen by a toy collector, Buzz and his friends vow to rescue him, but Woody finds the idea of immortality in a museum tempting.", "01:32");
+            Film ratatouille = new Film("Ratatouille", "/Ratatouille.jpg", "A rat who can cook makes an unusual alliance with a young kitchen worker at a famous restaurant.", "01:51");
+            Film kungFuPanda = new Film("Kung Fu Panda", "/kungfu.jpg", "The Dragon Warrior has to clash against the savage Tai Lung as China's fate hangs in the balance: However, the Dragon Warrior mantle is supposedly mistaken to be bestowed upon an obese panda who is a tyro in martial arts.", "01:32");
+            Film iceAge = new Film("Ice Age", "/iceage.jpg", "Set during the Ice Age, a sabertooth tiger, a sloth, and a wooly mammoth find a lost human infant, and they try to return him to his tribe.", "01:21");
+//            Film ratatouille = new Film("Ratatouille", "/Ratatouille.jpg", "", "01:32");
 
             dataBase.filmRepository.addFilm("UP", up);
             dataBase.filmRepository.addFilm("WALL·E", walle);
@@ -92,6 +96,9 @@ public class DataBase implements Serializable {
             dataBase.filmRepository.addFilm("The Incredibles", theIncredibles);
             dataBase.filmRepository.addFilm("Monsters, Inc", monsterInc);
             dataBase.filmRepository.addFilm("Monsters University", monstersUni);
+            dataBase.filmRepository.addFilm("Ratatouille", ratatouille);
+            dataBase.filmRepository.addFilm("Ice Age", iceAge);
+            dataBase.filmRepository.addFilm("Kung Fu Panda", kungFuPanda);
 
             Screen screen1 = new Screen(1, 5, 10);
             Screen screen2 = new Screen(2, 8, 10);
@@ -105,6 +112,7 @@ public class DataBase implements Serializable {
             dataBase.screenRepository.addScreen(screen4);
             dataBase.screenRepository.addScreen(screen5);
 
+<<<<<<< Updated upstream
             dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "13:00", up, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-16", "13:00", up, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2017-12-17", "13:00", up, new HashMap<>()));
@@ -115,6 +123,16 @@ public class DataBase implements Serializable {
             dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2017-12-22", "13:00", up, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2017-12-23", "13:00", up, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-03", "13:00", up, new HashMap<>()));
+=======
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "10:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "12:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "15:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "18:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "20:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "11:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "13:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "15:00", walle, new HashMap<>()));
+>>>>>>> Stashed changes
 
             dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "12:00", walle, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "15:00", walle, new HashMap<>()));
