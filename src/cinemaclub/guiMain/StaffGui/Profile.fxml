@@ -80,7 +80,7 @@
                   </Label>
                </children>
             </GridPane>
-            <AnchorPane id="profileBackground" stylesheets="@../style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <AnchorPane id="profileBackground" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <TextField id="custProfile" fx:id="username" layoutX="70.0" layoutY="74.0" prefHeight="50.0" prefWidth="256.0" styleClass="registerField" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="40.0">
                      <font>
