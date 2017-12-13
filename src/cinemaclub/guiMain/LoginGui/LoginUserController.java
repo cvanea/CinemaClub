@@ -38,6 +38,7 @@ public class LoginUserController extends LoginMainController implements Initiali
                 GuiData.setViewTitle("Films");
                 StageSceneNavigator.staffStage(cinema);
             }
+            GuiData.setSuccessMessage("");
             ((Node)(event.getSource())).getScene().getWindow().hide();
         } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
             System.out.println(e.getMessage());
