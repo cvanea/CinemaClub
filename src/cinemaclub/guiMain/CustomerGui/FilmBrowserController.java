@@ -120,27 +120,27 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     public void pressBook1(ActionEvent event) {
         String date = datesBox1.getSelectionModel().getSelectedItem();
         String time = timesBox1.getSelectionModel().getSelectedItem();
-        goToShowing(date, time);
+        goToShowing(date, time , film1);
     }
 
     public void pressBook2(ActionEvent event) {
         String date = datesBox2.getSelectionModel().getSelectedItem();
         String time = timesBox2.getSelectionModel().getSelectedItem();
-        goToShowing(date, time);
+        goToShowing(date, time, film2);
     }
 
     public void pressBook3(ActionEvent event) {
         String date = datesBox3.getSelectionModel().getSelectedItem();
         String time = timesBox3.getSelectionModel().getSelectedItem();
-        goToShowing(date, time);
+        goToShowing(date, time, film3);
     }
 
-    private void goToShowing(String date, String time){
+    private void goToShowing(String date, String time, Film film){
         try {
             validateDateTimeSelected(date, time);
             GuiData.setDate(date);
             GuiData.setTime(time);
-            GuiData.setShowing(cinema.getShowingByDateTime(date, time));
+            GuiData.setShowing(cinema.getShowingByDateTimeFilm(date, time, film));
             StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
         } catch (EmptyDateTimeException e) {
             errorLabel.setText(e.getMessage());

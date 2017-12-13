@@ -113,7 +113,7 @@ public class DataBase implements Serializable {
             dataBase.screenRepository.addScreen(screen5);
 
 
-            // 2017-12-15
+            // 2018-01-01
             // screen 1
             dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-01", "06:00", toyStory, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-01", "08:00", princessMononoke, new HashMap<>()));
@@ -165,9 +165,727 @@ public class DataBase implements Serializable {
             dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-01", "20:00", up, new HashMap<>()));
             dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-01", "22:00", iceAge, new HashMap<>()));
 
+       // 2018-01-02
+            // screen 1
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-02", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-02", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-02", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-02", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-02", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-02", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-02", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-02", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-02", "22:00", walle, new HashMap<>()));
+            // screen 2
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-02", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-02", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-02", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-02", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-02", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-02", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-02", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-02", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-02", "22:00", theIncredibles, new HashMap<>()));
+            // screen 3
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-02", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-02", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-02", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-02", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-02", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-02", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-02", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-02", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-02", "22:00", spiritedAway, new HashMap<>()));
+            // screen 4
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-02", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-02", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-02", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-02", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-02", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-02", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-02", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-02", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-02", "22:00", ratatouille, new HashMap<>()));
+            // screen 5
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-02", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-02", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-02", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-02", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-02", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-02", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-02", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-02", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-02", "22:00", iceAge, new HashMap<>()));
+
+            // 2018-01-03
+            // screen 3
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-03", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-03", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-03", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-03", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-03", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-03", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-03", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-03", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-03", "22:00", walle, new HashMap<>()));
+            // screen 2
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-03", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-03", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-03", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-03", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-03", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-03", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-03", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-03", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-03", "22:00", theIncredibles, new HashMap<>()));
+            // screen 3
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-03", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-03", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-03", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-03", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-03", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-03", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-03", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-03", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-03", "22:00", spiritedAway, new HashMap<>()));
+            // screen 4
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-03", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-03", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-03", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-03", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-03", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-03", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-03", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-03", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-03", "22:00", ratatouille, new HashMap<>()));
+            // screen 5
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-03", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-03", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-03", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-03", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-03", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-03", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-03", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-03", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-03", "22:00", iceAge, new HashMap<>()));
+
+            // 2018-01-03
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-04", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-04", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-04", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-04", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-04", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-04", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-04", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-04", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-04", "22:00", walle, new HashMap<>()));
+            // screen 2
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-04", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-04", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-04", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-04", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-04", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-04", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-04", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-04", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-04", "22:00", theIncredibles, new HashMap<>()));
+            // screen 3
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-04", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-04", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-04", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-04", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-04", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-04", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-04", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-04", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-04", "22:00", spiritedAway, new HashMap<>()));
+            // screen 4
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-04", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-04", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-04", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-04", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-04", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-04", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-04", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-04", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-04", "22:00", ratatouille, new HashMap<>()));
+            // screen 5
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-04", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-04", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-04", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-04", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-04", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-04", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-04", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-04", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-04", "22:00", iceAge, new HashMap<>()));
 
 
-//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "13:00", up, new HashMap<>()));
+            // 2018-01-05
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-05", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-05", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-05", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-05", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-05", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-05", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-05", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-05", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-05", "22:00", walle, new HashMap<>()));
+            // screen 5
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-05", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-05", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-05", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-05", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-05", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-05", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-05", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-05", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-05", "22:00", theIncredibles, new HashMap<>()));
+            // screen 5
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-05", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-05", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-05", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-05", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-05", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-05", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-05", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-05", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-05", "22:00", spiritedAway, new HashMap<>()));
+            // screen 5
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-05", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-05", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-05", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-05", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-05", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-05", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-05", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-05", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-05", "22:00", ratatouille, new HashMap<>()));
+            // screen 5
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-05", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-05", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-05", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-05", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-05", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-05", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-05", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-05", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-05", "22:00", iceAge, new HashMap<>()));
+
+            // 2018-01-06
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-06", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-06", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-06", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-06", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-06", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-06", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-06", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-06", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-06", "22:00", walle, new HashMap<>()));
+            // screen 6
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-06", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-06", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-06", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-06", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-06", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-06", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-06", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-06", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-06", "22:00", theIncredibles, new HashMap<>()));
+            // screen 6
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-06", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-06", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-06", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-06", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-06", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-06", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-06", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-06", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-06", "22:00", spiritedAway, new HashMap<>()));
+            // screen 6
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-06", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-06", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-06", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-06", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-06", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-06", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-06", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-06", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-06", "22:00", ratatouille, new HashMap<>()));
+            // screen 6
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-06", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-06", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-06", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-06", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-06", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-06", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-06", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-06", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-06", "22:00", iceAge, new HashMap<>()));
+
+
+            // 2018-01-07
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "22:00", walle, new HashMap<>()));
+            // screen 7
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "22:00", theIncredibles, new HashMap<>()));
+            // screen 7
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "22:00", spiritedAway, new HashMap<>()));
+            // screen 7
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "22:00", ratatouille, new HashMap<>()));
+            // screen 7
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "22:00", iceAge, new HashMap<>()));
+
+            // 2018-01-08
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-08", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-08", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-08", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-08", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-08", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-08", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-08", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-08", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-08", "22:00", walle, new HashMap<>()));
+            // screen 8
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-08", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-08", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-08", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-08", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-08", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-08", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-08", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-08", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-08", "22:00", theIncredibles, new HashMap<>()));
+            // screen 8
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-08", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-08", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-08", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-08", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-08", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-08", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-08", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-08", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-08", "22:00", spiritedAway, new HashMap<>()));
+            // screen 8
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-08", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-08", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-08", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-08", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-08", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-08", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-08", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-08", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-08", "22:00", ratatouille, new HashMap<>()));
+            // screen 8
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-08", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-08", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-08", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-08", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-08", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-08", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-08", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-08", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-08", "22:00", iceAge, new HashMap<>()));
+
+            // 2018-01-07
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-07", "22:00", walle, new HashMap<>()));
+            // screen 7
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-07", "22:00", theIncredibles, new HashMap<>()));
+            // screen 7
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-07", "22:00", spiritedAway, new HashMap<>()));
+            // screen 7
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-07", "22:00", ratatouille, new HashMap<>()));
+            // screen 7
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-07", "22:00", iceAge, new HashMap<>()));
+
+            // 2018-01-09
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-09", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-09", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-09", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-09", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-09", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-09", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-09", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-09", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-09", "22:00", walle, new HashMap<>()));
+            // screen 9
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-09", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-09", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-09", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-09", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-09", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-09", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-09", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-09", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-09", "22:00", theIncredibles, new HashMap<>()));
+            // screen 9
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-09", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-09", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-09", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-09", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-09", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-09", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-09", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-09", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-09", "22:00", spiritedAway, new HashMap<>()));
+            // screen 9
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-09", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-09", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-09", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-09", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-09", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-09", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-09", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-09", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-09", "22:00", ratatouille, new HashMap<>()));
+            // screen 9
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-09", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-09", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-09", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-09", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-09", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-09", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-09", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-09", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-09", "22:00", iceAge, new HashMap<>()));
+
+            // 2018-01-10
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-10", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-10", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-10", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-10", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-10", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-10", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-10", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-10", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-10", "22:00", walle, new HashMap<>()));
+            // screen10
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-10", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-10", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-10", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-10", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-10", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-10", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-10", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-10", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-10", "22:00", theIncredibles, new HashMap<>()));
+            // screen10
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-10", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-10", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-10", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-10", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-10", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-10", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-10", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-10", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-10", "22:00", spiritedAway, new HashMap<>()));
+            // screen10
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-10", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-10", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-10", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-10", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-10", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-10", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-10", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-10", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-10", "22:00", ratatouille, new HashMap<>()));
+            // screen10
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-10", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-10", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-10", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-10", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-10", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-10", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-10", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-10", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-10", "22:00", iceAge, new HashMap<>()));
+
+            // 2018-01-11
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-11", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-11", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-11", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-11", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-11", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-11", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-11", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-11", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-11", "22:00", walle, new HashMap<>()));
+            // screen11
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-11", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-11", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-11", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-11", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-11", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-11", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-11", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-11", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-11", "22:00", theIncredibles, new HashMap<>()));
+            // screen11
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-11", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-11", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-11", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-11", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-11", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-11", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-11", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-11", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-11", "22:00", spiritedAway, new HashMap<>()));
+            // screen11
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-11", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-11", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-11", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-11", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-11", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-11", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-11", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-11", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-11", "22:00", ratatouille, new HashMap<>()));
+            // screen11
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-11", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-11", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-11", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-11", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-11", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-11", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-11", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-11", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-11", "22:00", iceAge, new HashMap<>()));
+
+            // 2018-01-12
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-12", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-12", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-12", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-12", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-12", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-12", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-12", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-12", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-12", "22:00", walle, new HashMap<>()));
+            // screen12
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-12", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-12", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-12", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-12", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-12", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-12", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-12", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-12", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-12", "22:00", theIncredibles, new HashMap<>()));
+            // screen12
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-12", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-12", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-12", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-12", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-12", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-12", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-12", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-12", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-12", "22:00", spiritedAway, new HashMap<>()));
+            // screen12
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-12", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-12", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-12", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-12", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-12", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-12", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-12", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-12", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-12", "22:00", ratatouille, new HashMap<>()));
+            // screen12
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-12", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-12", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-12", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-12", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-12", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-12", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-12", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-12", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-12", "22:00", iceAge, new HashMap<>()));
+
+
+            // 2018-01-13
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-13", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-13", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-13", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-13", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-13", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-13", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-13", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-13", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-13", "22:00", walle, new HashMap<>()));
+            // screen13
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-13", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-13", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-13", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-13", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-13", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-13", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-13", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-13", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-13", "22:00", theIncredibles, new HashMap<>()));
+            // screen13
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-13", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-13", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-13", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-13", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-13", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-13", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-13", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-13", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-13", "22:00", spiritedAway, new HashMap<>()));
+            // screen13
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-13", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-13", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-13", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-13", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-13", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-13", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-13", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-13", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-13", "22:00", ratatouille, new HashMap<>()));
+            // screen13
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-13", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-13", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-13", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-13", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-13", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-13", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-13", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-13", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-13", "22:00", iceAge, new HashMap<>()));
+
+            // 2018-01-14
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-14", "06:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-14", "08:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-14", "12:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-14", "10:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-14", "14:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-14", "16:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-14", "18:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-14", "20:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2018-01-14", "22:00", walle, new HashMap<>()));
+            // screen14
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-14", "06:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-14", "08:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-14", "10:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-14", "12:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-14", "14:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-14", "16:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-14", "18:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-14", "20:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2018-01-14", "22:00", theIncredibles, new HashMap<>()));
+            // screen14
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-14", "06:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-14", "08:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-14", "10:00", toyStory2, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-14", "12:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-14", "14:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-14", "16:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-14", "18:00", ratatouille, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-14", "20:00", monsterInc, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen3, new Showing(screen3, "2018-01-14", "22:00", spiritedAway, new HashMap<>()));
+            // screen14
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-14", "06:00", walle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-14", "08:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-14", "10:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-14", "12:00", spiritedAway, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-14", "14:00", theIncredibles, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-14", "16:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-14", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-14", "20:00", iceAge, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen4, new Showing(screen4, "2018-01-14", "22:00", ratatouille, new HashMap<>()));
+            // screen14
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-14", "06:00", princessMononoke, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-14", "08:00", howlsMovingCastle, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-14", "10:00", toyStory, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-14", "12:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-14", "14:00", monstersUni, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-14", "16:00", kungFuPanda, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-14", "18:00", findingNemo, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-14", "20:00", up, new HashMap<>()));
+            dataBase.screenRepository.addShowing(screen5, new Showing(screen5, "2018-01-14", "22:00", iceAge, new HashMap<>()));
+
+
+//            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12315", "13:00", up, new HashMap<>()));
 //            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "18:00", toyStory, new HashMap<>()));
 //            dataBase.screenRepository.addShowing(screen1, new Showing(screen1, "2017-12-15", "20:00", princessMononoke, new HashMap<>()));
 //            dataBase.screenRepository.addShowing(screen2, new Showing(screen2, "2017-12-15", "11:00", spiritedAway, new HashMap<>()));
