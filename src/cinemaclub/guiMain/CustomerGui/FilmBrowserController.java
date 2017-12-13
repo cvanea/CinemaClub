@@ -4,7 +4,7 @@ import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
-import exceptions.DateTimeNullException;
+import exceptions.EmptyDateTimeException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -48,22 +48,20 @@ public class FilmBrowserController extends CustomerMainController implements Ini
 
     @FXML Label errorLabel;
 
-    int numberofFilmsWShowings;
-    int showingView;
-    int index  = 0;
-    int previousIndexStart = 0;
-    Film film1;
-    Film film2;
-    Film film3;
-    ArrayList<Film> filmsWithShowing = new ArrayList<>();
+    private int numberOfFilmsWShowings;
+    private int index  = 0;
+    private Film film1;
+    private Film film2;
+    private Film film3;
+    private ArrayList<Film> filmsWithShowing = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    getFilms();
-    displayFilmsForward();
+        getFilms();
+        displayFilmsForward();
     }
 
-    public void getFilms(){
+    private void getFilms(){
         ArrayList<Showing> showings = cinema.getAllShowings();
         for (Showing showing: showings){
             Film showingFilm = showing.getFilm();
@@ -71,45 +69,42 @@ public class FilmBrowserController extends CustomerMainController implements Ini
                 filmsWithShowing.add(showingFilm);
             }
         }
-        numberofFilmsWShowings = filmsWithShowing.size() - 1;
+        numberOfFilmsWShowings = filmsWithShowing.size() - 1;
     }
 
-    public void displayFilmsForward(){
-        previousIndexStart = index;
+    private void displayFilmsForward() {
         for (int c = 1; c < 4; c++) {
             Film film = filmsWithShowing.get(index);
-            if (c == 1){
+            if (c == 1) {
                 setFilmInfo1(film);
-            }
-            else if (c == 2){
+            } else if (c == 2) {
                 setFilmInfo2(film);
-            }else if (c == 3 ){
+            } else {
                 setFilmInfo3(film);
             }
-            if(index == numberofFilmsWShowings){
+
+            if (index == numberOfFilmsWShowings) {
                 index = 0;
-            }
-            else {
+            } else {
                 index++;
             }
         }
     }
 
-    public void displayFilmsBack(){
+    private void displayFilmsBack() {
         for (int c = 1; c < 4; c++) {
             Film film = filmsWithShowing.get(index);
-            if (c == 1){
+            if (c == 1) {
                 setFilmInfo3(film);
-            }
-            else if (c == 2){
+            } else if (c == 2) {
                 setFilmInfo2(film);
-            }else if (c == 3 ){
+            } else {
                 setFilmInfo1(film);
             }
-            if(index == 0){
-                index = numberofFilmsWShowings;
-            }
-            else {
+
+            if (index == 0) {
+                index = numberOfFilmsWShowings;
+            } else {
                 index--;
             }
         }
@@ -140,18 +135,14 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         goToShowing(date, time);
     }
 
-    public void goToShowing(String date, String time){
+    private void goToShowing(String date, String time){
         try {
-            if (!date.equals(null) && !time.equals(null)) {
-                GuiData.setDate(date);
-                GuiData.setTime(time);
-                GuiData.setShowing(cinema.getShowingByDateTime(date, time));
-                StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
-            }
-            else{
-                throw new DateTimeNullException();
-            }
-        } catch (DateTimeNullException e){
+            validateDateTimeSelected(date, time);
+            GuiData.setDate(date);
+            GuiData.setTime(time);
+            GuiData.setShowing(cinema.getShowingByDateTime(date, time));
+            StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
+        } catch (EmptyDateTimeException e) {
             errorLabel.setText(e.getMessage());
         }
     }
@@ -177,7 +168,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         timesBox3.getSelectionModel().select(0);
     }
 
-    public ObservableList<String> timesList(String dateSelected, Film film){
+    private ObservableList<String> timesList(String dateSelected, Film film){
         ArrayList<Showing> showingsTime = cinema.getAllShowingsByFilm(film);
         ArrayList<String> timesList = new ArrayList<>();
         for (Showing showing: showingsTime) {
@@ -185,8 +176,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
                 timesList.add(showing.getTime());
             }
         }
-        ObservableList<String> timesComboList = FXCollections.observableArrayList(timesList);
-        return  timesComboList;
+        return FXCollections.observableArrayList(timesList);
     }
 
     private void setFilmInfo1(Film film) {
@@ -230,11 +220,17 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         ArrayList<String> datesList = new ArrayList<>();
         for (Showing showing: filmShowing) {
             String date = showing.getDate();
-            if (!datesList.contains(date)){
+            if (!datesList.contains(date)) {
                 datesList.add(date);
             }
         }
         return datesList;
+    }
+
+    private void validateDateTimeSelected(String date, String time) throws EmptyDateTimeException {
+        if (date == null || time == null) {
+            throw new EmptyDateTimeException();
+        }
     }
 
 }
