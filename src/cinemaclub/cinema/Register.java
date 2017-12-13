@@ -23,6 +23,7 @@ class Register {
 
     void registerUser(String username, String email, String password, String firstName, String surname, String userType, String staffID)
         throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException, EmptyUserInputException  {
+        //TODO add email validation
             validateUsername(username);
             validateInput(username);
             validateInput(email);

@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Cinema {
+    //TODO change directory structure to be in line with what ghita wanted.
 
     private Login login;
     private Register register;
