@@ -147,9 +147,6 @@ class FilmEdit {
 
             Integer timePlusRuntimeHour = existingTimeHour + runtimeHour;
 
-            String timePlusRuntimeHourString = Integer.toString(timePlusRuntimeHour);
-            System.out.println(timePlusRuntimeHourString);
-
             // Minute
             String existingMinuteNumberString = splitExistingTime[1];
             String runtimeMinuteString = splitRuntime[1];
@@ -159,12 +156,22 @@ class FilmEdit {
 
             Integer timePlusRuntimeMinute = existingTimeMinute + runtimeMinute;
 
-            String timePlusRuntimeMinuteString = Integer.toString(timePlusRuntimeMinute);
-            System.out.println(timePlusRuntimeMinute);
+            String timePlusRuntimeMinuteString;
+
+            if (timePlusRuntimeMinute > 60) {
+                ++timePlusRuntimeHour;
+                timePlusRuntimeMinute -= 60;
+                if (timePlusRuntimeMinute < 10) {
+                    timePlusRuntimeMinuteString = "0" + Integer.toString(timePlusRuntimeMinute);
+                } else timePlusRuntimeMinuteString = Integer.toString(timePlusRuntimeMinute);
+            } else {
+                timePlusRuntimeMinuteString = Integer.toString(timePlusRuntimeMinute);
+            }
+
+            String timePlusRuntimeHourString = Integer.toString(timePlusRuntimeHour); //hour add
 
             // Time Plus Runtime Time
             String timePlusRuntime = timePlusRuntimeHourString + ":" + timePlusRuntimeMinuteString;
-            System.out.println(timePlusRuntime);
 
             // Future
             if ((time.compareTo(existingTime) > 0) && (timePlusRuntime.compareTo(time)) > 0) {
@@ -185,9 +192,6 @@ class FilmEdit {
 
             Integer newRuntimePlusNewTimeHour = newRuntimeHour + timeHour;
 
-            String newRunTimePlusNewTimeHourString = Integer.toString(newRuntimePlusNewTimeHour);
-            System.out.println(newRunTimePlusNewTimeHourString);
-
             // Minute
             String newRuntimeMinuteString = splitNewRuntime[1];
             String timeMinuteString = splitTime[1];
@@ -197,12 +201,22 @@ class FilmEdit {
 
             Integer newRuntimePlusNewTimeMinute = newRuntimeMinute + timeMinute;
 
-            String newRunTimePlusNewTimeMinuteString = Integer.toString(newRuntimePlusNewTimeMinute);
-            System.out.println(newRunTimePlusNewTimeMinuteString);
+            String newRunTimePlusNewTimeMinuteString;
+
+            if (newRuntimePlusNewTimeMinute > 60) {
+                ++newRuntimePlusNewTimeHour;
+                newRuntimePlusNewTimeMinute -= 60;
+                if (newRuntimePlusNewTimeMinute < 10) {
+                    newRunTimePlusNewTimeMinuteString = "0" + Integer.toString(newRuntimePlusNewTimeMinute);
+                } else newRunTimePlusNewTimeMinuteString = Integer.toString(newRuntimePlusNewTimeMinute);
+            } else {
+                newRunTimePlusNewTimeMinuteString = Integer.toString(newRuntimePlusNewTimeMinute);
+            }
+
+            String newRunTimePlusNewTimeHourString = Integer.toString(newRuntimePlusNewTimeHour); //hour add
 
             // Time Plus Runtime Time
             String runtimePlusTime = newRunTimePlusNewTimeHourString + ":" + newRunTimePlusNewTimeMinuteString;
-            System.out.println(runtimePlusTime);
 
             // Past
             if ((time.compareTo(existingTime) < 0) && (existingTime.compareTo(runtimePlusTime) < 0)) {
