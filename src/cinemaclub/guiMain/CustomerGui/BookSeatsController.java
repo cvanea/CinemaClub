@@ -54,7 +54,7 @@ public class BookSeatsController extends CustomerMainController implements Initi
         imageBox.setImage(img);
         GuiData.setNumberOfRows(showing.getScreen().getNumberRow());
         GuiData.setSeatsPerRow(showing.getScreen().getSeatsPerRow());
-        GuiData.setupSeatButtons(gridSeats, 820, 450, "customer");
+        GuiData.setupSeatButtons(gridSeats, 900, 560, "customer");
     }
 
     /**

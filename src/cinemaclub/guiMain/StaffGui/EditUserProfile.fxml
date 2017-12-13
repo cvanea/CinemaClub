@@ -48,7 +48,7 @@
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="userTable" onMouseClicked="#selectUser" prefHeight="344.0" prefWidth="667.0" GridPane.rowIndex="1">
+                  <TableView fx:id="userTable" onMouseClicked="#clickSelectUser" prefHeight="344.0" prefWidth="667.0" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="usernameCol" prefWidth="117.99996948242188" text="Username" />
                         <TableColumn fx:id="emailCol" prefWidth="129.0" text="Email" />
@@ -57,7 +57,7 @@
                         <TableColumn fx:id="staffIdCol" prefWidth="135.0" text="Staff ID" />
                     </columns>
                   </TableView>
-                  <Button fx:id="register1" alignment="CENTER" mnemonicParsing="false" onAction="#setProfileText" prefHeight="43.0" prefWidth="201.0" styleClass="updateProfile" text="Edit User Profile" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Button fx:id="register1" alignment="CENTER" mnemonicParsing="false" onAction="#pressSetProfileText" prefHeight="43.0" prefWidth="201.0" styleClass="updateProfile" text="Edit User Profile" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
             <AnchorPane id="profileBackground" stylesheets="@../style.css" GridPane.columnIndex="3" GridPane.rowIndex="1">
@@ -87,7 +87,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="register" alignment="CENTER" layoutX="121.0" layoutY="502.0" mnemonicParsing="false" onAction="#setProfileText" prefHeight="43.0" prefWidth="203.0" styleClass="updateProfile" text="Update Profile" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0" />
+                  <Button fx:id="register" alignment="CENTER" layoutX="121.0" layoutY="502.0" mnemonicParsing="false" onAction="#pressSetProfileText" prefHeight="43.0" prefWidth="203.0" styleClass="updateProfile" text="Update Profile" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0" />
                   <Label layoutX="70.0" layoutY="52.0" styleClass="profileLabel" text="Username" textFill="WHITE" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font size="12.0" />
