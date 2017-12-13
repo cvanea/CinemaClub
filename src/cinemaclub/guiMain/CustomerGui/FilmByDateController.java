@@ -7,7 +7,6 @@ import cinemaclub.guiMain.StageSceneNavigator;
 import exceptions.NoFilmsToDisplayException;
 import exceptions.NoTimeSelectedException;
 import exceptions.PastDateException;
-import exceptions.SeatIsEmptyException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -52,6 +51,7 @@ public class FilmByDateController extends CustomerMainController implements Init
         filmDisplayPane.setOpacity(0);
         filmList.setOpacity(0);
         pickSeatButton.setOpacity(0);
+        screen.setOpacity(0);
     }
 
     public void selectDate(ActionEvent actionEvent) {
@@ -107,6 +107,8 @@ public class FilmByDateController extends CustomerMainController implements Init
                 throw new NoTimeSelectedException();
             }
             GuiData.setTime(chosenTime);
+            screenText.setText(cinema.getShowingByDateTime(GuiData.getDate(), chosenTime).getScreenNumber().toString());
+            screen.setOpacity(1);
             pickSeatButton.setOpacity(1);
         } catch (NoTimeSelectedException e){
             errorLabel.setText(e.getMessage());
