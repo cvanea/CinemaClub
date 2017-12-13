@@ -57,10 +57,9 @@
                         <TableColumn fx:id="staffIdCol" prefWidth="135.0" text="Staff ID" />
                     </columns>
                   </TableView>
-                  <Button fx:id="register1" alignment="CENTER" mnemonicParsing="false" onAction="#pressSetProfileText" prefHeight="43.0" prefWidth="201.0" styleClass="updateProfile" text="Edit User Profile" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
-            <AnchorPane id="profileBackground" stylesheets="@../style.css" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <AnchorPane id="profileBackground" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
                   <TextField id="custProfile" fx:id="username" layoutX="70.0" layoutY="74.0" prefHeight="50.0" prefWidth="256.0" styleClass="registerField" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="40.0">
                      <font>

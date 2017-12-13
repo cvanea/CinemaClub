@@ -70,7 +70,6 @@ public class MainController {
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_SCREENS);
     }
 
-
     /**
      * Replaces the vista displayed in the vista holder with a new vista.
      *
