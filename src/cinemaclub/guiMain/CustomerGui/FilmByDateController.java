@@ -43,7 +43,9 @@ public class FilmByDateController extends CustomerMainController implements Init
     @FXML ListView<String> filmList;
     @FXML ListView<String> timesList;
 
-    String datePicked;
+    private String datePicked;
+    private String chosenTime;
+    private Film chosenFilm;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -99,10 +101,10 @@ public class FilmByDateController extends CustomerMainController implements Init
 
     public void chooseTime(MouseEvent actionEvent) {
         try {
-            String chosenTime = timesList.getSelectionModel().getSelectedItem();
+            chosenTime = timesList.getSelectionModel().getSelectedItem();
             validateTimeSelected(chosenTime);
             GuiData.setTime(chosenTime);
-            screenText.setText(cinema.getShowingByDateTime(GuiData.getDate(), chosenTime).getScreenNumber().toString());
+            screenText.setText(cinema.getShowingByDateTime(datePicked, chosenTime).getScreenNumber().toString());
             screen.setOpacity(1);
             pickSeatButton.setOpacity(1);
         } catch (NoTimeSelectedException e){
@@ -112,8 +114,8 @@ public class FilmByDateController extends CustomerMainController implements Init
 
     public void pressPickTime(ActionEvent actionEvent) {
         try {
-            validateTimeSelected();
-            GuiData.setShowing(cinema.getShowingByDateTimeFilm(GuiData.getDate(), GuiData.getTime(), GuiData.getFilm()));
+            validateTimeSelected(chosenTime);
+            GuiData.setShowing(cinema.getShowingByDateTimeFilm(datePicked, chosenTime, chosenFilm));
             StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
             throw new NoTimeSelectedException();
         } catch (NoTimeSelectedException e) {
@@ -129,15 +131,10 @@ public class FilmByDateController extends CustomerMainController implements Init
             runTime.setText(film.getRunTime());
             Image img = new Image(film.getImagePath());
             imageBox.setImage(img);
+            chosenFilm = film;
             GuiData.setFilm(film);
         } catch (NoFilmsToDisplayException e) {
             errorLabel.setText(e.getMessage());
-        }
-    }
-
-    private void validateTimeSelected() throws NoTimeSelectedException {
-        if (GuiData.getTime().isEmpty()) {
-            throw new NoTimeSelectedException();
         }
     }
 
@@ -154,9 +151,8 @@ public class FilmByDateController extends CustomerMainController implements Init
     }
 
     private void validateTimeSelected(String time) throws NoTimeSelectedException {
-        if (time == null) {
+        if (time == null || time.isEmpty()) {
             throw new NoTimeSelectedException();
         }
     }
-
 }
