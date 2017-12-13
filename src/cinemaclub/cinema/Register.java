@@ -6,10 +6,7 @@ import cinemaclub.user.Customer;
 import cinemaclub.user.Staff;
 import cinemaclub.user.User;
 import cinemaclub.user.UserCredentials;
-import exceptions.EmptyUserInputException;
-import exceptions.IncorrectStaffIDException;
-import exceptions.StaffIDTakenException;
-import exceptions.UsernameTakenException;
+import exceptions.*;
 
 import java.util.ArrayList;
 
@@ -22,9 +19,9 @@ class Register {
     }
 
     void registerUser(String username, String email, String password, String firstName, String surname, String userType, String staffID)
-        throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException, EmptyUserInputException  {
-        //TODO add email validation
+        throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException, EmptyUserInputException, NotValidEmailException {
             validateUsername(username);
+            validateEmail(email);
             validateInput(username);
             validateInput(email);
             validateInput(password);
@@ -69,4 +66,17 @@ class Register {
         }
     }
 
+    private void validateEmail(String email) throws NotValidEmailException {
+
+        if (!email.contains("@")) {
+            throw new NotValidEmailException();
+        }
+
+        String[] splitEmail = email.split("@", 2);
+        String address = splitEmail[1];
+
+        if (!address.contains(".")) {
+            throw new NotValidEmailException();
+        }
+    }
 }

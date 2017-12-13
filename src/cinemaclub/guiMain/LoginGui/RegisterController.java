@@ -2,10 +2,7 @@ package cinemaclub.guiMain.LoginGui;
 
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
-import exceptions.EmptyUserInputException;
-import exceptions.IncorrectStaffIDException;
-import exceptions.StaffIDTakenException;
-import exceptions.UsernameTakenException;
+import exceptions.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -48,7 +45,7 @@ public class RegisterController extends LoginMainController {
             errorLabel.setText("Registered");
             GuiData.setSuccessMessage("Successfully Registered: " + username.getText());
             StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_USER);
-        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException e) {
+        } catch (UsernameTakenException | IncorrectStaffIDException | StaffIDTakenException | EmptyUserInputException | NotValidEmailException e) {
             errorLabel.setText(e.getMessage());
         }
     }

@@ -87,7 +87,7 @@ public class Cinema {
     }
 
     public void registerUser(String username, String email, String password, String firstName, String surname, String userType, String staffID)
-            throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException, EmptyUserInputException {
+            throws UsernameTakenException, IncorrectStaffIDException, StaffIDTakenException, EmptyUserInputException, NotValidEmailException {
         register.registerUser(username, email, password, firstName, surname, userType, staffID);
     }
 
