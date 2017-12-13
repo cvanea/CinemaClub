@@ -54,7 +54,8 @@ public class FilmController extends MainController implements Initializable {
     private String filmTitle;
     private String filmDescription;
     private String filmRuntime;
-    private String filmImage;
+    private String filmPath;
+    private Image image;
 
     private Film chosenFilm = null;
 
@@ -76,7 +77,8 @@ public class FilmController extends MainController implements Initializable {
                 filmTitle = chosenFilm.getTitle();
                 filmDescription = chosenFilm.getDescription();
                 filmRuntime = chosenFilm.getRunTime();
-                filmImage = chosenFilm.getImagePath();
+                filmPath = chosenFilm.getImagePath();
+                validateImage(filmPath);
                 setFilmInfo();
                 infoPane.setOpacity(1);
                 GuiData.setFilm(chosenFilm);
@@ -85,55 +87,31 @@ public class FilmController extends MainController implements Initializable {
             } else {
                 throw new NoSelectionMadeException();
             }
-        } catch (NoSelectionMadeException e) {
+        } catch (NoSelectionMadeException | ImageDoesNotExistException e) {
             errorLabelFilmList.setText(e.getMessage());
         }
     }
 
     public void updateFilmInfo(ActionEvent event){
-        filmTitle = titleField.getText();
-        filmDescription = descriptionArea.getText();
-        filmRuntime = runtimeField.getText();
-        filmImage = imageField.getText();
-
         try {
+            validateInputs();
             if (!filmTitle.equals(chosenFilm.getTitle())) {
                 cinema.setFilmTitle(chosenFilm, filmTitle);
             }
             cinema.setFilmDescription(chosenFilm, filmDescription);
-            cinema.setFilmImagePath(chosenFilm, filmImage);
+            cinema.setFilmImagePath(chosenFilm, filmPath);
             cinema.setFilmRunTime(chosenFilm, filmRuntime);
-            editPane.setOpacity(0);
-            setFilmInfo();
         } catch (FilmExistsException e) {
             System.out.println(e.getMessage());
         }
     }
 
     public void pressAddFilm(ActionEvent event){
-        filmTitle = titleField.getText();
-        filmDescription = descriptionArea.getText();
-        filmRuntime = runtimeField.getText();
-        filmImage = imageField.getText();
-
-        try {
-            validateRuntimeInput(filmRuntime);
-            validateFilmInputs(filmTitle, filmDescription, filmRuntime, filmImage);
-            cinema.addFilm(filmTitle,filmImage , filmDescription, filmRuntime);
-
-            editPane.setOpacity(0);
-            setFilmInfo();
-
-            filmList.getItems().clear();
-            populateFilmList();
-        } catch (MissingFilmInputsException | IncorrectTimeFormatException e) {
-            errorLabel.setText(e.getMessage());
+        try{
+            validateInputs();
+            cinema.addFilm(filmTitle, filmPath, filmDescription, filmRuntime);
         } catch (FilmExistsException e) {
             errorLabel.setText(e.getMessage());
-            Film updatedFilm = cinema.getFilmByTitle(filmTitle);
-            cinema.setFilmDescription(updatedFilm, filmDescription);
-            cinema.setFilmImagePath(updatedFilm, filmImage);
-            cinema.setFilmRunTime(updatedFilm, filmRuntime);
         }
     }
 
@@ -179,15 +157,39 @@ public class FilmController extends MainController implements Initializable {
                 }
             ImageIO.write(bufferedImage, "jpg",new File("Images/" + fileName));
             imageField.setText("/" + fileName);
-        } catch (IOException e) {
+        } catch (IllegalArgumentException e) {
+
+        } catch (IOException e){
             e.printStackTrace();
         }
     }
 
+    private void validateInputs() {
+        filmTitle = titleField.getText();
+        filmDescription = descriptionArea.getText();
+        filmRuntime = runtimeField.getText();
+        filmPath = imageField.getText();
+        try {
+            validateRuntimeInput(filmRuntime);
+            validateFilmInputs(filmTitle, filmDescription, filmRuntime, filmPath);
+            validateImage(filmPath);
+            setFilmInfo();
+            editPane.setOpacity(0);
+            filmList.getItems().clear();
+            populateFilmList();
+        } catch (MissingFilmInputsException | IncorrectTimeFormatException | ImageDoesNotExistException e) {
+            errorLabel.setText(e.getMessage());
+        }
+    }
+
+    private void validateImage(String filmPath) throws ImageDoesNotExistException{
+            File f = new File("Images/" + filmPath);
+            validateImageFile(f);
+    }
+
     private void setFilmInfo(){
-        File f = new File("Images/" + filmImage);
-        Image img = checkImageInDirectory(f);
-        imageBox.setImage(img);
+        image = new Image(filmPath);
+        imageBox.setImage(image);
         titleText.setText(filmTitle);
         descriptionText.setText(filmDescription);
         runtimeText.setText(filmRuntime);
@@ -201,12 +203,11 @@ public class FilmController extends MainController implements Initializable {
     }
 
     private void setUpdateFilmInfo() {
-        File f = new File("Images/" + filmImage);
-        Image img = checkImageInDirectory(f);
-        imageBoxEdit.setImage(img);
+        image = new Image(filmPath);
+        imageBoxEdit.setImage(image);
         titleField.setText(filmTitle);
         descriptionArea.setText(filmDescription);
-        imageField.setText(filmImage);
+        imageField.setText(filmPath);
         runtimeField.setText(filmRuntime);
     }
 
@@ -216,18 +217,7 @@ public class FilmController extends MainController implements Initializable {
         imageBoxEdit.setImage(null);
         imageField.setText("");
         runtimeField.setText("");
-    }
-
-    private Image checkImageInDirectory(File f) {
-        try {
-            if (f.exists()) {
-                return new Image(filmImage);
-            } else
-                throw new ImageDoesNotExistException();
-        } catch (ImageDoesNotExistException e) {
-            errorLabel.setText(e.getMessage());
-            return null;
-        }
+        errorLabel.setText("");
     }
 
     private void fillShowingsTable() {
@@ -267,4 +257,24 @@ public class FilmController extends MainController implements Initializable {
             throw new IncorrectTimeFormatException();
         }
     }
+
+    private void validateImageFile(File f) throws ImageDoesNotExistException{
+            if (!f.isFile()) {
+                throw new ImageDoesNotExistException();
+            }
+    }
+//    private void checkImageInDirectory(File f) {
+//        try {
+//            validateImageFile(f);
+//        } catch (ImageDoesNotExistException e) {
+//            errorLabel.setText(e.getMessage());
+//        }
+//    }
+//    private void invalidURL(String filmImage){
+//        try {
+//            Image img = new Image(filmImage);
+//        } catch (IllegalArgumentException e){
+//            errorLabel.setText("Invalid URL");
+//        }
+//    }
 }
