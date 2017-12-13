@@ -17,9 +17,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -185,13 +188,13 @@ public class FilmController extends MainController implements Initializable {
         File f = new File("Images/" + imagePath);
         try {
             validateImage(f);
-            Image img = new Image(imagePath);
+            Image img = new Image(new FileInputStream("Images" + imagePath));
 
             imageBox.setImage(img);
             titleText.setText(filmTitle);
             descriptionText.setText(filmDescription);
             runtimeText.setText(filmRuntime);
-        } catch (ImageDoesNotExistException e) {
+        } catch (ImageDoesNotExistException | FileNotFoundException e) {
             errorLabel.setText(e.getMessage());
         }
     }
@@ -206,14 +209,14 @@ public class FilmController extends MainController implements Initializable {
         File f = new File("Images/" + imagePath);
         try {
             validateImage(f);
-            Image img = new Image(imagePath);
+            Image img = new Image(new FileInputStream("Images" + imagePath));
 
             imageBoxEdit.setImage(img);
             titleField.setText(filmTitle);
             descriptionArea.setText(filmDescription);
             imageField.setText(imagePath);
             runtimeField.setText(filmRuntime);
-        } catch (ImageDoesNotExistException e) {
+        } catch (ImageDoesNotExistException | FileNotFoundException e) {
             errorLabel.setText(e.getMessage());
         }
     }
