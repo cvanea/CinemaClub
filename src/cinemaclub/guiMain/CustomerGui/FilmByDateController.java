@@ -58,6 +58,7 @@ public class FilmByDateController extends CustomerMainController implements Init
 
     public void selectDate(ActionEvent actionEvent) {
         try {
+            timesList.getItems().clear();
             datePicked = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             ArrayList<Film> films = cinema.getFilmsByDate(datePicked);
             ArrayList<String> filmTitles = new ArrayList<>();
@@ -79,6 +80,7 @@ public class FilmByDateController extends CustomerMainController implements Init
 
     public void chooseFilm(MouseEvent actionEvent) {
         try {
+            timesList.getItems().clear();
             String chosenFilm = filmList.getSelectionModel().getSelectedItem();
             validateFilmSelected(chosenFilm);
             ArrayList<Showing> showingsTime = cinema.getAllShowingsByFilm(cinema.getFilmByTitle(chosenFilm));

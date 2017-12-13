@@ -111,7 +111,7 @@ public class FilmController extends MainController implements Initializable {
             filmList.getItems().clear();
             populateFilmList();
         } catch (FilmExistsException | MissingFilmInputsException | IncorrectTimeFormatException | ImageDoesNotExistException | FileNotFoundException e) {
-            System.out.println(e.getMessage());
+            errorLabel.setText(e.getMessage());
         }
     }
 
