@@ -1,7 +1,10 @@
 package cinemaclub.guiMain.StaffGui;
 
+import cinemaclub.guiMain.GuiData;
 import cinemaclub.user.Staff;
 import cinemaclub.user.User;
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
+import exceptions.NoSelectionMadeException;
 import exceptions.UsernameTakenException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,41 +37,41 @@ public class EditUserProfileController extends MainController implements Initial
     @FXML TableColumn <UserRow, String> surnameCol;
     @FXML TableColumn <UserRow, String> staffIdCol;
 
+    UserRow chosenUserRow;
+    User chosenUser;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fillUserTable();
+        userTable.getSelectionModel().select(0);
+        selectUser();
         errorLabel.setText("Please choose a user to edit.");
     }
 
-    public void setProfileText(ActionEvent event) {
+    public void pressSetProfileText(ActionEvent event) {
         try {
-            if(!username.getText().equals(cinema.getProfileDetails().getUsername())) {
-                cinema.setUsername(username.getText());
+            if(!username.getText().equals(chosenUser.getUsername())) {
+                cinema.setUsername(chosenUser, username.getText());
             }
-            cinema.setUserEmail(email.getText());
-            cinema.setUserPassword(password.getText());
-            cinema.setUserFirstName(firstName.getText());
-            cinema.setUserSurname(surname.getText());
+            chosenUser.setEmail(email.getText());
+            chosenUser.setPassword(password.getText());
+            chosenUser.setFirstName(firstName.getText());
+            chosenUser.setSurname(surname.getText());
             errorLabel.setText("Profile Updated");
             errorLabel.setStyle("-fx-text-fill: darkgreen");
+            fillUserTable();
         } catch (UsernameTakenException e) {
             errorLabel.setText(e.getMessage());
             errorLabel.setStyle("-fx-text-fill: red");
         }
     }
 
-    public void selectUser(MouseEvent event) {
-        UserRow chosenUser = userTable.getSelectionModel().getSelectedItem();
-        username.setText(chosenUser.getUsername());
-        password.setText(chosenUser.getPassword());
-        email.setText(chosenUser.getEmail());
-        firstName.setText(chosenUser.getFirstName());
-        surname.setText(chosenUser.getSurname());
-
-        errorLabel.setOpacity(0);
+    public void clickSelectUser(MouseEvent event) {
+        selectUser();
     }
 
     private void fillUserTable() {
+        userTable.getItems().clear();
         ObservableList<UserRow> data = FXCollections.observableArrayList();
         ArrayList<User> allUsers = cinema.getAllUsers();
 
@@ -83,6 +86,25 @@ public class EditUserProfileController extends MainController implements Initial
         staffIdCol.setCellValueFactory(new PropertyValueFactory<>("StaffId"));
         userTable.setItems(data);
     }
+
+    public void selectUser() {
+        try {
+            chosenUserRow = userTable.getSelectionModel().getSelectedItem();
+            if (chosenUserRow == null) {
+                throw new NoSelectionMadeException();
+            }
+            username.setText(chosenUserRow.getUsername());
+            password.setText(chosenUserRow.getPassword());
+            email.setText(chosenUserRow.getEmail());
+            firstName.setText(chosenUserRow.getFirstName());
+            surname.setText(chosenUserRow.getSurname());
+            chosenUser = cinema.getUser(chosenUserRow.getUsername());
+            errorLabel.setOpacity(0);
+        } catch (NoSelectionMadeException e){
+            errorLabel.setText(e.getMessage());
+        }
+    }
+
 
     public class UserRow {
 

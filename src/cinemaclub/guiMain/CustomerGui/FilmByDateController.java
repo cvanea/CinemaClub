@@ -36,6 +36,8 @@ public class FilmByDateController extends CustomerMainController implements Init
     @FXML Label runTime;
     @FXML Label pickFilm;
     @FXML Label errorLabel;
+    @FXML Label screen;
+    @FXML Label screenText;
     @FXML Button pickSeatButton;
     @FXML DatePicker datePicker;
     @FXML AnchorPane filmDisplayPane;
@@ -59,7 +61,10 @@ public class FilmByDateController extends CustomerMainController implements Init
             ArrayList<Film> films = cinema.getFilmsByDate(datePicked);
             ArrayList<String> filmTitles = new ArrayList<>();
             for (Film film : films) {
-                filmTitles.add(film.getTitle());
+                String filmString = film.getTitle();
+                if (!filmTitles.contains(filmString)){
+                    filmTitles.add(filmString);
+                }
             }
             ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
             filmList.setItems(data);

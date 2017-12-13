@@ -225,12 +225,14 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         film3 = film;
     }
 
-    public ArrayList<String> getDatesList(Film film) {
+    private ArrayList<String> getDatesList(Film film) {
         ArrayList<Showing> filmShowing = cinema.getAllShowingsByFilm(film);
         ArrayList<String> datesList = new ArrayList<>();
-        for (Showing showing: filmShowing){
+        for (Showing showing: filmShowing) {
             String date = showing.getDate();
-            datesList.add(date);
+            if (!datesList.contains(date)){
+                datesList.add(date);
+            }
         }
         return datesList;
     }

@@ -79,7 +79,10 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <Button accessibleText="Reserve Seat" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="835.0" layoutY="23.0" mnemonicParsing="false" onAction="#pressReserveSeat" text="Reserve Seat" textAlignment="RIGHT" />
-                  <AnchorPane layoutX="75.0" layoutY="1.0" prefHeight="12.0" prefWidth="773.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="125.0" />
+                  <AnchorPane layoutX="50.0" layoutY="-14.0" prefHeight="27.0" prefWidth="885.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="37.0">
+                     <children>
+                        <Label layoutX="419.0" layoutY="7.0" text="Screen" textFill="WHITE" />
+                     </children></AnchorPane>
                   <Label fx:id="errorLabel" layoutX="247.0" layoutY="19.0" prefHeight="33.0" prefWidth="491.0">
                      <font>
                         <Font size="20.0" />
