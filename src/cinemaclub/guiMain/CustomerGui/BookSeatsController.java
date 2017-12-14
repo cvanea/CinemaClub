@@ -42,7 +42,7 @@ public class BookSeatsController extends CustomerMainController implements Initi
     public Showing showing;
 
     /**
-     * Initialises the book seat view with the data od the selected showing
+     * Initialises the book seat view with the data od the selected showing.
      * Gets data from the Gui Data class and fill text boxes with results
      * uses GUI data to populate the display with seats and their corresponding
      * information
@@ -67,7 +67,7 @@ public class BookSeatsController extends CustomerMainController implements Initi
         try {
             Image img = new Image(new FileInputStream("Images" + showing.getFilm().getImagePath()));
             imageBox.setImage(img);
-        }catch (IOException e){
+        } catch (IOException e) {
             errorLabel.setText("Image load error");
         }
     }
@@ -84,30 +84,33 @@ public class BookSeatsController extends CustomerMainController implements Initi
      * @param actionEvent press the reserve seat button to book
      */
 
-    public void pressReserveSeat(ActionEvent actionEvent){
+    public void pressReserveSeat(ActionEvent actionEvent) {
         try {
             ArrayList<Button> selectedSeats = GuiData.getSelectedSeatMulti();
-            if(selectedSeats.isEmpty()){
+            if (selectedSeats.isEmpty()) {
                 throw new SeatIsEmptyException();
             }
-            for(Button seat : selectedSeats){
+
+            for (Button seat : selectedSeats) {
                 String seatText = seat.getAccessibleText();
                 String[] splitSeat = seatText.split("(?!^)", 2);
                 String seatRow = splitSeat[0];
                 int seatNumber = Integer.parseInt(splitSeat[1]);
                 cinema.bookFilm(showing, seatRow, seatNumber);
             }
+
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(BookSeatsController.class.getResource("ModalBooked.fxml"));
             stage.setScene(new Scene(root));
             stage.setTitle("Seats Booked");
             stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(
-                    ((Node) actionEvent.getSource()).getScene().getWindow());
+            stage.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
             stage.show();
             StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_FILM_VIEW);
-        } catch (SeatAlreadyTakenException | SeatNotFoundException | IOException | SeatIsEmptyException e) {
+        } catch (SeatAlreadyTakenException | SeatNotFoundException | SeatIsEmptyException e) {
             errorLabel.setText(e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
