@@ -274,7 +274,7 @@ class FilmEdit {
 
     /**
      * Validates that a new showing will not overlap with any existing showing.
-     * It does this both for past and future existing showings.
+     * It does this both for past and future showings.
      * By adding the film runtime to the showing time, the method obtains an endtime for the film
      * against which the new or old showing is checked.
      * Please see inline comments for full explanation of the method.

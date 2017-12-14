@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Object that holds all information for a particular film.
+ * Serializable allows it to be saved as bytes to an external database file.
  */
 public class Film implements Serializable {
 
