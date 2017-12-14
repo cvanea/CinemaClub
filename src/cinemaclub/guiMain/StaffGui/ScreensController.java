@@ -30,17 +30,46 @@ public class ScreensController extends MainController implements Initializable {
     private Screen selectedScreen;
     private int getLastScreen;
 
+    /**
+     * Initialises the screen view. Displays screen 1 with grid seats.
+     * Populates the list of screens.
+     * Populates the numbers of the row and column.
+     * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources - used to localize the root object, or null if the root object was not localized.
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        popScreenList();
+        screenList.getSelectionModel().select(0);
+        addNewScreenPane.setOpacity(0);
+        selectedScreen = cinema.getScreen(screenList.getSelectionModel().getSelectedItem());
+        setRowCol();
+        populateRCBoxes();
+    }
+
+    /**
+     * Deletes the selected screen.
+     * @param actionEvent press the delete button
+     */
     public void pressDelete(ActionEvent actionEvent) {
         cinema.deleteScreen(selectedScreen);
-
         screenList.getItems().clear();
         popScreenList();
     }
 
+    /**
+     * Reveals the add new screen pane.
+     * @param actionEvent press add screen button.
+     */
     public void pressAdd(ActionEvent actionEvent) {
         addNewScreenPane.setOpacity(1);
     }
 
+    /**
+     * Changes the display of the screen from user selection.
+     * Looks for a new screen to be selected from the screens list view
+     * @param actionEvent
+     */
     public void changeScreen(ActionEvent actionEvent) {
         selectedScreen = cinema.getScreen(screenList.getSelectionModel().getSelectedItem());
         if(selectedScreen != null){
@@ -64,16 +93,6 @@ public class ScreensController extends MainController implements Initializable {
         selectedScreen = cinema.getScreen(getLastScreen);
         screenList.getSelectionModel().select(newScreenNum);
         addNewScreenPane.setOpacity(0);
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        popScreenList();
-        screenList.getSelectionModel().select(0);
-        addNewScreenPane.setOpacity(0);
-        selectedScreen = cinema.getScreen(screenList.getSelectionModel().getSelectedItem());
-        setRowCol();
-        populateRCBoxes();
     }
 
     private void setRowCol(){
