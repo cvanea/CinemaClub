@@ -49,6 +49,9 @@ public class FilmByDateController extends CustomerMainController implements Init
     private String chosenTime;
     private Film chosenFilm;
 
+    /**
+     * Sets all controls other than the date picker to be hidden
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pickFilm.setOpacity(0);
@@ -58,6 +61,16 @@ public class FilmByDateController extends CustomerMainController implements Init
         screen.setOpacity(0);
     }
 
+    /**
+     * Method to select a date from the date picker control,
+     * creates list of all films on the date selected.
+     * Clears times combo box
+     * Gets a list of all films and checks to see whether the film is on the date picked
+     * Passes the date picked to the gui data class
+     * If a date in the past is picked an error message is shown tellign the users to pick
+     * another date.
+     * @param actionEvent
+     */
     public void selectDate(ActionEvent actionEvent) {
         try {
             timesList.getItems().clear();
@@ -80,6 +93,19 @@ public class FilmByDateController extends CustomerMainController implements Init
         }
     }
 
+    /**
+     * Selects a film from the film list view
+     * Clears times list.
+     * Checks whether the selected exists
+     * If the film selected is valid :
+     * Generates a list of showings based on the date and film title selected
+     * Passes and  displays the list of times to the list view control
+     * Makes the film information pane visible
+     *
+     * If the film is not valid and error message is shown asking the user to pick a film
+     * from the list
+     * @param actionEvent when uses clicks on an item in the film list view
+     */
     public void chooseFilm(MouseEvent actionEvent) {
         try {
             timesList.getItems().clear();
@@ -103,6 +129,14 @@ public class FilmByDateController extends CustomerMainController implements Init
         }
     }
 
+    /**
+     * Action for when a user clicks on an item in the times list view.
+     * Checks time is valid then if valid passes time to gui data
+     * Sets the screen number text on the view
+     * If no time is selected the an error message is shown
+     * @param actionEvent mouse clicked on the times list view
+     */
+
     public void chooseTime(MouseEvent actionEvent) {
         try {
             chosenTime = timesList.getSelectionModel().getSelectedItem();
@@ -116,20 +150,25 @@ public class FilmByDateController extends CustomerMainController implements Init
         }
     }
 
+    /**
+     * Button to go to book showing view.
+     * Passes date, time and film information to gui data
+     * @param actionEvent press book seat button
+     */
     public void pressPickTime(ActionEvent actionEvent) {
-        try {
-            validateTimeSelected(chosenTime);
             GuiData.setShowing(cinema.getShowingByDateTimeFilm(datePicked, chosenTime, chosenFilm));
             StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
-            throw new NoTimeSelectedException();
-        } catch (NoTimeSelectedException e) {
-            errorLabel.setText(e.getMessage());
-        }
     }
 
+    /**
+     * Sets the information in the film display pane
+     * Checks whether the image loaded is valid else throws a warning message
+     * passes the chosen film to the gui data class
+     * @param film pass in the chosen film bases onn the film title selected from
+     *             film list view
+     */
     private void setFilmInfo(Film film) {
         try {
-            validateFilmSelected(film);
             titleText.setText(film.getTitle());
             descriptionText.setText(film.getDescription());
             runTime.setText(film.getRuntime());
@@ -137,25 +176,27 @@ public class FilmByDateController extends CustomerMainController implements Init
             imageBox.setImage(img);
             chosenFilm = film;
             GuiData.setFilm(film);
-        } catch (NoFilmsToDisplayException  e) {
-            errorLabel.setText(e.getMessage());
         } catch (IOException e){
             errorLabel.setText("Unable to load image");
         }
     }
 
-    private void validateFilmSelected(Film film) throws NoFilmsToDisplayException {
-        if (film.getTitle().isEmpty()) {
-            throw new NoFilmsToDisplayException();
-        }
-    }
-
+    /**
+     * Checks whether a film is chosen and an empty line in the list view isn't clicked
+     * @param film from list view
+     * @throws NoFilmsToDisplayException throws error message
+     */
     private void validateFilmSelected(String film) throws NoFilmsToDisplayException {
         if (film == null) {
             throw new NoFilmsToDisplayException();
         }
     }
 
+    /**
+     * Checks that a time is selected from the list view
+     * @param time from list view of times
+     * @throws NoTimeSelectedException throws message that no time is selected
+     */
     private void validateTimeSelected(String time) throws NoTimeSelectedException {
         if (time == null || time.isEmpty()) {
             throw new NoTimeSelectedException();
