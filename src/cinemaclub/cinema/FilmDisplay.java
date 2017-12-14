@@ -15,7 +15,7 @@ class FilmDisplay {
     private ScreenRepository screenRepository;
 
     /**
-     * Gets the singleton database instance relevant to the booking system.
+     * Gets the singleton database instance relevant to the film display system.
      */
     FilmDisplay() {
         this.screenRepository = DataBase.getScreenRepository();
