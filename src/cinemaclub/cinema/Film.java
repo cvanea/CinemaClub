@@ -6,10 +6,10 @@ public class Film implements Serializable {
 
     private static final long serialVersionUID = 8762368738673278L;
 
-    String title;
-    String imagePath;
-    String description;
-    String runTime;
+    private String title;
+    private String imagePath;
+    private String description;
+    private String runTime;
 
     public Film(String title, String imagePath, String description, String runTime) {
         this.title = title;
