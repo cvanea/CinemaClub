@@ -130,6 +130,7 @@ public class UserCredentials implements Serializable {
      */
     @Override
     public String toString() {
-        return this.getUsername() + ", " + this.getEmail() + ", " + this.getPassword();
+        return "UserCredentials{" + "username='" + username + '\'' + ", email='" + email + '\'' +
+            ", password='" + password + '\'' + ", firstName='" + firstName + '\'' + ", surname='" + surname + '\'' + '}';
     }
 }
