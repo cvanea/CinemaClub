@@ -142,7 +142,7 @@ public class UserRepository implements Serializable {
     }
 
     /**
-     * Updates a username for a username.
+     * Updates a username for a user.
      * As the username is a key, it first removes the old pair and then adds the new one.
      *
      * @param oldUsername old username key
