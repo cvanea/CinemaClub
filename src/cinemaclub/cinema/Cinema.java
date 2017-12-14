@@ -42,7 +42,7 @@ public class Cinema {
     }
 
     /**
-     * Small helper method to fill the screens hashmap on the cinema from the database.
+     * Small helper method to fill the cinema screens hashmap on instantiation from the database.
      */
     private void setupScreensFromDB() {
         ArrayList<Screen> allScreens = filmEdit.getScreens();
@@ -321,35 +321,6 @@ public class Cinema {
     }
 
     /**
-     * Deletes a particular booking for the current user.
-     *
-     * @param booking booking to be deleted
-     * @throws NoBookingsException alerts user that they don't have bookings
-     * @throws NotAFutureBookingException alerts user that the booking they are trying to delete isn't future
-     * @throws NoFutureBookingsException alerts user that they don't have future bookings
-     * @throws SeatNotFoundException a booking requires a seat booked to be deleted. This is thrown if the seat doesn't exist.
-     */
-    public void deleteFutureBooking(Booking booking)
-        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
-        profile.deleteFutureBooking(currentUser, booking);
-    }
-
-    /**
-     * Deletes a particular booking for the current user.
-     *
-     * @param customer customer on which to delete the booking
-     * @param booking booking to be deleted
-     * @throws NoBookingsException alerts user that they don't have bookings
-     * @throws NotAFutureBookingException alerts user that the booking they are trying to delete isn't future
-     * @throws NoFutureBookingsException alerts user that they don't have future bookings
-     * @throws SeatNotFoundException a booking requires a seat booked to be deleted. This is thrown if the seat doesn't exist.
-     */
-    public void deleteFutureBooking(Customer customer, Booking booking)
-        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
-        profile.deleteFutureBooking(customer, booking);
-    }
-
-    /**
      * Get all bookings of a particular film by its title.
      *
      * @param filmTitle title of the film booking
@@ -378,29 +349,38 @@ public class Cinema {
         } else return null;
     }
 
+    /**
+     * Deletes a particular booking for the current user.
+     *
+     * @param booking booking to be deleted
+     * @throws NoBookingsException alerts user that they don't have bookings
+     * @throws NotAFutureBookingException alerts user that the booking they are trying to delete isn't future
+     * @throws NoFutureBookingsException alerts user that they don't have future bookings
+     * @throws SeatNotFoundException a booking requires a seat booked to be deleted. This is thrown if the seat doesn't exist.
+     */
+    public void deleteFutureBooking(Booking booking)
+        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
+        profile.deleteFutureBooking(currentUser, booking);
+    }
+
+    /**
+     * Deletes a particular booking for a particular user.
+     *
+     * @param customer customer on which to delete the booking
+     * @param booking booking to be deleted
+     * @throws NoBookingsException alerts user that they don't have bookings
+     * @throws NotAFutureBookingException alerts user that the booking they are trying to delete isn't future
+     * @throws NoFutureBookingsException alerts user that they don't have future bookings
+     * @throws SeatNotFoundException a booking requires a seat booked to be deleted. This is thrown if the seat doesn't exist.
+     */
+    public void deleteFutureBooking(Customer customer, Booking booking)
+        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
+        profile.deleteFutureBooking(customer, booking);
+    }
+
     /*
     Films
      */
-
-    /**
-     * Gets all films that could be shown at the cinema.
-     *
-     * @return all films in the film database
-     */
-    public ArrayList<Film> displayAllFilms() {
-        return filmEdit.displayAllFilms();
-    }
-
-    /**
-     * Gets film with the film title.
-     *
-     * @param title title of film
-     * @return film object matching title
-     */
-    public Film getFilmByTitle(String title) {
-        return filmEdit.getFilmDetailsByTitle(title);
-    }
-
 
     /**
      * Attempts to add a film to the cinema film database.
@@ -447,13 +427,32 @@ public class Cinema {
     }
 
     /**
-     * * Changes a film's runtime.
+     * Changes a film's runtime.
      *
      * @param film the film whose description is to be changed
      * @param newRunTime new film runtime
      */
     public void setFilmRunTime(Film film, String newRunTime) {
         filmEdit.setFilmRunTime(film, newRunTime);
+    }
+
+    /**
+     * Gets all films that could be shown at the cinema.
+     *
+     * @return all films in the film database
+     */
+    public ArrayList<Film> displayAllFilms() {
+        return filmEdit.displayAllFilms();
+    }
+
+    /**
+     * Gets film with the film title.
+     *
+     * @param title title of film
+     * @return film object matching title
+     */
+    public Film getFilmByTitle(String title) {
+        return filmEdit.getFilmDetailsByTitle(title);
     }
 
     /**
@@ -482,6 +481,13 @@ public class Cinema {
      */
     public void addShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException, ShowingOnOtherScreenException, OverlappingRuntimeException {
         filmEdit.addShowing(screen, date, time, film);
+    }
+
+    /**
+     * Exports all showings, with extra details, to a csv file.
+     */
+    public void exportShowingsToCsv() {
+        filmEdit.exportShowingsToCsv();
     }
 
     /**
@@ -584,16 +590,20 @@ public class Cinema {
         filmEdit.deleteShowing(screen, date, time);
     }
 
-    /**
-     * Exports all showings, with extra details, to a csv file.
-     */
-    public void exportShowingsToCsv() {
-        filmEdit.exportShowingsToCsv();
-    }
-
     /*
     Screens
      */
+
+    /**
+     * Attempts to add a screen to the cinema.
+     *
+     * @param screen screen to be added
+     * @throws ScreenNumberAlreadyExistsException prevents a screen from being added with the same screen number
+     */
+    public void addScreen(Screen screen) throws ScreenNumberAlreadyExistsException {
+        filmEdit.addScreen(screen);
+        setupScreensFromDB();
+    }
 
     /**
      * Gets screen object by screen number.
@@ -614,17 +624,6 @@ public class Cinema {
         ArrayList<Screen> allScreens = new ArrayList<>();
         allScreens.addAll(screens.values());
         return allScreens;
-    }
-
-    /**
-     * Attempts to add a screen to the cinema.
-     *
-     * @param screen screen to be added
-     * @throws ScreenNumberAlreadyExistsException prevents a screen from being added with the same screen number
-     */
-    public void addScreen(Screen screen) throws ScreenNumberAlreadyExistsException {
-        filmEdit.addScreen(screen);
-        setupScreensFromDB();
     }
 
     /**
