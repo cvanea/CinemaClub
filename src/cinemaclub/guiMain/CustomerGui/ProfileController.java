@@ -40,6 +40,13 @@ public class ProfileController extends CustomerMainController implements Initial
 
     private Booking chosenBooking;
 
+
+    /**
+     * Sets the user information text fields with the current user information on initialisation
+     * Fills the past and future bookings tables
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         username.setText(cinema.getProfileDetails().getUsername());
@@ -51,6 +58,13 @@ public class ProfileController extends CustomerMainController implements Initial
         fillPastBookings();
     }
 
+    /**
+     * Cancel booking button to delete a booking in the future
+     * Takes a booking clicked by the user in the future bookings list and passes this
+     * to the delete bookings method
+     * Throws green message if deletion is successful else it throws a red error message
+     * @param event press the cancel button
+     */
     public void cancelBooking(ActionEvent event){
         try {
             cinema.deleteFutureBooking(chosenBooking);
@@ -63,10 +77,22 @@ public class ProfileController extends CustomerMainController implements Initial
         }
     }
 
+    /**
+     * Click an event in the future bookings list
+     * @param event click a row in future bookings table
+     */
     public void futureMouseClick(MouseEvent event){
         chosenBooking = futureTable.getSelectionModel().getSelectedItem();
     }
 
+    /**
+     * Updates the current user credentials in the databases. On update profile press
+     * Checks whether the username text field has been altered. If not it ignores this
+     * field.
+     * Checks whether the user name exists in the databases. If it does an error message is thrown
+     * Sets all other fields to the edited values.
+     * @param event press update profile
+     */
     public void setProfileText(ActionEvent event) {
         try {
             if(!username.getText().equals(cinema.getProfileDetails().getUsername())) {
@@ -84,6 +110,14 @@ public class ProfileController extends CustomerMainController implements Initial
         }
     }
 
+    /**
+     * Fills the future bookings table
+     * Clears the table of any previous values
+     * get an array list of all the future bookings of the current user
+     * Converts the array list to an observable list.
+     * Sets the headings in the table. Fills the tables with future bookings
+     * Throws an error if there are no bookings or no future bookings
+     */
     private void fillFutureBookings() {
         try {
             futureTable.getItems().clear();
@@ -101,6 +135,14 @@ public class ProfileController extends CustomerMainController implements Initial
         }
     }
 
+    /**
+     * Fills the past bookings table
+     * Clears the table of any previous values
+     * get an array list of all the past bookings of the current user
+     * Converts the array list to an observable list.
+     * Sets the headings in the table. Fills the tables with past bookings
+     * Throws an error if there are no no past bookings
+     */
     private void fillPastBookings() {
         try {
             ArrayList<Booking> bookings = cinema.getPastBookingsHistory();

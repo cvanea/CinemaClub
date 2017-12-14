@@ -22,6 +22,13 @@ public class ModalBookedController {
     @FXML Label dateText;
     @FXML Label seatText;
 
+
+    /**
+     * Gets all the booking information selected in GUI Data and displays this information
+     * Creates a string with the list of all the seats booked getting the size of the selected seats
+     * array and using this to loop through all the seats in the array appending a comma and spacing to
+     * all but the last seat
+     */
     @FXML public void initialize() {
         titleText.setText(GuiData.getFilm().getTitle());
         descriptionText.setText(GuiData.getFilm().getDescription());
@@ -42,12 +49,13 @@ public class ModalBookedController {
                 stringBuilder.append(", ");
             }
         }
-        String seat = Integer.toString(GuiData.getSeatNumber());
-        String seatName = GuiData.getSeatRow() + seat;
-//        System.out.println(seatName);
         seatText.setText(stringBuilder.toString());
     }
 
+    /**
+     * Closes the modal view
+     * @param actionEvent press the close button
+     */
     public void pressClose(ActionEvent actionEvent) {
         ((Node)(actionEvent.getSource())).getScene().getWindow().hide();
     }

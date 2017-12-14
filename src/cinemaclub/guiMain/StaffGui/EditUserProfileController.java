@@ -40,6 +40,12 @@ public class EditUserProfileController extends MainController implements Initial
     UserRow chosenUserRow;
     User chosenUser;
 
+
+    /**
+     * Initialises view filling the edit user table view 
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fillUserTable();

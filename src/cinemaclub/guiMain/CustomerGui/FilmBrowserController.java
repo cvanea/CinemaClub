@@ -4,6 +4,7 @@ import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
+import cinemaclub.user.Booking;
 import exceptions.EmptyDateTimeException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,6 +20,9 @@ import javafx.scene.image.ImageView;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -111,6 +115,8 @@ public class FilmBrowserController extends CustomerMainController implements Ini
 
     /**
      * Gets the last three films to display
+     * Clears teh last time date lists
+     * sets the film info displays
      */
     private void displayFilmsBack() {
         clearLists();
@@ -132,6 +138,9 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         }
     }
 
+    /**
+     * Clears the list of items int he times and date boxes
+     */
     private void clearLists() {
         timesBox1.getItems().clear();
         timesBox2.getItems().clear();
@@ -141,31 +150,67 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         datesBox3.getItems().clear();
     }
 
+    /**
+     * More button to see the next 3 films in the browser
+     * @param event press more button
+     */
     public void pressMoreFilms(ActionEvent event) {
         displayFilmsForward();
     }
+
+    /**
+     * Previous button to see the last 3 films in the browser
+     * @param event press previous button
+     */
     public void pressPreviousFilms(ActionEvent event) {
         displayFilmsBack();
     }
 
+    /**
+     * Book seats button in first column
+     * gets the date and times from the corresponding lists and
+     * passes information to the goToShowing method
+     * @param event press the book seat button (on left)
+     */
     public void pressBook1(ActionEvent event) {
         String date = datesBox1.getSelectionModel().getSelectedItem();
         String time = timesBox1.getSelectionModel().getSelectedItem();
         goToShowing(date, time , film1);
     }
 
+    /**
+     * Book seats button in middle column
+     * gets the date and times from the corresponding lists and
+     * passes information to the goToShowing method
+     * @param event press the book seat button (center)
+     */
     public void pressBook2(ActionEvent event) {
         String date = datesBox2.getSelectionModel().getSelectedItem();
         String time = timesBox2.getSelectionModel().getSelectedItem();
         goToShowing(date, time, film2);
     }
 
+    /**
+     * Book seats button in third column
+     * gets the date and times from the corresponding lists and
+     * passes information to the goToShowing method
+     * @param event press the book seat button (on right)
+     */
     public void pressBook3(ActionEvent event) {
         String date = datesBox3.getSelectionModel().getSelectedItem();
         String time = timesBox3.getSelectionModel().getSelectedItem();
         goToShowing(date, time, film3);
     }
 
+    /**
+     * Passes selected showing information to GUI data and changes to the booking scene
+     * Validates that the date and time selected are correct, makign sure date tie isnt
+     * empty
+     * passes information to guidata
+     * @param date pass the date information from chosen date list
+     * @param time pass the time information from chosen time list
+     * @param film gets the film from the book seats methods to pass
+     */
     private void goToShowing(String date, String time, Film film){
         try {
             validateDateTimeSelected(date, time);
@@ -178,6 +223,11 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         }
     }
 
+    /**
+     * Displays times after dates are selected. First List
+     * Sets selected time to the first in the index array
+     * @param event select a time from the dates list
+     */
     public void displayTimesList1(ActionEvent event) {
         String dateSelected = datesBox1.getSelectionModel().getSelectedItem();
         ObservableList<String> timesComboList = timesList(dateSelected, film1);
@@ -185,6 +235,11 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         timesBox1.getSelectionModel().select(0);
     }
 
+    /**
+     * Displays times after dates are selected. Middle list
+     * Sets selected time to the first in the index array
+     * @param event select a time from the dates list
+     */
     public void displayTimesList2(ActionEvent event) {
         String dateSelected = datesBox2.getSelectionModel().getSelectedItem();
         ObservableList<String> timesComboList = timesList(dateSelected, film2);
@@ -192,6 +247,11 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         timesBox2.getSelectionModel().select(0);
     }
 
+    /**
+     * Displays times after dates are selected. Right list
+     * Sets selected time to the first in the index array
+     * @param event select a time from the dates list
+     */
     public void displayTimesList3(ActionEvent event) {
         String dateSelected = datesBox3.getSelectionModel().getSelectedItem();
         ObservableList<String> timesComboList = timesList(dateSelected, film3);
@@ -199,6 +259,13 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         timesBox3.getSelectionModel().select(0);
     }
 
+
+    /**
+     * Creates observable list for times
+     * @param dateSelected inputs the date chosen from the corresponding date list box
+     * @param film inputs the film chosen by the either of the display fims methods
+     * @return observable array list of the corresponding times
+     */
     private ObservableList<String> timesList(String dateSelected, Film film){
         ArrayList<Showing> showingsTime = cinema.getAllShowingsByFilm(film);
         ArrayList<String> timesList = new ArrayList<>();
@@ -210,6 +277,12 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         return FXCollections.observableArrayList(timesList);
     }
 
+    /**
+     * Sets film info of the first pane
+     * Checks to see if the image can be loaded if not throws error label
+     * fills the dates combo box with dates list
+     * @param film takes selected film object from display method
+     */
     private void setFilmInfo1(Film film) {
         titleText1.setText(film.getTitle());
         descriptionText1.setText(film.getDescription());
@@ -226,6 +299,12 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         film1 = film;
     }
 
+    /**
+     * Sets film info of the second pane
+     * Checks to see if the image can be loaded if not throws error label
+     * fills the dates combo box with dates list
+     * @param film takes selected film object from display method
+     */
     private void setFilmInfo2(Film film){
         titleText2.setText(film.getTitle());
         descriptionText2.setText(film.getDescription());
@@ -242,6 +321,12 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         film2 = film;
     }
 
+    /**
+     * Sets film info of the third pane
+     * Checks to see if the image can be loaded if not throws error label
+     * fills the dates combo box with dates list
+     * @param film takes selected film object from display method
+     */
     private void setFilmInfo3(Film film){
         titleText3.setText(film.getTitle());
         descriptionText3.setText(film.getDescription());
@@ -258,18 +343,32 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         film3 = film;
     }
 
+    /**
+     * Creates a dates list for a films
+     * checks if dates are for the corresponding film and that dates are not in the past
+     * @param film takes film from display method
+     * @return returns a dates string array list
+     */
     private ArrayList<String> getDatesList(Film film) {
         ArrayList<Showing> filmShowing = cinema.getAllShowingsByFilm(film);
         ArrayList<String> datesList = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String dateNow = LocalDate.now().format(formatter);
         for (Showing showing: filmShowing) {
             String date = showing.getDate();
-            if (!datesList.contains(date)) {
+            if (!datesList.contains(date) && date.compareTo(dateNow) > 0) {
                 datesList.add(date);
             }
         }
         return datesList;
     }
 
+    /**
+     * Checks in the date and time lists are empty
+     * @param date date string from dates combo box
+     * @param time time string from time combo box
+     * @throws EmptyDateTimeException message to say either box is empty
+     */
     private void validateDateTimeSelected(String date, String time) throws EmptyDateTimeException {
         if (date == null || time == null) {
             throw new EmptyDateTimeException();
