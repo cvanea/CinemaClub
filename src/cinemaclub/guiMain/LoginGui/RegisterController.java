@@ -35,6 +35,14 @@ public class RegisterController extends LoginMainController {
         staffID.setOpacity(idOpacity);
     }
 
+    /**
+     * Button that checks registration details and registers user
+     * Gets all the details in the text fields and passes these to
+     * register new user
+     * passes success message to GuiData
+     * Changes view to login screen
+     * @param event press of register button
+     */
     public void registerButton(ActionEvent event) {
         try {
             if (staffCheck.isSelected()) {
@@ -50,11 +58,23 @@ public class RegisterController extends LoginMainController {
         }
     }
 
-    public void loginButton(ActionEvent event) {
+
+    /**
+     * Returns the user to the login pane
+     * sets the success message to blank (viewed on the login page)
+     * @param event  press return button
+     */
+    public void returnButton(ActionEvent event) {
         GuiData.setSuccessMessage("");
         StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_USER);
     }
 
+
+    /**
+     * Sets the opactiy of the staff checkbox
+     *
+     * @param event  press return button
+     */
     public void tickCheckBox(ActionEvent event) {
 
         if (idOpacity == 0) {

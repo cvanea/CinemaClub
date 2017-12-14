@@ -83,7 +83,6 @@ public class DataBase implements Serializable {
             Film ratatouille = new Film("Ratatouille", "/Ratatouille.jpg", "A rat who can cook makes an unusual alliance with a young kitchen worker at a famous restaurant.", "01:51");
             Film kungFuPanda = new Film("Kung Fu Panda", "/kungfu.jpg", "The Dragon Warrior has to clash against the savage Tai Lung as China's fate hangs in the balance: However, the Dragon Warrior mantle is supposedly mistaken to be bestowed upon an obese panda who is a tyro in martial arts.", "01:32");
             Film iceAge = new Film("Ice Age", "/iceage.jpg", "Set during the Ice Age, a sabertooth tiger, a sloth, and a wooly mammoth find a lost human infant, and they try to return him to his tribe.", "01:21");
-//            Film ratatouille = new Film("Ratatouille", "/Ratatouille.jpg", "", "01:32");
 
             dataBase.filmRepository.addFilm("UP", up);
             dataBase.filmRepository.addFilm("WALL·E", walle);

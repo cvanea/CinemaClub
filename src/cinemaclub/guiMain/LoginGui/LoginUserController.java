@@ -32,6 +32,13 @@ public class LoginUserController extends LoginMainController implements Initiali
         }
     }
 
+
+    /**
+    * Button that allows the user to log in to the view
+     * checks to see whether the user credentials are in the
+     * database otherwise updates error label with message
+     * @param event login button press
+     */
     public void pressButton(ActionEvent event) throws IOException {
         try {
             cinema.loginUser(username.getText(), password.getText());
@@ -46,11 +53,14 @@ public class LoginUserController extends LoginMainController implements Initiali
             GuiData.setSuccessMessage("");
             ((Node)(event.getSource())).getScene().getWindow().hide();
         } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
-            System.out.println(e.getMessage());
             errorLabel.setText(e.getMessage());
         }
     }
 
+    /**
+     * Button that switches the view to register pane
+     * @param event register button press
+     */
     public void pressRegister(ActionEvent event) {
         StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_REGISTER);
     }

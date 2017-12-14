@@ -20,8 +20,6 @@ public class LoginMainController {
     static Cinema cinema = new Cinema();
 
     public void initialize() {
-//        Image img = new Image("/CinemaClubWh.png");
-//        imageView.setImage(img);
     }
 
 
@@ -29,12 +27,12 @@ public class LoginMainController {
         return cinema;
     }
 
-    /**
-     * Replaces the vista displayed in the vista holder with a new vista.
-     *
-     * @param node the vista node to be swapped in.
-     */
 
+    /**
+     * Switches the view displayed with a new view
+     *
+     * @param node the view node to be swapped.
+     */
     public void setView(Node node) {
         viewHolder.getChildren().setAll(node);
     }
