@@ -52,7 +52,7 @@ public class Cinema {
     }
 
     /*
-    UserId
+    User ID
      */
 
     /**
@@ -449,7 +449,7 @@ public class Cinema {
      * Gets film with the film title.
      *
      * @param title title of film
-     * @return film object matching title
+     * @return Film object matching title
      */
     public Film getFilmByTitle(String title) {
         return filmEdit.getFilmDetailsByTitle(title);
@@ -595,7 +595,7 @@ public class Cinema {
      */
 
     /**
-     * Attempts to add a screen to the cinema.
+     * Attempts to add a screen to the Cinema object and database
      *
      * @param screen screen to be added
      * @throws ScreenNumberAlreadyExistsException prevents a screen from being added with the same screen number
@@ -606,7 +606,7 @@ public class Cinema {
     }
 
     /**
-     * Gets screen object by screen number.
+     * Gets Screen object by screen number.
      *
      * @param screenNumber screen number of screen
      * @return screen matching the screen number
@@ -627,7 +627,7 @@ public class Cinema {
     }
 
     /**
-     * Removes a screen from the cinema.
+     * Removes a screen from the Cinema object and the database.
      *
      * @param screen screen to be removed
      */

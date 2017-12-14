@@ -30,9 +30,9 @@ class Register {
      * Since a username must be unique, first the username is checked for an existing match in the database.
      * Then the other inputs are checked to not be empty strings.
      * Next the user attempting to register is checked to be a staff or customer.
-     * If a staff, the staffID is validated and a new user object is created as a staff.
-     * The staff ID is set both on the staff object and in the database and the staff is finally added to the database.
-     * Likewise, if a customer, a new user object is created as a customer with no bookings and is added to the database.
+     * If a staff, the staffID is validated and a new User object is created as a staff.
+     * The staff ID is set both on the Staff object and in the database and the staff is finally added to the database.
+     * Likewise, if a customer, a new User object is created as a customer with no bookings and is added to the database.
      *
      * @param username inputted username
      * @param email inputted email

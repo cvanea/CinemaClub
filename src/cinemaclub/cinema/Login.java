@@ -26,7 +26,7 @@ class Login {
      * This works for both staff and customers.
      * Since usernames are uniquely stored in the database, this pairing will always find the right user.
      * First the username is checked in the database, then the username/password pair is checked in the database.
-     * If successful, the matching user object is returned from the database.
+     * If successful, the matching User object is returned from the database.
      *
      * @param username username attempting to login with
      * @param password password attempting to login with

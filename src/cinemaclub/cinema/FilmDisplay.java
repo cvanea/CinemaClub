@@ -23,6 +23,7 @@ class FilmDisplay {
 
     /**
      * Gets all films that are showing on a particular date.
+     * First it validates that the date is in the future.
      *
      * @param date date of film showings
      * @return all films showing on the date
@@ -35,6 +36,7 @@ class FilmDisplay {
 
     /**
      * Get showings that show on a certain date and screen.
+     * * First it validates that the date is in the future.
      *
      * @param date date of showings
      * @param screen screen of showings
@@ -88,7 +90,7 @@ class FilmDisplay {
 
     /**
      * Get showing by the date, time, and film of the showing.
-     * Will always be unique since, by design, showings cannot be the same across screen.
+     * Will always be unique since, by design, showings cannot be the same across screens.
      *
      * @param date date of showing
      * @param time time of showing
