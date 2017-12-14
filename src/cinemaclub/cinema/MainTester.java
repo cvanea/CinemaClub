@@ -30,8 +30,6 @@ public class MainTester {
         while (true) {
             try {
                 cinema.loginUser(inputData("username"), inputData("password"));
-
-                System.out.println(cinema.getCurrentUser().IExist());
                 System.exit(0);
             } catch (UserDetailsDoNotExistException | UserDetailsIncorrectException e) {
                 System.out.println(e.getMessage());

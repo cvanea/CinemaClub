@@ -12,7 +12,9 @@ import java.util.Map;
 
 /**
  * Composed of cinema system classes, this class presents the api of the whole model.
- * Along with the systems it is composed of a map of screens and by default sets the current user to null.
+ * It is designed to be usable no matter the kind of interaction; be that javafx or cli.
+ * Along with the cinema systems it is composed of a map of screens and by default has no current user logged on.
+ * Most methods either perform a system function, such as registering, get or set, or query the database.
  */
 public class Cinema {
     //TODO change directory structure to be in line with what ghita wanted.
@@ -40,7 +42,7 @@ public class Cinema {
     }
 
     /**
-     * Small helper method to fill the screens hashmap on the cinema from the database.
+     * Small helper method to fill the cinema screens hashmap on instantiation from the database.
      */
     private void setupScreensFromDB() {
         ArrayList<Screen> allScreens = filmEdit.getScreens();
@@ -50,11 +52,11 @@ public class Cinema {
     }
 
     /*
-    UserId
+    User ID
      */
 
     /**
-     * Simple getter for the staff ID map.
+     * Getter for the staff ID map.
      *
      * @return the map of staff IDs to usernames
      */
@@ -63,7 +65,7 @@ public class Cinema {
     }
 
     /**
-     * Query to find a staff ID by username.
+     * Gets staff ID by username.
      *
      * @param username staff username
      * @return staff ID
@@ -248,6 +250,20 @@ public class Cinema {
      */
 
     /**
+     * Attempts to add a booking for current user.
+     *
+     * @param showing the showing being booked
+     * @param seatRow the seat row being booked
+     * @param seatNumber the seat number being booked
+     * @throws SeatAlreadyTakenException prevents the user from booking an already booked seat
+     * @throws SeatNotFoundException prevents the user from booking a non-existing seat
+     */
+    public void bookFilm(Showing showing, String seatRow, int seatNumber)
+        throws SeatAlreadyTakenException, SeatNotFoundException {
+        bookingSystem.bookFilm(currentUser, showing, seatRow, seatNumber);
+    }
+
+    /**
      * Gets all past and future bookings for a particular customer.
      *
      * @param customer customer who has bookings
@@ -294,7 +310,7 @@ public class Cinema {
     }
 
     /**
-     * * Gets all future bookings for current customer.
+     * Gets all future bookings for current customer.
      *
      * @return future bookings history
      * @throws NoBookingsException alerts user that they don't have bookings
@@ -305,33 +321,10 @@ public class Cinema {
     }
 
     /**
-     * @param booking
-     * @throws NoBookingsException
-     * @throws NotAFutureBookingException
-     * @throws NoFutureBookingsException
-     * @throws SeatNotFoundException
-     */
-    public void deleteFutureBooking(Booking booking)
-        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
-        profile.deleteFutureBooking(currentUser, booking);
-    }
-
-    /**
-     * @param customer
-     * @param booking
-     * @throws NoBookingsException
-     * @throws NotAFutureBookingException
-     * @throws NoFutureBookingsException
-     * @throws SeatNotFoundException
-     */
-    public void deleteFutureBooking(Customer customer, Booking booking)
-        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
-        profile.deleteFutureBooking(customer, booking);
-    }
-
-    /**
-     * @param filmTitle
-     * @return
+     * Get all bookings of a particular film by its title.
+     *
+     * @param filmTitle title of the film booking
+     * @return bookings of a particular film
      */
     public ArrayList<Booking> getBookingByTitle(String filmTitle) {
         if (currentUser instanceof Customer) {
@@ -341,10 +334,13 @@ public class Cinema {
     }
 
     /**
-     * @param filmTitle
-     * @param date
-     * @param time
-     * @return
+     * Get a booking on current user by its film title, the date, and time.
+     * Bookings are held on customers so first current user must be checked for being a customer.
+     *
+     * @param filmTitle film title of booking
+     * @param date date of booking
+     * @param time time of booking
+     * @return the matched booking
      */
     public Booking getBookingByTitleDateTime(String filmTitle, String date, String time) {
         if (currentUser instanceof Customer) {
@@ -354,15 +350,32 @@ public class Cinema {
     }
 
     /**
-     * @param showing
-     * @param seatRow
-     * @param seatNumber
-     * @throws SeatAlreadyTakenException
-     * @throws SeatNotFoundException
+     * Deletes a particular booking for the current user.
+     *
+     * @param booking booking to be deleted
+     * @throws NoBookingsException alerts user that they don't have bookings
+     * @throws NotAFutureBookingException alerts user that the booking they are trying to delete isn't future
+     * @throws NoFutureBookingsException alerts user that they don't have future bookings
+     * @throws SeatNotFoundException a booking requires a seat booked to be deleted. This is thrown if the seat doesn't exist.
      */
-    public void bookFilm(Showing showing, String seatRow, int seatNumber)
-        throws SeatAlreadyTakenException, SeatNotFoundException {
-        bookingSystem.bookFilm(currentUser, showing, seatRow, seatNumber);
+    public void deleteFutureBooking(Booking booking)
+        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
+        profile.deleteFutureBooking(currentUser, booking);
+    }
+
+    /**
+     * Deletes a particular booking for a particular user.
+     *
+     * @param customer customer on which to delete the booking
+     * @param booking booking to be deleted
+     * @throws NoBookingsException alerts user that they don't have bookings
+     * @throws NotAFutureBookingException alerts user that the booking they are trying to delete isn't future
+     * @throws NoFutureBookingsException alerts user that they don't have future bookings
+     * @throws SeatNotFoundException a booking requires a seat booked to be deleted. This is thrown if the seat doesn't exist.
+     */
+    public void deleteFutureBooking(Customer customer, Booking booking)
+        throws NoBookingsException, NotAFutureBookingException, NoFutureBookingsException, SeatNotFoundException {
+        profile.deleteFutureBooking(customer, booking);
     }
 
     /*
@@ -370,75 +383,82 @@ public class Cinema {
      */
 
     /**
-     * @param title
-     * @return
-     */
-    public Film getFilmByTitle(String title) {
-        return filmEdit.getFilmDetailsByTitle(title);
-    }
-
-    /**
-     * @param date
-     * @return
-     * @throws PastDateException
-     */
-    public ArrayList<Film> getFilmsByDate(String date) throws PastDateException {
-        return filmDisplay.getFilmsByDate(date);
-    }
-
-    /**
-     * @return
-     */
-    public ArrayList<Film> displayAllFilms() {
-        return filmEdit.displayAllFilms();
-    }
-
-    /**
-     * @param title
-     * @param imagePath
-     * @param description
-     * @param runTime
-     * @throws FilmExistsException
+     * Attempts to add a film to the cinema film database.
+     *
+     * @param title new film's title
+     * @param imagePath new film's image path
+     * @param description new film's description
+     * @param runTime new film's runtime
+     * @throws FilmExistsException prevents a film from being added if there is already one with the same title
      */
     public void addFilm(String title, String imagePath, String description, String runTime) throws FilmExistsException {
         filmEdit.addFilm(title, imagePath, description, runTime);
     }
 
     /**
-     * @param film
-     * @param newTitle
-     * @throws FilmExistsException
+     * Changes a film's title.
+     *
+     * @param film the file whose title is to be changed
+     * @param newTitle the new title
+     * @throws FilmExistsException prevents the new title from being the same as an existing title
      */
     public void setFilmTitle(Film film, String newTitle) throws FilmExistsException {
         filmEdit.setFilmTitle(film, newTitle);
     }
 
     /**
-     * @param film
-     * @param newImagePath
+     * Changes a film's image path.
+     *
+     * @param film the film whose path is to be changed
+     * @param newImagePath the new image path
      */
     public void setFilmImagePath(Film film, String newImagePath) {
         filmEdit.setFilmImagePath(film, newImagePath);
     }
 
     /**
-     * @param film
-     * @param newFilmDescription
+     * Changes a film's description.
+     *
+     * @param film the film whose description is to be changed
+     * @param newFilmDescription new film description
      */
     public void setFilmDescription(Film film, String newFilmDescription) {
         filmEdit.setFilmDescription(film, newFilmDescription);
     }
 
     /**
-     * @param film
-     * @param newRunTime
+     * Changes a film's runtime.
+     *
+     * @param film the film whose description is to be changed
+     * @param newRunTime new film runtime
      */
     public void setFilmRunTime(Film film, String newRunTime) {
         filmEdit.setFilmRunTime(film, newRunTime);
     }
 
     /**
-     * @param title
+     * Gets all films that could be shown at the cinema.
+     *
+     * @return all films in the film database
+     */
+    public ArrayList<Film> displayAllFilms() {
+        return filmEdit.displayAllFilms();
+    }
+
+    /**
+     * Gets film with the film title.
+     *
+     * @param title title of film
+     * @return Film object matching title
+     */
+    public Film getFilmByTitle(String title) {
+        return filmEdit.getFilmDetailsByTitle(title);
+    }
+
+    /**
+     * Removes a film from the film database.
+     *
+     * @param title title of film to be deleted
      */
     public void deleteFilm(String title) {
         filmEdit.deleteFilm(title);
@@ -449,103 +469,125 @@ public class Cinema {
      */
 
     /**
-     * @param date
-     * @param screen
-     * @return
-     * @throws PastDateException
-     */
-    public ArrayList<Showing> getShowingsByDate(String date, Screen screen) throws PastDateException {
-        return filmDisplay.getShowingsByDate(date, screen);
-    }
-
-    /**
-     * @param date
-     * @param time
-     * @return
-     */
-    public Showing getShowingByDateTime(String date, String time) {
-        return filmDisplay.getShowingByDateTime(date, time);
-    }
-
-    /**
-     * @param date
-     * @param time
-     * @param film
-     * @return
-     */
-    public Showing getShowingByDateTimeFilm(String date, String time, Film film) {
-        return filmDisplay.getShowingByDateTimeFilm(date, time, film);
-    }
-
-    /**
-     * @param screen
-     * @param date
-     * @param time
-     * @return
-     */
-    public Showing getShowingByDateTimeScreen(Screen screen, String date, String time) {
-        return filmDisplay.getShowingByDateTimeScreen(screen, date, time);
-    }
-
-    /**
-     * @param film
-     * @return
-     */
-    public ArrayList<String> getAllTimesByFilm(Film film) {
-        return filmDisplay.getAllTimesByFilm(film);
-    }
-
-    /**
-     * @param screen
-     * @param film
-     * @return
-     */
-    public ArrayList<String> getDatesByFilm(Screen screen, Film film) {
-        return filmDisplay.getDatesByFilm(screen, film);
-    }
-
-    /**
-     * @param film
-     * @return
-     */
-    public ArrayList<Showing> getAllShowingsByFilm(Film film) {
-        return filmDisplay.getAllShowingsByFilm(film);
-    }
-
-    /**
-     * @return
-     */
-    public ArrayList<Showing> getAllShowings() {
-        return filmDisplay.getAllShowings();
-    }
-
-    /**
-     * @param screen
-     * @param date
-     * @param time
-     * @param film
-     * @throws ShowingAlreadyExistsException
-     * @throws ShowingOnOtherScreenException
-     * @throws OverlappingRuntimeException
+     * Attempts to add a showing to the screens database.
+     *
+     * @param screen screen on which the showing is added
+     * @param date date of the showing
+     * @param time time of the showing
+     * @param film film of the showing
+     * @throws ShowingAlreadyExistsException prevents adding a showing that already exists
+     * @throws ShowingOnOtherScreenException prevents a showing from occurring at the same time and date across screens
+     * @throws OverlappingRuntimeException prevents adding a showing when it would overlap with an existing showing
      */
     public void addShowing(Screen screen, String date, String time, Film film) throws ShowingAlreadyExistsException, ShowingOnOtherScreenException, OverlappingRuntimeException {
         filmEdit.addShowing(screen, date, time, film);
     }
 
     /**
-     * @param screen
-     * @param date
-     * @param time
-     */
-    public void deleteShowing(Screen screen, String date, String time) {
-        filmEdit.deleteShowing(screen, date, time);
-    }
-
-    /**
-     *
+     * Exports all showings, with extra details, to a csv file.
      */
     public void exportShowingsToCsv() {
         filmEdit.exportShowingsToCsv();
+    }
+
+    /**
+     * Gets all films that are showing on a particular date.
+     *
+     * @param date date of film showings
+     * @return all films showing on the date
+     * @throws PastDateException only allows future showings to get returned
+     */
+    public ArrayList<Film> getFilmsByDate(String date) throws PastDateException {
+        return filmDisplay.getFilmsByDate(date);
+    }
+
+    /**
+     * Get showings that show on a certain date and screen.
+     *
+     * @param date date of showings
+     * @param screen screen of showings
+     * @return showings matching the date and screen
+     * @throws PastDateException prevents past showings from being matched
+     */
+    public ArrayList<Showing> getShowingsByDate(String date, Screen screen) throws PastDateException {
+        return filmDisplay.getShowingsByDate(date, screen);
+    }
+
+    /**
+     * Get showing by the date, time, and film of the showing.
+     * Will always be unique since, by design, showings cannot be the same across screen.
+     *
+     * @param date date of showing
+     * @param time time of showing
+     * @param film film of showing
+     * @return the showing matching the date, time, and film
+     */
+    public Showing getShowingByDateTimeFilm(String date, String time, Film film) {
+        return filmDisplay.getShowingByDateTimeFilm(date, time, film);
+    }
+
+    /**
+     * Get showing by the date, time, and screen of the showing.
+     *
+     * @param screen screen of showing
+     * @param date date of showing
+     * @param time time of showing
+     * @return showing matching the screen, date, and time
+     */
+    public Showing getShowingByDateTimeScreen(Screen screen, String date, String time) {
+        return filmDisplay.getShowingByDateTimeScreen(screen, date, time);
+    }
+
+    /**
+     * Get all film times for a particular film.
+     *
+     * @param film film searching by
+     * @return all times for that string
+     */
+    public ArrayList<String> getAllTimesByFilm(Film film) {
+        return filmDisplay.getAllTimesByFilm(film);
+    }
+
+    /**
+     * Get film dates times for a particular film on a screen.
+     *
+     * @param screen screen of showing
+     * @param film film showing
+     * @return dates matching the screen and film
+     */
+    public ArrayList<String> getDatesByFilm(Screen screen, Film film) {
+        return filmDisplay.getDatesByFilm(screen, film);
+    }
+
+    /**
+     * Gets all showings of a particular film.
+     *
+     * @param film film of the showings
+     * @return all showings of the film
+     */
+    public ArrayList<Showing> getAllShowingsByFilm(Film film) {
+        return filmDisplay.getAllShowingsByFilm(film);
+    }
+
+    /**
+     * Gets all showings in the screens database.
+     *
+     * @return all showings
+     */
+    public ArrayList<Showing> getAllShowings() {
+        return filmDisplay.getAllShowings();
+    }
+
+    /**
+     * Removes a showing from the screens database.
+     * Uniquely picks out a showing.
+     *
+     * @param screen screen of the showing
+     * @param date date of the showing
+     * @param time time of the showing
+     */
+    public void deleteShowing(Screen screen, String date, String time) {
+        filmEdit.deleteShowing(screen, date, time);
     }
 
     /*
@@ -553,15 +595,30 @@ public class Cinema {
      */
 
     /**
-     * @param screenNumber
-     * @return
+     * Attempts to add a screen to the Cinema object and database
+     *
+     * @param screen screen to be added
+     * @throws ScreenNumberAlreadyExistsException prevents a screen from being added with the same screen number
+     */
+    public void addScreen(Screen screen) throws ScreenNumberAlreadyExistsException {
+        filmEdit.addScreen(screen);
+        setupScreensFromDB();
+    }
+
+    /**
+     * Gets Screen object by screen number.
+     *
+     * @param screenNumber screen number of screen
+     * @return screen matching the screen number
      */
     public Screen getScreen(Integer screenNumber) {
         return screens.get(screenNumber);
     }
 
     /**
-     * @return
+     * Gets all screens currently existing on the cinema.
+     *
+     * @return all screens
      */
     public ArrayList<Screen> getScreens() {
         ArrayList<Screen> allScreens = new ArrayList<>();
@@ -570,16 +627,9 @@ public class Cinema {
     }
 
     /**
-     * @param screen
-     * @throws ScreenNumberAlreadyExistsException
-     */
-    public void addScreen(Screen screen) throws ScreenNumberAlreadyExistsException {
-        filmEdit.addScreen(screen);
-        setupScreensFromDB();
-    }
-
-    /**
-     * @param screen
+     * Removes a screen from the Cinema object and the database.
+     *
+     * @param screen screen to be removed
      */
     public void deleteScreen(Screen screen) {
         filmEdit.deleteScreen(screen);

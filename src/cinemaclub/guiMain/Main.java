@@ -26,7 +26,6 @@ public class Main extends Application {
      * Loads the main fxml layout.
      * Sets up the view switching StageSceneNavigator.
      * Loads the first view into the fxml layout.
-     * @return the loaded pane.
      * @throws IOException if the pane could not be loaded.
      */
     public static void main(String[] args) {

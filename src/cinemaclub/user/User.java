@@ -2,17 +2,21 @@ package cinemaclub.user;
 
 import java.io.Serializable;
 
+/**
+ *
+ */
 public abstract class User implements Serializable {
 
     private static final long serialVersionUID = 8762368738673278L;
 
     private UserCredentials userCredentials;
 
+    /**
+     * @param userCredentials
+     */
     User(UserCredentials userCredentials) {
         this.userCredentials = userCredentials;
     }
-
-    public abstract String IExist();
 
     public String getUsername() {
         return userCredentials.getUsername();

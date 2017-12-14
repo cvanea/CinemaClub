@@ -278,7 +278,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
      * Sets film info of the first pane.
      * Checks to see if the image can be loaded if not throws error label
      * fills the dates combo box with dates list
-     * @param film takes selected film object from display method
+     * @param film takes selected Film object from display method
      */
     private void setFilmInfo1(Film film) {
         titleText1.setText(film.getTitle());
@@ -300,7 +300,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
      * Sets film info of the second pane.
      * Checks to see if the image can be loaded if not throws error label
      * fills the dates combo box with dates list
-     * @param film takes selected film object from display method
+     * @param film takes selected Film object from display method
      */
     private void setFilmInfo2(Film film){
         titleText2.setText(film.getTitle());
@@ -322,7 +322,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
      * Sets film info of the third pane.
      * Checks to see if the image can be loaded if not throws error label
      * fills the dates combo box with dates list
-     * @param film takes selected film object from display method
+     * @param film takes selected Film object from display method
      */
     private void setFilmInfo3(Film film){
         titleText3.setText(film.getTitle());
