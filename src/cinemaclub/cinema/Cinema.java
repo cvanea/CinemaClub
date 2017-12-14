@@ -248,19 +248,23 @@ public class Cinema {
      */
 
     /**
-     * @param customer
-     * @return
-     * @throws NoBookingsException
+     * Gets all past and future bookings for a particular customer.
+     *
+     * @param customer customer who has bookings
+     * @return booking history
+     * @throws NoBookingsException alerts user that they don't have bookings
      */
     public ArrayList<Booking> getBookingsHistory(Customer customer) throws NoBookingsException {
         return profile.getBookingsHistory(customer);
     }
 
     /**
-     * @param customer
-     * @return
-     * @throws NoBookingsException
-     * @throws NoPastBookingsException
+     * Gets all past bookings for a particular customer.
+     *
+     * @param customer customer who has bookings
+     * @return past bookings history
+     * @throws NoBookingsException alerts user that they don't have bookings
+     * @throws NoPastBookingsException alerts user that they don't have past bookings
      */
     public ArrayList<Booking> getPastBookingsHistory(Customer customer) throws NoBookingsException, NoPastBookingsException {
         return profile.getPastBookingsHistory(customer);
