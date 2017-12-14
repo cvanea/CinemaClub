@@ -16,6 +16,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -69,7 +71,8 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Gets all films with showings
+     * Gets all films with showings added
+     * checks the number of films with showings
      */
     private void getFilms(){
         ArrayList<Showing> showings = cinema.getAllShowings();
@@ -82,7 +85,12 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         numberOfFilmsWShowings = filmsWithShowing.size() - 1;
     }
 
+    /**
+     * Gets the list of the next 3 films to display (more button)
+     * Uses a index and counter to create sets of three films
+     */
     private void displayFilmsForward() {
+        clearLists();
         for (int c = 1; c < 4; c++) {
             Film film = filmsWithShowing.get(index);
             if (c == 1) {
@@ -101,7 +109,11 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         }
     }
 
+    /**
+     * Gets the last three films to display
+     */
     private void displayFilmsBack() {
+        clearLists();
         for (int c = 1; c < 4; c++) {
             Film film = filmsWithShowing.get(index);
             if (c == 1) {
@@ -118,6 +130,15 @@ public class FilmBrowserController extends CustomerMainController implements Ini
                 index--;
             }
         }
+    }
+
+    private void clearLists() {
+        timesBox1.getItems().clear();
+        timesBox2.getItems().clear();
+        timesBox3.getItems().clear();
+        datesBox1.getItems().clear();
+        datesBox2.getItems().clear();
+        datesBox3.getItems().clear();
     }
 
     public void pressMoreFilms(ActionEvent event) {
@@ -193,8 +214,12 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         titleText1.setText(film.getTitle());
         descriptionText1.setText(film.getDescription());
         runtimeText1.setText(film.getRuntime());
-        Image img = new Image(film.getImagePath());
-        imageBox1.setImage(img);
+        try {
+            Image img = new Image(new FileInputStream("Images" + film.getImagePath()));
+            imageBox1.setImage(img);
+        } catch (IOException e){
+            errorLabel.setText("Image load error");
+        }
         ArrayList<String> datesList1 = getDatesList(film);
         ObservableList<String> datesComboList1 = FXCollections.observableArrayList(datesList1);
         datesBox1.setItems(datesComboList1);
@@ -205,8 +230,12 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         titleText2.setText(film.getTitle());
         descriptionText2.setText(film.getDescription());
         runtimeText2.setText(film.getRuntime());
-        Image img = new Image(film.getImagePath());
-        imageBox2.setImage(img);
+        try {
+            Image img = new Image(new FileInputStream("Images" + film.getImagePath()));
+            imageBox2.setImage(img);
+        } catch (IOException e){
+            errorLabel.setText("Image load error");
+        }
         ArrayList<String> datesList = getDatesList(film);
         ObservableList<String> datesComboList = FXCollections.observableArrayList(datesList);
         datesBox2.setItems(datesComboList);
@@ -217,8 +246,12 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         titleText3.setText(film.getTitle());
         descriptionText3.setText(film.getDescription());
         runtimeText3.setText(film.getRuntime());
-        Image img = new Image(film.getImagePath());
-        imageBox3.setImage(img);
+        try {
+            Image img = new Image(new FileInputStream("Images" + film.getImagePath()));
+            imageBox3.setImage(img);
+        } catch (IOException e){
+            errorLabel.setText("Image load error");
+        }
         ArrayList<String> datesList = getDatesList(film);
         ObservableList<String> datesComboList = FXCollections.observableArrayList(datesList);
         datesBox3.setItems(datesComboList);

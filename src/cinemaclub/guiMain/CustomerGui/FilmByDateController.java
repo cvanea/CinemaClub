@@ -21,6 +21,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -131,12 +133,14 @@ public class FilmByDateController extends CustomerMainController implements Init
             titleText.setText(film.getTitle());
             descriptionText.setText(film.getDescription());
             runTime.setText(film.getRuntime());
-            Image img = new Image(film.getImagePath());
+            Image img = new Image(new FileInputStream("Images" + film.getImagePath()));
             imageBox.setImage(img);
             chosenFilm = film;
             GuiData.setFilm(film);
-        } catch (NoFilmsToDisplayException e) {
+        } catch (NoFilmsToDisplayException  e) {
             errorLabel.setText(e.getMessage());
+        } catch (IOException e){
+            errorLabel.setText("Unable to load image");
         }
     }
 
