@@ -55,12 +55,22 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     private Film film3;
     private ArrayList<Film> filmsWithShowing = new ArrayList<>();
 
+    /**
+     * Gets all films with showing Populates the view with 3 movies
+     * on intilisation.
+     * @param location
+     * @param resources
+     */
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         getFilms();
         displayFilmsForward();
     }
 
+    /**
+     * Gets all films with showings
+     */
     private void getFilms(){
         ArrayList<Showing> showings = cinema.getAllShowings();
         for (Showing showing: showings){

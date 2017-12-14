@@ -97,7 +97,6 @@ public class GuiData {
         try {
             return showing.isSeatTaken(seatRow, seatNumber);
         } catch (SeatNotFoundException e) {
-            System.out.println(e.getMessage());
             return false;
         }
     }
@@ -193,9 +192,6 @@ public class GuiData {
                                 splitSeat(b);
 
                                 if (isSeatTaken().equals(false)) {
-//                                    seatSelectSingle(b);
-//                                    selectedSeatMulti.add(button);
-//                                    System.out.println(selectedSeatMulti.toString());
                                     seatSelectorMulti(b);
                                 }
                             }
@@ -208,7 +204,6 @@ public class GuiData {
                 }
             }
         }
-//                gridSeats.gridLinesVisibleProperty().set(true);
     }
 
     public static ObservableList<String> getFilmList(Cinema cinema){

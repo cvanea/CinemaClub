@@ -40,6 +40,15 @@ public class BookSeatsController extends CustomerMainController implements Initi
 
     public Showing showing;
 
+    /**
+     * Initialises the book seat view with the data od the selected showing
+     * Gets data from the Gui Data class and fill text boxes with results
+     * uses GUI data to populate the display with seats and their corresponding
+     * information
+     *
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showing = GuiData.getShowing();
@@ -59,7 +68,7 @@ public class BookSeatsController extends CustomerMainController implements Initi
     }
 
     /**
-    * Creates a booking for each individual seat selected.
+     * Creates a booking for each individual seat selected.
      * Gets an Array list of all the buttons of the selected seats from GUI Data
      * grabs the accessible text from each button collected splits the accessible
      * text into a seat row letter and seat number.
@@ -67,6 +76,7 @@ public class BookSeatsController extends CustomerMainController implements Initi
      * class to book eat seat.
      * Then loads the receipt modal view and changes the view back to the film
      * browser.
+     * @param actionEvent press the reserve seat button to book
      */
 
     public void pressReserveSeat(ActionEvent actionEvent){

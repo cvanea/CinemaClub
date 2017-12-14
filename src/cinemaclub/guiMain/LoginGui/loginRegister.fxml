@@ -25,7 +25,7 @@
          <children>
                <AnchorPane id="loginBackground" layoutX="175.0" layoutY="104.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
                   <children>
-                  <Button fx:id="back" layoutX="5.0" layoutY="8.0" mnemonicParsing="false" onAction="#loginButton" styleClass="registerButtons" text="Return" />
+                  <Button fx:id="back" layoutX="5.0" layoutY="8.0" mnemonicParsing="false" onAction="#returnButton" styleClass="registerButtons" text="Return" />
                   <TextField fx:id="username" layoutX="90.0" layoutY="69.0" prefHeight="27.0" prefWidth="256.0" styleClass="registerField" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
                         <font>
                            <Font size="14.0" />
