@@ -8,10 +8,6 @@ public class Staff extends User {
         super(userCredentials);
     }
 
-    public String IExist() {
-        return "I exist as a staff!";
-    }
-
     public String getStaffId() {
         return staffId;
     }

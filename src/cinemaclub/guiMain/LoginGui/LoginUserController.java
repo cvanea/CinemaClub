@@ -47,7 +47,6 @@ public class LoginUserController extends LoginMainController implements Initiali
     public void pressButton(ActionEvent event) throws IOException {
         try {
             cinema.loginUser(username.getText(), password.getText());
-            errorLabel.setText(cinema.getCurrentUser().IExist());
             if(cinema.getCurrentUser() instanceof Customer){
                 GuiData.setViewTitle("Film Browser");
                 StageSceneNavigator.customerStage(cinema);

@@ -14,10 +14,6 @@ public class Customer extends User {
         this.bookings = bookings;
     }
 
-    public String IExist() {
-        return "I exist as a customer!";
-    }
-
     public ArrayList<Booking> getBookings() {
         return bookings;
     }

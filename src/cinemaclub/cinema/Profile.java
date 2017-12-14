@@ -270,7 +270,7 @@ class Profile {
      * Adds a new staff ID to the database.
      *
      * @param id new Staff ID
-     * @param username eithert a username or "noStaff" to show unassigned.
+     * @param username either a username or "noStaff" to show unassigned.
      */
     void addStaffID(String id, String username) {
         userRepository.addStaffID(id, username);

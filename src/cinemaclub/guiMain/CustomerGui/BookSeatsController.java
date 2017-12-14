@@ -46,8 +46,8 @@ public class BookSeatsController extends CustomerMainController implements Initi
      * Gets data from the Gui Data class and fill text boxes with results
      * uses GUI data to populate the display with seats and their corresponding
      * information
-     * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
-     * @param resources - used to localize the root object, or null if the root object was not localized.
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources used to localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {

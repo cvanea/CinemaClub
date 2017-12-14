@@ -127,6 +127,24 @@ public class Showing implements Serializable {
     }
 
     /**
+     * Gets the number of available seats for this showing.
+     *
+     * @return number of available seats
+     */
+    public int getNumberOfAvailableSeats() {
+        return getScreen().getSeats().size() - takenSeats.size();
+    }
+
+    /**
+     * Gets the film title.
+     *
+     * @return film title
+     */
+    public String getFilmTitle() {
+        return film.getTitle();
+    }
+
+    /**
      * Overrides toString method to clearly show all showings properties.
      *
      * @return string of all showings properties
