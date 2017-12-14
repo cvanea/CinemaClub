@@ -110,9 +110,9 @@ public class EditUserProfileController extends MainController implements Initial
     }
 
     /**
-     * Selects the user and sets the information in the table to the selected users credentials
-     * 
-     *
+     * Selects the user and sets the information in the table to the selected users credentials.
+     * Sets text in the update user pane.
+     * If a selection isn't made an error is thrown
      */
 
     public void selectUser() {
@@ -134,6 +134,9 @@ public class EditUserProfileController extends MainController implements Initial
     }
 
 
+    /**
+     * Creates a helper class to populate the user information table.
+     */
     public class UserRow {
 
         private String username;
@@ -143,6 +146,10 @@ public class EditUserProfileController extends MainController implements Initial
         private String surname;
         private String staffId;
 
+        /**
+         * Creates a new User row using the parameters of the user class
+         * @param user add user to the user row helper class
+         */
         private UserRow(User user) {
             this.username = user.getUsername();
             this.password = user.getPassword();
@@ -157,26 +164,50 @@ public class EditUserProfileController extends MainController implements Initial
             }
         }
 
+        /**
+         * Gets the user name
+         * @return username of user
+         */
         public String getUsername() {
             return username;
         }
 
+        /**
+         * Gets the password
+         * @return password of user
+         */
         public String getPassword() {
             return password;
         }
 
+        /**
+         * Gets the email
+         * @return email of user
+         */
         public String getEmail() {
             return email;
         }
 
+        /**
+         * Gets the first name
+         * @return first name of user
+         */
         public String getFirstName() {
             return firstName;
         }
 
+        /**
+         * Gets the surname
+         * @return surname of user
+         */
         public String getSurname() {
             return surname;
         }
 
+        /**
+         * Gets the staff ID
+         * @return staff ID of user
+         */
         public String getStaffId() {
             return staffId;
         }

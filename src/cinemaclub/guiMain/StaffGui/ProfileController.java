@@ -36,6 +36,13 @@ public class ProfileController extends MainController implements Initializable {
     @FXML TableColumn <staffIdRow, String> staffIdCol2;
     @FXML TableColumn <staffIdRow, String> usernameCol2;
 
+    /**
+     * Sets the profile pane with the staff members details.
+     * Fills the staff id and staff tables.
+     * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources - used to localize the root object, or null if the root object was not localized.
+     */
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         username.setText(cinema.getProfileDetails().getUsername());
@@ -43,11 +50,16 @@ public class ProfileController extends MainController implements Initializable {
         password.setText(cinema.getProfileDetails().getPassword());
         firstName.setText(cinema.getProfileDetails().getFirstName());
         surname.setText(cinema.getProfileDetails().getSurname());
-
         fillStaffTable();
         fillStaffIdTable();
     }
 
+    /**
+     * Updates the staff users profile in the database.
+     * Updates staff info table
+     * Makes sure username is not already taken if changed
+     * @param event press update.
+     */
     public void setProfileText(ActionEvent event) {
         try {
             if(!username.getText().equals(cinema.getProfileDetails().getUsername())) {
@@ -71,6 +83,11 @@ public class ProfileController extends MainController implements Initializable {
         }
     }
 
+    /**
+     * Adds staff ID number to the databases.
+     * Looks for last ID number and add 1.
+     * @param event press add staff ID
+     */
     public void pressAddStaffId(ActionEvent event) {
         int numberOfStaffIds = staffIdTable.getItems().size();
         int newStaffId = numberOfStaffIds + 1;
@@ -84,6 +101,10 @@ public class ProfileController extends MainController implements Initializable {
         errorLabel2.setStyle("-fx-text-fill: darkgreen");
     }
 
+    /**
+     * Remove staff ID number from database.
+     * @param event press remove staff ID
+     */
     public void pressRemoveStaffId(ActionEvent event) {
         String selectedStaffId = staffIdTable.getSelectionModel().getSelectedItem().getStaffId();
 
@@ -97,6 +118,9 @@ public class ProfileController extends MainController implements Initializable {
         }
     }
 
+    /**
+     * Fills the staff user table with information.
+     */
     private void fillStaffTable() {
         ObservableList<Staff> data = FXCollections.observableArrayList();
         ArrayList<User> allUsers = cinema.getAllUsers();
@@ -115,6 +139,9 @@ public class ProfileController extends MainController implements Initializable {
         staffTable.setItems(data);
     }
 
+    /**
+     * Fills the staff ID table
+     */
     private void fillStaffIdTable() {
         ObservableList<staffIdRow> data = FXCollections.observableArrayList();
         Map<String, String> allStaffIds = cinema.getStaffIDs();
@@ -128,19 +155,34 @@ public class ProfileController extends MainController implements Initializable {
         staffIdTable.setItems(data);
     }
 
+    /**
+     * Helper class to create the staff ID Row for a user name
+     */
     public class staffIdRow {
         private String staffId;
         private String username;
 
+        /**
+         * Creates a Username Staff ID hash map.
+         * @param staffIdPair Staff ID hashmap
+         */
         private staffIdRow(Map.Entry staffIdPair) {
             this.staffId = staffIdPair.getKey().toString();
             this.username = staffIdPair.getValue().toString();
         }
 
+        /**
+         * Gets the staff id.
+         * @return staff ID string
+         */
         public String getStaffId() {
             return staffId;
         }
 
+        /**
+         * Gets the username.
+         * @return staff username string
+         */
         public String getUsername() {
             return username;
         }
