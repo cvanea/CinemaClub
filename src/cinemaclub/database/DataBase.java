@@ -12,6 +12,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Singleton class which serializes itself to persist data across sessions.
+ * Singleton design pattern prevents it from being instantiated more than once and therefore
+ * all data is kept on this one database.
+ * All database related methods exist on separate 'repositories' which compose this database.
+ */
 public class DataBase implements Serializable {
 
     private static final long serialVersionUID = 8762368738673278L;
@@ -24,18 +30,37 @@ public class DataBase implements Serializable {
     private FilmRepository filmRepository  = new FilmRepository(this);
     private ScreenRepository screenRepository = new ScreenRepository(this);
 
+    /**
+     * Gets the user 'database'.
+     *
+     * @return class with user database methods
+     */
     public static UserRepository getUserRepository() {
         return ourInstance.userRepository;
     }
 
+    /**
+     * Gets the screen 'database'.
+     *
+     * @return class with screen database methods
+     */
     public static ScreenRepository getScreenRepository() {
         return ourInstance.screenRepository;
     }
 
+    /**
+     * Gets the film 'database'.
+     *
+     * @return class with film database methods
+     */
     public static FilmRepository getFilmRepository() {
         return ourInstance.filmRepository;
     }
 
+    /**
+     *
+     *
+     */
     void updateExternalDB() {
         FileOutputStream fileOutputStream;
         ObjectOutputStream objectOutputStream;
@@ -50,6 +75,9 @@ public class DataBase implements Serializable {
         }
     }
 
+    /**
+     * @return
+     */
     private static DataBase readExternalDB() {
         DataBase dataBase;
         FileInputStream fileInputStream;
