@@ -22,7 +22,10 @@ public class LoginMainController {
     public void initialize() {
     }
 
-
+    /**
+     * Gets the cinema object
+     * @return cinema object
+     */
     public static Cinema getCinema() {
         return cinema;
     }

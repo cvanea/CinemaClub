@@ -30,13 +30,16 @@ public class RegisterController extends LoginMainController {
 
     private int idOpacity = 0;
 
+    /**
+     * Sets staff id text field to hidden
+     */
     @FXML
     public void initialize() {
         staffID.setOpacity(idOpacity);
     }
 
     /**
-     * Button that checks registration details and registers user
+     * Button that checks registration details and registers user.
      * Gets all the details in the text fields and passes these to
      * register new user
      * passes success message to GuiData
@@ -60,7 +63,7 @@ public class RegisterController extends LoginMainController {
 
 
     /**
-     * Returns the user to the login pane
+     * Returns the user to the login pane.
      * sets the success message to blank (viewed on the login page)
      * @param event  press return button
      */
@@ -71,7 +74,7 @@ public class RegisterController extends LoginMainController {
 
 
     /**
-     * Sets the opactiy of the staff checkbox
+     * Sets the opacity of the staff checkbox.
      *
      * @param event  press return button
      */

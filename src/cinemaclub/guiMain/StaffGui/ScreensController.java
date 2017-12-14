@@ -68,7 +68,7 @@ public class ScreensController extends MainController implements Initializable {
     /**
      * Changes the display of the screen from user selection.
      * Looks for a new screen to be selected from the screens list view
-     * @param actionEvent
+     * @param actionEvent looks for new screen selection.
      */
     public void changeScreen(ActionEvent actionEvent) {
         selectedScreen = cinema.getScreen(screenList.getSelectionModel().getSelectedItem());
@@ -77,6 +77,11 @@ public class ScreensController extends MainController implements Initializable {
         }
     }
 
+    /**
+     * Creates a new screen based on the users designated size.
+     * Checks if both the drop down boxes are filled. Creates new screen based on the selected size.
+     * @param actionEvent press create screen button.
+     */
     public void pressConfirmScreen(ActionEvent actionEvent) {
         Integer newScreenNum = getLastScreen + 1;
         int newRowNum = newRows.getSelectionModel().getSelectedItem();
@@ -95,9 +100,11 @@ public class ScreensController extends MainController implements Initializable {
         addNewScreenPane.setOpacity(0);
     }
 
+    /**
+     * Setups a new screen grid view based on the selected screen.
+     */
     private void setRowCol(){
         deleteGrid();
-//        Integer screenNum = screenList.getSelectionModel().getSelectedItem();
         numRows.setText(Integer.toString(selectedScreen.getNumberRow()));
         numCols.setText(Integer.toString(selectedScreen.getSeatsPerRow()));
         int selectedRow = selectedScreen.getNumberRow();
@@ -107,6 +114,9 @@ public class ScreensController extends MainController implements Initializable {
         GuiData.setupSeatButtons(gridSeats, 1120,500, "ScreenView");
     }
 
+    /**
+     * Populates the screen list view with a list of screens in the cinema.
+     */
     private void popScreenList(){
         ArrayList<Screen> screensArray = cinema.getScreens();
         ArrayList<Integer> allScreenInts = new ArrayList<>();
@@ -122,6 +132,10 @@ public class ScreensController extends MainController implements Initializable {
         getLastScreen = allScreenInts.get(allScreenInts.size() - 1);
     }
 
+    /**
+     * Populates the row and column combo boxes with a list of sizes up to a max number.
+     * Max number chosen based on the limitations of the screen view creator.
+     */
     private void populateRCBoxes() {
         ArrayList<Integer> newRowsArray = new ArrayList<>();
 
@@ -139,6 +153,9 @@ public class ScreensController extends MainController implements Initializable {
         newCols.setItems(newColsObs);
     }
 
+    /**
+     * Deletes the seats grid allow a clean updates to occur.
+     */
     private void deleteGrid(){
         while(gridSeats.getRowConstraints().size() > 0){
             gridSeats.getRowConstraints().remove(0);
@@ -149,6 +166,12 @@ public class ScreensController extends MainController implements Initializable {
         gridSeats.getChildren().clear();
     }
 
+    /**
+     * Checks if the row and column numbers are correctly selected.
+     * @param RowNum integer of row size
+     * @param ColNum integer of column size
+     * @throws MissingRowColException error message if one is missing
+     */
     private void validateRolColSelection(int RowNum, int ColNum) throws MissingRowColException {
         if (RowNum == 0 || ColNum == 0) {
             throw new MissingRowColException();

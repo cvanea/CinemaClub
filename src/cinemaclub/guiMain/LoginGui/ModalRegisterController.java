@@ -9,11 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class ModalRegisterController implements Initializable {
-
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
+public class ModalRegisterController {
 
     /**
      * Button that closes the modal view.

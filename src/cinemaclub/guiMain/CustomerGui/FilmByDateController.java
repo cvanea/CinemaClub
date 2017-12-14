@@ -50,7 +50,9 @@ public class FilmByDateController extends CustomerMainController implements Init
     private Film chosenFilm;
 
     /**
-     * Sets all controls other than the date picker to be hidden
+     * Sets all controls other than the date picker to be hidden.
+     * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources - used to localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -62,7 +64,7 @@ public class FilmByDateController extends CustomerMainController implements Init
     }
 
     /**
-     * Method to select a date from the date picker control,
+     * Method to select a date from the date picker control.
      * creates list of all films on the date selected.
      * Clears times combo box
      * Gets a list of all films and checks to see whether the film is on the date picked
@@ -94,7 +96,7 @@ public class FilmByDateController extends CustomerMainController implements Init
     }
 
     /**
-     * Selects a film from the film list view
+     * Selects a film from the film list view.
      * Clears times list.
      * Checks whether the selected exists
      * If the film selected is valid :
@@ -161,7 +163,7 @@ public class FilmByDateController extends CustomerMainController implements Init
     }
 
     /**
-     * Sets the information in the film display pane
+     * Sets the information in the film display pane.
      * Checks whether the image loaded is valid else throws a warning message
      * passes the chosen film to the gui data class
      * @param film pass in the chosen film bases onn the film title selected from
@@ -182,7 +184,7 @@ public class FilmByDateController extends CustomerMainController implements Init
     }
 
     /**
-     * Checks whether a film is chosen and an empty line in the list view isn't clicked
+     * Checks whether a film is chosen and an empty line in the list view isn't clicked.
      * @param film from list view
      * @throws NoFilmsToDisplayException throws error message
      */
@@ -193,7 +195,7 @@ public class FilmByDateController extends CustomerMainController implements Init
     }
 
     /**
-     * Checks that a time is selected from the list view
+     * Checks that a time is selected from the list view.
      * @param time from list view of times
      * @throws NoTimeSelectedException throws message that no time is selected
      */
