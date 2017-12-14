@@ -25,8 +25,8 @@ public class GuiData {
     private static Film film;
     private static String date;
     private static String time;
-    public static Button selectedSeat = null;
-    public static ArrayList<Button> selectedSeatMulti = new ArrayList<>();
+    private static Button selectedSeat = null;
+    private static ArrayList<Button> selectedSeatMulti = new ArrayList<>();
     public static Showing showing;
     private static String seatRow;
     private static int seatNumber;
