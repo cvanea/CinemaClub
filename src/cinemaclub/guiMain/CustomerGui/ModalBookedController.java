@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
 import java.util.ArrayList;
 
 
@@ -34,12 +35,6 @@ public class ModalBookedController {
     @FXML public void initialize() {
         titleText.setText(GuiData.getFilm().getTitle());
         descriptionText.setText(GuiData.getFilm().getDescription());
-        try {
-            Image img = new Image(new FileInputStream("Images" + GuiData.getFilm().getImagePath()));
-            imageBox.setImage(img);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
         runtimeText.setText(GuiData.getFilm().getRuntime());
         dateText.setText(GuiData.getShowing().getDate());
         timeText.setText(GuiData.getShowing().getTime());
@@ -56,8 +51,13 @@ public class ModalBookedController {
             }
         }
         seatText.setText(stringBuilder.toString());
+        try {
+            Image img = new Image(new FileInputStream("Images" + GuiData.getFilm().getImagePath()));
+            imageBox.setImage(img);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
-
     /**
      * Closes the modal view
      * @param actionEvent press the close button

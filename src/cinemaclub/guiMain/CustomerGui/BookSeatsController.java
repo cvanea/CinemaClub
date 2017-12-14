@@ -106,11 +106,10 @@ public class BookSeatsController extends CustomerMainController implements Initi
             stage.initModality(Modality.WINDOW_MODAL);
             stage.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
             stage.show();
+            GuiData.setSelectedSeatMulti(new ArrayList<>());
             StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_FILM_VIEW);
-        } catch (SeatAlreadyTakenException | SeatNotFoundException | SeatIsEmptyException e) {
+        } catch (SeatAlreadyTakenException | SeatNotFoundException | IOException | SeatIsEmptyException e) {
             errorLabel.setText(e.getMessage());
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

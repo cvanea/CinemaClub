@@ -42,9 +42,9 @@ public class EditUserProfileController extends MainController implements Initial
 
 
     /**
-     * Initialises view filling the edit user table view 
-     * @param location
-     * @param resources
+     * Initialises view filling the edit user table view.
+     * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources - used to localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -54,6 +54,13 @@ public class EditUserProfileController extends MainController implements Initial
         errorLabel.setText("Please choose a user to edit.");
     }
 
+    /**
+     * Sets the Profile text pane of a selected user. Updates the users credentials in the
+     * database.
+     * Checks whether the user name has changed, if it has then it checks whether the username
+     * is taken.
+     * @param event press the update profile button
+     */
     public void pressSetProfileText(ActionEvent event) {
         try {
             if(!username.getText().equals(chosenUser.getUsername())) {
@@ -72,10 +79,19 @@ public class EditUserProfileController extends MainController implements Initial
         }
     }
 
+    /**
+     * Selects a user when clicked in the user table. Calls method to populate list.
+     * @param event click on user in the user table
+     */
     public void clickSelectUser(MouseEvent event) {
         selectUser();
     }
 
+    /**
+     * Fills the table with user credentials.
+     * Gets all user in the database and creates an observable list
+     * for the corresponding columns
+     */
     private void fillUserTable() {
         userTable.getItems().clear();
         ObservableList<UserRow> data = FXCollections.observableArrayList();
@@ -93,6 +109,9 @@ public class EditUserProfileController extends MainController implements Initial
         userTable.setItems(data);
     }
 
+    /**
+     * Selects a user from the table
+     */
     public void selectUser() {
         try {
             chosenUserRow = userTable.getSelectionModel().getSelectedItem();
