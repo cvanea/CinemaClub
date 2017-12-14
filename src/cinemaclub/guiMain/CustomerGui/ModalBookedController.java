@@ -27,7 +27,7 @@ public class ModalBookedController {
 
 
     /**
-     * Gets all the booking information selected in GUI Data and displays this information
+     * Gets all the booking information selected in GUI Data and displays this information.
      * Creates a string with the list of all the seats booked getting the size of the selected seats
      * array and using this to loop through all the seats in the array appending a comma and spacing to
      * all but the last seat
@@ -59,7 +59,7 @@ public class ModalBookedController {
         }
     }
     /**
-     * Closes the modal view
+     * Closes the modal view.
      * @param actionEvent press the close button
      */
     public void pressClose(ActionEvent actionEvent) {

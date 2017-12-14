@@ -50,7 +50,27 @@ public class IndividualShowingController extends MainController implements Initi
     private Customer customer;
     private Booking chosenBooking;
 
+    /**
+     * Sets the film info pane and fills the view with seats in a grid.
+     * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources - used to localize the root object, or null if the root object was not localized.
+     */
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        showing = GuiData.getShowing();
+        setFilmInfo();
+        GuiData.setNumberOfRows(showing.getScreen().getNumberRow());
+        GuiData.setSeatsPerRow(showing.getScreen().getSeatsPerRow());
+        GuiData.setupSeatButtons(gridSeats, 780,450, "staff");
+        fillBookingsTable();
+    }
+
+    /**
+     * User mouse click event when a booking is selected in the table
+     * Gets the customer and the chosen booking of that field
+     * @param event click a row in the bookings table
+     */
     public void userMouseClick(MouseEvent event) {
         BookingUserInfo chosenUser = userTable.getSelectionModel().getSelectedItem();
         if(chosenUser != null) {
@@ -59,15 +79,19 @@ public class IndividualShowingController extends MainController implements Initi
                 customer = (Customer) user;
                 chosenBooking = customer.getBooking(showing, chosenUser.getSeat());
             }
-        } else {
-//            errorLabel.setText("No booking selcted");
-//            errorLabel.setStyle("-fx-text-fill: red");
         }
     }
+
+    /**
+     * Deletes a selected booking from the database.
+     *  Updates the gird of seats and table
+     *  Passes delete to the database.
+     * @param actionEvent press the delete button.
+     */
     public void pressDelete(ActionEvent actionEvent) {
         try {
             cinema.deleteFutureBooking(customer, chosenBooking);
-            fillUserTable();
+            fillBookingsTable();
             deleteGrid();
             GuiData.setupSeatButtons(gridSeats, 780,450, "staff");
             errorLabel.setText("Booking deleted");
@@ -76,10 +100,12 @@ public class IndividualShowingController extends MainController implements Initi
             errorLabel.setText(e.getMessage());
             errorLabel.setStyle("-fx-text-fill: red");
         }
-//        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_BOOK_SEATS);
     }
 
-    private void fillUserTable() {
+    /**
+     * Fills the booking table with a showing bookings.
+     */
+    private void fillBookingsTable() {
         ObservableList <BookingUserInfo> data = FXCollections.observableArrayList();
 
         Map<String, String> takenSeats = showing.getTakenSeats();
@@ -104,16 +130,9 @@ public class IndividualShowingController extends MainController implements Initi
         userTable.setItems(data);
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        showing = GuiData.getShowing();
-        setFilmInfo();
-        GuiData.setNumberOfRows(showing.getScreen().getNumberRow());
-        GuiData.setSeatsPerRow(showing.getScreen().getSeatsPerRow());
-        GuiData.setupSeatButtons(gridSeats, 780,450, "staff");
-        fillUserTable();
-    }
-
+    /**
+     * Sets the film information pane with film information.
+     */
     private void setFilmInfo(){
         titleText.setText(showing.getFilm().getTitle());
         descriptionText.setText(showing.getFilm().getDescription());
@@ -131,6 +150,10 @@ public class IndividualShowingController extends MainController implements Initi
 
     }
 
+    /**
+     * Clears the grid for when the seats view is updated
+     * Prevents styling issues caused by a moving grid
+     */
     private void deleteGrid(){
         while(gridSeats.getRowConstraints().size() > 0){
             gridSeats.getRowConstraints().remove(0);
@@ -141,6 +164,9 @@ public class IndividualShowingController extends MainController implements Initi
         gridSeats.getChildren().clear();
     }
 
+    /**
+     * Helper class of booking info of a showing.
+     */
     public class BookingUserInfo {
 
         String username;
@@ -148,6 +174,11 @@ public class IndividualShowingController extends MainController implements Initi
         String surname;
         String seat;
 
+        /**
+         * Sets the Booking information fields.
+         * @param customer customer who made the booking
+         * @param booking the corresponding booking made
+         */
         private BookingUserInfo(Customer customer, Booking booking) {
             this.username = customer.getUsername();
             this.firstName = customer.getFirstName();
@@ -155,18 +186,34 @@ public class IndividualShowingController extends MainController implements Initi
             this.seat = customer.getSeat(booking);
         }
 
+        /**
+         * Gets the username.
+         * @return the username
+         */
         public String getUsername() {
             return username;
         }
 
+        /**
+         * Gets the first name.
+         * @return the first name
+         */
         public String getFirstName() {
             return firstName;
         }
 
+        /**
+         * Gets the surname.
+         * @return the surname
+         */
         public String getSurname() {
             return surname;
         }
 
+        /**
+         * Gets the seat.
+         * @return the seat
+         */
         public String getSeat() {
             return seat;
         }

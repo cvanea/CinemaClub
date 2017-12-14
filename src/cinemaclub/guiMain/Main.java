@@ -6,12 +6,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Main application class.
+ * Main application class to load the GUI.
  */
 public class Main extends Application {
 
+    /**
+     * Starts the Gui loading up the login stage with login user view.
+     * @param stage inputs a starting stage
+     * @throws IOException if the view cannot be loaded.
+     */
     @Override
-    public void start(Stage stage) throws Exception{
+    public void start(Stage stage) throws IOException{
         stage.setTitle("Cinema Club - Login");
         stage.setScene(StageSceneNavigator.createScene(StageSceneNavigator.loadLoginPane()));
         stage.show();
@@ -19,13 +24,11 @@ public class Main extends Application {
 
     /**
      * Loads the main fxml layout.
-     * Sets up the vista switching StageSceneNavigator.
-     * Loads the first vista into the fxml layout.
-     *
+     * Sets up the view switching StageSceneNavigator.
+     * Loads the first view into the fxml layout.
      * @return the loaded pane.
      * @throws IOException if the pane could not be loaded.
      */
-
     public static void main(String[] args) {
         launch(args);
     }

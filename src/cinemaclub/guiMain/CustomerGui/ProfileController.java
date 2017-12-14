@@ -42,10 +42,10 @@ public class ProfileController extends CustomerMainController implements Initial
 
 
     /**
-     * Sets the user information text fields with the current user information on initialisation
+     * Sets the user information text fields with the current user information on initialisation.
      * Fills the past and future bookings tables
-     * @param location
-     * @param resources
+     * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources - used to localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,7 +59,7 @@ public class ProfileController extends CustomerMainController implements Initial
     }
 
     /**
-     * Cancel booking button to delete a booking in the future
+     * Cancel booking button to delete a booking in the future.
      * Takes a booking clicked by the user in the future bookings list and passes this
      * to the delete bookings method
      * Throws green message if deletion is successful else it throws a red error message
@@ -78,7 +78,7 @@ public class ProfileController extends CustomerMainController implements Initial
     }
 
     /**
-     * Click an event in the future bookings list
+     * Click an event in the future bookings list.
      * @param event click a row in future bookings table
      */
     public void futureMouseClick(MouseEvent event){
@@ -86,7 +86,8 @@ public class ProfileController extends CustomerMainController implements Initial
     }
 
     /**
-     * Updates the current user credentials in the databases. On update profile press
+     * Updates the current user credentials in the databases.
+     * On update profile press
      * Checks whether the username text field has been altered. If not it ignores this
      * field.
      * Checks whether the user name exists in the databases. If it does an error message is thrown
@@ -111,7 +112,7 @@ public class ProfileController extends CustomerMainController implements Initial
     }
 
     /**
-     * Fills the future bookings table
+     * Fills the future bookings table.
      * Clears the table of any previous values
      * get an array list of all the future bookings of the current user
      * Converts the array list to an observable list.
@@ -136,7 +137,7 @@ public class ProfileController extends CustomerMainController implements Initial
     }
 
     /**
-     * Fills the past bookings table
+     * Fills the past bookings table.
      * Clears the table of any previous values
      * get an array list of all the past bookings of the current user
      * Converts the array list to an observable list.
