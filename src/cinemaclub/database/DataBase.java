@@ -58,7 +58,7 @@ public class DataBase implements Serializable {
     }
 
     /**
-     *
+     * Streams itself as bytes to a txt file for between session data storage.
      *
      */
     void updateExternalDB() {
@@ -76,7 +76,11 @@ public class DataBase implements Serializable {
     }
 
     /**
-     * @return
+     * Reads in a file of serialised bytes in order to instantiate the database with all previous data.
+     * If there is no DataBase class found from in the txt file, the ClassNotFoundException is thrown.
+     * The exception causes the creation of a new database with default data.
+     * 
+     * @return either read or new database
      */
     private static DataBase readExternalDB() {
         DataBase dataBase;
