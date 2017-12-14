@@ -133,41 +133,93 @@ class FilmEdit {
 
         for (Showing showing : showingsByDateScreen) {
             String existingTime = showing.getTime();
-            String runtime = showing.getFilm().getRunTime();
+            String runtime = showing.getFilm().getRuntime();
 
             String[] splitExistingTime = existingTime.split(":");
             String[] splitRuntime = runtime.split(":");
 
-            String existingTimeNumberString = splitExistingTime[0];
-            String runtimeNumberString = splitRuntime[0];
+            // Hour
+            String existingHourNumberString = splitExistingTime[0];
+            String runtimeHourString = splitRuntime[0];
 
-            Integer existingTimeNumber = Integer.parseInt(existingTimeNumberString);
-            Integer runtimeNumber = Integer.parseInt(runtimeNumberString);
+            Integer existingTimeHour = Integer.parseInt(existingHourNumberString);
+            Integer runtimeHour = Integer.parseInt(runtimeHourString);
 
-            Integer timePlusRuntime = existingTimeNumber + runtimeNumber;
+            Integer timePlusRuntimeHour = existingTimeHour + runtimeHour;
 
-            String timePlusRuntimeString = Integer.toString(timePlusRuntime);
+            // Minute
+            String existingMinuteNumberString = splitExistingTime[1];
+            String runtimeMinuteString = splitRuntime[1];
 
-            if ((time.compareTo(existingTime) > 0) && (timePlusRuntimeString.compareTo(time)) > 0) {
+            Integer existingTimeMinute = Integer.parseInt(existingMinuteNumberString);
+            Integer runtimeMinute = Integer.parseInt(runtimeMinuteString);
+
+            Integer timePlusRuntimeMinute = existingTimeMinute + runtimeMinute;
+
+            String timePlusRuntimeMinuteString;
+
+            if (timePlusRuntimeMinute > 60) {
+                ++timePlusRuntimeHour;
+                timePlusRuntimeMinute -= 60;
+                if (timePlusRuntimeMinute < 10) {
+                    timePlusRuntimeMinuteString = "0" + Integer.toString(timePlusRuntimeMinute);
+                } else timePlusRuntimeMinuteString = Integer.toString(timePlusRuntimeMinute);
+            } else {
+                timePlusRuntimeMinuteString = Integer.toString(timePlusRuntimeMinute);
+            }
+
+            String timePlusRuntimeHourString = Integer.toString(timePlusRuntimeHour); //hour add
+
+            // Time Plus Runtime Time
+            String timePlusRuntime = timePlusRuntimeHourString + ":" + timePlusRuntimeMinuteString;
+
+            // Future
+            if ((time.compareTo(existingTime) > 0) && (timePlusRuntime.compareTo(time)) > 0) {
                 throw new OverlappingRuntimeException();
             }
 
-            String newRuntime = film.getRunTime();
+            String newRuntime = film.getRuntime();
 
             String[] splitNewRuntime = newRuntime.split(":");
             String[] splitTime = time.split(":");
 
-            String newRuntimeNumberString = splitNewRuntime[0];
-            String timeNumberString = splitTime[0];
+            // Hour
+            String newRuntimeHourString = splitNewRuntime[0];
+            String timeHourString = splitTime[0];
 
-            Integer newRuntimeNumber = Integer.parseInt(newRuntimeNumberString);
-            Integer timeNumber = Integer.parseInt(timeNumberString);
+            Integer newRuntimeHour = Integer.parseInt(newRuntimeHourString);
+            Integer timeHour = Integer.parseInt(timeHourString);
 
-            Integer newRuntimePlusNewTime = newRuntimeNumber + timeNumber;
+            Integer newRuntimePlusNewTimeHour = newRuntimeHour + timeHour;
 
-            String newRunTimePlusNewTimeString = Integer.toString(newRuntimePlusNewTime);
+            // Minute
+            String newRuntimeMinuteString = splitNewRuntime[1];
+            String timeMinuteString = splitTime[1];
 
-            if ((time.compareTo(existingTime) < 0) && (existingTime.compareTo(newRunTimePlusNewTimeString) < 0)) {
+            Integer newRuntimeMinute = Integer.parseInt(newRuntimeMinuteString);
+            Integer timeMinute = Integer.parseInt(timeMinuteString);
+
+            Integer newRuntimePlusNewTimeMinute = newRuntimeMinute + timeMinute;
+
+            String newRunTimePlusNewTimeMinuteString;
+
+            if (newRuntimePlusNewTimeMinute > 60) {
+                ++newRuntimePlusNewTimeHour;
+                newRuntimePlusNewTimeMinute -= 60;
+                if (newRuntimePlusNewTimeMinute < 10) {
+                    newRunTimePlusNewTimeMinuteString = "0" + Integer.toString(newRuntimePlusNewTimeMinute);
+                } else newRunTimePlusNewTimeMinuteString = Integer.toString(newRuntimePlusNewTimeMinute);
+            } else {
+                newRunTimePlusNewTimeMinuteString = Integer.toString(newRuntimePlusNewTimeMinute);
+            }
+
+            String newRunTimePlusNewTimeHourString = Integer.toString(newRuntimePlusNewTimeHour); //hour add
+
+            // Time Plus Runtime Time
+            String runtimePlusTime = newRunTimePlusNewTimeHourString + ":" + newRunTimePlusNewTimeMinuteString;
+
+            // Past
+            if ((time.compareTo(existingTime) < 0) && (existingTime.compareTo(runtimePlusTime) < 0)) {
                 throw new OverlappingRuntimeException();
             }
         }

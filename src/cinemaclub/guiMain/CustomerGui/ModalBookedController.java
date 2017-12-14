@@ -27,7 +27,7 @@ public class ModalBookedController {
         descriptionText.setText(GuiData.getFilm().getDescription());
         Image img = new Image(GuiData.getFilm().getImagePath());
         imageBox.setImage(img);
-        runtimeText.setText(GuiData.getFilm().getRunTime());
+        runtimeText.setText(GuiData.getFilm().getRuntime());
         dateText.setText(GuiData.getShowing().getDate());
         timeText.setText(GuiData.getShowing().getTime());
         ArrayList<Button> purchasedButtons = GuiData.getSelectedSeatMulti();
