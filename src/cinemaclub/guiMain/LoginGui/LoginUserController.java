@@ -23,6 +23,11 @@ public class LoginUserController extends LoginMainController implements Initiali
     @FXML private PasswordField password;
     @FXML private Label errorLabel;
 
+    /**
+     * Initialises the login views checks message if registered user.
+     * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources - used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String message = GuiData.getSuccessMessage();
@@ -34,7 +39,7 @@ public class LoginUserController extends LoginMainController implements Initiali
 
 
     /**
-    * Button that allows the user to log in to the view
+    * Button that allows the user to log in to the view.
      * checks to see whether the user credentials are in the
      * database otherwise updates error label with message
      * @param event login button press
@@ -58,7 +63,7 @@ public class LoginUserController extends LoginMainController implements Initiali
     }
 
     /**
-     * Button that switches the view to register pane
+     * Button that switches the view to register pane.
      * @param event register button press
      */
     public void pressRegister(ActionEvent event) {

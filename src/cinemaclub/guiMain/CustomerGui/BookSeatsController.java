@@ -46,9 +46,8 @@ public class BookSeatsController extends CustomerMainController implements Initi
      * Gets data from the Gui Data class and fill text boxes with results
      * uses GUI data to populate the display with seats and their corresponding
      * information
-     *
-     * @param location
-     * @param resources
+     * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources - used to localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -106,11 +105,10 @@ public class BookSeatsController extends CustomerMainController implements Initi
             stage.initModality(Modality.WINDOW_MODAL);
             stage.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
             stage.show();
+            GuiData.setSelectedSeatMulti(new ArrayList<>());
             StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_FILM_VIEW);
-        } catch (SeatAlreadyTakenException | SeatNotFoundException | SeatIsEmptyException e) {
+        } catch (SeatAlreadyTakenException | SeatNotFoundException | IOException | SeatIsEmptyException e) {
             errorLabel.setText(e.getMessage());
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

@@ -60,12 +60,11 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     private ArrayList<Film> filmsWithShowing = new ArrayList<>();
 
     /**
-     * Gets all films with showing Populates the view with 3 movies
-     * on intilisation.
-     * @param location
-     * @param resources
+     * Gets all films with showing Populates the view with 3 movies.
+     * on initialisation.
+     * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources - used to localize the root object, or null if the root object was not localized.
      */
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         getFilms();
@@ -73,7 +72,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Gets all films with showings added
+     * Gets all films with showings added.
      * checks the number of films with showings
      */
     private void getFilms(){
@@ -88,7 +87,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Gets the list of the next 3 films to display (more button)
+     * Gets the list of the next 3 films to display (more button).
      * Uses a index and counter to create sets of three films
      */
     private void displayFilmsForward() {
@@ -137,7 +136,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Clears the list of items int he times and date boxes
+     * Clears the list of items int he times and date boxes.
      */
     private void clearLists() {
         timesBox1.getItems().clear();
@@ -149,7 +148,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * More button to see the next 3 films in the browser
+     * More button to see the next 3 films in the browser.
      * @param event press more button
      */
     public void pressMoreFilms(ActionEvent event) {
@@ -157,7 +156,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Previous button to see the last 3 films in the browser
+     * Previous button to see the last 3 films in the browser.
      * @param event press previous button
      */
     public void pressPreviousFilms(ActionEvent event) {
@@ -165,7 +164,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Book seats button in first column
+     * Book seats button in first column.
      * gets the date and times from the corresponding lists and
      * passes information to the goToShowing method
      * @param event press the book seat button (on left)
@@ -177,7 +176,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Book seats button in middle column
+     * Book seats button in middle column.
      * gets the date and times from the corresponding lists and
      * passes information to the goToShowing method
      * @param event press the book seat button (center)
@@ -189,7 +188,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Book seats button in third column
+     * Book seats button in third column.
      * gets the date and times from the corresponding lists and
      * passes information to the goToShowing method
      * @param event press the book seat button (on right)
@@ -201,10 +200,10 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Passes selected showing information to GUI data and changes to the booking scene
-     * Validates that the date and time selected are correct, makign sure date tie isnt
+     * Passes selected showing information to GUI data and changes to the booking scene.
+     * Validates that the date and time selected are correct, making sure date time isn't
      * empty
-     * passes information to guidata
+     * passes information to gui data
      * @param date pass the date information from chosen date list
      * @param time pass the time information from chosen time list
      * @param film gets the film from the book seats methods to pass
@@ -222,7 +221,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Displays times after dates are selected. First List
+     * Displays times after dates are selected. First List.
      * Sets selected time to the first in the index array
      * @param event select a time from the dates list
      */
@@ -234,7 +233,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Displays times after dates are selected. Middle list
+     * Displays times after dates are selected. Middle list.
      * Sets selected time to the first in the index array
      * @param event select a time from the dates list
      */
@@ -246,7 +245,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Displays times after dates are selected. Right list
+     * Displays times after dates are selected. Right list.
      * Sets selected time to the first in the index array
      * @param event select a time from the dates list
      */
@@ -259,7 +258,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
 
 
     /**
-     * Creates observable list for times
+     * Creates observable list for times.
      * @param dateSelected inputs the date chosen from the corresponding date list box
      * @param film inputs the film chosen by the either of the display fims methods
      * @return observable array list of the corresponding times
@@ -276,7 +275,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Sets film info of the first pane
+     * Sets film info of the first pane.
      * Checks to see if the image can be loaded if not throws error label
      * fills the dates combo box with dates list
      * @param film takes selected Film object from display method
@@ -298,7 +297,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Sets film info of the second pane
+     * Sets film info of the second pane.
      * Checks to see if the image can be loaded if not throws error label
      * fills the dates combo box with dates list
      * @param film takes selected Film object from display method
@@ -320,7 +319,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Sets film info of the third pane
+     * Sets film info of the third pane.
      * Checks to see if the image can be loaded if not throws error label
      * fills the dates combo box with dates list
      * @param film takes selected Film object from display method
@@ -342,7 +341,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Creates a dates list for a films
+     * Creates a dates list for a films.
      * checks if dates are for the corresponding film and that dates are not in the past
      * @param film takes film from display method
      * @return returns a dates string array list
@@ -362,7 +361,7 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Checks in the date and time lists are empty
+     * Checks in the date and time lists are empty.
      * @param date date string from dates combo box
      * @param time time string from time combo box
      * @throws EmptyDateTimeException message to say either box is empty
