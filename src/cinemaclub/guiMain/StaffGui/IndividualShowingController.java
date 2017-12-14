@@ -23,6 +23,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -119,8 +121,14 @@ public class IndividualShowingController extends MainController implements Initi
         timeText.setText(showing.getTime());
         dateText.setText(showing.getDate());
         screensText.setText(showing.getScreenNumber().toString());
-        Image img = new Image(showing.getFilm().getImagePath());
-        imageBox.setImage(img);
+
+        try {
+            Image img = new Image(new FileInputStream("Images" + showing.getFilm().getImagePath()));
+            imageBox.setImage(img);
+        } catch (FileNotFoundException e) {
+            errorLabel.setText(e.getMessage());
+        }
+
     }
 
     private void deleteGrid(){

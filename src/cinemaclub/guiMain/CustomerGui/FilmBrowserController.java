@@ -4,7 +4,6 @@ import cinemaclub.cinema.Film;
 import cinemaclub.cinema.Showing;
 import cinemaclub.guiMain.GuiData;
 import cinemaclub.guiMain.StageSceneNavigator;
-import cinemaclub.user.Booking;
 import exceptions.EmptyDateTimeException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,7 +20,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -114,9 +112,9 @@ public class FilmBrowserController extends CustomerMainController implements Ini
     }
 
     /**
-     * Gets the last three films to display
-     * Clears teh last time date lists
-     * sets the film info displays
+     * Gets the last three films to display.
+     * Clears the last time date lists
+     * sets the film info displays.
      */
     private void displayFilmsBack() {
         clearLists();

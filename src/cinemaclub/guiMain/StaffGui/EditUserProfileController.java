@@ -42,10 +42,9 @@ public class EditUserProfileController extends MainController implements Initial
 
 
     /**
-     * Initialises view filling the user table selected and selects the first line
-     * Passes the selected user from the first index and fills the edit pane
-     * @param location
-     * @param resources
+     * Initialises view filling the edit user table view.
+     * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources - used to localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {

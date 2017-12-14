@@ -99,7 +99,7 @@ Ratatouille, 2018-01-10, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Monsters, Inc, 2018-01-10, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Spirited Away, 2018-01-10, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 The Incredibles, 2018-01-11, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
-Kung Fu Panda, 2018-01-11, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-11, 08:00, Screen 3, Taken seats: 1, Free seats: 24, {B2=alex}
 Toy Story 2, 2018-01-11, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Monsters University, 2018-01-11, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Howl's Moving Castle, 2018-01-11, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
@@ -116,7 +116,7 @@ Spirited Away, 2018-01-12, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Ratatouille, 2018-01-12, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Monsters, Inc, 2018-01-12, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Spirited Away, 2018-01-12, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
-The Incredibles, 2018-01-13, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-13, 06:00, Screen 3, Taken seats: 1, Free seats: 24, {B2=alex}
 Kung Fu Panda, 2018-01-13, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Toy Story 2, 2018-01-13, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Monsters University, 2018-01-13, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
@@ -125,7 +125,7 @@ Spirited Away, 2018-01-13, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Ratatouille, 2018-01-13, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Monsters, Inc, 2018-01-13, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Spirited Away, 2018-01-13, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
-The Incredibles, 2018-01-14, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-14, 06:00, Screen 3, Taken seats: 4, Free seats: 21, {E1=alex, D1=alex, E2=alex, C1=alex}
 Kung Fu Panda, 2018-01-14, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Toy Story 2, 2018-01-14, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
 Monsters University, 2018-01-14, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
@@ -404,6 +404,15 @@ UP, 2018-01-14, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
 Finding Nemo, 2018-01-14, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
 Ice Age, 2018-01-14, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
 Ratatouille, 2018-01-14, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2017-12-10, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2017-12-10, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2017-12-10, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2017-12-10, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2017-12-10, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2017-12-10, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2017-12-10, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2017-12-10, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2017-12-10, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
 Toy Story, 2018-01-01, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
 Princess Mononoke, 2018-01-01, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
 Spirited Away, 2018-01-01, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
@@ -539,6 +548,7 @@ The Incredibles, 2018-01-14, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
 Ice Age, 2018-01-14, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
 Ratatouille, 2018-01-14, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
 WALL·E, 2018-01-14, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Shrek, 2017-12-15, 17:00, Screen 1, Taken seats: 4, Free seats: 46, {B6=alex, C7=alex, E9=alex, E1=alex}
 Princess Mononoke, 2018-01-01, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
 Howl's Moving Castle, 2018-01-01, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
 Toy Story, 2018-01-01, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
