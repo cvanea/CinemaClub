@@ -42,7 +42,8 @@ public class EditUserProfileController extends MainController implements Initial
 
 
     /**
-     * Initialises view filling the edit user table view 
+     * Initialises view filling the user table selected and selects the first line
+     * Passes the selected user from the first index and fills the edit pane
      * @param location
      * @param resources
      */
@@ -51,9 +52,16 @@ public class EditUserProfileController extends MainController implements Initial
         fillUserTable();
         userTable.getSelectionModel().select(0);
         selectUser();
-        errorLabel.setText("Please choose a user to edit.");
     }
 
+    /**
+     * Updates the selected user credentials in the databases. On update profile press
+     * Checks whether the username text field has been altered. If not it ignores this
+     * field.
+     * Checks whether the user name exists in the databases. If it does an error message is thrown
+     * Sets all other fields to the edited values.
+     * @param event press update profile
+     */
     public void pressSetProfileText(ActionEvent event) {
         try {
             if(!username.getText().equals(chosenUser.getUsername())) {
@@ -72,10 +80,19 @@ public class EditUserProfileController extends MainController implements Initial
         }
     }
 
+    /**
+     * Selects a user when a user is clicked in the user table
+     * @param event click of user in user table
+     */
     public void clickSelectUser(MouseEvent event) {
         selectUser();
     }
 
+    /**
+     * Fills the user table with list of all users and corresponding information
+     * Clears the table. Creates an observable array list with Users
+     * Sets the table information with user row information
+     */
     private void fillUserTable() {
         userTable.getItems().clear();
         ObservableList<UserRow> data = FXCollections.observableArrayList();
@@ -92,6 +109,12 @@ public class EditUserProfileController extends MainController implements Initial
         staffIdCol.setCellValueFactory(new PropertyValueFactory<>("StaffId"));
         userTable.setItems(data);
     }
+
+    /**
+     * Selects the user and sets the information in the table to the selected users credentials
+     * 
+     *
+     */
 
     public void selectUser() {
         try {
