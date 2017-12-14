@@ -36,7 +36,7 @@ public class GuiData {
 
     /**
      * Getter for get selected multi seats button lists.
-     * @return
+     * @return array list of buttons
      */
     public static ArrayList<Button> getSelectedSeatMulti() {
         return selectedSeatMulti;
@@ -45,7 +45,7 @@ public class GuiData {
 
     /**
      * Setter of the seat Arraylist of buttons.
-     * @param selectedSeatMulti
+     * @param selectedSeatMulti button array list
      */
     public static void setSelectedSeatMulti(ArrayList<Button> selectedSeatMulti) {
         GuiData.selectedSeatMulti = selectedSeatMulti;
@@ -61,7 +61,7 @@ public class GuiData {
 
     /**
      * Success message setter.
-     * @param newSuccessMessage
+     * @param newSuccessMessage string with success message
      */
     public static void setSuccessMessage(String newSuccessMessage) {
         successMessage = newSuccessMessage;
@@ -69,7 +69,7 @@ public class GuiData {
 
     /**
      * Film getter.
-     * @return film
+     * @return film object
      */
     public static Film getFilm() {
         return film;
@@ -77,7 +77,7 @@ public class GuiData {
 
     /**
      * Film setter.
-     * @param film
+     * @param film object film
      */
     public static void setFilm(Film film) {
         GuiData.film = film;
@@ -93,7 +93,7 @@ public class GuiData {
 
     /**
      * Date setter
-     * @param date
+     * @param date string with date
      */
     public static void setDate(String date) {
         GuiData.date = date;
@@ -117,7 +117,7 @@ public class GuiData {
 
     /**
      * Sets the number of of the screen.
-     * @param numberOfRows
+     * @param numberOfRows integer with number of rows
      */
     public static void setNumberOfRows(int numberOfRows) {
         GuiData.numberOfRows = numberOfRows;
@@ -125,7 +125,7 @@ public class GuiData {
 
     /**
      * Sets the number of seats per row.
-     * @param seatsPerRow
+     * @param seatsPerRow integer with seats per row
      */
     public static void setSeatsPerRow(int seatsPerRow) {
         GuiData.seatsPerRow = seatsPerRow;
@@ -133,7 +133,7 @@ public class GuiData {
 
     /**
      * Gets the number of seats.
-     * @return
+     * @return integer with seat number
      */
     public static int getSeatNumber() {
         return seatNumber;
@@ -141,7 +141,7 @@ public class GuiData {
 
     /**
      * Gets the Seat row.
-     * @return
+     * @return seat row integger
      */
     public static String getSeatRow() {
         return seatRow;
@@ -149,7 +149,7 @@ public class GuiData {
 
     /**
      * Gets the current showing.
-     * @return
+     * @return showing object
      */
     public static Showing getShowing() {
         return showing;
@@ -165,7 +165,7 @@ public class GuiData {
 
     /**
      * Gets the view title
-     * @return
+     * @return string of title
      */
     public static String getViewTitle() {
         return viewTitle;
@@ -173,7 +173,7 @@ public class GuiData {
 
     /**
      * Sets the view title
-     * @param viewTitle
+     * @param viewTitle sets the title
      */
     public static void setViewTitle(String viewTitle) {
         GuiData.viewTitle = viewTitle;
@@ -181,7 +181,7 @@ public class GuiData {
 
     /**
      * Gets the total number of seats booked
-     * @return
+     * @return string of seats booked
      */
     public static String getSeatBooked() {
         return seatBooked;
@@ -189,7 +189,7 @@ public class GuiData {
 
     /**
      * Sets the total number of seats booked.
-     * @param seatBooked
+     * @param seatBooked string
      */
     public static void setSeatBooked(String seatBooked) {
         GuiData.seatBooked = seatBooked;
@@ -199,7 +199,6 @@ public class GuiData {
      * Methods For Creating Showings View to display seats in a graphical manner and add
      * functionality to the buttons.
      */
-
 
     /**
      * Splits the text e.g. A4 into a character and a number.

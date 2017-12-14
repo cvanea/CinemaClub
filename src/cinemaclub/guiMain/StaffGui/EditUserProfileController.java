@@ -80,7 +80,7 @@ public class EditUserProfileController extends MainController implements Initial
     }
 
     /**
-     * Selects a user when a user is clicked in the user table
+     * Selects a user when a user is clicked in the user table.
      * @param event click of user in user table
      */
     public void clickSelectUser(MouseEvent event) {
@@ -88,7 +88,7 @@ public class EditUserProfileController extends MainController implements Initial
     }
 
     /**
-     * Fills the user table with list of all users and corresponding information
+     * Fills the user table with list of all users and corresponding information.
      * Clears the table. Creates an observable array list with Users
      * Sets the table information with user row information
      */
@@ -147,7 +147,7 @@ public class EditUserProfileController extends MainController implements Initial
         private String staffId;
 
         /**
-         * Creates a new User row using the parameters of the user class
+         * Creates a new User row using the parameters of the user class.
          * @param user add user to the user row helper class
          */
         private UserRow(User user) {
@@ -165,7 +165,7 @@ public class EditUserProfileController extends MainController implements Initial
         }
 
         /**
-         * Gets the user name
+         * Gets the user name.
          * @return username of user
          */
         public String getUsername() {
@@ -173,7 +173,7 @@ public class EditUserProfileController extends MainController implements Initial
         }
 
         /**
-         * Gets the password
+         * Gets the password.
          * @return password of user
          */
         public String getPassword() {
@@ -181,7 +181,7 @@ public class EditUserProfileController extends MainController implements Initial
         }
 
         /**
-         * Gets the email
+         * Gets the email.
          * @return email of user
          */
         public String getEmail() {
@@ -189,7 +189,7 @@ public class EditUserProfileController extends MainController implements Initial
         }
 
         /**
-         * Gets the first name
+         * Gets the first name.
          * @return first name of user
          */
         public String getFirstName() {
@@ -197,7 +197,7 @@ public class EditUserProfileController extends MainController implements Initial
         }
 
         /**
-         * Gets the surname
+         * Gets the surname.
          * @return surname of user
          */
         public String getSurname() {
@@ -205,7 +205,7 @@ public class EditUserProfileController extends MainController implements Initial
         }
 
         /**
-         * Gets the staff ID
+         * Gets the staff ID.
          * @return staff ID of user
          */
         public String getStaffId() {
