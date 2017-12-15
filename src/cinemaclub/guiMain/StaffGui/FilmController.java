@@ -28,6 +28,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for adding and updating films view.
+ */
 public class FilmController extends MainController implements Initializable {
 
     @FXML TextField titleField;

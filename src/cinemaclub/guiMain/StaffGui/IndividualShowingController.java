@@ -29,6 +29,9 @@ import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for viewing information about a specific showing view.
+ */
 public class IndividualShowingController extends MainController implements Initializable {
 
     @FXML ImageView imageBox;

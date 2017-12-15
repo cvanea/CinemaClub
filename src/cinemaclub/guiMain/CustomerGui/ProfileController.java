@@ -17,6 +17,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for customer profile view.
+ */
 public class ProfileController extends CustomerMainController implements Initializable {
 
     @FXML TextField username;

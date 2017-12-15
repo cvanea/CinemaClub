@@ -17,6 +17,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for the adding and removing screens view.
+ */
 public class ScreensController extends MainController implements Initializable {
 
     @FXML GridPane gridSeats;

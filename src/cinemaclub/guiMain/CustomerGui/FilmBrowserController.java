@@ -24,6 +24,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for film browser view.
+ */
 public class FilmBrowserController extends CustomerMainController implements Initializable {
 
     @FXML ImageView imageBox1;

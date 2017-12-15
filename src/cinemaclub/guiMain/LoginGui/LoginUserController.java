@@ -17,6 +17,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for login view.
+ */
 public class LoginUserController extends LoginMainController implements Initializable {
 
     @FXML private TextField username;
