@@ -37,7 +37,6 @@ public class LoginUserController extends LoginMainController implements Initiali
         }
     }
 
-
     /**
     * Button that allows the user to log in to the view.
      * checks to see whether the user credentials are in the
@@ -68,5 +67,4 @@ public class LoginUserController extends LoginMainController implements Initiali
     public void pressRegister(ActionEvent event) {
         StageSceneNavigator.loadLoginView(StageSceneNavigator.LOGIN_REGISTER);
     }
-
 }

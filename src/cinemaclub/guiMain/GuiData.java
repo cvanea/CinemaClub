@@ -25,7 +25,6 @@ public class GuiData {
     private static Film film;
     private static String date;
     private static String time;
-    private static Button selectedSeat = null;
     private static ArrayList<Button> selectedSeatMulti = new ArrayList<>();
     public static Showing showing;
     private static String seatRow;
@@ -41,7 +40,6 @@ public class GuiData {
     public static ArrayList<Button> getSelectedSeatMulti() {
         return selectedSeatMulti;
     }
-
 
     /**
      * Setter of the seat Arraylist of buttons.
@@ -195,7 +193,7 @@ public class GuiData {
         GuiData.seatBooked = seatBooked;
     }
 
-    /**
+    /*
      * Methods For Creating Showings View to display seats in a graphical manner and add
      * functionality to the buttons.
      */
@@ -240,7 +238,7 @@ public class GuiData {
             RowConstraints row;
                 if (r == 0) {
                      row = new RowConstraints(12); // sets top row to fixed height
-                }else{
+                } else {
                     row = new RowConstraints(rowHeight); // auto sizes each row to average
                 }
                 gridSeats.getRowConstraints().add(row); // adds new row
@@ -250,7 +248,7 @@ public class GuiData {
 
                 if (c == 0) {
                     column = new ColumnConstraints(15); // sets first column to set width
-                } else{
+                } else {
                     column = new ColumnConstraints(columnWidth); // auto sizes each column to average
                 }
 
@@ -314,7 +312,7 @@ public class GuiData {
         Image imgSeatWhite = new Image("/seatW32.png");
         Image imgSeatYellow = new Image("/seatY32.png");
         button.setGraphic(new ImageView(imgSeatYellow));
-        if(!isSeatTaken()) {
+        if (!isSeatTaken()) {
             if (selectedSeatMulti.contains(button)) {
                 button.setGraphic(new ImageView(imgSeatWhite));
                 int index = selectedSeatMulti.indexOf(button);
@@ -336,8 +334,7 @@ public class GuiData {
         for (Film film : films) {
             filmTitles.add(film.getTitle());
         }
-        ObservableList<String> data = FXCollections.observableArrayList(filmTitles);
-        return data;
+        return FXCollections.observableArrayList(filmTitles);
     }
 
     /**

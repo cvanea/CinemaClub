@@ -177,6 +177,5 @@ public class ScreensController extends MainController implements Initializable {
             throw new MissingRowColException();
         }
     }
-
 }
 

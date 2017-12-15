@@ -14,7 +14,6 @@ import java.io.FileNotFoundException;
 
 import java.util.ArrayList;
 
-
 public class ModalBookedController {
 
     @FXML ImageView imageBox;
@@ -24,7 +23,6 @@ public class ModalBookedController {
     @FXML Label runtimeText;
     @FXML Label dateText;
     @FXML Label seatText;
-
 
     /**
      * Gets all the booking information selected in GUI Data and displays this information.
@@ -58,6 +56,7 @@ public class ModalBookedController {
             e.printStackTrace();
         }
     }
+
     /**
      * Closes the modal view.
      * @param actionEvent press the close button

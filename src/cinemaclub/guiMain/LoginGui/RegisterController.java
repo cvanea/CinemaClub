@@ -11,22 +11,14 @@ import javafx.scene.control.TextField;
 
 public class RegisterController extends LoginMainController {
 
-    @FXML
-    private TextField username;
-    @FXML
-    private TextField password;
-    @FXML
-    private TextField firstName;
-    @FXML
-    private TextField surname;
-    @FXML
-    private TextField email;
-    @FXML
-    private TextField staffID;
-    @FXML
-    private CheckBox staffCheck;
-    @FXML
-    private Label errorLabel;
+    @FXML private TextField username;
+    @FXML private TextField password;
+    @FXML private TextField firstName;
+    @FXML private TextField surname;
+    @FXML private TextField email;
+    @FXML private TextField staffID;
+    @FXML private CheckBox staffCheck;
+    @FXML private Label errorLabel;
 
     private int idOpacity = 0;
 

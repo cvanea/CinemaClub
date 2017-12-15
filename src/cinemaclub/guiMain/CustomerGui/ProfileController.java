@@ -1,6 +1,5 @@
 package cinemaclub.guiMain.CustomerGui;
 
-import cinemaclub.guiMain.StageSceneNavigator;
 import cinemaclub.user.Booking;
 import exceptions.*;
 import javafx.collections.FXCollections;
@@ -39,7 +38,6 @@ public class ProfileController extends CustomerMainController implements Initial
     @FXML TableColumn <Booking, String> seatTableP;
 
     private Booking chosenBooking;
-
 
     /**
      * Sets the user information text fields with the current user information on initialisation.

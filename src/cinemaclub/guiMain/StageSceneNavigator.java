@@ -161,7 +161,6 @@ public class StageSceneNavigator {
         return staffPane;
     }
 
-
     /**
      * Creates the login stage
      * @throws IOException if the load cannot be viewed
@@ -178,7 +177,6 @@ public class StageSceneNavigator {
      * @throws IOException if the load cannot be viewed
      */
     public static void customerStage(Cinema cinema) throws IOException{
-
         Stage stage = new Stage(); // new stage
         stage.setTitle("Cinema Club - Customer");
         stage.setScene(createScene(loadCustomerPane(cinema)));
@@ -190,7 +188,6 @@ public class StageSceneNavigator {
      * @throws IOException if the load cannot be viewed
      */
     public static void staffStage(Cinema cinema) throws IOException{
-
         Stage stage = new Stage(); // new stage
         stage.setTitle("Cinema Club - Staff");
         stage.setScene(createScene(loadStaffPane(cinema)));

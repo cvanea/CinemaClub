@@ -1,9 +1,7 @@
 package cinemaclub.guiMain.StaffGui;
 
-import cinemaclub.guiMain.GuiData;
 import cinemaclub.user.Staff;
 import cinemaclub.user.User;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import exceptions.NoSelectionMadeException;
 import exceptions.UsernameTakenException;
 import javafx.collections.FXCollections;
@@ -37,9 +35,7 @@ public class EditUserProfileController extends MainController implements Initial
     @FXML TableColumn <UserRow, String> surnameCol;
     @FXML TableColumn <UserRow, String> staffIdCol;
 
-    UserRow chosenUserRow;
-    User chosenUser;
-
+    private User chosenUser;
 
     /**
      * Initialises view filling the edit user table view.
@@ -115,9 +111,9 @@ public class EditUserProfileController extends MainController implements Initial
      * If a selection isn't made an error is thrown
      */
 
-    public void selectUser() {
+    private void selectUser() {
         try {
-            chosenUserRow = userTable.getSelectionModel().getSelectedItem();
+            UserRow chosenUserRow = userTable.getSelectionModel().getSelectedItem();
             if (chosenUserRow == null) {
                 throw new NoSelectionMadeException();
             }

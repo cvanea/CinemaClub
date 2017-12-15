@@ -42,7 +42,6 @@ public class ProfileController extends MainController implements Initializable {
      * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
      * @param resources - used to localize the root object, or null if the root object was not localized.
      */
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         username.setText(cinema.getProfileDetails().getUsername());
@@ -156,7 +155,7 @@ public class ProfileController extends MainController implements Initializable {
     }
 
     /**
-     * Helper class to create the staff ID Row for a user name
+     * Helper class to create the staff ID Row for the table.
      */
     public class staffIdRow {
         private String staffId;

@@ -24,11 +24,9 @@ public class MainController {
     }
 
     /** Holder of a switchable vista. */
-    @FXML
-    private StackPane viewHolder;
+    @FXML private StackPane viewHolder;
 
-    @FXML
-    public Label headerLabelEdit;
+    @FXML public Label headerLabelEdit;
 
     /**
      * Sets the title of the main view
@@ -36,7 +34,6 @@ public class MainController {
     public void initialize() {
         headerLabelEdit.setText(GuiData.getViewTitle());
     }
-
 
     /**
      * Goes to logout page.
@@ -107,7 +104,6 @@ public class MainController {
      * Replaces the view displayed in the view holder with a new view.
      * @param node the view node to be placed.
      */
-
     public void setView(Node node) {
         viewHolder.getChildren().setAll(node);
     }

@@ -3,7 +3,6 @@ package cinemaclub.guiMain.LoginGui;
 import cinemaclub.cinema.Cinema;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
@@ -30,7 +29,6 @@ public class LoginMainController {
         return cinema;
     }
 
-
     /**
      * Switches the view displayed with a new view
      *
@@ -39,5 +37,4 @@ public class LoginMainController {
     public void setView(Node node) {
         viewHolder.getChildren().setAll(node);
     }
-
 }

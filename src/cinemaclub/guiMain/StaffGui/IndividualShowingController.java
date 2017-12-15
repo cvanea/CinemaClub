@@ -55,7 +55,6 @@ public class IndividualShowingController extends MainController implements Initi
      * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
      * @param resources - used to localize the root object, or null if the root object was not localized.
      */
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showing = GuiData.getShowing();
@@ -165,7 +164,7 @@ public class IndividualShowingController extends MainController implements Initi
     }
 
     /**
-     * Helper class of booking info of a showing.
+     * Helper class of booking info of a showing to populate table.
      */
     public class BookingUserInfo {
 
