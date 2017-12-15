@@ -4,12 +4,20 @@ import exceptions.*;
 
 import java.util.Scanner;
 
+/**
+ * Class for system integration testing.
+ * Allowed for fast testing of the successful or unsuccessful interaction of the various cinema systems.
+ */
 public class MainTester {
 
-    //System integration testing.
+    /**
+     * Driver method for the tester.
+     *
+     * @param args no arguments by default
+     */
     public static void main(String[] args) {
 
-//        registerTester();
+        registerTester();
 //        loginTester();
 //        logoutTester();
 //        profileTester();
@@ -20,10 +28,11 @@ public class MainTester {
 //        exportTester();
 //        screenTester();
 //        timeTester();
-//        runTimeTester();
-
     }
 
+    /**
+     * Using simple cli interaction, this tests whether a user can login.
+     */
     private static void loginTester() {
         Cinema cinema = new Cinema();
 
@@ -37,6 +46,9 @@ public class MainTester {
         }
     }
 
+    /**
+     * Using simple sli interaction, this tests whether a user can register.
+     */
     private static void registerTester() {
         Scanner input = new Scanner(System.in);
         Cinema cinema = new Cinema();
@@ -60,6 +72,9 @@ public class MainTester {
         }
     }
 
+    /**
+     * This tests whether a user can be registered, logged in, and logged out successfully.
+     */
     private static void logoutTester() {
         Cinema cinema = new Cinema();
 
@@ -97,6 +112,12 @@ public class MainTester {
         System.out.println(cinema.getCurrentUser());
     }
 
+    /**
+     * Small scanner cli interaction for login and register testers.
+     *
+     * @param data particular data requests
+     * @return user cli input
+     */
     private static String inputData(String data) {
         // Returns inputs as a string
         Scanner input = new Scanner(System.in);
@@ -106,6 +127,9 @@ public class MainTester {
         return input.next();
     }
 
+    /**
+     * Tests whether a user's details can be queried and changed.
+     */
     private static void profileTester() {
         Cinema cinema = new Cinema();
 
@@ -148,6 +172,9 @@ public class MainTester {
 
     }
 
+    /**
+     * Tests whether a showing can be added to the cinema, queried, added to a user's bookings, and have user's bookings queried.
+     */
     private static void bookingTester() {
         Cinema cinema = new Cinema();
 
@@ -212,6 +239,9 @@ public class MainTester {
         }
     }
 
+    /**
+     * Tests whether a film can be added, and updated, on the cinema.
+     */
     private static void filmEditTester() {
         Cinema cinema = new Cinema();
 
@@ -244,6 +274,9 @@ public class MainTester {
         System.out.println(cinema.getFilmByTitle("UPTest").getDescription());
     }
 
+    /**
+     * Tests whether a newly added film can be adding to showings.
+     */
     private static void showingsTester() {
         Cinema cinema = new Cinema();
 
@@ -268,6 +301,9 @@ public class MainTester {
         }
     }
 
+    /**
+     * Tests that seats had been correctly calculated on a screen.
+     */
     private static void seatsTester() {
         Cinema cinema = new Cinema();
 
@@ -276,12 +312,18 @@ public class MainTester {
         System.out.println(screen.getSeats());
     }
 
+    /**
+     * Tests the export to csv functionality.
+     */
     private static void exportTester() {
         Cinema cinema = new Cinema();
 
         cinema.exportShowingsToCsv();
     }
 
+    /**
+     * Tests whether screens can be added, along with films and showings on that new screen.
+     */
     private static void screenTester() {
         Cinema cinema = new Cinema();
 
@@ -323,6 +365,9 @@ public class MainTester {
         }
     }
 
+    /**
+     * Tests the validator for checking a valid time format.
+     */
     private static void timeTester() {
         Scanner scanner = new Scanner(System.in);
 
@@ -361,53 +406,4 @@ public class MainTester {
             System.out.println("error6");
         }
     }
-
-    private static void runTimeTester() {
-
-        String newTime = "13:00";
-        String newRuntime = "1:30";
-        String showingTime = "12:00";
-        String showingRuntime = "01:30";
-
-        String existingTime = showingTime;
-        String runtime = showingRuntime;
-        String time = newTime;
-
-        String[] splitExistingTime = existingTime.split(":");
-        String[] splitRuntime = runtime.split(":");
-
-        String existingTimeNumberString = splitExistingTime[0];
-        String runtimeNumberString = splitRuntime[0];
-
-        Integer existingTimeNumber = Integer.parseInt(existingTimeNumberString);
-        Integer runtimeNumber = Integer.parseInt(runtimeNumberString);
-
-        Integer timePlusRuntime = existingTimeNumber + runtimeNumber;
-
-        String timePlusRuntimeString = Integer.toString(timePlusRuntime);
-
-        if ((time.compareTo(existingTime) > 0) && (timePlusRuntimeString.compareTo(time)) > 0) {
-            System.out.println("error1");
-        }
-
-        String[] splitNewRuntime = newRuntime.split(":");
-        String[] splitTime = time.split(":");
-
-        String newRuntimeNumberString = splitNewRuntime[0];
-        String timeNumberString = splitTime[0];
-
-        Integer newRuntimeNumber = Integer.parseInt(newRuntimeNumberString);
-        Integer timeNumber = Integer.parseInt(timeNumberString);
-
-        Integer newRuntimePlusNewTime = newRuntimeNumber + timeNumber;
-
-        String newRunTimePlusNewTimeString = Integer.toString(newRuntimePlusNewTime);
-
-        if ((time.compareTo(existingTime) < 0) && (existingTime.compareTo(newRunTimePlusNewTimeString) < 0)) {
-            System.out.println("error2");
-        }
-
-
-    }
-
 }

@@ -214,7 +214,7 @@ public class ShowingsController extends MainController implements Initializable 
 
     /**
      * Validates the time inputs of the showing.
-     * makes sure time doesn't clash  and is in the right format.
+     * makes sure that time is in the correct format.
      * @param time string of time of showing
      * @throws IncorrectTimeFormatException error message.
      */

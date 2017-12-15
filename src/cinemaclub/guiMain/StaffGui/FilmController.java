@@ -327,8 +327,8 @@ public class FilmController extends MainController implements Initializable {
     }
 
     /**
-     * Validates the runtime inputs are int he correct format.
-     * Splits the runtime into 5 Checks all are correct
+     * Validates that runtime inputs are in the correct format.
+     * Splits the runtime and performs five checks.
      * @param runTime runtime field text
      * @throws IncorrectTimeFormatException throws message
      */
