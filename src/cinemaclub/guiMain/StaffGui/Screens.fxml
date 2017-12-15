@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.StaffGui.ScreensController">
+   <children>
+      <AnchorPane prefHeight="534.0" prefWidth="1040.0" GridPane.rowIndex="1">
+      </AnchorPane>
+      <GridPane prefHeight="680.0" prefWidth="1200.0" style="-fx-background-color: #FFFFFF;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="40.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1120.0" minWidth="10.0" prefWidth="1120.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="40.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="217.58799743652344" minHeight="5.8177807331085205" prefHeight="30.863319396972656" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="500.0" minHeight="500.0" prefHeight="500.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="192.22869873046875" minHeight="10.0" prefHeight="158.42108154296875" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <AnchorPane fx:id="cinemaPane" prefHeight="447.0" prefWidth="972.0" styleClass="cinemaPane" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <GridPane fx:id="gridSeats" layoutX="114.0" layoutY="4.0" maxHeight="600.0" maxWidth="923.0" prefHeight="446.0" prefWidth="923.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <GridPane style="-fx-background-color: #40a9ef;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="161.0" prefWidth="574.0">
+                     <children>
+                        <Label layoutX="100.0" layoutY="23.0" prefHeight="31.0" prefWidth="98.0" text="Screen:" textFill="WHITE">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="screenList" layoutX="202.0" layoutY="27.0" onAction="#changeScreen" prefHeight="29.0" prefWidth="216.0" />
+                        <Label layoutX="205.0" layoutY="70.0" text="Seat Rows:" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="204.0" layoutY="107.0" text="Seat Columns:" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="numRows" layoutX="315.0" layoutY="70.0" prefHeight="26.0" prefWidth="112.0" textFill="#f77f00">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="numCols" layoutX="349.0" layoutY="108.0" prefHeight="26.0" prefWidth="79.0" textFill="#f77f00">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="deleteButton" layoutX="7.0" layoutY="94.0" mnemonicParsing="false" onAction="#pressDelete" prefHeight="52.0" prefWidth="85.0" text="Delete Screen" textAlignment="CENTER" wrapText="true" />
+                        <Button fx:id="addButton" layoutX="461.0" layoutY="94.0" mnemonicParsing="false" onAction="#pressAdd" prefHeight="52.0" prefWidth="90.0" text=" Add Screen" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #003459;" GridPane.columnIndex="1">
+                     <children>
+                        <AnchorPane fx:id="addNewScreenPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="addButton1" layoutX="415.0" layoutY="86.0" mnemonicParsing="false" onAction="#pressConfirmScreen" prefHeight="55.0" prefWidth="144.0" styleClass="newScreenButton" text="Confirm New Screen" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Button>
+                              <ComboBox fx:id="newRows" layoutX="240.0" layoutY="26.0" prefHeight="27.0" prefWidth="71.0" AnchorPane.topAnchor="26.0" />
+                              <ComboBox fx:id="newCols" layoutX="240.0" layoutY="80.0" prefHeight="27.0" prefWidth="71.0" AnchorPane.topAnchor="80.0" />
+                              <Label layoutX="72.0" layoutY="27.0" text="Number of Rows:" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="91.0" layoutY="80.0" text="Seats Per Row:" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #40a9ef;" GridPane.rowIndex="2" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #003459;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+   </children>
+</StackPane>

@@ -1,5 +1,686 @@
 Film, Date, Time, Screen, Number of Booked Seats, Number of Available Seats, Booked Seats, Username
-UP, 2017-12-15, 13:00, Screen 1, Taken seats: 1, Free seats: 49, {A3=a}
-Walle, 2017-12-15, 12:00, Screen 1, Taken seats: 1, Free seats: 49, {C5=a}
-UP, 2017-12-22, 13:00, Screen 1, Taken seats: 1, Free seats: 49, {D2=a}
-UP, 2017-12-16, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-01, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-01, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-01, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-01, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-01, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-01, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-01, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-01, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-01, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-02, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-02, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-02, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-02, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-02, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-02, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-02, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-02, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-02, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-03, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-03, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-03, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-03, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-03, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-03, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-03, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-03, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-03, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-04, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-04, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-04, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-04, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-04, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-04, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-04, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-04, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-04, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-05, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-05, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-05, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-05, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-05, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-05, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-05, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-05, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-05, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-06, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-06, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-06, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-06, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-06, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-06, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-06, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-06, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-06, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-07, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-07, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-07, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-07, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-07, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-07, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-07, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-07, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-07, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-08, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-08, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-08, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-08, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-08, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-08, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-08, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-08, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-08, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-07, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-07, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-07, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-07, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-07, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-07, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-07, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-07, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-07, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-09, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-09, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-09, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-09, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-09, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-09, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-09, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-09, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-09, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-10, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-10, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-10, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-10, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-10, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-10, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-10, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-10, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-10, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-11, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-11, 08:00, Screen 3, Taken seats: 1, Free seats: 24, {B2=alex}
+Toy Story 2, 2018-01-11, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-11, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-11, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-11, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-11, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-11, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-11, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-12, 06:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-12, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-12, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-12, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-12, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-12, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-12, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-12, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-12, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-13, 06:00, Screen 3, Taken seats: 1, Free seats: 24, {B2=alex}
+Kung Fu Panda, 2018-01-13, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-13, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-13, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-13, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-13, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-13, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-13, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-13, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+The Incredibles, 2018-01-14, 06:00, Screen 3, Taken seats: 4, Free seats: 21, {E1=alex, D1=alex, E2=alex, C1=alex}
+Kung Fu Panda, 2018-01-14, 08:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Toy Story 2, 2018-01-14, 10:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters University, 2018-01-14, 12:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Howl's Moving Castle, 2018-01-14, 14:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-14, 16:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Ratatouille, 2018-01-14, 18:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Monsters, Inc, 2018-01-14, 20:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Spirited Away, 2018-01-14, 22:00, Screen 3, Taken seats: 0, Free seats: 25, {}
+Kung Fu Panda, 2018-01-01, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-01, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-01, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-01, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-01, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-01, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-01, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-01, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-01, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-02, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-02, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-02, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-02, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-02, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-02, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-02, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-02, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-02, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-03, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-03, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-03, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-03, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-03, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-03, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-03, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-03, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-03, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-04, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-04, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-04, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-04, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-04, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-04, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-04, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-04, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-04, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-05, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-05, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-05, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-05, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-05, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-05, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-05, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-05, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-05, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-06, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-06, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-06, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-06, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-06, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-06, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-06, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-06, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-06, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-07, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-07, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-07, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-07, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-07, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-07, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-07, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-07, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-07, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-08, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-08, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-08, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-08, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-08, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-08, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-08, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-08, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-08, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-07, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-07, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-07, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-07, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-07, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-07, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-07, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-07, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-07, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-09, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-09, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-09, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-09, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-09, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-09, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-09, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-09, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-09, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-10, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-10, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-10, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-10, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-10, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-10, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-10, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-10, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-10, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-11, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-11, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-11, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-11, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-11, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-11, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-11, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-11, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-11, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-12, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-12, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-12, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-12, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-12, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-12, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-12, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-12, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-12, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-13, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-13, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-13, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-13, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-13, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-13, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-13, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-13, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-13, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Kung Fu Panda, 2018-01-14, 06:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Toy Story 2, 2018-01-14, 08:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters University, 2018-01-14, 10:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Howl's Moving Castle, 2018-01-14, 12:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Spirited Away, 2018-01-14, 14:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Ratatouille, 2018-01-14, 16:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+Monsters, Inc, 2018-01-14, 18:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-14, 20:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+The Incredibles, 2018-01-14, 22:00, Screen 2, Taken seats: 0, Free seats: 80, {}
+WALL·E, 2018-01-01, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-01, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-01, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-01, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-01, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-01, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-01, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-01, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-01, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-02, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-02, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-02, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-02, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-02, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-02, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-02, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-02, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-02, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-03, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-03, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-03, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-03, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-03, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-03, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-03, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-03, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-03, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-04, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-04, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-04, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-04, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-04, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-04, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-04, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-04, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-04, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-05, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-05, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-05, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-05, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-05, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-05, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-05, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-05, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-05, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-06, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-06, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-06, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-06, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-06, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-06, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-06, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-06, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-06, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-07, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-07, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-07, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-07, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-07, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-07, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-07, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-07, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-07, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-08, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-08, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-08, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-08, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-08, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-08, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-08, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-08, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-08, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-07, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-07, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-07, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-07, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-07, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-07, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-07, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-07, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-07, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-09, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-09, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-09, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-09, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-09, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-09, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-09, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-09, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-09, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-10, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-10, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-10, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-10, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-10, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-10, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-10, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-10, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-10, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-11, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-11, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-11, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-11, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-11, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-11, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-11, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-11, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-11, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-12, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-12, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-12, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-12, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-12, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-12, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-12, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-12, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-12, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-13, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-13, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-13, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-13, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-13, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-13, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-13, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-13, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-13, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+WALL·E, 2018-01-14, 06:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2018-01-14, 08:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Princess Mononoke, 2018-01-14, 10:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Spirited Away, 2018-01-14, 12:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+The Incredibles, 2018-01-14, 14:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+UP, 2018-01-14, 16:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Finding Nemo, 2018-01-14, 18:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ice Age, 2018-01-14, 20:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Ratatouille, 2018-01-14, 22:00, Screen 4, Taken seats: 0, Free seats: 168, {}
+Toy Story, 2017-12-10, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2017-12-10, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2017-12-10, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2017-12-10, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2017-12-10, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2017-12-10, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2017-12-10, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2017-12-10, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2017-12-10, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-01, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-01, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-01, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-01, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-01, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-01, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-01, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-01, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-01, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-02, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-02, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-02, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-02, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-02, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-02, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-02, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-02, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-02, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-03, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-03, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-03, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-03, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-03, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-03, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-03, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-03, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-03, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-04, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-04, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-04, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-04, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-04, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-04, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-04, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-04, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-04, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-05, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-05, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-05, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-05, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-05, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-05, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-05, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-05, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-05, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-06, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-06, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-06, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-06, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-06, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-06, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-06, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-06, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-06, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-07, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-07, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-07, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-07, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-07, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-07, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-07, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-07, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-07, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-08, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-08, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-08, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-08, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-08, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-08, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-08, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-08, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-08, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-07, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-07, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-07, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-07, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-07, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-07, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-07, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-07, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-07, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-09, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-09, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-09, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-09, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-09, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-09, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-09, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-09, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-09, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-10, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-10, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-10, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-10, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-10, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-10, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-10, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-10, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-10, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-11, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-11, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-11, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-11, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-11, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-11, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-11, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-11, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-11, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-12, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-12, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-12, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-12, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-12, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-12, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-12, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-12, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-12, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-13, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-13, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-13, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-13, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-13, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-13, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-13, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-13, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-13, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Toy Story, 2018-01-14, 06:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Princess Mononoke, 2018-01-14, 08:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-14, 12:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Spirited Away, 2018-01-14, 10:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+UP, 2018-01-14, 14:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+The Incredibles, 2018-01-14, 16:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ice Age, 2018-01-14, 18:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Ratatouille, 2018-01-14, 20:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+WALL·E, 2018-01-14, 22:00, Screen 1, Taken seats: 0, Free seats: 50, {}
+Shrek, 2017-12-15, 17:00, Screen 1, Taken seats: 4, Free seats: 46, {B6=alex, C7=alex, E9=alex, E1=alex}
+Princess Mononoke, 2018-01-01, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-01, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-01, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-01, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-01, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-01, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-01, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-01, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-01, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-02, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-02, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-02, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-02, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-02, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-02, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-02, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-02, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-02, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-03, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-03, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-03, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-03, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-03, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-03, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-03, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-03, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-03, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-04, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-04, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-04, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-04, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-04, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-04, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-04, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-04, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-04, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-05, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-05, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-05, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-05, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-05, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-05, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-05, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-05, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-05, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-06, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-06, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-06, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-06, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-06, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-06, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-06, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-06, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-06, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-07, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-07, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-07, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-07, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-07, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-07, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-07, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-07, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-07, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-08, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-08, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-08, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-08, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-08, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-08, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-08, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-08, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-08, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-07, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-07, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-07, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-07, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-07, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-07, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-07, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-07, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-07, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-09, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-09, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-09, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-09, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-09, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-09, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-09, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-09, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-09, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-10, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-10, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-10, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-10, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-10, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-10, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-10, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-10, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-10, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-11, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-11, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-11, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-11, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-11, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-11, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-11, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-11, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-11, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-12, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-12, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-12, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-12, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-12, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-12, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-12, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-12, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-12, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-13, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-13, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-13, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-13, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-13, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-13, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-13, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-13, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-13, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Princess Mononoke, 2018-01-14, 06:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Howl's Moving Castle, 2018-01-14, 08:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Toy Story, 2018-01-14, 10:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-14, 12:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Monsters University, 2018-01-14, 14:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Kung Fu Panda, 2018-01-14, 16:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Finding Nemo, 2018-01-14, 18:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+UP, 2018-01-14, 20:00, Screen 5, Taken seats: 0, Free seats: 12, {}
+Ice Age, 2018-01-14, 22:00, Screen 5, Taken seats: 0, Free seats: 12, {}

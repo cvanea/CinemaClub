@@ -3,6 +3,7 @@ package cinemaclub.guiMain.LoginGui;
 import cinemaclub.cinema.Cinema;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 /**
@@ -13,20 +14,27 @@ public class LoginMainController {
     /** Holder of a switchable vista. */
     @FXML private StackPane viewHolder;
 
+    @FXML public ImageView imageView;
+
     static Cinema cinema = new Cinema();
 
+    public void initialize() {
+    }
+
+    /**
+     * Gets the cinema object
+     * @return cinema object
+     */
     public static Cinema getCinema() {
         return cinema;
     }
 
     /**
-     * Replaces the vista displayed in the vista holder with a new vista.
+     * Switches the view displayed with a new view
      *
-     * @param node the vista node to be swapped in.
+     * @param node the view node to be swapped.
      */
-
     public void setView(Node node) {
         viewHolder.getChildren().setAll(node);
     }
-
 }

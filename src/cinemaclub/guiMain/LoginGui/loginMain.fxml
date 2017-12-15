@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<!--<?scenebuilder-stylesheet vista.css?>-->
+<!--<?scenebuilder-stylesheet style.css?>-->
 
 <HBox prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemaclub.guiMain.LoginGui.LoginMainController">
     <children>
-      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #022B3A;">
+      <AnchorPane prefHeight="500.0" prefWidth="295.0" style="-fx-background-color: #003459;" HBox.hgrow="ALWAYS">
          <children>
-              <Label fx:id="headerLabel" layoutY="77.0" maxWidth="1.7976931348623157E308" prefHeight="347.0" prefWidth="286.0" text="Welcome to the Cinema Club" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+              <Label fx:id="headerLabel" layoutX="43.0" layoutY="421.0" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="211.0" text="Created by Alex Charles and Claudia Vanea" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font size="48.0" />
+                  <Font name="System Italic" size="17.0" />
                </font>
             </Label>
+            <ImageView id="logoImageLogin" fx:id="imageView" fitHeight="113.0" fitWidth="256.0" layoutX="19.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/CinemaClubWh.png" />
+               </image></ImageView>
          </children>
       </AnchorPane>
-        <StackPane fx:id="viewHolder" prefHeight="500.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
+        <StackPane fx:id="viewHolder" prefHeight="505.0" prefWidth="505.0" HBox.hgrow="ALWAYS">
             <children>
                 <AnchorPane prefHeight="500.0" prefWidth="550.0" />
             </children></StackPane>

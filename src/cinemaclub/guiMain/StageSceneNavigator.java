@@ -3,7 +3,7 @@ package cinemaclub.guiMain;
 import cinemaclub.cinema.Cinema;
 import cinemaclub.guiMain.CustomerGui.CustomerMainController;
 import cinemaclub.guiMain.LoginGui.LoginMainController;
-import cinemaclub.guiMain.StaffGui.StaffMainController;
+import cinemaclub.guiMain.StaffGui.MainController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Utility class for controlling navigation between vistas.
+ * Utility class for controlling navigation between views and stages.
  *
  * All methods on the navigator are static to facilitate
  * simple access from anywhere in the application.
@@ -29,29 +29,31 @@ public class StageSceneNavigator {
     public static final String LOGIN_REGISTER = "LoginGui/loginRegister.fxml";
 
     //Customer
-    public static final String CUSTOMER_MAIN = "CustomerGui/CustomerMain.fxml";
-    public static final String CUSTOMER_HOME = "CustomerGui/CustomerHome.fxml";
-    public static final String CUSTOMER_BOOK_SEATS = "CustomerGui/CustomerBookSeats.fxml";
-    public static final String CUSTOMER_PROFILE = "CustomerGui/CustomerProfile.fxml";
-    public static final String CUSTOMER_PROFILE_EDIT = "CustomerGui/CustomerProfileEdit.fxml";
+    public static final String CUSTOMER_MAIN = "CustomerGui/Main.fxml";
+    public static final String CUSTOMER_HOME = "CustomerGui/FilmByDate.fxml";
+    public static final String CUSTOMER_BOOK_SEATS = "CustomerGui/BookSeats.fxml";
+    public static final String CUSTOMER_PROFILE = "CustomerGui/Profile.fxml";
+    public static final String CUSTOMER_FILM_VIEW = "CustomerGui/FilmBrowser.fxml";
 
     //Staff
-    public static final String STAFF_MAIN = "StaffGui/StaffMain.fxml";
-    public static final String STAFF_FILM = "StaffGui/StaffFilm.fxml";
-    public static final String STAFF_SCREEN_EDIT = "StaffGui/StaffScreenEdit.fxml";
-    public static final String STAFF_PROFILE_EDIT = "StaffGui/StaffProfileEdit.fxml";
-    public static final String STAFF_PROFILE = "StaffGui/StaffProfile.fxml";
-    public static final String STAFF_SHOWINGS = "StaffGui/StaffShowings.fxml";
+    public static final String STAFF_MAIN = "StaffGui/Main.fxml";
+    public static final String STAFF_FILM = "StaffGui/Film.fxml";
+    public static final String STAFF_IND_SHOWING = "StaffGui/IndividualShowing.fxml";
+    public static final String STAFF_PROFILE = "StaffGui/Profile.fxml";
+    public static final String STAFF_EDIT_USER_PROFILE = "StaffGui/EditUserProfile.fxml";
+    public static final String STAFF_SCREENS = "StaffGui/Screens.fxml";
+    public static final String STAFF_SHOWINGS = "StaffGui/Showings.fxml";
 
 
-    /** The main application layout controller. */
+    /**
+     *The main application layout controllers.
+     */
     private static LoginMainController loginMainController;
     private static CustomerMainController customerMainController;
-    private static StaffMainController staffMainController;
+    private static MainController mainController;
 
     /**
      * Stores the main controller for later use in navigation tasks.
-     *
      * @param loginMainController the main application layout controller.
      */
     public static void setLoginMainController(LoginMainController loginMainController) {
@@ -59,39 +61,24 @@ public class StageSceneNavigator {
     }
     /**
      * Stores the main controller for later use in navigation tasks.
-     *
      * @param customerMainController the main application layout controller.
      */
     public static void setCustomerMainController(CustomerMainController customerMainController) {
         StageSceneNavigator.customerMainController = customerMainController;
     }
+
     /**
      * Stores the main controller for later use in navigation tasks.
-     *
-     * @param staffMainController the main application layout controller.
+     * @param mainController the main application layout controller.
      */
-    public static void setStaffMainController(StaffMainController staffMainController) {
-        StageSceneNavigator.staffMainController = staffMainController;
+    public static void setMainController(MainController mainController) {
+        StageSceneNavigator.mainController = mainController;
     }
 
     /**
-     * Loads the view specified by the fxml file into the
-     * viewHolder pane of the main application layout.
-     *
-     * Previously loaded vista for the same fxml file are not cached.
-     * The fxml is loaded anew and a new vista node hierarchy generated
-     * every time this method is invoked.
-     *
-     * A more sophisticated load function could potentially add some
-     * enhancements or optimizations, for example:
-     *   cache FXMLLoaders
-     *   cache loaded vista nodes, so they can be recalled or reused
-     *   allow a user to specify vista node reuse or new creation
-     *   allow back and forward history like a browser
-     *
-     * @param fxml the fxml file to be loaded.
+     * Loads the login stage
+     * @param fxml of the main login stage controller
      */
-
     public static void loadLoginView(String fxml) {
         try {
             loginMainController.setView(FXMLLoader.load(StageSceneNavigator.class.getResource(fxml)));
@@ -100,6 +87,10 @@ public class StageSceneNavigator {
         }
     }
 
+    /**
+     * Loads the customer stage
+     * @param fxml of the main customer stage controller
+     */
     public static void loadCustomerView(String fxml) {
         try {
             customerMainController.setView(FXMLLoader.load(StageSceneNavigator.class.getResource(fxml)));
@@ -108,18 +99,23 @@ public class StageSceneNavigator {
         }
     }
 
+    /**
+     * Loads the staff view stage
+     * @param fxml of the main staff view stage controller
+     */
     public static void loadStaffView(String fxml) {
         try {
-            staffMainController.setView(FXMLLoader.load(StageSceneNavigator.class.getResource(fxml)));
+            mainController.setView(FXMLLoader.load(StageSceneNavigator.class.getResource(fxml)));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    /*
-    Create Panes
+    /**
+     * Creates panes of the login controller.
+     * @return the login pane to be displayed
+     * @throws IOException if view cannot be loaded
      */
-
     public static Pane loadLoginPane() throws IOException {
         FXMLLoader loader = new FXMLLoader();
 
@@ -133,32 +129,42 @@ public class StageSceneNavigator {
         return loginPane;
     }
 
+    /**
+     * Creates panes of the customer controller.
+     * @return the customer pane to be displayed
+     * @throws IOException if view cannot be loaded
+     */
     private static Pane loadCustomerPane(Cinema cinema) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         Pane customerPane = (Pane) loader.load(StageSceneNavigator.class.getResourceAsStream(StageSceneNavigator.CUSTOMER_MAIN));
         CustomerMainController customerMainController = loader.getController();
         customerMainController.setCinema(cinema);
         StageSceneNavigator.setCustomerMainController(customerMainController);
-        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_HOME);
+        StageSceneNavigator.loadCustomerView(StageSceneNavigator.CUSTOMER_FILM_VIEW);
 
         return customerPane;
     }
 
+    /**
+     * Creates panes of the staff pane controller.
+     * @return the staff pane to be displayed
+     * @throws IOException if view cannot be loaded
+     */
     private static Pane loadStaffPane(Cinema cinema) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         Pane staffPane = (Pane) loader.load(StageSceneNavigator.class.getResourceAsStream(StageSceneNavigator.STAFF_MAIN));
-        StaffMainController staffMainController = loader.getController();
-        staffMainController.setCinema(cinema);
-        StageSceneNavigator.setStaffMainController(staffMainController);
+        MainController mainController = loader.getController();
+        mainController.setCinema(cinema);
+        StageSceneNavigator.setMainController(mainController);
         StageSceneNavigator.loadStaffView(StageSceneNavigator.STAFF_FILM);
 
         return staffPane;
     }
 
-    /*
-     Creates New Stage
+    /**
+     * Creates the login stage
+     * @throws IOException if the load cannot be viewed
      */
-
     public static void loginStage() throws IOException{
         Stage stage = new Stage(); // new stage
         stage.setTitle("Cinema Club - Login");
@@ -166,16 +172,22 @@ public class StageSceneNavigator {
         stage.show();
     }
 
+    /**
+     * Creates the customer stage
+     * @throws IOException if the load cannot be viewed
+     */
     public static void customerStage(Cinema cinema) throws IOException{
-
         Stage stage = new Stage(); // new stage
         stage.setTitle("Cinema Club - Customer");
         stage.setScene(createScene(loadCustomerPane(cinema)));
         stage.show();
     }
 
+    /**
+     * Creates the staff stage
+     * @throws IOException if the load cannot be viewed
+     */
     public static void staffStage(Cinema cinema) throws IOException{
-
         Stage stage = new Stage(); // new stage
         stage.setTitle("Cinema Club - Staff");
         stage.setScene(createScene(loadStaffPane(cinema)));
@@ -183,16 +195,13 @@ public class StageSceneNavigator {
     }
 
     /**
-     * Creates the main application scene.
-     *
-     * @param stageMainPane the main application layout.
-     *
+     * Creates the main application scene for views.
+     * @param stageMainPane is main application layout pane.
      * @return the created scene.
      */
-
     public static Scene createScene(Pane stageMainPane) {
         Scene scene = new Scene(stageMainPane);
-//        scene.getStylesheets().setAll(getClass().getResource("vista.css").toExternalForm());
+        scene.getStylesheets().setAll(StageSceneNavigator.class.getResource("style.css").toExternalForm());
         return scene;
     }
 
