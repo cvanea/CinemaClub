@@ -395,6 +395,16 @@ public class Cinema {
     }
 
     /**
+     * Attempts to add a film to the cinema film database.
+     *
+     * @param film film to be added
+     * @throws FilmExistsException prevents a film from being added if there is already one with the same title
+     */
+    public void addFilm(Film film) throws FilmExistsException {
+        filmEdit.addFilm(film);
+    }
+
+    /**
      * Changes a film's title.
      *
      * @param film the file whose title is to be changed

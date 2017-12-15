@@ -45,6 +45,7 @@ public class LoginUserController extends LoginMainController implements Initiali
      * checks to see whether the user credentials are in the
      * database otherwise updates error label with message
      * @param event login button press
+     * @throws IOException error message
      */
     public void pressButton(ActionEvent event) throws IOException {
         try {

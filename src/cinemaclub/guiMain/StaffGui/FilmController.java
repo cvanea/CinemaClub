@@ -21,6 +21,7 @@ import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -61,7 +62,6 @@ public class FilmController extends MainController implements Initializable {
     private String filmRuntime;
     private String imagePath;
     private Image image;
-    private Image uploadedImage;
 
     private Film chosenFilm = null;
 
@@ -100,15 +100,13 @@ public class FilmController extends MainController implements Initializable {
             filmDescription = chosenFilm.getDescription();
             filmRuntime = chosenFilm.getRuntime();
             imagePath = chosenFilm.getImagePath();
-
-            image = new Image(getClass().getResourceAsStream(imagePath));
-
+            image = new Image(new FileInputStream("Images" + imagePath));
             setFilmInfo();
             infoPane.setOpacity(1);
             GuiData.setFilm(chosenFilm);
             errorLabelFilmList.setText("");
             fillShowingsTable();
-        } catch (NoSelectionMadeException e) {
+        } catch (NoSelectionMadeException | FileNotFoundException e) {
             errorLabelFilmList.setText(e.getMessage());
         }
     }
@@ -151,6 +149,7 @@ public class FilmController extends MainController implements Initializable {
     public void pressAddFilm(ActionEvent event) {
         try {
             getFilmInputs();
+
             cinema.addFilm(filmTitle, imagePath, filmDescription, filmRuntime);
             setFilmInfo();
             editPane.setOpacity(0);
@@ -228,8 +227,6 @@ public class FilmController extends MainController implements Initializable {
             ImageIO.write(bufferedImage, "jpg", new File("Images/" + fileName));
             imageField.setText("/" + fileName);
 
-            uploadedImage = img;
-            GuiData.setUploadedImage(img);
         } catch (IllegalArgumentException e) {
         } catch (IOException e) {
             e.printStackTrace();
@@ -253,8 +250,7 @@ public class FilmController extends MainController implements Initializable {
         File f = new File("Images/" + imagePath);
         validateImageFile(f);
 
-//        image = new Image(getClass().getResourceAsStream(imagePath));
-        image = uploadedImage;
+        image = new Image(new FileInputStream("Images" + imagePath));
     }
 
     /**

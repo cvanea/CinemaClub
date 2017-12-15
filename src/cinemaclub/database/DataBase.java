@@ -103,7 +103,7 @@ public class DataBase implements Serializable {
             dataBase.userRepository.addStaffID("6", "noStaff");
 
             Film up = new Film("UP", "/UP.jpg", "Seventy-eight year old Carl Fredricksen travels to Paradise Falls in his home equipped with balloons, inadvertently taking a young stowaway.", "01:36");
-            Film walle = new Film("WALL·E", "/walle.jpg", "In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.", "01:28");
+            Film walle = new Film("WALLE", "/walle.jpg", "In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.", "01:28");
             Film findingNemo = new Film("Finding Nemo", "/FindingNemo.jpg", "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.", "01:40");
             Film toyStory = new Film("Toy Story", "/toystory.jpg", "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.", "01:21");
             Film princessMononoke = new Film("Princess Mononoke", "/PrincessMononoke.jpg", "On a journey to find the cure for a Tatarigami's curse, Ashitaka finds himself in the middle of a war between the forest gods and Tatara, a mining colony. In this quest he also meets San, the Mononoke Hime.", "02:14");
@@ -118,7 +118,7 @@ public class DataBase implements Serializable {
             Film iceAge = new Film("Ice Age", "/iceage1.jpg", "Set during the Ice Age, a sabertooth tiger, a sloth, and a wooly mammoth find a lost human infant, and they try to return him to his tribe.", "01:21");
 
             dataBase.filmRepository.addFilm("UP", up);
-            dataBase.filmRepository.addFilm("WALL·E", walle);
+            dataBase.filmRepository.addFilm("WALLE", walle);
             dataBase.filmRepository.addFilm("Finding Nemo", findingNemo);
             dataBase.filmRepository.addFilm("Toy Story", toyStory);
             dataBase.filmRepository.addFilm("Toy Story 2", toyStory2);

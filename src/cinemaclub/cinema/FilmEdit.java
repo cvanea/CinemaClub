@@ -50,6 +50,18 @@ class FilmEdit {
     }
 
     /**
+     * Attempts to add a film to the film database.
+     * First it validates that the film title doesn't already exist.
+     *
+     * @param film film to be added
+     * @throws FilmExistsException prevents a film from being added if there is already one with the same title
+     */
+    void addFilm(Film film) throws FilmExistsException {
+        validateNewFilm(film.getTitle());
+        filmRepository.addFilm(film.getTitle(), film);
+    }
+
+    /**
      * Changes a film's title.
      * First it validates that a film with that title doesn't already exist.
      * Then it sets the new title on the Film object and saves that new object to the database.

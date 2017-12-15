@@ -64,8 +64,8 @@ public class Customer extends User {
     /**
      * Gets all the bookings that match a certain film title.
      *
-     * @param title
-     * @return
+     * @param title title to match
+     * @return all bookings
      */
     public ArrayList<Booking> getBookingsByTitle(String title) {
         ArrayList<Booking> titleBookings = new ArrayList<>();

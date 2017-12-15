@@ -21,6 +21,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -65,12 +66,12 @@ public class BookSeatsController extends CustomerMainController implements Initi
         GuiData.setNumberOfRows(showing.getScreen().getNumberRow());
         GuiData.setSeatsPerRow(showing.getScreen().getSeatsPerRow());
         GuiData.setupSeatButtons(gridSeats, 900, 560, "customer");
-//        try {
-            Image img = new Image(getClass().getResourceAsStream(showing.getFilm().getImagePath()));
+        try {
+            Image img = new Image(new FileInputStream("Images" + showing.getFilm().getImagePath()));
             imageBox.setImage(img);
-//        } catch (IOException e) {
-//            errorLabel.setText("Image load error");
-//        }
+        } catch (IOException e) {
+            errorLabel.setText("Image load error");
+        }
     }
 
     /**

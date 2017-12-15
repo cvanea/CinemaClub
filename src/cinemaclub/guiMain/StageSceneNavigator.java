@@ -174,6 +174,7 @@ public class StageSceneNavigator {
 
     /**
      * Creates the customer stage
+     * @param cinema cinema object
      * @throws IOException if the load cannot be viewed
      */
     public static void customerStage(Cinema cinema) throws IOException{
@@ -185,6 +186,7 @@ public class StageSceneNavigator {
 
     /**
      * Creates the staff stage
+     * @param cinema cinema object
      * @throws IOException if the load cannot be viewed
      */
     public static void staffStage(Cinema cinema) throws IOException{

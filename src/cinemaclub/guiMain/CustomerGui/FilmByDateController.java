@@ -21,6 +21,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -70,9 +72,9 @@ public class FilmByDateController extends CustomerMainController implements Init
      * Clears times combo box
      * Gets a list of all films and checks to see whether the film is on the date picked
      * Passes the date picked to the gui data class
-     * If a date in the past is picked an error message is shown tellign the users to pick
+     * If a date in the past is picked an error message is shown telling the users to pick
      * another date.
-     * @param actionEvent
+     * @param actionEvent when user selects a date
      */
     public void selectDate(ActionEvent actionEvent) {
         try {
@@ -107,7 +109,7 @@ public class FilmByDateController extends CustomerMainController implements Init
      *
      * If the film is not valid and error message is shown asking the user to pick a film
      * from the list
-     * @param actionEvent when uses clicks on an item in the film list view
+     * @param actionEvent when user clicks on an item in the film list view
      */
     public void chooseFilm(MouseEvent actionEvent) {
         try {
@@ -171,17 +173,17 @@ public class FilmByDateController extends CustomerMainController implements Init
      *             film list view
      */
     private void setFilmInfo(Film film) {
-//        try {
+        try {
             titleText.setText(film.getTitle());
             descriptionText.setText(film.getDescription());
             runTime.setText(film.getRuntime());
-            Image img = new Image(getClass().getResourceAsStream(film.getImagePath()));
+            Image img = new Image(new FileInputStream("Images" + film.getImagePath()));
             imageBox.setImage(img);
             chosenFilm = film;
             GuiData.setFilm(film);
-//        } catch (IOException e){
-//            errorLabel.setText("Unable to load image");
-//        }
+        } catch (IOException e){
+            errorLabel.setText("Unable to load image");
+        }
     }
 
     /**
