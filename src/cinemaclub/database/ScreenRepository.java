@@ -30,7 +30,9 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @param screen
+     * Adds a new screen to the database with no showings.
+     *
+     * @param screen new screen to be added
      */
     public void addScreen(Screen screen) {
         showings.put(screen, new ArrayList<>());
@@ -39,7 +41,9 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @param screen
+     * Removes a screen from the database.
+     *
+     * @param screen screen to be removed
      */
     public void deleteScreen(Screen screen) {
         showings.remove(screen);
@@ -48,7 +52,9 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @return
+     * Gets all screens on the database without showings information.
+     *
+     * @return all screens
      */
     public ArrayList<Screen> getAllScreens() {
         ArrayList<Screen> screens = new ArrayList<>();
@@ -57,16 +63,20 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @param screen
-     * @return
+     * Gets all showings for a given screen.
+     *
+     * @param screen screen key
+     * @return all showings paired to the key
      */
-    public ArrayList<Showing> getScreenShowings(Screen screen) {
+    private ArrayList<Showing> getScreenShowings(Screen screen) {
         return showings.get(screen);
     }
 
     /**
-     * @param date
-     * @return
+     * Gets all films on a given date.
+     *
+     * @param date date to match for films
+     * @return matched films across showings and screens.
      */
     public ArrayList<Film> getAllFilmsByDate(String date) {
         ArrayList<Showing> allShowings = new ArrayList<>();
@@ -85,9 +95,11 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @param screen
-     * @param date
-     * @return
+     * Gets all showings for a given date and screen.
+     *
+     * @param screen screen to match for showings
+     * @param date date to filter showings
+     * @return all showings on that date and screen
      */
     public ArrayList<Showing> getShowingsByDateScreen(Screen screen, String date) {
         ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
@@ -102,10 +114,12 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @param screen
-     * @param date
-     * @param time
-     * @return
+     * Gets a unique showing for a given screen, date, and time.
+     *
+     * @param screen screen to match for showings
+     * @param date date to filter showings
+     * @param time time to filter showings
+     * @return unique matched showing
      */
     public Showing getShowingByDateTimeScreen(Screen screen, String date, String time) {
         ArrayList<Showing> showingsByScreen = new ArrayList<>();
@@ -121,10 +135,12 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @param date
-     * @param time
-     * @param film
-     * @return
+     * Gets a unique showing for a given film, date, and time.
+     *
+     * @param date date to filter showings
+     * @param time time to filter showings
+     * @param film film to filter showings
+     * @return unique matched showing
      */
     public Showing getShowingByDateTimeFilm(String date, String time, Film film) {
         ArrayList<Showing> allShowings = new ArrayList<>();
@@ -142,8 +158,10 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @param film
-     * @return
+     * Gets all times for a given film.
+     *
+     * @param film film to match against
+     * @return all times across screens and dates for film
      */
     public ArrayList<String> getAllTimesByFilm(Film film) {
         ArrayList<Showing> allShowings = new ArrayList<>();
@@ -162,9 +180,11 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @param screen
-     * @param film
-     * @return
+     * Gets all dates for a given film and screen.
+     *
+     * @param screen screen to match against
+     * @param film film to filter showings by
+     * @return all matched dates
      */
     public ArrayList<String> getDatesByFilm(Screen screen, Film film) {
         ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
@@ -179,8 +199,10 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @param film
-     * @return
+     * Gets all showings of a given film.
+     *
+     * @param film film to match against
+     * @return all showings of a film across screens, times, and dates
      */
     public ArrayList<Showing> getAllShowingsByFilm(Film film) {
         ArrayList<Showing> allShowings = new ArrayList<>();
@@ -199,7 +221,9 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @return
+     * Gets all showings regardless of screens, dates, times, or film.
+     *
+     * @return all showings at the cinema
      */
     public ArrayList<Showing> getAllShowings() {
         ArrayList<Showing> allShowings = new ArrayList<>();
@@ -212,8 +236,10 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @param screen
-     * @param showing
+     * Adds a showing to a screen.
+     *
+     * @param screen screen on which to add the new showing
+     * @param showing showing to be added
      */
     public void addShowing(Screen screen, Showing showing) {
         ArrayList<Showing> showingsPerScreen = showings.get(screen);
@@ -224,9 +250,20 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @param screen
-     * @param date
-     * @param time
+     * Gets the map of all screens and their respective showings.
+     *
+     * @return map of screens/showings pairs
+     */
+    public Map<Screen, ArrayList<Showing>> getShowings() {
+        return showings;
+    }
+
+    /**
+     * Removes a showing from a given screen, by its date and time.
+     *
+     * @param screen screen from which the showing is removed
+     * @param date date to find the showing
+     * @param time time to find the showing
      */
     public void deleteShowing(Screen screen, String date, String time) {
         ArrayList<Showing> showingsByScreen = getScreenShowings(screen);
@@ -238,14 +275,7 @@ public class ScreenRepository implements Serializable {
     }
 
     /**
-     * @return
-     */
-    public Map<Screen, ArrayList<Showing>> getShowings() {
-        return showings;
-    }
-
-    /**
-     *
+     * Updates the external txt file to save any simple changes to the offline database.
      */
     public void updateDB() {
         dataBase.updateExternalDB();
