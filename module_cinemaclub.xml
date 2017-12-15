@@ -67,7 +67,7 @@
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
-      <fileset dir="${module.cinemaclub.basedir}/Images">
+      <fileset dir="/Images">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>

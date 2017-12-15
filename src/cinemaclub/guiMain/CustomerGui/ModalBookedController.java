@@ -9,9 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
 import java.util.ArrayList;
 
 /**
@@ -52,12 +49,12 @@ public class ModalBookedController {
             }
         }
         seatText.setText(stringBuilder.toString());
-        try {
-            Image img = new Image(new FileInputStream("Images" + GuiData.getFilm().getImagePath()));
+//        try {
+            Image img = new Image(getClass().getResourceAsStream(GuiData.getFilm().getImagePath()));
             imageBox.setImage(img);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
     }
 
     /**

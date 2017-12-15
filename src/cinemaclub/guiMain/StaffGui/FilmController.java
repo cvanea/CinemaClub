@@ -21,7 +21,6 @@ import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -62,13 +61,14 @@ public class FilmController extends MainController implements Initializable {
     private String filmRuntime;
     private String imagePath;
     private Image image;
-    
+    private Image uploadedImage;
+
     private Film chosenFilm = null;
 
     /**
      * Sets the edit and info panes to hidden and populates the list of films.
-     * @param location - The location used to resolve relative paths for the root object, or null if the location is not known.
-     * @param resources - used to localize the root object, or null if the root object was not localized.
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources used to localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -78,17 +78,17 @@ public class FilmController extends MainController implements Initializable {
     }
 
     /**
-     * Populates the list of films with titles
+     * Populates the list of films with titles.
      */
     private void populateFilmList() {
         filmList.setItems(GuiData.getFilmList(cinema));
     }
 
     /**
-     * Chooses a film when clicked by a user
+     * Chooses a film when clicked by a user.
      * Gets the chosen film information and sets this into the
      * film information pane.
-     * Throws errors when no selection is made
+     * Throws errors when no selection is made.
      * @param actionEvent click of mouse on film list view
      */
     public void chooseFilm(MouseEvent actionEvent) {
@@ -100,13 +100,15 @@ public class FilmController extends MainController implements Initializable {
             filmDescription = chosenFilm.getDescription();
             filmRuntime = chosenFilm.getRuntime();
             imagePath = chosenFilm.getImagePath();
-            image = new Image(new FileInputStream("Images" + imagePath));
+
+            image = new Image(getClass().getResourceAsStream(imagePath));
+
             setFilmInfo();
             infoPane.setOpacity(1);
             GuiData.setFilm(chosenFilm);
             errorLabelFilmList.setText("");
             fillShowingsTable();
-        } catch (NoSelectionMadeException | FileNotFoundException e) {
+        } catch (NoSelectionMadeException e) {
             errorLabelFilmList.setText(e.getMessage());
         }
     }
@@ -116,7 +118,7 @@ public class FilmController extends MainController implements Initializable {
      * Checks if the film title has changed and if it has checks to see if the name is already taken in
      * the database.
      * Sets the updated film information in the database.
-     * Updates the film info pane
+     * Updates the film info pane.
      * Updates the list of films.
      * Throws errors if the information of the updated film is incorrect.
      * @param event press the update button
@@ -155,6 +157,9 @@ public class FilmController extends MainController implements Initializable {
             errorLabel.setText("");
             filmList.getItems().clear();
             populateFilmList();
+
+            filmList.getSelectionModel().select(filmTitle);
+
         } catch (FilmExistsException | MissingFilmInputsException | IncorrectTimeFormatException | ImageDoesNotExistException | FileNotFoundException e) {
             errorLabel.setText(e.getMessage());
         }
@@ -222,6 +227,9 @@ public class FilmController extends MainController implements Initializable {
             }
             ImageIO.write(bufferedImage, "jpg", new File("Images/" + fileName));
             imageField.setText("/" + fileName);
+
+            uploadedImage = img;
+            GuiData.setUploadedImage(img);
         } catch (IllegalArgumentException e) {
         } catch (IOException e) {
             e.printStackTrace();
@@ -229,7 +237,7 @@ public class FilmController extends MainController implements Initializable {
     }
 
     /**
-     * Checks add new film inputs adn validates the image.
+     * Checks add new film inputs and validates the image.
      * @throws MissingFilmInputsException error message
      * @throws IncorrectTimeFormatException error message
      * @throws ImageDoesNotExistException error message
@@ -244,11 +252,13 @@ public class FilmController extends MainController implements Initializable {
         validateFilmInputs(filmTitle, filmDescription, filmRuntime, imagePath);
         File f = new File("Images/" + imagePath);
         validateImageFile(f);
-        image = new Image(new FileInputStream("Images" + imagePath));
+
+//        image = new Image(getClass().getResourceAsStream(imagePath));
+        image = uploadedImage;
     }
 
     /**
-     * Sets the film infomation pane.
+     * Sets the film information pane.
      */
     private void setFilmInfo() {
         imageBox.setImage(image);

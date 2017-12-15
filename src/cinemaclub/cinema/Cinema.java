@@ -17,7 +17,6 @@ import java.util.Map;
  * Most methods either perform a system function, such as registering, get or set, or query the database.
  */
 public class Cinema {
-    //TODO change directory structure to be in line with what ghita wanted.
 
     private Login login;
     private Register register;

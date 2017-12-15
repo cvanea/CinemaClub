@@ -16,7 +16,7 @@ public class Main extends Application {
      * @throws IOException if the view cannot be loaded.
      */
     @Override
-    public void start(Stage stage) throws IOException{
+    public void start(Stage stage) throws IOException {
         stage.setTitle("Cinema Club - Login");
         stage.setScene(StageSceneNavigator.createScene(StageSceneNavigator.loadLoginPane()));
         stage.show();

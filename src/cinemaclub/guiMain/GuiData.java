@@ -36,6 +36,8 @@ public class GuiData {
     private static int seatsPerRow;
     private static String seatBooked;
 
+    private static Image uploadedImage;
+
     /**
      * Getter for get selected multi seats button lists.
      * @return array list of buttons
@@ -194,6 +196,14 @@ public class GuiData {
      */
     public static void setSeatBooked(String seatBooked) {
         GuiData.seatBooked = seatBooked;
+    }
+
+    public static Image getUploadedImage() {
+        return uploadedImage;
+    }
+
+    public static void setUploadedImage(Image uploadedImage) {
+        GuiData.uploadedImage = uploadedImage;
     }
 
     /*

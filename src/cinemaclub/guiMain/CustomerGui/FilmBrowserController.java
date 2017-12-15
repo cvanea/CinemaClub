@@ -16,8 +16,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -287,12 +285,12 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         titleText1.setText(film.getTitle());
         descriptionText1.setText(film.getDescription());
         runtimeText1.setText(film.getRuntime());
-        try {
-            Image img = new Image(new FileInputStream("Images" + film.getImagePath()));
+//        try {
+            Image img = new Image(getClass().getResourceAsStream(film.getImagePath()));
             imageBox1.setImage(img);
-        } catch (IOException e){
-            errorLabel.setText("Image load error");
-        }
+//        } catch (IOException e){
+//            errorLabel.setText("Image load error");
+//        }
         ArrayList<String> datesList1 = getDatesList(film);
         ObservableList<String> datesComboList1 = FXCollections.observableArrayList(datesList1);
         datesBox1.setItems(datesComboList1);
@@ -309,12 +307,12 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         titleText2.setText(film.getTitle());
         descriptionText2.setText(film.getDescription());
         runtimeText2.setText(film.getRuntime());
-        try {
-            Image img = new Image(new FileInputStream("Images" + film.getImagePath()));
+//        try {
+            Image img = new Image(getClass().getResourceAsStream(film.getImagePath()));
             imageBox2.setImage(img);
-        } catch (IOException e){
-            errorLabel.setText("Image load error");
-        }
+//        } catch (IOException e){
+//            errorLabel.setText("Image load error");
+//        }
         ArrayList<String> datesList = getDatesList(film);
         ObservableList<String> datesComboList = FXCollections.observableArrayList(datesList);
         datesBox2.setItems(datesComboList);
@@ -331,12 +329,12 @@ public class FilmBrowserController extends CustomerMainController implements Ini
         titleText3.setText(film.getTitle());
         descriptionText3.setText(film.getDescription());
         runtimeText3.setText(film.getRuntime());
-        try {
-            Image img = new Image(new FileInputStream("Images" + film.getImagePath()));
+//        try {
+            Image img = new Image(getClass().getResourceAsStream(film.getImagePath()));
             imageBox3.setImage(img);
-        } catch (IOException e){
-            errorLabel.setText("Image load error");
-        }
+//        } catch (IOException e){
+//            errorLabel.setText("Image load error");
+//        }
         ArrayList<String> datesList = getDatesList(film);
         ObservableList<String> datesComboList = FXCollections.observableArrayList(datesList);
         datesBox3.setItems(datesComboList);
