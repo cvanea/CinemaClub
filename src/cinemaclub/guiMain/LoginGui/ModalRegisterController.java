@@ -3,6 +3,9 @@ package cinemaclub.guiMain.LoginGui;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 
+/**
+ * Class for modal successful register popup.
+ */
 public class ModalRegisterController {
 
     /**

@@ -14,6 +14,9 @@ import java.io.FileNotFoundException;
 
 import java.util.ArrayList;
 
+/**
+ * Helper class to display a popup with booking information.
+ */
 public class ModalBookedController {
 
     @FXML ImageView imageBox;

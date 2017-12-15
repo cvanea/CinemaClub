@@ -9,6 +9,9 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/**
+ * Controller for register view.
+ */
 public class RegisterController extends LoginMainController {
 
     @FXML private TextField username;

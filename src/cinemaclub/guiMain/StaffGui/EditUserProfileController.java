@@ -20,6 +20,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for editing all user profiles view.
+ */
 public class EditUserProfileController extends MainController implements Initializable {
 
     @FXML TextField username;

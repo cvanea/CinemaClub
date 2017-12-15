@@ -20,6 +20,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for the adding and removing showings view.
+ */
 public class ShowingsController extends MainController implements Initializable {
 
     @FXML TableView<Showing> showingTable;

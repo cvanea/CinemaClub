@@ -27,6 +27,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for booking seats view.
+ */
 public class BookSeatsController extends CustomerMainController implements Initializable {
 
     @FXML ImageView imageBox;

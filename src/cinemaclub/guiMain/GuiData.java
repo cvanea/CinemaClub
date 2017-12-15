@@ -18,6 +18,9 @@ import javafx.scene.layout.RowConstraints;
 
 import java.util.ArrayList;
 
+/**
+ * Helper class for passing data between controllers.
+ */
 public class GuiData {
 
     private static String successMessage;
